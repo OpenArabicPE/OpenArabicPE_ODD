@@ -190,7 +190,7 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
 
 #### 3.1.1.3. publication dates
 
-As noted somewhere [else](readme.md), *al-Muqtabas* did not provide publication dates in the masthead beginning with [No. 4/10](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_45.TEIP5.xml), which would have been scheduled for Shawwāl 1327 aH (Oct/Nov 1909). Thus, one needs a means to differentiate between the official publication date as recorded in the issues' mastheads and the cover leaves of each volume and the actual date of publication as deduced from other sources. The first suggestion is to differentiate between three different types of publication dates with a `@type` attribute:
+As noted somewhere [else](https://github.com/tillgrallert/digital-muqtabas/blob/master/readme.md), *al-Muqtabas* did not provide publication dates in the masthead beginning with [No. 4/10](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_45.TEIP5.xml), which would have been scheduled for Shawwāl 1327 aH (Oct/Nov 1909). Thus, one needs a means to differentiate between the official publication date as recorded in the issues' mastheads and the cover leaves of each volume and the actual date of publication as deduced from other sources. The first suggestion is to differentiate between three different types of publication dates with a `@type` attribute:
 
 1. `@type="official"` The publication date as provided on the masthead
 2. The publication date according to the publication schedule
