@@ -77,7 +77,7 @@ The structure is as follows
     + move `<idno>` from a direct child of `<biblStruct>` to `<monogr>`
 - allow `@source` on `<date>` in `<biblStruct>` to provide a means to capture an external source
 - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103).
-- add `@rend` to all inline elements with the following, most common, values:
+- add `@rend` to all inline elements with the following, most common, values and add some documentation below:
     + "quotation-marks"
     + "brackets"
 - add tag set for the mark-up of drama (e.g. [نكارتر](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
