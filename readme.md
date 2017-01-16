@@ -76,10 +76,13 @@ The structure is as follows
 - changes to mark-up reflecting recent changes in the TEI guidelines:
     + move `<idno>` from a direct child of `<biblStruct>` to `<monogr>`
 - allow `@source` on `<date>` in `<biblStruct>` to provide a means to capture an external source
-- add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103).
+<!-- - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103). -->
 - add `@rend` to all inline elements with the following, most common, values and add some documentation below:
     + "quotation-marks"
     + "brackets"
+- add `@rend` to `<item>` child of `<list>` with the following values
+    + "inline"
+    + "block"
 - add tag set for the mark-up of drama (e.g. [نكارتر](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
 - the guidelines on publication dates need to be implemented in the ODD
 
@@ -198,7 +201,7 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
 As noted somewhere [else](https://github.com/tillgrallert/digital-muqtabas/blob/master/readme.md), *al-Muqtabas* did not provide publication dates in the masthead beginning with [No. 4/10](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_45.TEIP5.xml), which would have been scheduled for Shawwāl 1327 aH (Oct/Nov 1909). Thus, one needs a means to differentiate between the official publication date as recorded in the issues' mastheads and the cover leaves of each volume and the actual date of publication as deduced from other sources. The first suggestion is to differentiate between three different types of publication dates with a `@type` attribute:
 
 1. `@type="official"` The publication date as provided on the masthead
-2. The publication date according to the publication schedule
+2. `@type="scheduled"` The publication date according to the publication schedule
 3. `@type="supplied"` The publication date as indicated by other sources
     - such dates then require a `@source` attribute pointing to the source for this information
     - a bibliography of sources is kept in [oclc_4770057679-master_bibliography.TEIP5.xml](oclc_4770057679-master_bibliography.TEIP5.xml) and the private URI scheme `bibl:` is dereferenced to point to `@xml:id`s in this file.
