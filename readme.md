@@ -85,6 +85,7 @@ The structure is as follows
     + "block"
 - add tag set for the mark-up of drama (e.g. [نكارتر](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
 - the guidelines on publication dates need to be implemented in the ODD
+- require `@resp` on `<add>`, `<del>`,`<corr>` etc. 
 
 ## 2. deletions
 
