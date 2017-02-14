@@ -121,7 +121,7 @@ All information on the individual issue is part of the *monographic* level of bi
     2. publisher: `<publisher>`
     3. date of publication: `<date>`
 5. scope of item (volume, issue, pages)
-    - `<biblScope>` with `@unit` attribute of "volume", "issue", "pages" and `@n`, `@from`, `@to` indicating the actual extent. The element should have no `text()` content to avoid language-specificity
+    - `<biblScope>` with `@unit` attribute of "volume", "issue", "pages" and `@from`, `@to` indicating the actual extent. If the reference is to a single page, issue or volume `@from` and `@to` should be provided with identical values (not `@n`!). The element should have no `text()` content to avoid language-specificity.
 
 Current structure of the `<biblStruct>` in `<sourceDesc>`:
 
@@ -606,7 +606,11 @@ The TEI provides a means to employ private URIs as values of all attributes that
 </listPrefixDef>
 ~~~
 
-The private URIs can then be used as values of `@ref`, `@corresp` etc.
+The private URIs can then be used as values of `@ref`, `@corresp` etc. In the context of OpenAraPE, references to external authority files are encoded with `@ref`, i.e. 
+
+~~~{.xml}
+(مجلة <title level="j" ref="oclc:644997575">الحقائق</title>)
+~~~
 
 
 ## references to intellectual works
