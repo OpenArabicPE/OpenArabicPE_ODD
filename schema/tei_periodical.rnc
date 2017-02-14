@@ -7,7 +7,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2016-10-09T07:00:50Z. .
+# Schema generated from ODD source 2017-02-14T09:34:40Z. .
 # TEI Edition: Version 3.0.0. Last updated on
 #	29th March 2016, revision 89ba24e
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.0.0/
@@ -191,8 +191,8 @@ sch:pattern [
     "\x{a}" ~
     "        "
     sch:report [
-      role = "nonfatal"
       test = "@notBefore|@notAfter|@from|@to"
+      role = "nonfatal"
       "The @when attribute cannot be used with any other att.datable.w3c attributes."
     ]
     "\x{a}" ~
@@ -210,8 +210,8 @@ sch:pattern [
     "\x{a}" ~
     "        "
     sch:report [
-      role = "nonfatal"
       test = "@notBefore"
+      role = "nonfatal"
       "The @from and @notBefore attributes cannot be used together."
     ]
     "\x{a}" ~
@@ -229,8 +229,8 @@ sch:pattern [
     "\x{a}" ~
     "        "
     sch:report [
-      role = "nonfatal"
       test = "@notAfter"
+      role = "nonfatal"
       "The @to and @notAfter attributes cannot be used together."
     ]
     "\x{a}" ~
@@ -379,7 +379,7 @@ dape_att.global.attribute.n =
 dape_att.global.attribute.xmllang =
   
   ## (language) indicates the language of the element content using a tag generated according to BCP 47.
-  ## Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] en-Arab-AR; 17] fr-Arab-AR
+  ## Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-AR; 17] en-Arab-AR; 18] fr-Arab-AR
   [ a:defaultValue = "ar" ]
   attribute xml:lang {
     
@@ -427,6 +427,9 @@ dape_att.global.attribute.xmllang =
     | 
       ## Arabic in Latin script following the DMG transcription
       "ar-Latn-x-dmg"
+    | 
+      ## German transcribed into Arabic script following common Levantine Arabic practices
+      "de-Arab-AR"
     | 
       ## English transcribed into Arabic script following common Levantine Arabic practices
       "en-Arab-AR"
@@ -2037,7 +2040,7 @@ dape_date =
     dape_att.datable.custom.attribute.notAfter-custom,
     dape_att.datable.custom.attribute.from-custom,
     dape_att.datable.custom.attribute.to-custom,
-    dape_att.typed.attributes,
+    dape_att.typed.attribute.subtype,
     (
      ## indicates the system or calendar to which the date represented by the content of this element belongs.
      attribute calendar {
@@ -2091,6 +2094,21 @@ dape_date =
       | 
         ##
         "#cal_ottomanfiscal"
+    }?,
+    
+    ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    ## Suggested values include: 1] official; 2] scheduled; 3] supplied
+    attribute type {
+      
+      ## A publication date as provided on the masthead
+      "official"
+      | 
+        ## A publication date according to the publication schedule
+        "scheduled"
+      | 
+        ## A publication date as indicated by other sources
+        "supplied"
+      | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
     }?,
     empty
   }
@@ -2309,7 +2327,7 @@ dape_note =
     [ a:defaultValue = "1" ] attribute n { xsd:string }?,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
-    ## Suggested values include: 1] endnote; 2] footnote; 3] gloss
+    ## Suggested values include: 1] endnote; 2] footnote; 3] gloss; 4] inline
     [ a:defaultValue = "footnote" ]
     attribute type {
       
@@ -2321,6 +2339,9 @@ dape_note =
       | 
         ##
         "gloss"
+      | 
+        ##
+        "inline"
       | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
     }?,
     
@@ -2633,8 +2654,8 @@ dape_biblStruct =
            "\x{a}" ~
            "               "
            sch:report [
-             role = "nonfatal"
              test = "child::tei:idno"
+             role = "nonfatal"
              "WARNING: use of deprecated method — the use of the idno element as a direct child of the biblStruct element will be removed from the TEI on 2016-09-18"
            ]
            "\x{a}" ~
