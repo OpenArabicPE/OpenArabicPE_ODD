@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2017-02-14T09:37:50Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2017-02-17T20:36:53Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 3.0.0. Last updated on
 	29th March 2016, revision 89ba24e
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.0.0/
@@ -986,10 +986,20 @@ type %teidata.enumerated;  #IMPLIED >
 <!ELEMENT add %macro.paraContent;>
 <!ATTLIST add xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST add
- %OpenAraPE_att.global.attributes;
+ %OpenAraPE_att.global.attribute.xmlid;
+ %OpenAraPE_att.global.attribute.n;
+ %OpenAraPE_att.global.attribute.xmllang;
+ %OpenAraPE_att.global.rendition.attribute.rend;
+ %OpenAraPE_att.global.rendition.attribute.style;
+ %OpenAraPE_att.global.rendition.attribute.rendition;
+ %OpenAraPE_att.global.linking.attribute.corresp;
+ %OpenAraPE_att.global.linking.attribute.next;
+ %OpenAraPE_att.global.linking.attribute.prev;
+ %OpenAraPE_att.global.facs.attribute.facs;
  %OpenAraPE_att.transcriptional.attributes;
  %OpenAraPE_att.placement.attributes;
- %OpenAraPE_att.typed.attributes; >
+ %OpenAraPE_att.typed.attributes;
+resp CDATA  #REQUIRED >
 <!--doc:(additional name) contains an additional name component, such as a nickname, epithet, or alias, or any other descriptive phrase used within a personal name. [13.2.1. Personal Names] -->
 <!ELEMENT addName %macro.phraseSeq;>
 <!ATTLIST addName xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1182,8 +1192,18 @@ lang %teidata.word;  #IMPLIED >
 <!ELEMENT corr %macro.paraContent;>
 <!ATTLIST corr xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST corr
- %OpenAraPE_att.global.attributes;
- %OpenAraPE_att.typed.attributes; >
+ %OpenAraPE_att.global.attribute.xmlid;
+ %OpenAraPE_att.global.attribute.n;
+ %OpenAraPE_att.global.attribute.xmllang;
+ %OpenAraPE_att.global.rendition.attribute.rend;
+ %OpenAraPE_att.global.rendition.attribute.style;
+ %OpenAraPE_att.global.rendition.attribute.rendition;
+ %OpenAraPE_att.global.linking.attribute.corresp;
+ %OpenAraPE_att.global.linking.attribute.next;
+ %OpenAraPE_att.global.linking.attribute.prev;
+ %OpenAraPE_att.global.facs.attribute.facs;
+ %OpenAraPE_att.typed.attributes;
+resp CDATA  #REQUIRED >
 <!--doc:(correction principles) states how and under what circumstances corrections have been made in the text. [2.3.3. The Editorial Practices Declaration 15.3.2. Declarable Elements] -->
 <!ELEMENT correction (%model.pLike;)+>
 <!ATTLIST correction xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1262,9 +1282,19 @@ type %teidata.enumerated;  #IMPLIED >
 <!ELEMENT del %macro.paraContent;>
 <!ATTLIST del xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST del
- %OpenAraPE_att.global.attributes;
+ %OpenAraPE_att.global.attribute.xmlid;
+ %OpenAraPE_att.global.attribute.n;
+ %OpenAraPE_att.global.attribute.xmllang;
+ %OpenAraPE_att.global.rendition.attribute.rend;
+ %OpenAraPE_att.global.rendition.attribute.style;
+ %OpenAraPE_att.global.rendition.attribute.rendition;
+ %OpenAraPE_att.global.linking.attribute.corresp;
+ %OpenAraPE_att.global.linking.attribute.next;
+ %OpenAraPE_att.global.linking.attribute.prev;
+ %OpenAraPE_att.global.facs.attribute.facs;
  %OpenAraPE_att.transcriptional.attributes;
- %OpenAraPE_att.typed.attributes; >
+ %OpenAraPE_att.typed.attributes;
+resp CDATA  #REQUIRED >
 <!--doc:supplies the name of a person or other agency responsible for the distribution of a text. [2.2.4. Publication, Distribution, Licensing, etc.] -->
 <!ELEMENT distributor %macro.phraseSeq;>
 <!ATTLIST distributor xmlns CDATA "http://www.tei-c.org/ns/1.0">

@@ -7,7 +7,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2017-02-14T09:37:30Z. .
+# Schema generated from ODD source 2017-02-17T20:36:32Z. .
 # TEI Edition: Version 3.0.0. Last updated on
 #	29th March 2016, revision 89ba24e
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.0.0/
@@ -1919,8 +1919,22 @@ OpenAraPE_corr =
   ## (correction) contains the correct form of a passage apparently erroneous in the copy text. [3.4.1. Apparent Errors]
   element corr {
     OpenAraPE_macro.paraContent,
-    OpenAraPE_att.global.attributes,
+    OpenAraPE_att.global.attribute.xmlid,
+    OpenAraPE_att.global.attribute.n,
+    OpenAraPE_att.global.attribute.xmllang,
+    OpenAraPE_att.global.rendition.attribute.rend,
+    OpenAraPE_att.global.rendition.attribute.style,
+    OpenAraPE_att.global.rendition.attribute.rendition,
+    OpenAraPE_att.global.linking.attribute.corresp,
+    OpenAraPE_att.global.linking.attribute.next,
+    OpenAraPE_att.global.linking.attribute.prev,
+    OpenAraPE_att.global.facs.attribute.facs,
     OpenAraPE_att.typed.attributes,
+    
+    ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.
+    attribute resp {
+      list { xsd:anyURI+ }
+    },
     empty
   }
 OpenAraPE_choice =
@@ -1996,10 +2010,24 @@ OpenAraPE_add =
   ## (addition) contains letters, words, or phrases inserted in the source text by an author, scribe, or a previous annotator or corrector. [3.4.3. Additions, Deletions, and Omissions]
   element add {
     OpenAraPE_macro.paraContent,
-    OpenAraPE_att.global.attributes,
+    OpenAraPE_att.global.attribute.xmlid,
+    OpenAraPE_att.global.attribute.n,
+    OpenAraPE_att.global.attribute.xmllang,
+    OpenAraPE_att.global.rendition.attribute.rend,
+    OpenAraPE_att.global.rendition.attribute.style,
+    OpenAraPE_att.global.rendition.attribute.rendition,
+    OpenAraPE_att.global.linking.attribute.corresp,
+    OpenAraPE_att.global.linking.attribute.next,
+    OpenAraPE_att.global.linking.attribute.prev,
+    OpenAraPE_att.global.facs.attribute.facs,
     OpenAraPE_att.transcriptional.attributes,
     OpenAraPE_att.placement.attributes,
     OpenAraPE_att.typed.attributes,
+    
+    ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.
+    attribute resp {
+      list { xsd:anyURI+ }
+    },
     empty
   }
 OpenAraPE_del =
@@ -2007,9 +2035,23 @@ OpenAraPE_del =
   ## (deletion) contains a letter, word, or passage deleted, marked as deleted, or otherwise indicated as superfluous or spurious in the copy text by an author, scribe, or a previous annotator or corrector. [3.4.3. Additions, Deletions, and Omissions]
   element del {
     OpenAraPE_macro.paraContent,
-    OpenAraPE_att.global.attributes,
+    OpenAraPE_att.global.attribute.xmlid,
+    OpenAraPE_att.global.attribute.n,
+    OpenAraPE_att.global.attribute.xmllang,
+    OpenAraPE_att.global.rendition.attribute.rend,
+    OpenAraPE_att.global.rendition.attribute.style,
+    OpenAraPE_att.global.rendition.attribute.rendition,
+    OpenAraPE_att.global.linking.attribute.corresp,
+    OpenAraPE_att.global.linking.attribute.next,
+    OpenAraPE_att.global.linking.attribute.prev,
+    OpenAraPE_att.global.facs.attribute.facs,
     OpenAraPE_att.transcriptional.attributes,
     OpenAraPE_att.typed.attributes,
+    
+    ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.
+    attribute resp {
+      list { xsd:anyURI+ }
+    },
     empty
   }
 OpenAraPE_unclear =

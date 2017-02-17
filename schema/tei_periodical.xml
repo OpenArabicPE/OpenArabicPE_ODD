@@ -195,6 +195,54 @@
                         <attDef ident="varSeq" mode="delete"/>
                     </attList>
                 </classSpec>
+                <elementSpec ident="add" module="core" mode="change">
+                    <attList>
+                        <attDef ident="resp" mode="change" usage="req"/>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="corr" module="core" mode="change">
+                    <attList>
+                        <attDef ident="resp" mode="change" usage="req"/>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="date" module="core" mode="change">
+                    <attList>
+                        <attDef ident="datingMethod" mode="change">
+                            <valList type="closed" mode="replace">
+                                <valItem ident="#cal_gregorian"/>
+                                <valItem ident="#cal_islamic"/>
+                                <valItem ident="#cal_julian"/>
+                                <valItem ident="#cal_ottomanfiscal"/>
+                            </valList>
+                        </attDef>
+                        <attDef ident="calendar" mode="change">
+                            <valList type="closed" mode="replace">
+                                <valItem ident="#cal_gregorian"/>
+                                <valItem ident="#cal_islamic"/>
+                                <valItem ident="#cal_julian"/>
+                                <valItem ident="#cal_ottomanfiscal"/>
+                            </valList>
+                        </attDef>
+                        <attDef ident="type" mode="change">
+                            <valList type="semi" mode="replace">
+                                <valItem ident="official">
+                                    <desc>A publication date as provided on the masthead</desc>
+                                </valItem>
+                                <valItem ident="scheduled">
+                                    <desc>A publication date according to the publication schedule</desc>
+                                </valItem>
+                                <valItem ident="supplied">
+                                    <desc>A publication date as indicated by other sources</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="del" module="core" mode="change">
+                    <attList>
+                        <attDef ident="resp" mode="change" usage="req"/>
+                    </attList>
+                </elementSpec>
                 <elementSpec ident="div" mode="change" module="textstructure">
                     <attList>
                         <attDef ident="type" mode="change">
@@ -339,39 +387,6 @@
                             <valList type="semi" mode="replace">
                                 <valItem ident="brackets"/>
                                 <valItem ident="quotation-marks"/>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="date" module="core" mode="change">
-                    <attList>
-                        <attDef ident="datingMethod" mode="change">
-                            <valList type="closed" mode="replace">
-                                <valItem ident="#cal_gregorian"/>
-                                <valItem ident="#cal_islamic"/>
-                                <valItem ident="#cal_julian"/>
-                                <valItem ident="#cal_ottomanfiscal"/>
-                            </valList>
-                        </attDef>
-                        <attDef ident="calendar" mode="change">
-                            <valList type="closed" mode="replace">
-                                <valItem ident="#cal_gregorian"/>
-                                <valItem ident="#cal_islamic"/>
-                                <valItem ident="#cal_julian"/>
-                                <valItem ident="#cal_ottomanfiscal"/>
-                            </valList>
-                        </attDef>
-                        <attDef ident="type" mode="change">
-                            <valList type="semi" mode="replace">
-                                <valItem ident="official">
-                                    <desc>A publication date as provided on the masthead</desc>
-                                </valItem>
-                                <valItem ident="scheduled">
-                                    <desc>A publication date according to the publication schedule</desc>
-                                </valItem>
-                                <valItem ident="supplied">
-                                    <desc>A publication date as indicated by other sources</desc>
-                                </valItem>
                             </valList>
                         </attDef>
                     </attList>
