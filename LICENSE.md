@@ -1,5 +1,5 @@
 ---
-title: "Licence: tei_periodicals"
+title: "License: tei_periodicals"
 author: Till Grallert
 date: 2016-11-14 18:05:04 +0100
 ---
