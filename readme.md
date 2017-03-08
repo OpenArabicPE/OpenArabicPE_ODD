@@ -13,8 +13,8 @@ tags:
 This repository contains the TEI schema for (early) Arabic periodical editions. The schema is under active development in the context of the following projects:
 
 - [Digital *Muqtabas*](https://github.com/tillgrallert/digital-muqtabas)
-- [Digital *Ḥaqāʾiq*](https://github.com/OpenAraPE/digital-haqaiq)
-- [Digital *Manār*](https://github.com/OpenAraPE/digital-manar)
+- [Digital *Ḥaqāʾiq*](https://github.com/OpenArabicPE/digital-haqaiq)
+- [Digital *Manār*](https://github.com/OpenArabicPE/digital-manar)
 
 # 1. Issues to be solved
 ## Serialised articles
@@ -612,7 +612,7 @@ The TEI provides a means to employ private URIs as values of all attributes that
 </listPrefixDef>
 ~~~
 
-The private URIs can then be used as values of `@ref`, `@corresp` etc. In the context of OpenAraPE, references to external authority files are encoded with `@ref`, i.e. 
+The private URIs can then be used as values of `@ref`, `@corresp` etc. In the context of OpenArabicPE, references to external authority files are encoded with `@ref`, i.e. 
 
 ~~~{.xml}
 (مجلة <title level="j" ref="oclc:644997575">الحقائق</title>)
