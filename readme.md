@@ -92,6 +92,7 @@ In many cases foreign terms that have been transliterated into Arabic are follow
     + "block"
 - add tag set for the mark-up of drama (e.g. [نكارتر](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
 - the guidelines on publication dates need to be implemented in the ODD
+- add a referencable description of the coptic calendar as `cal_coptic`
 
 ## 2. deletions
 

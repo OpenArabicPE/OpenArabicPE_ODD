@@ -209,18 +209,40 @@
                     <attList>
                         <attDef ident="datingMethod" mode="change">
                             <valList type="closed" mode="replace">
-                                <valItem ident="#cal_gregorian"/>
-                                <valItem ident="#cal_islamic"/>
-                                <valItem ident="#cal_julian"/>
-                                <valItem ident="#cal_ottomanfiscal"/>
+                                <valItem ident="#cal_gregorian">
+                                    <desc>Gregorian calendar</desc>
+                                </valItem>
+                                <valItem ident="#cal_islamic">
+                                    <desc>Muslim lunar calendar known as <foreign>hijrī</foreign> beginning the year with 1 <foreign>Muḥarram</foreign></desc>
+                                </valItem>
+                                <valItem ident="#cal_julian">
+                                    <desc>Reformed Julian calendar beginning the year with 1 January</desc>
+                                </valItem>
+                                <valItem ident="#cal_ottomanfiscal">
+                                    <desc>Ottoman fiscal calendar also known as <foreign>mālī</foreign> or <foreign>rūmī</foreign> calendar</desc>
+                                </valItem>
+                                <valItem ident="#cal_coptic">
+                                    <desc>The Coptic calendar</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                         <attDef ident="calendar" mode="change">
                             <valList type="closed" mode="replace">
-                                <valItem ident="#cal_gregorian"/>
-                                <valItem ident="#cal_islamic"/>
-                                <valItem ident="#cal_julian"/>
-                                <valItem ident="#cal_ottomanfiscal"/>
+                                <valItem ident="#cal_gregorian">
+                                    <desc>Gregorian calendar</desc>
+                                </valItem>
+                                <valItem ident="#cal_islamic">
+                                    <desc>Muslim lunar calendar known as <foreign>hijrī</foreign></desc>
+                                </valItem>
+                                <valItem ident="#cal_julian">
+                                    <desc>Reformed Julian calendar beginning the Year with 1 January</desc>
+                                </valItem>
+                                <valItem ident="#cal_ottomanfiscal">
+                                    <desc>Ottoman fiscal calendar also known as <foreign>mālī</foreign> or <foreign>rūmī</foreign> calendar</desc>
+                                </valItem>
+                                <valItem ident="#cal_coptic">
+                                    <desc>The Coptic calendar</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                         <attDef ident="type" mode="change">
