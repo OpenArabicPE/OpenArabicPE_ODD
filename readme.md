@@ -1,7 +1,7 @@
 ---
 title: "Readme/documentation: tei_periodicals"
 author: Till Grallert
-date: 2016-11-14
+date: 2017-04-06
 tags:
 - documentation
 - periodicals
