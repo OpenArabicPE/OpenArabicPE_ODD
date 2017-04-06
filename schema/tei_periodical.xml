@@ -313,16 +313,23 @@
                 </elementSpec>
                 <elementSpec ident="div" mode="change" module="textstructure">
                     <attList>
-                        <attDef ident="type" mode="change">
+                        <attDef ident="type" mode="change" usage="req">
+                            <desc>specifies the structural type</desc>
+                            <defaultVal>item</defaultVal>
                             <valList mode="replace" type="semi">
-                                <valItem ident="article">
-                                    <desc>article in a periodical or of a bill</desc>
+                                <valItem ident="item">
+                                    <desc>smallest independent segment, such as a news item or an article in a periodical or of a bill</desc>
                                 </valItem>
                                 <valItem ident="section">
-                                    <desc>section of a newspaper issue or bill</desc>
+                                    <desc>section of a newspaper issue, an item (article) or bill</desc>
                                 </valItem>
                                 <valItem ident="volume"/>
                                 <valItem ident="issue"/>
+                            </valList>
+                        </attDef>
+                        <attDef ident="subtype" mode="change" usage="opt">
+                            <desc>specifies a basic content classification</desc>
+                            <valList mode="replace" type="semi">
                                 <valItem ident="bill">
                                     <desc>a legal text</desc>
                                 </valItem>
@@ -331,6 +338,9 @@
                                 </valItem>
                                 <valItem ident="letter">
                                     <desc>a letter</desc>
+                                </valItem>
+                                <valItem ident="masthead">
+                                    <desc>the masthead of a periodical issue</desc>
                                 </valItem>
                                 <valItem ident="verse"/>
                             </valList>
