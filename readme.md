@@ -187,8 +187,8 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
             <date xml:lang="ar" when-custom="1329-01-01" datingMethod="#cal_islamic" calendar="#cal_islamic" when="1911-01-02">١ محرم ١٣٢٩</date>
             <date xml:lang="ar-Latn-x-ijmes" when-custom="1329-01-01" datingMethod="#cal_islamic" calendar="#cal_islamic" when="1911-01-02">1 Muḥ 1329</date>
         </imprint>
-        <biblScope unit="volume" n="6"/>
-        <biblScope unit="issue" n="1"/>
+        <biblScope unit="volume" from="6" to="6"/>
+        <biblScope unit="issue" from="1" to="1"/>
         <biblScope unit="page" from="1" to="88"/>
     </monogr>
     <idno type="oclc">4770057679</idno>
@@ -213,8 +213,8 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
             <publisher>المطبعة المقتبس</publisher>
             <date when-custom="1329-01-01" datingMethod="#cal_islamic" calendar="#cal_islamic" when="1911-01-02">١ محرم ١٣٢٩</date>
         </imprint>
-        <biblScope unit="volume" n="6">المجلد السادس</biblScope>
-        <biblScope unit="issue" n="1">الجزء الاول</biblScope>
+        <biblScope unit="volume" from="6" to="1">المجلد السادس</biblScope>
+        <biblScope unit="issue" from="1" to="1">الجزء الاول</biblScope>
         <biblScope unit="page" from="1" to="88"/>
     </monogr>
 </biblStruct>
