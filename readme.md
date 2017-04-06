@@ -10,7 +10,8 @@ tags:
 - xml
 ---
 
-[![GitHub release](https://img.shields.io/github/release/OpenArabicPE/OpenArabicPE_ODD.svg?maxAge=2592000)](https://github.com/OpenArabicPE/OpenArabicPE_ODD/releases)
+[![GitHub release](https://img.shields.io/github/release/OpenArabicPE/OpenArabicPE_ODD.svg?maxAge=2592000)](https://github.com/OpenArabicPE/OpenArabicPE_ODD/releases) 
+[![DOI](https://zenodo.org/badge/73727435.svg)](https://zenodo.org/badge/latestdoi/73727435)
 
 This repository contains the TEI schema for (early) Arabic periodical editions. The schema is under active development in the context of the following projects:
 
