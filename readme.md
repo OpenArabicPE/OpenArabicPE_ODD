@@ -72,6 +72,25 @@ In many cases foreign terms that have been transliterated into Arabic are follow
 
 - In the case of names for places and persons, I propose to wrap each spelling in its own `<persName>` and to then group them into another `<persName>`:
 
+## documenting editorial changes
+
+The guiding principle is a faithful transcription of the printed edition. The original print edition has numerous obvious errors, particularly in the case of non-Arabic names and terms in Arabic script. In addition, the anonymous transcribers at shamela.ws made corrections and errors. These should be encoded with the appropriate editorial tags and `@resp="#org_MS`.
+
+- obvious errors:
+
+    Obvious errors shall not be encoded without explicitly providing a correction. In this case the character string as found in the printed edition shall be encoded as `<orig>` and NOT `<sic>` to simplify the mark-up.
+
+    ~~~{.}
+    <choice>
+        <orig></orig>
+        <corr resp="#xml:id-of-the-responsible-editor"></corr>
+    </choice>
+    ~~~
+- corrections: Corrections for any reason shall follow the above example of `<choice>`, `<orig>` and `<corr>`
+- additions and deletions: Additions and deletions are differences between the original print edition and the digital transcription. These are mainly due to errors by the transcribers at shamela.ws
+
+    They are encoded with `<add>` and `<del>` both of which require the `@resp` attribute.
+
 
 # 2. changes to the schema
 ## 1. additions
@@ -92,7 +111,7 @@ In many cases foreign terms that have been transliterated into Arabic are follow
     + "block"
 - add tag set for the mark-up of drama (e.g. [نكارتر](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
 - the guidelines on publication dates need to be implemented in the ODD
-- add a referencable description of the coptic calendar as `cal_coptic`
+- add `<particDesc>` to the list of available elements
 
 ## 2. deletions
 
@@ -557,6 +576,23 @@ A second XSLT stylesheet ([`Tei-MarkupNumerals-Correction`](xslt/Tei-MarkupNumer
 
 ### 3.5.3. Persons, Places, Organisations
 
+Any file might contain a personography etc. in the `<profileDesc>` inside the `<teiHeader>`. The following is the template for records of persons:
+
+~~~{.}
+<person xml:id="">
+    <!-- more than one persName in any language -->
+    <persName xml:lang="ar"></persName>
+    <!-- birth and death can be retrieved from VIAF -->
+    <birth when="" notBefore="" notAfter=""></birth>
+    <death when="" notBefore="" notAfter=""></death>
+    <!-- potential children -->
+    <idno type="viaf"></idno>
+    <event when="" notBefore="" notAfter=""></event>
+</person>
+~~~
+
+
+
 #### 3.5.3.1. Persons:`<persName>`
 
 How to encode this string: "حسين كاظم بك والي حلب الحالي" ? Should the information on his position be included in the `<persName>`?
@@ -592,6 +628,7 @@ There are two attributes that specify the dating system used in an element:
 2. `@calendar="#cal_islamic"`
 3. `@calendar="#cal_julian"`
 4. `@calendar="#cal_ottomanfiscal"`
+5. `@calendar="#cal_coptic"`
 
 
 ## references to internal or external URIs
