@@ -7,7 +7,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2017-04-06T10:33:07Z. .
+# Schema generated from ODD source 2017-04-06T11:08:23Z. .
 # TEI Edition: Version 3.0.0. Last updated on
 #	29th March 2016, revision 89ba24e
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.0.0/
@@ -2661,7 +2661,7 @@ OpenArabicPE_pb =
            "shamela"
          | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" })+
       }
-    }?,
+    },
     empty
   }
 OpenArabicPE_lb =
@@ -4236,27 +4236,28 @@ OpenArabicPE_addName =
     OpenArabicPE_att.personal.attributes,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    [ a:defaultValue = "title" ]
     attribute type {
       
-      ## Indicates formal titles, such as "Bey", "Pasha" etc.
+      ## indicates formal titles, such as "Bey", "Pasha" etc.
       "title"
       | 
-        ## Indicates honorific addresses or titles, such as "Miss", "Shaykh", "zade"
+        ## indicates honorific addresses or titles, such as "Miss", "Shaykh", "zade"
         "honorific"
       | 
-        ## Indicates ranks within an administrative, military or religious hierarchy, such as "farīq", "vālī", "Captain"
+        ## indicates ranks within an administrative, military or religious hierarchy, such as "farīq", "vālī", "Captain"
         "rank"
       | 
-        ##
+        ## introduced by “Ibn” (إبن - son of)
         "patronym"
       | 
-        ##
+        ## a mark of distinction applied to prominent figures to honor them. For example, “Abū-Yūsuf” (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب) 
         "kunyah"
       | 
-        ##
+        ## an honorific name, which is usually ended by the suffix al-Dīn (الدين) 
         "khitab"
       | 
-        ##
+        ## an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician “Al-khawarizmī” refers to “Khuwarism”, name of a place located in Central Asia
         "nisbah"
     },
     
