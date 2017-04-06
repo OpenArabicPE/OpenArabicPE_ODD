@@ -10,6 +10,8 @@ tags:
 - xml
 ---
 
+[![GitHub release](https://img.shields.io/github/release/OpenArabicPE/OpenArabicPE_ODD.svg?maxAge=2592000)](https://github.com/OpenArabicPE/OpenArabicPE_ODD/releases)
+
 This repository contains the TEI schema for (early) Arabic periodical editions. The schema is under active development in the context of the following projects:
 
 - [Digital *Muqtabas*](https://github.com/tillgrallert/digital-muqtabas)
