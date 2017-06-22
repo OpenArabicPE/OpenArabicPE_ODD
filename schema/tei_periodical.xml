@@ -54,6 +54,7 @@
                     except="argument div1 div2 div3 div4 div5 div6 div7 docAuthor docDate docEdition docImprint docTitle imprimatur signed titlePage titlePart"/>
                 <moduleRef key="tagdocs"
                     except="altIdent alternate attDef attList attRef classRef classSpec classes constraint constraintSpec content dataRef dataSpec datatype defaultVal eg egXML elementRef elementSpec equiv exemplum ident listRef macroRef macroSpec memberOf model modelGrp modelSequence moduleRef moduleSpec outputRendition param paramList paramSpec remarks schemaSpec sequence specDesc specGrp specGrpRef specList textNode val valDesc valItem valList"/>
+                <!-- many elements should be removed from namesdates: sex socecStatus -->
                 <moduleRef key="namesdates" except="langKnowledge langKnown"/>
                 <moduleRef key="linking"
                     except="alt altGrp anchor join joinGrp link linkGrp timeline when"/>
