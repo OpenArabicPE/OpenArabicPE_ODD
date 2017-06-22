@@ -20,6 +20,25 @@ This repository contains the TEI schema for (early) Arabic periodical editions. 
 - [Digital *Manār*](https://github.com/OpenArabicPE/digital-manar)
 
 # 1. Issues to be solved
+
+## author information present but not as byline
+
+Many articles include information on authors, editors or translators of the text but not in the form of a byline. In the process of working through *al-Muqtabas* and *al-Ḥaqāʾiq*, we have come up with a number of encodings that will need to be unified and that need to be reflected in the creation of bibliographic metadata.
+
+1. In those cases were simple byline information is sufficient, we have added a `<byline>` and wrapped its content in `<supplied>` with `@resp` attribute pointing to the respondible editor.
+2. In more complexe cases with more detailed bibliographic information, such as, but not limited to, translators, editors, provinence, editions, `<byline>` is generally not suitable due to its limited content model. In these cases the following structure should be used:
+
+~~~{.xml}
+<note type="inline">
+    <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
+    <supplied @resp="#xml:id of the editor">
+        <bibl><!-- ... bibliographic information --></bibl>
+    </supplied>
+</note>
+~~~
+
+NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically. 
+
 ## Serialised articles
 
 The information that an article / work / book was serialised can be either explicit or implicit. 
