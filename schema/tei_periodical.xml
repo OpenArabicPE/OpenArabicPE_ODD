@@ -22,6 +22,7 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2018-01-16" who="#pers_TG">Added the att.global.change.</change>
             <change when="2017-01-15" who="#pers_TG">Added @type="inline" to tei:note. Added @type attributes to tei:date.</change>
             <change when="2016-06-17" who="#pers_TG">Initial creation of this file.</change>
         </revisionDesc>
@@ -140,7 +141,8 @@
                         <attDef ident="synch" mode="delete"/>
                     </attList>
                 </classSpec>
-                <classSpec ident="att.global.change" mode="delete" module="transcr" type="atts"/>
+                <!-- adds the @change attribute to all elements -->
+                <classSpec ident="att.global.change" mode="add" module="transcr" type="atts"/>
                 <classSpec ident="att.global.responsibility" module="tei" mode="change" type="atts">
                     <attList>
                         <attDef ident="cert" mode="delete"/>
