@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2018-01-16T13:40:04Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2018-01-17T08:09:00Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -953,7 +953,7 @@ points CDATA  #IMPLIED'>
  %OpenArabicPE_att.coordinated.attribute.uly;
  %OpenArabicPE_att.coordinated.attribute.lrx;
  %OpenArabicPE_att.coordinated.attribute.lry;
- %OpenArabicPE_att.coordinated.attribute.points;'> <!ENTITY % OpenArabicPE_att.global.change.attributes ''> 
+ %OpenArabicPE_att.coordinated.attribute.points;'> 
 <!-- start rest of patterns -->
 
 <!ENTITY % macro.paraContent '(#PCDATA|_DUMMY_model.gLike|%model.phrase;|%model.inter;|%model.global;|lg|%model.lLike;)*' >
@@ -1011,7 +1011,7 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.transcriptional.attributes;
  %OpenArabicPE_att.placement.attributes;
@@ -1163,9 +1163,10 @@ Elements] -->
 <!ATTLIST cb
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.edition.attributes;
+ %OpenArabicPE_att.edition.attribute.edRef;
  %OpenArabicPE_att.spanning.attributes;
- %OpenArabicPE_att.breaking.attributes; >
+ %OpenArabicPE_att.breaking.attributes;
+ed CDATA  "print"  >
 <!--doc:contains one cell of a table. [14.1.1. TEI Tables] -->
 <!ELEMENT cell %macro.specialPara;>
 <!ATTLIST cell xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1234,7 +1235,7 @@ lang %teidata.word;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.typed.attributes;
 resp CDATA  #REQUIRED >
@@ -1335,7 +1336,7 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.transcriptional.attributes;
  %OpenArabicPE_att.typed.attributes;
@@ -1516,7 +1517,7 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.timed.attributes;
 resp CDATA  "#org_MS" 
@@ -1663,9 +1664,10 @@ Elements 7.2.5. Speech Contents] -->
 <!ATTLIST lb
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.edition.attributes;
+ %OpenArabicPE_att.edition.attribute.edRef;
  %OpenArabicPE_att.spanning.attributes;
- %OpenArabicPE_att.breaking.attributes; >
+ %OpenArabicPE_att.breaking.attributes;
+ed CDATA  "print"  >
 <!--doc:(line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain, verse paragraph, etc. [3.12.1. Core Tags for Verse 3.12. Passages of Verse or Drama 7.2.5. Speech Contents] -->
 <!ELEMENT lg (((%model.divTop;|%model.global;)*,(%model.lLike;|_DUMMY_model.stageLike|%model.labelLike;|lg),(%model.lLike;|_DUMMY_model.stageLike|%model.labelLike;|%model.global;|lg)*,((%model.divBottom;),(%model.global;)*)*))>
 <!ATTLIST lg xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1831,7 +1833,7 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.responsibility.attribute.resp;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.placement.attributes;
@@ -2058,7 +2060,7 @@ placement (internal|external) #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.responsibility.attribute.resp;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.ascribed.attributes;
@@ -2084,7 +2086,7 @@ marks (none|some|all) #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.responsibility.attribute.resp;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.typed.attributes;
@@ -2302,7 +2304,7 @@ code %teidata.pointer;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.typed.attributes;
  %OpenArabicPE_att.dimensions.attributes;
@@ -2330,7 +2332,7 @@ dim (horizontal|vertical) #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.next;
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
- %OpenArabicPE_OpenArabicPE_att.global.change.attribute.change;
+ %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.source.attribute.source;
 resp CDATA  #REQUIRED
 reason CDATA  #IMPLIED >

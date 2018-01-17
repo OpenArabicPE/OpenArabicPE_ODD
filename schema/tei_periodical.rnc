@@ -7,7 +7,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2018-01-16T13:39:37Z. .
+# Schema generated from ODD source 2018-01-17T08:08:07Z. .
 # TEI Edition: Version 3.2.0. Last updated on
 #	10th July 2017, revision 0fcf651
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -1852,6 +1852,7 @@ OpenArabicPE_quote =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.responsibility.attribute.resp,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.typed.attributes,
@@ -1886,6 +1887,7 @@ OpenArabicPE_q =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.responsibility.attribute.resp,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.ascribed.attributes,
@@ -1989,6 +1991,7 @@ OpenArabicPE_corr =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.typed.attributes,
     
@@ -2040,6 +2043,7 @@ OpenArabicPE_gap =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.timed.attributes,
     
@@ -2103,6 +2107,7 @@ OpenArabicPE_add =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.transcriptional.attributes,
     OpenArabicPE_att.placement.attributes,
@@ -2129,6 +2134,7 @@ OpenArabicPE_del =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.transcriptional.attributes,
     OpenArabicPE_att.typed.attributes,
@@ -2580,6 +2586,7 @@ OpenArabicPE_note =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.responsibility.attribute.resp,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.placement.attributes,
@@ -2684,10 +2691,10 @@ OpenArabicPE_pb =
     attribute ed {
       list {
         (
-         ## Page break according to a printed edition
+         ## Page beginning, i.e. break, according to a printed edition
          "print"
          | 
-           ## Page break as found in the transcription from Maktabat al-Shamela
+           ## Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela
            "shamela"
          | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" })+
       }
@@ -2702,9 +2709,24 @@ OpenArabicPE_lb =
     empty,
     OpenArabicPE_att.global.attributes,
     OpenArabicPE_att.typed.attributes,
-    OpenArabicPE_att.edition.attributes,
+    OpenArabicPE_att.edition.attribute.edRef,
     OpenArabicPE_att.spanning.attributes,
     OpenArabicPE_att.breaking.attributes,
+    
+    ## (edition) supplies a sigil or other arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
+    ## Suggested values include: 1] print; 2] shamela
+    [ a:defaultValue = "print" ]
+    attribute ed {
+      list {
+        (
+         ## Page beginning, i.e. break, according to a printed edition
+         "print"
+         | 
+           ## Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela
+           "shamela"
+         | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" })+
+      }
+    }?,
     empty
   }
 OpenArabicPE_cb =
@@ -2715,9 +2737,24 @@ OpenArabicPE_cb =
     empty,
     OpenArabicPE_att.global.attributes,
     OpenArabicPE_att.typed.attributes,
-    OpenArabicPE_att.edition.attributes,
+    OpenArabicPE_att.edition.attribute.edRef,
     OpenArabicPE_att.spanning.attributes,
     OpenArabicPE_att.breaking.attributes,
+    
+    ## (edition) supplies a sigil or other arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
+    ## Suggested values include: 1] print; 2] shamela
+    [ a:defaultValue = "print" ]
+    attribute ed {
+      list {
+        (
+         ## Page beginning, i.e. break, according to a printed edition
+         "print"
+         | 
+           ## Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela
+           "shamela"
+         | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" })+
+      }
+    }?,
     empty
   }
 OpenArabicPE_monogr =
@@ -3799,7 +3836,7 @@ OpenArabicPE_div =
       ## smallest independent segment, such as a news item or an article in a periodical or of a bill
       "item"
       | 
-        ## section of a newspaper issue, an item (article) or bill
+        ## section of a newspaper issue that explicitly groups items, such as a rubric "domestic news", or sections of a larger item such as the sub divisions of an article or bill
         "section"
       | 
         ##
@@ -4360,19 +4397,19 @@ OpenArabicPE_addName =
       ## indicates formal titles, such as "Bey", "Pasha" etc.
       "title"
       | 
-        ## indicates honorific addresses or titles, such as "Miss", "Shaykh", "zade"
+        ## indicates honorific addresses or titles, such as Miss, Shaykh, zade
         "honorific"
       | 
-        ## indicates ranks within an administrative, military or religious hierarchy, such as "farīq", "vālī", "Captain"
+        ## indicates ranks within an administrative, military or religious hierarchy, such as farīq, vālī, Captain
         "rank"
       | 
         ## introduced by “Ibn” (إبن - son of)
         "patronym"
       | 
-        ## a mark of distinction applied to prominent figures to honor them. For example, “Abū-Yūsuf” (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب) 
+        ## a mark of distinction applied to prominent figures to honor them. For example, Abū Yūsuf (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب)
         "kunyah"
       | 
-        ## an honorific name, which is usually ended by the suffix al-Dīn (الدين) 
+        ## an honorific name, which is usually ended by the suffix al-Dīn (الدين)
         "khitab"
       | 
         ## an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician “Al-khawarizmī” refers to “Khuwarism”, name of a place located in Central Asia
@@ -4382,7 +4419,7 @@ OpenArabicPE_addName =
     ## provides a sub-categorization of the element, if needed
     attribute subtype {
       
-      ##
+      ## Indicates a military rank, such as Captain or Farīq
       "military"
       | 
         ##
@@ -5303,6 +5340,8 @@ OpenArabicPE_att.global.facs.attribute.facs =
   attribute facs {
     list { xsd:anyURI+ }
   }?
+OpenArabicPE_att.global.change.attributes =
+  OpenArabicPE_att.global.change.attribute.change
 OpenArabicPE_att.global.change.attribute.change =
   
   ## points to one or more change elements documenting a state or revision campaign to which the element bearing this attribute and its children have been assigned by the encoder.
@@ -5478,6 +5517,7 @@ OpenArabicPE_space =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.source.attribute.source,
     OpenArabicPE_att.typed.attributes,
     OpenArabicPE_att.dimensions.attributes,
@@ -5513,6 +5553,7 @@ OpenArabicPE_supplied =
     OpenArabicPE_att.global.linking.attribute.next,
     OpenArabicPE_att.global.linking.attribute.prev,
     OpenArabicPE_att.global.facs.attribute.facs,
+    OpenArabicPE_att.global.change.attribute.change,
     OpenArabicPE_att.global.source.attribute.source,
     
     ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.
