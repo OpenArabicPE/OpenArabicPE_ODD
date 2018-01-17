@@ -142,7 +142,7 @@
                     </attList>
                 </classSpec>
                 <!-- adds the @change attribute to all elements -->
-                <classSpec ident="att.global.change" mode="add" module="transcr" type="atts"/>
+<!--                <classSpec ident="att.global.change" mode="add" module="transcr" type="atts"/>-->
                 <classSpec ident="att.global.responsibility" module="tei" mode="change" type="atts">
                     <attList>
                         <attDef ident="cert" mode="delete"/>
@@ -212,22 +212,22 @@
                                     <desc>indicates formal titles, such as "Bey", "Pasha" etc.</desc>
                                 </valItem>
                                 <valItem ident="honorific">
-                                    <desc>indicates honorific addresses or titles, such as "Miss", "Shaykh", "zade"</desc>
+                                    <desc>indicates honorific addresses or titles, such as Miss, <foreign xml:lang="ar-Latn-x-ijmes">Shaykh</foreign>, <foreign xml:lang="ota-Latn-TR">zade</foreign></desc>
                                 </valItem>
                                 <valItem ident="rank">
-                                    <desc>indicates ranks within an administrative, military or religious hierarchy, such as "farīq", "vālī", "Captain"</desc>
+                                    <desc>indicates ranks within an administrative, military or religious hierarchy, such as <foreign xml:lang="ar-Latn-x-ijmes">farīq</foreign>, <foreign xml:lang="ota-Latn-x-ijmes">vālī</foreign>, Captain</desc>
                                 </valItem>
                                 <!--<valItem ident="function">
                                     <desc></desc>
                                 </valItem>-->
                                 <valItem ident="patronym">
-                                    <desc>introduced by “Ibn” (إبن - son of)</desc>
+                                    <desc>introduced by “Ibn” (<foreign xml:lang="ar">إبن</foreign> - son of)</desc>
                                 </valItem>
                                 <valItem ident="kunyah">
-                                    <desc>a mark of distinction applied to prominent figures to honor them. For example, “Abū-Yūsuf” (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب) </desc>
+                                    <desc>a mark of distinction applied to prominent figures to honor them. For example, <foreign xml:lang="ar-Latn-x-ijmes">Abū Yūsuf</foreign> (<foreign xml:lang="ar">أبو يوسف</foreign>) is often used for someone who is called <foreign xml:lang="ar-Latn-x-ijmes">Ya'qūb</foreign> (<foreign xml:lang="ar">يعقوب</foreign>) </desc>
                                 </valItem>
                                 <valItem ident="khitab">
-                                    <desc>an honorific name, which is usually ended by the suffix al-Dīn (الدين) </desc>
+                                    <desc>an honorific name, which is usually ended by the suffix <foreign xml:lang="ar-Latn-x-ijmes">al-Dīn</foreign> (<foreign xml:lang="ar">الدين</foreign>) </desc>
                                 </valItem>
                                 <valItem ident="nisbah">
                                     <desc>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician “Al-khawarizmī” refers to “Khuwarism”, name of a place located in Central Asia</desc>
@@ -237,7 +237,7 @@
                         <attDef ident="subtype" mode="change" usage="opt">
                             <valList type="closed" mode="replace">
                                 <valItem ident="military">
-                                    <desc></desc>
+                                    <desc>Indicates a military rank, such as Captain or <foreign xml:lang="ar-Latn-x-ijmes">Farīq</foreign></desc>
                                 </valItem>
                                 <valItem ident="civil">
                                     <desc></desc>
@@ -324,7 +324,7 @@
                                     <desc>smallest independent segment, such as a news item or an article in a periodical or of a bill</desc>
                                 </valItem>
                                 <valItem ident="section">
-                                    <desc>section of a newspaper issue, an item (article) or bill</desc>
+                                    <desc>section of a newspaper issue that explicitly groups items, such as a rubric "domestic news", or sections of a larger item such as the sub divisions of an article or bill</desc>
                                 </valItem>
                                 <valItem ident="volume"/>
                                 <valItem ident="issue"/>
@@ -436,10 +436,40 @@
                             <defaultVal>print</defaultVal>
                             <valList type="semi" mode="replace">
                                 <valItem ident="print">
-                                    <desc>Page break according to a printed edition</desc>
+                                    <desc>Page beginning, i.e. break, according to a printed edition</desc>
                                 </valItem>
                                 <valItem ident="shamela">
-                                    <desc>Page break as found in the transcription from Maktabat al-Shamela</desc>
+                                    <desc>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="lb" module="core" mode="change">
+                    <attList>
+                        <attDef ident="ed" mode="change" usage="rec">
+                            <defaultVal>print</defaultVal>
+                            <valList type="semi" mode="replace">
+                                <valItem ident="print">
+                                    <desc>Page beginning, i.e. break, according to a printed edition</desc>
+                                </valItem>
+                                <valItem ident="shamela">
+                                    <desc>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="cb" module="core" mode="change">
+                    <attList>
+                        <attDef ident="ed" mode="change" usage="rec">
+                            <defaultVal>print</defaultVal>
+                            <valList type="semi" mode="replace">
+                                <valItem ident="print">
+                                    <desc>Page beginning, i.e. break, according to a printed edition</desc>
+                                </valItem>
+                                <valItem ident="shamela">
+                                    <desc>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
                                 </valItem>
                             </valList>
                         </attDef>
