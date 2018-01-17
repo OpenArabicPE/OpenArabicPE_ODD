@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2018-01-17T08:09:00Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2018-01-17T10:07:39Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -1023,7 +1023,7 @@ resp CDATA  #REQUIRED >
 <!ATTLIST addName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.personal.attributes;
-type (title|honorific|rank|patronym|kunyah|khitab|nisbah) "title" 
+type (title|honorific|rank|nickname|nasab|kunyah|khitab|nisbah) "title" 
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:contains an informal description of a person's present or past affiliation with some organization, for example an employer or sponsor. [15.2.2. The Participant Description] -->
 <!ELEMENT affiliation %macro.phraseSeq;>

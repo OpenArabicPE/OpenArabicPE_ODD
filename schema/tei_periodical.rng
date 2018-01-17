@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2018-01-17T08:07:42Z. .
+Schema generated from ODD source 2018-01-17T10:06:50Z. .
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -6608,14 +6608,16 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
                <a:documentation>indicates honorific addresses or titles, such as Miss, Shaykh, zade</a:documentation>
                <value>rank</value>
                <a:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq, vālī, Captain</a:documentation>
-               <value>patronym</value>
-               <a:documentation>introduced by “Ibn” (إبن - son of)</a:documentation>
+               <value>nickname</value>
+               <a:documentation>a phrase someone is commonly referred to, such as "Owner of the newspaper xyz"</a:documentation>
+               <value>nasab</value>
+               <a:documentation>a patronym introduced by “Ibn” (إبن - son of)</a:documentation>
                <value>kunyah</value>
-               <a:documentation>a mark of distinction applied to prominent figures to honor them. For example, Abū Yūsuf (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب)</a:documentation>
+               <a:documentation>a teknonym beginning with Abū (أبو - father of) or Umm (أم - mather of). It may also have hypothetical or metaphorical references as a mark of distinction. For example, Abū Yūsuf (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب)</a:documentation>
                <value>khitab</value>
                <a:documentation>an honorific name, which is usually ended by the suffix al-Dīn (الدين)</a:documentation>
                <value>nisbah</value>
-               <a:documentation>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician “Al-khawarizmī” refers to “Khuwarism”, name of a place located in Central Asia</a:documentation>
+               <a:documentation>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician al-Khawarizmī refers to “Khuwarism”, the name of a place located in Central Asia</a:documentation>
             </choice>
          </attribute>
          <optional>
@@ -6625,9 +6627,9 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
                   <value>military</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates a military rank, such as Captain or Farīq</a:documentation>
                   <value>civil</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates a civil rank within the bureaucracy</a:documentation>
                   <value>religious</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates a religious rank, such as Bishop or Muṭrān</a:documentation>
                </choice>
             </attribute>
          </optional>

@@ -8,7 +8,7 @@
    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
               schemaLocation="xml.tmp"/>
    <!--
-    Schema generated from ODD source 2018-01-17T08:08:27Z. .
+    Schema generated from ODD source 2018-01-17T10:07:27Z. .
     TEI Edition: Version 3.2.0. Last updated on
     	10th July 2017, revision 0fcf651
     TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -6785,14 +6785,19 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
                               <xs:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq, vālī, Captain</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
-                        <xs:enumeration value="patronym">
+                        <xs:enumeration value="nickname">
                            <xs:annotation>
-                              <xs:documentation>introduced by “Ibn” (إبن - son of)</xs:documentation>
+                              <xs:documentation>a phrase someone is commonly referred to, such as "Owner of the newspaper xyz"</xs:documentation>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="nasab">
+                           <xs:annotation>
+                              <xs:documentation>a patronym introduced by “Ibn” (إبن - son of)</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="kunyah">
                            <xs:annotation>
-                              <xs:documentation>a mark of distinction applied to prominent figures to honor them. For example, Abū Yūsuf (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب)</xs:documentation>
+                              <xs:documentation>a teknonym beginning with Abū (أبو - father of) or Umm (أم - mather of). It may also have hypothetical or metaphorical references as a mark of distinction. For example, Abū Yūsuf (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب)</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="khitab">
@@ -6802,7 +6807,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
                         </xs:enumeration>
                         <xs:enumeration value="nisbah">
                            <xs:annotation>
-                              <xs:documentation>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician “Al-khawarizmī” refers to “Khuwarism”, name of a place located in Central Asia</xs:documentation>
+                              <xs:documentation>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician al-Khawarizmī refers to “Khuwarism”, the name of a place located in Central Asia</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                      </xs:restriction>
@@ -6821,12 +6826,12 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
                         </xs:enumeration>
                         <xs:enumeration value="civil">
                            <xs:annotation>
-                              <xs:documentation/>
+                              <xs:documentation>Indicates a civil rank within the bureaucracy</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="religious">
                            <xs:annotation>
-                              <xs:documentation/>
+                              <xs:documentation>Indicates a religious rank, such as Bishop or Muṭrān</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                      </xs:restriction>

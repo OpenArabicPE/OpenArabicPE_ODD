@@ -217,20 +217,23 @@
                                 <valItem ident="rank">
                                     <desc>indicates ranks within an administrative, military or religious hierarchy, such as <foreign xml:lang="ar-Latn-x-ijmes">farīq</foreign>, <foreign xml:lang="ota-Latn-x-ijmes">vālī</foreign>, Captain</desc>
                                 </valItem>
+                                <valItem ident="nickname">
+                                    <desc>a phrase someone is commonly referred to, such as "Owner of the newspaper xyz"</desc>
+                                </valItem>
                                 <!--<valItem ident="function">
                                     <desc></desc>
                                 </valItem>-->
-                                <valItem ident="patronym">
-                                    <desc>introduced by “Ibn” (<foreign xml:lang="ar">إبن</foreign> - son of)</desc>
+                                <valItem ident="nasab">
+                                    <desc>a <term>patronym</term> introduced by “Ibn” (<foreign xml:lang="ar">إبن</foreign> - son of)</desc>
                                 </valItem>
                                 <valItem ident="kunyah">
-                                    <desc>a mark of distinction applied to prominent figures to honor them. For example, <foreign xml:lang="ar-Latn-x-ijmes">Abū Yūsuf</foreign> (<foreign xml:lang="ar">أبو يوسف</foreign>) is often used for someone who is called <foreign xml:lang="ar-Latn-x-ijmes">Ya'qūb</foreign> (<foreign xml:lang="ar">يعقوب</foreign>) </desc>
+                                    <desc>a <term>teknonym</term> beginning with <foreign xml:lang="ar-Latn-x-ijmes">Abū</foreign> (<foreign xml:lang="ar">أبو</foreign> - father of) or <foreign xml:lang="ar-Latn-x-ijmes">Umm</foreign> (<foreign xml:lang="ar">أم</foreign> - mather of). It may also have hypothetical or metaphorical references as a mark of distinction. For example, <foreign xml:lang="ar-Latn-x-ijmes">Abū Yūsuf</foreign> (<foreign xml:lang="ar">أبو يوسف</foreign>) is often used for someone who is called <foreign xml:lang="ar-Latn-x-ijmes">Ya'qūb</foreign> (<foreign xml:lang="ar">يعقوب</foreign>) </desc>
                                 </valItem>
                                 <valItem ident="khitab">
                                     <desc>an honorific name, which is usually ended by the suffix <foreign xml:lang="ar-Latn-x-ijmes">al-Dīn</foreign> (<foreign xml:lang="ar">الدين</foreign>) </desc>
                                 </valItem>
                                 <valItem ident="nisbah">
-                                    <desc>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician “Al-khawarizmī” refers to “Khuwarism”, name of a place located in Central Asia</desc>
+                                    <desc>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician <foreign xml:lang="ar-Latn-x-ijmes">al-Khawarizmī</foreign> refers to “Khuwarism”, the name of a place located in Central Asia</desc>
                                 </valItem>
                             </valList>
                         </attDef>
@@ -240,10 +243,10 @@
                                     <desc>Indicates a military rank, such as Captain or <foreign xml:lang="ar-Latn-x-ijmes">Farīq</foreign></desc>
                                 </valItem>
                                 <valItem ident="civil">
-                                    <desc></desc>
+                                    <desc>Indicates a civil rank within the bureaucracy</desc>
                                 </valItem>
                                 <valItem ident="religious">
-                                    <desc></desc>
+                                    <desc>Indicates a religious rank, such as Bishop or <foreign xml:lang="ar-Latn-x-ijmes">Muṭrān</foreign></desc>
                                 </valItem>
                             </valList>
                         </attDef>
