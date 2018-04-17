@@ -108,7 +108,12 @@ The guiding principle is a faithful transcription of the printed edition. The or
         <corr resp="#xml:id-of-the-responsible-editor"></corr>
     </choice>
     ~~~
-- corrections: Corrections for any reason shall follow the above example of `<choice>`, `<orig>` and `<corr>`
+
+- corrections: 
+    + Corrections for any reason shall follow the above example of `<choice>`, `<orig>` and `<corr>`
+    + In numerous instances journals published corrections of printing errors. These could also be encoded with `<choice>`, `<orig>` and `<corr>`. 
+        * The `@resp` attribute on `<corr>` should point to the editor of the journal.
+        * The `@source` attribute on `<corr>` should point to the `<div>` containing the corrections. This might require adding `att.global.source`
 - additions and deletions: Additions and deletions are differences between the original print edition and the digital transcription. These are mainly due to errors by the transcribers at shamela.ws
 
     They are encoded with `<add>` and `<del>` both of which require the `@resp` attribute.
