@@ -28,14 +28,14 @@ Many articles include information on authors, editors or translators of the text
 1. In those cases were simple byline information is sufficient, we have added a `<byline>` and wrapped its content in `<supplied>` with `@resp` attribute pointing to the respondible editor.
 2. In more complexe cases with more detailed bibliographic information, such as, but not limited to, translators, editors, provinence, editions, `<byline>` is generally not suitable due to its limited content model. In these cases the following structure should be used:
 
-~~~{.xml}
+```xml
 <note type="inline">
     <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
     <supplied @resp="#xml:id of the editor">
         <bibl><!-- ... bibliographic information --></bibl>
     </supplied>
 </note>
-~~~
+```
 
 NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically. 
 
@@ -67,10 +67,10 @@ How to encode this?
 
 beyond
 
-~~~{.xml}
+```xml
 <head>حجاب المرأة في الإسلام</head>
 <p>تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله</p>
-~~~
+```
 
 Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
 
@@ -93,30 +93,6 @@ The structure is as follows
 In many cases foreign terms that have been transliterated into Arabic are followed by their Latin spelling. How should that be encoded?
 
 - In the case of names for places and persons, I propose to wrap each spelling in its own `<persName>` and to then group them into another `<persName>`:
-
-## documenting editorial changes
-
-The guiding principle is a faithful transcription of the printed edition. The original print edition has numerous obvious errors, particularly in the case of non-Arabic names and terms in Arabic script. In addition, the anonymous transcribers at shamela.ws made corrections and errors. These should be encoded with the appropriate editorial tags and `@resp="#org_MS`.
-
-- obvious errors:
-
-    Obvious errors shall not be encoded without explicitly providing a correction. In this case the character string as found in the printed edition shall be encoded as `<orig>` and NOT `<sic>` to simplify the mark-up.
-
-    ~~~{.}
-    <choice>
-        <orig></orig>
-        <corr resp="#xml:id-of-the-responsible-editor"></corr>
-    </choice>
-    ~~~
-
-- corrections: 
-    + Corrections for any reason shall follow the above example of `<choice>`, `<orig>` and `<corr>`
-    + In numerous instances journals published corrections of printing errors. These could also be encoded with `<choice>`, `<orig>` and `<corr>`. 
-        * The `@resp` attribute on `<corr>` should point to the editor of the journal.
-        * The `@source` attribute on `<corr>` should point to the `<div>` containing the corrections. This might require adding `att.global.source`
-- additions and deletions: Additions and deletions are differences between the original print edition and the digital transcription. These are mainly due to errors by the transcribers at shamela.ws
-
-    They are encoded with `<add>` and `<del>` both of which require the `@resp` attribute.
 
 
 # 2. changes to the schema
@@ -178,7 +154,7 @@ All information on the individual issue is part of the *monographic* level of bi
 
 Current structure of the `<biblStruct>` in `<sourceDesc>`:
 
-~~~{.xml}
+```xml
 <teiHeader>
 <!-- ... -->
 <biblStruct>
@@ -225,9 +201,9 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
 </biblStruct>
 <!-- ... -->
 </teiHeader>
-~~~
+```
 
-~~~{.xml}
+```xml
 <text>
     <front>
 <!-- ... -->
@@ -248,7 +224,7 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
 <!-- ... -->
     </front>
 </text>
-~~~
+```
 
 #### 3.1.1.3. publication dates
 
@@ -260,16 +236,16 @@ As noted somewhere [else](https://github.com/tillgrallert/digital-muqtabas/blob/
     - such dates then require a `@source` attribute pointing to the source for this information
     - a bibliography of sources is kept in [oclc_4770057679-master_bibliography.TEIP5.xml](oclc_4770057679-master_bibliography.TEIP5.xml) and the private URI scheme `bibl:` is dereferenced to point to `@xml:id`s in this file.
 
-~~~{.xml}
+```xml
 <date type="official" calendar="#cal_islamic" datingMethod="#cal_islamic" when="1910-03-13" when-custom="1328-03-01" xml:lang="ar-Latn-x-ijmes">1 Rab I 1328</date>
 <date type="supplied" notAfter="1910-09-13" notBefore="1910-09-06" source="bibl:biblStruct_1.d1e1263"/>
-~~~
+```
 
 ### 3.1.2. Languages: `@xml:lang`
 
 The use of language codes as values for `@xml:lang` follows [BCP 47](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) and specifies that the language code is to be followed by information on the script, if the latter is not the common script for this language, followed by information on the transcribing convention. Use of languages is declared in the `<langUsage>` descendant of the `<teiHeader>`:
 
-~~~{.xml}
+```xml
 <langUsage>
     <language ident="ar">Arabic</language>
     <language ident="ar-Latn-x-ijmes">Arabic transcribed into Latin script following the IJMES conventions</language>
@@ -285,18 +261,18 @@ The use of language codes as values for `@xml:lang` follows [BCP 47](http://www.
     <language ident="ota-Latn-x-ijmes">Ottoman transcribed into Latin script following the IJMES conventions</language>
     <language ident="tr">Turkish</language>
 </langUsage>
-~~~
+```
 
 These codes can then be referenced throughout the file by means of the `@xml:lang` pointing to them; e.g.
 
-~~~{.xml}
+```xml
 <title level="j" xml:lang="ar">المقتبس</title>
 <title level="j" type="sub" xml:lang="ar">مجلة تبحث في التربية والتعليم والاجتماع والاقتصاد والاداب والتاريخ والآثار واللغة و تدبير المنزل والصحة والكتب وحضارة العرب والغرب</title>
 <title level="j" type="sub" xml:lang="ar">تصدر في كل شهر عربي بدمشق</title>
 <title level="j" xml:lang="ar-Latn-x-ijmes">[Majallat] al-Muqtabas</title>
 <title level="j" type="sub" xml:lang="ar-Latn-x-ijmes">Majalla tabḥath fī al-tarbiyya wa-l-taʿlīm wa-l-ijtimāʿ wa-l-iqtiṣād wa-l-adab wa-l-tārīkh wa-l-āthār wa-l-llugha wa tadbīr al-manzil wa-l-ṣaḥḥa wa-l-kutub wa ḥaḍāra al-ʿarab wa ḥadāra al-gharb</title>
 <title level="j" type="sub" xml:lang="ar-Latn-x-ijmes">tuṣadir fī kull shar ʿarabī bi-Dimashq</title>
-~~~
+```
 
 A small XSLT ([Tei-GenerateXmlLang](xslt/Tei-GenerateXmlLang.xsl)) goes through the files and checks for every node if `@xml:lang` is present; if not, `@xml:lang` is generated based on the `@xml:lang` of the closest ancestor.
 
@@ -304,9 +280,9 @@ A small XSLT ([Tei-GenerateXmlLang](xslt/Tei-GenerateXmlLang.xsl)) goes through 
 
 Unfortunately, *al-maktaba al-shāmila* did NOT include these words, often technical terms in articles on science and medicine, in their transcription. These terms should be encoded as
 
-~~~{.xml}
+```xml
 <foreign xml:lang="fr">Physique</foreign>
-~~~
+```
 
 ### 3.1.3. URIs
 
@@ -338,7 +314,7 @@ Each issue is conceived of as a single `<text>` that is then grouped into volume
 
 Each periodical issue is conceived of as a single `<text>` with some bibliographic metadata (issue number, publication dates) that is commonly found in mastheads grouped in a `<front>` child. The content of the periodical issue is grouped into various `<div>`s (divisions) inside the `<body>`:
 
-~~~{.xml}
+```xml
 <text type="issue">
     <front>
     <!-- some bibliographic data commonly found in the masthead -->
@@ -359,7 +335,7 @@ Each periodical issue is conceived of as a single `<text>` with some bibliograph
         </div>
     </body>
 </text>
-~~~
+```
 
 The bibliographic meta-data in the `<front>` is not necessarily found in the issue itself, since, according to Seikaly, issues carried no date whatsoever after Ramadan 1327 / September 1909.^["*al-Muqtabas* appeared regularly at the beginning of every Arab month only when it was published in Cairo (between *Muharram* 1324 / Februrary 1906 and *Dhul-hijja* 1909). When it was removed to Damascus and because of frequent official harassment, it appeared irregularly and somewhat haphazardly. Although after 1909, as indeed before it, each volume contained twelve numbers, nevertheless publication of each separate issue did not necessarily occur on time at the start of every month of the Muslim calendar. Indeed the last issue to which a specific month was affixed was *Ramadan* 1327 / September 1909. After that Kurd 'Ali merely numbered his journal by year, volume and issue. Because of this feature reference to *al-Muqtabas* in this study will throughout follow its owner's method of enumeration." {Seikaly 1981@126}] Unfortunately Seikaly's statement is caused by the absence of the cover sheets from most surviving copies and collections of *al-Muqtabas*. The copy of volume 4 from the holdings of OIB show that the cover sheet / wrapper still carried a date after Ramadan 1327: issue 12 was published for Dhū al-Ḥujja 1327 
 
@@ -396,7 +372,7 @@ Sections and articles are commonly introduced by a clearly distinguishable headi
 
 See for example [i_50](xml/oclc_4770057679-i_50.TEIP5.xml#div_5.d1e2312):
 
-~~~{.xml}
+```xml
 <div type="article">
     <head>الاتكال الشرقي</head>
     <head type="sub">نصيحة غربي</head>
@@ -404,7 +380,7 @@ See for example [i_50](xml/oclc_4770057679-i_50.TEIP5.xml#div_5.d1e2312):
         <!-- -->
     </p>
 </div>
-~~~
+```
 
 Beware that what looks like a sub heading, might also be a section heading introducing a sub section of an article.
 
@@ -468,7 +444,7 @@ Encoding of tables follows the standard encoding as `<table>`.
 
 Many articles contain *qaṣīda*s with the characteristic printing of the two *bayt*s on each line as two columns. After some talk with Mathew Miller from the Persian Digital Library and their TEI files of Persian poetry, I decided to follow their encoding of *bayt* as `<l type="bayt">` with two `<seg>` children. Successive lines are then wrapped in `<lg>`:
 
-~~~ {.xml}
+```xml
 <lg>
     <l type="bayt">
         <seg>أبرموا أمرهم عشاء فلما </seg> <seg>أصبحوا أصبحت لهم ضوضاء</seg>
@@ -477,7 +453,7 @@ Many articles contain *qaṣīda*s with the characteristic printing of the two *
         <seg>من منادٍ ومن مجيبٍ ومن تص</seg><seg>هالٍ خليل خلال ذاك رغاء</seg>
     </l>
 </lg>
-~~~
+```
 
 
 There are cases when words are split between the two lines of the *qaṣīda*:
@@ -486,7 +462,7 @@ There are cases when words are split between the two lines of the *qaṣīda*:
 
 How should this be encoded?
 
-~~~ {.xml}
+```xml
 <l type="bayt">
     <seg>أبرموا أمرهم عشاء فلما </seg>
     <seg> أصبحوا أصبحت لهم ضوضاء</seg>
@@ -495,7 +471,7 @@ How should this be encoded?
     <seg>من منادٍ ومن مجيبٍ ومن تص</seg>
     <seg>هالٍ خليل خلال ذاك رغاء</seg>
 </l>
-~~~
+```
 
 #### 3.2.5.1. Verse: 3 columns
 
@@ -504,15 +480,11 @@ In rare cases we find lines of poetry that are formatted in three colums of text
 ![example from *Muqtabas* 1(2)](images/oclc_4770057679-v_1/umn-319510029968608-img_097.jpg)
 
 
-
-
-
-
 ## 3.4. Facsimiles
 
 Digital facsimiles of individual pages, either local or online, are linked through the `<facsimile>` child of `<TEI>`:
 
-~~~{.xml}
+```xml
 <facsimile>
     <surface xml:id="facs_445">
         <graphic xml:id="facs_445-g_1" url="../images/oclc-4770057679_v6/njp-32101073250910_img-445.tif" mimeType="image/tiff"/>
@@ -521,7 +493,7 @@ Digital facsimiles of individual pages, either local or online, are linked throu
         <graphic xml:id="facs_445-g_4" url="http://eap.bl.uk/EAPDigitalItems/EAP119/EAP119_1_4_5-EAP119_muq191108_441_L.jpg" mimeType="image/jpeg"/>
     </surface>
 </facsimile>
-~~~
+```
 
 - The `@url` of `<graphic>` links to local downloads of the image as well as to the image hosted on HathiTrust's servers
 
@@ -571,9 +543,9 @@ Image files are available from the [*al-Aqṣā* Mosque's library in Jerusalem t
 
 For the moment I would settle for the following pattern: 
 
-~~~ {.xml}
+```xml
 Imagine, someone bought <measureGrp><measure commodity="wheat" quantity="2" unit="kile">two kile of wheat</measure> at the price of <measure commodity="currency" quantity="3" unit="ops">Ps 3</measure></measureGrp>.
-~~~
+```
 
 - for **prices**, I suggest using `@commodity="currency"`. 
     + The `@unit` then follows standard three-letter shorthand for currencies. 
@@ -605,7 +577,7 @@ A second XSLT stylesheet ([`Tei-MarkupNumerals-Correction`](xslt/Tei-MarkupNumer
 
 Any file might contain a personography etc. in the `<profileDesc>` inside the `<teiHeader>`. The following is the template for records of persons:
 
-~~~{.}
+```xml
 <person xml:id="">
     <!-- more than one persName in any language -->
     <persName xml:lang="ar"></persName>
@@ -616,7 +588,7 @@ Any file might contain a personography etc. in the `<profileDesc>` inside the `<
     <idno type="viaf"></idno>
     <event when="" notBefore="" notAfter=""></event>
 </person>
-~~~
+```
 
 
 
@@ -630,9 +602,9 @@ All references to places with an explicit name (toponyms) including geographic n
 
 - examples:
 
-~~~{.xml}
+```xml
 أجمع الجغرافيون من العرب والإفرنج أن حد الشام من عريش مصر إلى <placeName xml:id="placeName_1.d1e1343">الفرات</placeName> ومن البحر الرومي إلى جبال طي ولكن مما يشوش الذهن أن جميع أعمال <placeName xml:id="placeName_5.d1e1346">حلب</placeName> اليوم هل هي داخلة حدود سورية أم بعضها خارج عنها يعد من آسيا الصغرى فقد قال بوليه في معجمه الجغرافي التاريخي أن حد سورية شمالاً إلى آسيا الصغرى من خليج <placeName xml:id="placeName_6.d1e1349">اسكندرونة</placeName> إلى <placeName xml:id="placeName_2.d1e1352">نهر <placeName xml:id="placeName_2.d1e1354">الفرات</placeName></placeName> وشرقاً <placeName xml:id="placeName_4.d1e1357">نهر <placeName xml:id="placeName_4.d1e1359">الفرات</placeName></placeName> والبادية إلى بلاد العرب وجنوباً قسم من العربية 
-~~~
+```
 
 
 - Many of the large cities have epithets:
@@ -657,12 +629,35 @@ There are two attributes that specify the dating system used in an element:
 4. `@calendar="#cal_ottomanfiscal"`
 5. `@calendar="#cal_coptic"`
 
+## 3.6 Documentation of editorial changes
+
+The guiding principle is a faithful transcription of the printed edition. The original print edition has numerous obvious errors, particularly in the case of non-Arabic names and terms in Arabic script. In addition, the anonymous transcribers at shamela.ws made corrections and errors. These should be encoded with the appropriate editorial tags and `@resp="#org_MS`.
+
+- obvious errors:
+
+    Obvious errors shall not be encoded without explicitly providing a correction. In this case the character string as found in the printed edition shall be encoded as `<orig>` and NOT `<sic>` to simplify the mark-up.
+
+    ```xml
+    <choice>
+        <orig></orig>
+        <corr resp="#xml:id-of-the-responsible-editor"></corr>
+    </choice>
+    ```
+
+- corrections: 
+    + Corrections for any reason shall follow the above example of `<choice>`, `<orig>` and `<corr>`
+    + In numerous instances journals published corrections of printing errors. These could also be encoded with `<choice>`, `<orig>` and `<corr>`. 
+        * The `@resp` attribute on `<corr>` should point to the editor of the journal.
+        * The `@source` attribute on `<corr>` should point to the `<div>` containing the corrections. This might require adding `att.global.source`
+- additions and deletions: Additions and deletions are differences between the original print edition and the digital transcription. These are mainly due to errors by the transcribers at shamela.ws
+
+    They are encoded with `<add>` and `<del>` both of which require the `@resp` attribute.
 
 ## references to internal or external URIs
 
 The TEI provides a means to employ private URIs as values of all attributes that belong to att.canonical which are then dereferenced by means of a `<prefixDef>`:
 
-~~~{.xml}
+```xml
 <listPrefixDef>
     <prefixDef ident="oclc"
         matchPattern="(\d+?)"
@@ -675,13 +670,13 @@ The TEI provides a means to employ private URIs as values of all attributes that
         <p>Private URIs using the <code>viaf</code> prefix are pointers to entities in the Virtual International Authority File (VIAF). For example, <code>viaf:32272677</code> dereferences to <code>https://viaf.org/32272677</code>.</p>
     </prefixDef>
 </listPrefixDef>
-~~~
+```
 
 The private URIs can then be used as values of `@ref`, `@corresp` etc. In the context of OpenArabicPE, references to external authority files are encoded with `@ref`, i.e. 
 
-~~~{.xml}
+```xml
 (مجلة <title level="j" ref="oclc:644997575">الحقائق</title>)
-~~~
+```
 
 
 ## references to intellectual works
@@ -702,13 +697,13 @@ Almost all issues of *Muqtabas* contain review sections titled "مخطوطات �
 
 Often times a full bibliographic reference is given in the title of the review article:
 
-~~~{.xml}
+```xml
 <div type="article">
     <head>
         <bibl><title level="m">الجوهر المحبوك في نظم السلوك</title> <author>لسيد علاء الدين علي الملقب بعلوان الحسيني الحموي</author></bibl>
     </head>
 </div>
-~~~
+```
 
 Whenever it is possible to point to an external resource, use `@corresp` to do so.
 
@@ -720,17 +715,17 @@ Use `@ref` to point to some authority file that provides more information on tha
 
 References to titles of intellectual works, such as books, periodicals etc., could be encoded with `<title>` using the `@level` attribute for some granularity. Note that references to titles should be conceived as references to abstract intellectual works and not individual editions or copies of that work (which should be encoded as `<bibl>`.
 
-~~~{.xml}
+```xml
 حتى بلغ المطبوع منها مليون نسخة وأصبحت اليوم تطبع مليوناً ومائتي ألف نسخة في حين تطبع <title level="j">التيمس</title> 55 ألفاً فقط و<title level="j">الديلي اكسبرس</title> 700 ألف و<title level="j">الديلي تلغراف</title> 350 ألفاً والديلي نيوز 300 ألف والمورنن ليدر 350 والستاندارد 120 ألفاً
-~~~
+```
 
 Whenever it is possible to point to an external resource, use `@corresp` to do so.
 
 Use `@ref` to point to some authority file:
 
-~~~{.}
+```xml
 <p xml:id="p_153.d1e3706" xml:lang="ar"><bibl xml:id="bibl_4.d1e4520" xml:lang="ar">كتب <num xml:lang="ar" type="auto-markup" subtype="d1" resp="#pers_TG" value="1" xml:id="num_116.d1e4502">أحد</num> الباحثين في <title level="j" ref="oclc:472961924" xml:id="title_12.d1e4505" xml:lang="ar">المجلة</title> الباريزية بحثاً في النوم</bibl> وما ينبغي للإنسان منه حتى تجود صحته فقال أن النوم هو <num xml:lang="ar" type="auto-markup" subtype="d1" resp="#pers_TG" value="1" xml:id="num_117.d1e4508">أحد</num> نواميس الكون وجميع البشر على اختلاف في أعمارهم خاضعون له وأن الرجل العادي يموت من قلة الهواء في <num xml:lang="ar" type="auto-markup" subtype="d1" resp="#pers_TG" value="5" xml:id="num_118.d1e4511">خمس</num> دقائق ومن قلة الماء في أسبوع ومن قلة النوم</p>
-~~~
+```
 
 ### 4. encoding with `<rs>`
 
@@ -765,7 +760,7 @@ Or a list like that:
 >(٥) - الفلسفة العضوية (Physique organique)
 >(٦) - الفلسفة الاجتماعية (Physique sociale)
 
-~~~{.xml}
+```xml
 <list xml:lang="ar">
     <item xml:lang="ar"><label>( <tei:num value="1" xml:lang="ar">١</tei:num>
             )</label> - الرياضيات (<foreign xml:lang="fr"
@@ -786,7 +781,7 @@ Or a list like that:
             )</label> - الفلسفة الاجتماعية (<foreign xml:lang="fr">Physique
             sociale</foreign>)</item>
 </list>
-~~~
+```
 
 Or this 
 
