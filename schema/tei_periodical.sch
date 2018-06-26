@@ -7,9 +7,10 @@
         <sch:rule context="tei:death" role="warning">
             <sch:let name="v_date-death" value="@when"/>
             <sch:let name="v_date-birth" value="preceding-sibling::tei:birth/@when"/>
+            <sch:assert test="@when">This should be dated with a @when attribute.</sch:assert>
             <sch:assert test="if(string-length($v_date-death) = 10 and string-length($v_date-birth) = 10) then(xs:date($v_date-death) gt xs:date($v_date-birth)) else(number(substring($v_date-death,1,4)) gt number(substring($v_date-birth,1,4)))">A person born on or in <sch:value-of select="$v_date-birth"/> cannot have died on or in <sch:value-of select="$v_date-death"/>.</sch:assert>
         </sch:rule>
-        <sch:rule context="tei:death | tei:birth" role="warning">
+        <sch:rule context="tei:birth" role="warning">
             <sch:assert test="@when">This should be dated with a @when attribute.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -34,6 +35,12 @@
             <sch:let name="v_id" value="@xml:id"/>
             <sch:let name="v_self" value="normalize-space(string())"/>
             <sch:report test="count(ancestor::tei:profileDesc/descendant::tei:persName[not(@type='flattened')][normalize-space(string()) = $v_self]) gt 1">The <sch:name/> <sch:value-of select="$v_self"/> already exists in this file.</sch:report>
+        </sch:rule>
+    </sch:pattern>
+    <!-- test for requires @subtype attributes -->
+    <sch:pattern>
+        <sch:rule context="tei:roleName[@type='rank']" role="error">
+            <sch:assert test="@subtype">The rank needs to be further identified through the @subtype attribute.</sch:assert>
         </sch:rule>
     </sch:pattern>
 </sch:schema>
