@@ -590,11 +590,87 @@ Any file might contain a personography etc. in the `<profileDesc>` inside the `<
 </person>
 ```
 
-
-
 #### 3.5.3.1. Persons:`<persName>`
 
 How to encode this string: "حسين كاظم بك والي حلب الحالي" ? Should the information on his position be included in the `<persName>`?
+
+The canonical scheme of `<surname>` and `<forename>` is insufficient to markup the components of personal names in pre-modern and/or non-Western contexts: How should we mark up the following names?
+
+- حضرة صاحب الدولة المشير عبد الله باشا
+- جناب رفعتلو فريد افندي كركبي
+- حضرة سعادتلو احمد برهان الدين بك افندي
+- جناب عزتلو صبحي بك ابو النصر
+- جزائري زاده الامير علي باشا ابن عبد القادر افندي الحسني
+
+
+[Soulah and Hassoun 2012](http://jtei.revues.org/398) propose to use available elements `<surname>`, `<forename>`, and `<addName>` with a controlled vocabulary of `@type` and `@subtype` attributes.
+
+- `<surname>`: to encode the *laqab* evoking a real or assigned quality
+- `<forename>`: for the *ism*
+- `<addName>` with `@type` 
+    + "nasab": a patronym introduced by "ibn" or "ibnat"
+    + "kunyah": a teknonym / mark of distinction applied to prominent figures to honor them. For example, “Abū Yūsuf” is often used for someone called Yaʿqūb
+    + "khitab": an honorific name, which is usually ended by the suffix al-Dīn
+    + "nisbah": an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person.
+
+Late Ottoman contexts necessitate further amendments to this scheme to account for titles and honorific addresses. Version 1 of the ODD therefore uses additional values to the `@type` attribute of `<addName>`
+
+- "title": covering the wide range of Ottoman titles, e.g. Pasha, Bey, Efendi
+- "honorific": for the highly regularised honorific addresses and salutations, e.g. rif'etli, saadetli, utufetli, lizetli, devletli. This also includes equivalents of Mr., Ms. etc.
+- "rank": indicates ranks within an administrative, military or religious hierarchy
+    - `@type='rank'` can carry the `@subtype` attribute with the following values
+        + military
+        + civil
+        + religious
+
+Following this proposal 
+
+```xml
+<persName xml:lang="ar"> جزائري زاده الامير علي باشا ابن عبد القادر افندي الحسني</persName>
+```
+
+could be marked up as
+
+```xml
+<persName xml:lang="ar">
+    <addName type="nisbah">جزائري</addName>
+    <addName type="honorific" xml:lang="ota">زاده</addName>
+    <addName type="title">الامير</addName>
+    <forename>علي</forename>
+    <addName type="title" subtype="civil" xml:lang="ota">باشا</addName>
+    <addName type="nasab">ابن 
+        <forename>عبد القادر</forename> 
+        <addName type="title" subtype="civil" xml:lang="ota">افندي</addName>
+    </addName>
+    <surname type="laqab">الحسني</surname>
+</persName>
+```
+
+[**Important note for version 2**]: after further study of the guidelines, I propose to shift some of the mark-up from `<addName>` to `<roleName>`. This covers all of the use cases of `<addName type="title">`. The examples from the Guidelines are the following:
+
+- nobility: An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.
+- honorific: An academic or other honorific prefixed to a name e.g. Doctor, Professor, Mrs., etc.
+- office: Membership of some elected or appointed organization such as President, Governor, etc.
+- military: Military rank such as Colonel.
+- epithet: A traditional descriptive phrase or nick-name such as The Hammer, The Great, etc.
+
+Thus, the above example would be encoded as follows:
+
+```xml
+<persName xml:lang="ar">
+    <addName type="nisbah">جزائري</addName>
+    <roleName type="honorific" xml:lang="ota">زاده</roleName>
+    <roleName type="nobility">الامير</roleName>
+    <forename>علي</forename>
+    <roleName type="title" xml:lang="ota">باشا</roleName>
+    <addName type="nasab">ابن 
+        <forename>عبد القادر</forename> 
+        <roleName type="title" xml:lang="ota">افندي</roleName>
+    </addName>
+    <surname>الحسني</surname>
+</persName>
+```
+
 
 #### 3.5.3.2. Places: `<placeName>`
 
