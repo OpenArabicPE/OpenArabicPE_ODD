@@ -3,6 +3,8 @@
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
    <sch:title>OpenArabicPE: schematron rules for Arabic periodicals and supporting material</sch:title>
     <sch:ns uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+    <sch:let name="v_id" value="@xml:id"/>
+    
     <sch:pattern>
         <sch:rule context="tei:death" role="warning">
             <sch:let name="v_date-death" value="@when"/>
@@ -32,9 +34,13 @@
     <!-- test if there is already a <person> with the same <persName> -->
     <sch:pattern>
         <sch:rule context="tei:person/tei:persName" role="warn">
-            <sch:let name="v_id" value="@xml:id"/>
             <sch:let name="v_self" value="normalize-space(string())"/>
+            <sch:let name="v_id-parent" value="parent::tei:person/@xml:id"/>
+            <!-- check if the name is already present in this file -->
             <sch:report test="count(ancestor::tei:profileDesc/descendant::tei:persName[not(@type='flattened')][normalize-space(string()) = $v_self]) gt 1">The <sch:name/> <sch:value-of select="$v_self"/> already exists in this file.</sch:report>
+            <!-- test if there is another person with the same name -->
+            <!--<sch:report test="ancestor::tei:particDesc/descendant::tei:person[not(@xml:id = $v_id-parent)]/tei:persName[normalize-space(string()) = $v_self]">There is another person (<sch:value-of select="ancestor::tei:particDesc/descendant::tei:person[not(@xml:id = $v_id-parent)][tei:persName[normalize-space(string()) = $v_self]]/@xml:id"/>) with the <sch:name/> <sch:value-of select="$v_self"/> in this file.</sch:report>-->
+            <sch:report test="preceding::tei:person[not(@xml:id = $v_id-parent)]/tei:persName[normalize-space(string()) = $v_self]">There is another person (<sch:value-of select="preceding::tei:person[not(@xml:id = $v_id-parent)][tei:persName[normalize-space(string()) = $v_self]]/@xml:id"/>) with the <sch:name/> <sch:value-of select="$v_self"/> at an earlier point in this file.</sch:report>
         </sch:rule>
     </sch:pattern>
     <!-- test for requires @subtype attributes -->
