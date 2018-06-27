@@ -16,12 +16,52 @@
         </xsl:copy>
     </xsl:template>
     
+    <!-- fix position of <idno> in <biblStruct>: should come directly after <title> in <monogr>  -->
+    <xsl:template match="tei:monogr">
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+            <!-- document changes -->
+                    <xsl:choose>
+                        <xsl:when test="not(@change)">
+                            <xsl:attribute name="change" select="concat('#', $p_id-change)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates mode="m_documentation" select="@change"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+            <xsl:apply-templates select="tei:title"/>
+            <xsl:apply-templates select="parent::tei:biblStruct/tei:idno" mode="m_documentation"/>
+            <xsl:apply-templates select="tei:author"/>
+            <xsl:apply-templates select="tei:editor"/>
+            <xsl:apply-templates select="tei:imprint"/>
+            <xsl:apply-templates select="tei:biblScope"/>
+        </xsl:copy>
+    </xsl:template>
+    <xsl:template match="tei:biblStruct/tei:idno"/>
+    <xsl:template match="tei:biblStruct">
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+            <!-- document changes -->
+                    <xsl:choose>
+                        <xsl:when test="not(@change)">
+                            <xsl:attribute name="change" select="concat('#', $p_id-change)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates mode="m_documentation" select="@change"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+            <xsl:apply-templates select="node()"/>
+        </xsl:copy>
+    </xsl:template>
+    
+    
     <!-- map div types -->
     <xsl:template match="tei:div[@type = ('article', 'bill', 'masthead', 'letter', 'advert')]">
         <xsl:copy>
             <!-- replicate attributes  -->
             <xsl:apply-templates select="@*"/>
             <xsl:attribute name="type" select="'item'"/>
+            <!-- there might be a better way of classifying the genre of a div -->
             <xsl:attribute name="subtype" select="@type"/>
             <!-- document changes -->
                     <xsl:choose>
