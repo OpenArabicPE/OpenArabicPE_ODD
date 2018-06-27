@@ -17,7 +17,7 @@
     </xsl:template>
     
     <!-- fix position of <idno> in <biblStruct>: should come directly after <title> in <monogr>  -->
-    <xsl:template match="tei:monogr">
+    <xsl:template match="tei:monogr[parent::tei:biblStruct/tei:idno]">
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             <!-- document changes -->
@@ -30,7 +30,9 @@
                         </xsl:otherwise>
                     </xsl:choose>
             <xsl:apply-templates select="tei:title"/>
+            <!-- move now faulty idnos from the parent biblStruct -->
             <xsl:apply-templates select="parent::tei:biblStruct/tei:idno" mode="m_documentation"/>
+            <xsl:apply-templates select="tei:idno"/>
             <xsl:apply-templates select="tei:author"/>
             <xsl:apply-templates select="tei:editor"/>
             <xsl:apply-templates select="tei:imprint"/>
@@ -38,7 +40,7 @@
         </xsl:copy>
     </xsl:template>
     <xsl:template match="tei:biblStruct/tei:idno"/>
-    <xsl:template match="tei:biblStruct">
+    <xsl:template match="tei:biblStruct[tei:idno]">
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             <!-- document changes -->
@@ -53,7 +55,6 @@
             <xsl:apply-templates select="node()"/>
         </xsl:copy>
     </xsl:template>
-    
     
     <!-- map div types -->
     <xsl:template match="tei:div[@type = ('article', 'bill', 'masthead', 'letter', 'advert')]">
