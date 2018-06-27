@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2018-01-17T10:06:50Z. .
+Schema generated from ODD source 2018-06-27T14:27:14Z. .
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -2074,8 +2074,6 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="OpenArabicPE_occupation"/>
          <ref name="OpenArabicPE_persona"/>
          <ref name="OpenArabicPE_residence"/>
-         <ref name="OpenArabicPE_sex"/>
-         <ref name="OpenArabicPE_socecStatus"/>
          <ref name="OpenArabicPE_state"/>
          <ref name="OpenArabicPE_trait"/>
       </choice>
@@ -2511,6 +2509,12 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="OpenArabicPE_distributor"/>
       </choice>
    </define>
+   <define name="OpenArabicPE_model.settingPart">
+      <choice>
+         <ref name="OpenArabicPE_locale"/>
+         <ref name="OpenArabicPE_activity"/>
+      </choice>
+   </define>
    <define name="OpenArabicPE_model.addressLike">
       <choice>
          <ref name="OpenArabicPE_affiliation"/>
@@ -2749,6 +2753,8 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="OpenArabicPE_langUsage"/>
          <ref name="OpenArabicPE_calendarDesc"/>
          <ref name="OpenArabicPE_correspDesc"/>
+         <ref name="OpenArabicPE_particDesc"/>
+         <ref name="OpenArabicPE_settingDesc"/>
       </choice>
    </define>
    <define name="OpenArabicPE_model.correspActionPart">
@@ -6642,7 +6648,36 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.personal.attributes"/>
-         <ref name="OpenArabicPE_att.typed.attributes"/>
+         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                    name="type"
+                    a:defaultValue="title">
+            <a:documentation>characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
+            <choice>
+               <value>title</value>
+               <a:documentation>Formal titles, such as "Bey", "Pasha" etc.</a:documentation>
+               <value>honorific</value>
+               <a:documentation>Honorific addresses or titles, such as Miss, Shaykh, zade</a:documentation>
+               <value>nobility</value>
+               <a:documentation>An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.</a:documentation>
+               <value>rank</value>
+               <a:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq, vālī, Captain</a:documentation>
+               <value>epithet</value>
+               <a:documentation>a phrase someone is commonly referred to (nick-name), such as "Owner of the newspaper xyz"</a:documentation>
+            </choice>
+         </attribute>
+         <optional>
+            <attribute name="subtype">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides a sub-categorization of the element, if needed</a:documentation>
+               <choice>
+                  <value>military</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates a military rank, such as Captain or Farīq</a:documentation>
+                  <value>civil</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates a civil rank within the bureaucracy</a:documentation>
+                  <value>religious</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates a religious rank, such as Bishop or Muṭrān</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
@@ -7655,69 +7690,6 @@ Sample values include: 1] primary; 2] secondary; 3] temporary; 4] permanent</a:d
          <empty/>
       </element>
    </define>
-   <define name="OpenArabicPE_sex">
-      <element name="sex">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the sex of a person. [13.3.2.1. Personal Characteristics]</a:documentation>
-         <ref name="OpenArabicPE_macro.phraseSeq"/>
-         <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.datable.attributes"/>
-         <ref name="OpenArabicPE_att.typed.attribute.subtype"/>
-         <optional>
-            <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.
-Sample values include: 1] explicit; 2] implicit</a:documentation>
-               <data type="token">
-                  <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-               </data>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="value">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a coded value for sex</a:documentation>
-               <list>
-                  <oneOrMore>
-                     <data type="token">
-                        <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-                     </data>
-                  </oneOrMore>
-               </list>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="OpenArabicPE_socecStatus">
-      <element name="socecStatus">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(socio-economic status) contains an informal description of a person's perceived social or economic status. [15.2.2. The Participant Description]</a:documentation>
-         <ref name="OpenArabicPE_macro.phraseSeq"/>
-         <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.datable.attributes"/>
-         <ref name="OpenArabicPE_att.naming.attributes"/>
-         <ref name="OpenArabicPE_att.typed.attribute.subtype"/>
-         <optional>
-            <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.
-Sample values include: 1] atBirth; 2] atDeath; 3] dependent; 4] inherited; 5] independent</a:documentation>
-               <data type="token">
-                  <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-               </data>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="scheme">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies the classification system or taxonomy in use, for example by pointing to a locally-defined taxonomy element or by supplying a URI for an externally-defined system.</a:documentation>
-               <data type="anyURI"/>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="code">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies a status code defined within the classification system or taxonomy defined by the scheme attribute.</a:documentation>
-               <data type="anyURI"/>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
    <define name="OpenArabicPE_state">
       <element name="state">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a description of some status or quality attributed to a person, place, or organization often at some specific time or for a specific date range. [13.3.1. Basic Principles 13.3.2.1. Personal Characteristics]</a:documentation>
@@ -8534,6 +8506,94 @@ Sample values include: 1] header; 2] footer; 3] pageNum(page number) ; 4] lineNu
                </list>
             </attribute>
          </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="OpenArabicPE_particDesc">
+      <element name="particDesc">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(participation description) describes the identifiable speakers, voices, or other participants in any kind of text or other persons named or otherwise referred to in a text, edition, or metadata. [15.2. Contextual Information]</a:documentation>
+         <choice>
+            
+                <oneOrMore>
+               <ref name="OpenArabicPE_model.pLike"/>
+            </oneOrMore>
+            
+            
+                <oneOrMore>
+               <choice>
+                    <ref name="OpenArabicPE_model.personLike"/>
+                    <ref name="OpenArabicPE_listPerson"/>
+                    <ref name="OpenArabicPE_listOrg"/>
+                </choice>
+            </oneOrMore>
+            
+        </choice>
+         <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.declarable.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="OpenArabicPE_settingDesc">
+      <element name="settingDesc">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(setting description) describes the setting or settings within which a language interaction takes place, or other places otherwise referred to in a text, edition, or metadata. [15.2. Contextual Information 2.4. The Profile Description]</a:documentation>
+         <choice>
+            
+                <oneOrMore>
+               <ref name="OpenArabicPE_model.pLike"/>
+            </oneOrMore>
+            
+            
+                <oneOrMore>
+               <choice>
+                    <ref name="OpenArabicPE_setting"/>
+                    <ref name="OpenArabicPE_model.placeLike"/>
+                    <ref name="OpenArabicPE_listPlace"/>
+                </choice>
+            </oneOrMore>
+            
+        </choice>
+         <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.declarable.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="OpenArabicPE_setting">
+      <element name="setting">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">describes one particular setting in which a language interaction takes place. [15.2.3. The Setting Description]</a:documentation>
+         <choice>
+      
+            <oneOrMore>
+               <ref name="OpenArabicPE_model.pLike"/>
+            </oneOrMore>
+      
+      
+            <zeroOrMore>
+               <choice>
+                  <ref name="OpenArabicPE_model.nameLike.agent"/>
+                  <ref name="OpenArabicPE_model.dateLike"/>
+                  <ref name="OpenArabicPE_model.settingPart"/>
+               </choice>
+            </zeroOrMore>
+      
+         </choice>
+         <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.ascribed.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="OpenArabicPE_locale">
+      <element name="locale">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a brief informal description of the kind of place concerned, for example: a room, a restaurant, a park bench, etc. [15.2.3. The Setting Description]</a:documentation>
+         <ref name="OpenArabicPE_macro.phraseSeq.limited"/>
+         <ref name="OpenArabicPE_att.global.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="OpenArabicPE_activity">
+      <element name="activity">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a brief informal description of what a participant in a language interaction is doing other than speaking, if anything. [15.2.3. The Setting Description]</a:documentation>
+         <ref name="OpenArabicPE_macro.phraseSeq.limited"/>
+         <ref name="OpenArabicPE_att.global.attributes"/>
          <empty/>
       </element>
    </define>
