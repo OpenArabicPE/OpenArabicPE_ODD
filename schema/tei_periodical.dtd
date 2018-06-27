@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2018-06-27T15:04:16Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2018-06-27T19:32:39Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -21,8 +21,6 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
 
 <!ENTITY % teidata.duration.iso ' CDATA ' >
 
-<!ENTITY % teidata.temporal.iso ' CDATA ' >
-
 <!ENTITY % teidata.duration.w3c ' CDATA ' >
 
 <!ENTITY % teidata.truthValue ' CDATA ' >
@@ -33,11 +31,7 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
 
 <!ENTITY % teidata.namespace ' CDATA ' >
 
-<!ENTITY % teidata.outputMeasurement ' CDATA ' >
-
 <!ENTITY % teidata.pattern ' CDATA ' >
-
-<!ENTITY % teidata.point ' CDATA ' >
 
 <!ENTITY % teidata.pointer ' CDATA ' >
 
@@ -85,10 +79,6 @@ rendition CDATA  #IMPLIED'>
  %OpenArabicPE_att.global.rendition.attribute.rend;
  %OpenArabicPE_att.global.rendition.attribute.style;
  %OpenArabicPE_att.global.rendition.attribute.rendition;'> 
-<!ENTITY % OpenArabicPE_att.global.source.attribute.source '
-source CDATA  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.global.source.attributes '
- %OpenArabicPE_att.global.source.attribute.source;'> 
 <!ENTITY % model.entryPart ""> 
 <!ENTITY % model.entryPart_sequence ""> 
 <!ENTITY % model.entryPart_sequenceOptional ""> 
@@ -148,26 +138,6 @@ datingMethod %teidata.pointer;  #IMPLIED'>
 <!ENTITY % model.persNamePart_sequenceOptional "surname?, forename?, genName?, nameLink?, addName?, roleName?"> 
 <!ENTITY % model.persNamePart_sequenceOptionalRepeatable "surname*, forename*, genName*, nameLink*, addName*, roleName*"> 
 <!ENTITY % model.persNamePart_sequenceRepeatable "surname+, forename+, genName+, nameLink+, addName+, roleName+"> 
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.when-iso '
-when-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.notBefore-iso '
-notBefore-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.notAfter-iso '
-notAfter-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.from-iso '
-from-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.to-iso '
-to-iso %teidata.temporal.iso;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.datable.iso.attributes '
- %OpenArabicPE_att.datable.iso.attribute.when-iso;
- %OpenArabicPE_att.datable.iso.attribute.notBefore-iso;
- %OpenArabicPE_att.datable.iso.attribute.notAfter-iso;
- %OpenArabicPE_att.datable.iso.attribute.from-iso;
- %OpenArabicPE_att.datable.iso.attribute.to-iso;'> 
 <!ENTITY % OpenArabicPE_att.global.linking.attribute.corresp '
 corresp CDATA  #IMPLIED'>
 
@@ -198,14 +168,6 @@ who CDATA  #IMPLIED'>
 ref CDATA  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.canonical.attributes '
  %OpenArabicPE_att.canonical.attribute.ref;'> 
-<!ENTITY % OpenArabicPE_att.written.attribute.hand '
-hand %teidata.pointer;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.written.attributes '
- %OpenArabicPE_att.written.attribute.hand;'> 
-<!ENTITY % OpenArabicPE_att.breaking.attribute.break '
-break %teidata.enumerated;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.breaking.attributes '
- %OpenArabicPE_att.breaking.attribute.break;'> 
 <!ENTITY % OpenArabicPE_att.cReferencing.attribute.cRef '
 cRef %teidata.text;  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.cReferencing.attributes '
@@ -232,24 +194,8 @@ to %teidata.temporal.w3c;  #IMPLIED'>
  %OpenArabicPE_att.datable.w3c.attribute.to;'> 
 <!ENTITY % OpenArabicPE_att.datable.attribute.calendar '
 calendar %teidata.pointer;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.datable.attributes '%OpenArabicPE_att.datable.w3c.attributes;%OpenArabicPE_att.datable.iso.attributes;%OpenArabicPE_att.datable.custom.attributes;
- %OpenArabicPE_att.datable.attribute.calendar;'> 
-<!ENTITY % OpenArabicPE_att.datcat.attribute.datcat '
-datcat CDATA  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datcat.attribute.valueDatcat '
-valueDatcat CDATA  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.datcat.attributes '
- %OpenArabicPE_att.datcat.attribute.datcat;
- %OpenArabicPE_att.datcat.attribute.valueDatcat;'> 
-<!ENTITY % OpenArabicPE_att.declarable.attribute.default '
-default (true|false) "false" '>
-<!ENTITY % OpenArabicPE_att.declarable.attributes '
- %OpenArabicPE_att.declarable.attribute.default;'> 
-<!ENTITY % OpenArabicPE_att.fragmentable.attribute.part '
-part (Y|N|I|M|F) "N" '>
-<!ENTITY % OpenArabicPE_att.fragmentable.attributes '
- %OpenArabicPE_att.fragmentable.attribute.part;'> <!ENTITY % OpenArabicPE_att.divLike.attributes '%OpenArabicPE_att.fragmentable.attributes;'> 
+<!ENTITY % OpenArabicPE_att.datable.attributes '%OpenArabicPE_att.datable.w3c.attributes;%OpenArabicPE_att.datable.custom.attributes;
+ %OpenArabicPE_att.datable.attribute.calendar;'> <!ENTITY % OpenArabicPE_att.divLike.attributes ''> 
 <!ENTITY % OpenArabicPE_att.docStatus.attribute.status '
 status %teidata.enumerated;  "draft" '>
 <!ENTITY % OpenArabicPE_att.docStatus.attributes '
@@ -270,10 +216,6 @@ rendition CDATA  #IMPLIED'>
  %OpenArabicPE_att.global.rendition.attribute.rend;
  %OpenArabicPE_att.global.rendition.attribute.style;
  %OpenArabicPE_att.global.rendition.attribute.rendition;'> 
-<!ENTITY % OpenArabicPE_att.global.source.attribute.source '
-source CDATA  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.global.source.attributes '
- %OpenArabicPE_att.global.source.attribute.source;'> 
 <!ENTITY % OpenArabicPE_att.global.attribute.xmlid '
 xml:id ID #IMPLIED'>
 
@@ -282,7 +224,7 @@ n %teidata.text;  #IMPLIED'>
 
 <!ENTITY % OpenArabicPE_att.global.attribute.xmllang '
 xml:lang %teidata.language;  "ar" '>
-<!ENTITY % OpenArabicPE_att.global.attributes '%OpenArabicPE_att.global.rendition.attributes;%OpenArabicPE_att.global.linking.attributes;%OpenArabicPE_att.global.facs.attributes;%OpenArabicPE_att.global.change.attributes;%OpenArabicPE_att.global.responsibility.attributes;%OpenArabicPE_att.global.source.attributes;
+<!ENTITY % OpenArabicPE_att.global.attributes '%OpenArabicPE_att.global.rendition.attributes;%OpenArabicPE_att.global.linking.attributes;%OpenArabicPE_att.global.facs.attributes;%OpenArabicPE_att.global.change.attributes;%OpenArabicPE_att.global.responsibility.attributes;
  %OpenArabicPE_att.global.attribute.xmlid;
  %OpenArabicPE_att.global.attribute.n;
  %OpenArabicPE_att.global.attribute.xmllang;'> 
@@ -290,18 +232,6 @@ xml:lang %teidata.language;  "ar" '>
 mimeType CDATA  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.internetMedia.attributes '
  %OpenArabicPE_att.internetMedia.attribute.mimeType;'> 
-<!ENTITY % OpenArabicPE_att.media.attribute.width '
-width %teidata.outputMeasurement;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.media.attribute.height '
-height %teidata.outputMeasurement;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.media.attribute.scale '
-scale %teidata.numeric;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.media.attributes '%OpenArabicPE_att.internetMedia.attributes;
- %OpenArabicPE_att.media.attribute.width;
- %OpenArabicPE_att.media.attribute.height;
- %OpenArabicPE_att.media.attribute.scale;'> 
 <!ENTITY % OpenArabicPE_att.resourced.attribute.url '
 url %teidata.pointer;  #REQUIRED'>
 <!ENTITY % OpenArabicPE_att.resourced.attributes '
@@ -318,13 +248,9 @@ commodity CDATA  #IMPLIED'>
  %OpenArabicPE_att.measurement.attribute.unit;
  %OpenArabicPE_att.measurement.attribute.quantity;
  %OpenArabicPE_att.measurement.attribute.commodity;'> 
-<!ENTITY % OpenArabicPE_att.naming.attribute.role '
-role NMTOKENS  #IMPLIED'>
-
 <!ENTITY % OpenArabicPE_att.naming.attribute.nymRef '
 nymRef CDATA  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.naming.attributes '%OpenArabicPE_att.canonical.attributes;
- %OpenArabicPE_att.naming.attribute.role;
  %OpenArabicPE_att.naming.attribute.nymRef;'> 
 <!ENTITY % OpenArabicPE_att.placement.attribute.place '
 place NMTOKENS  #IMPLIED'>
@@ -338,26 +264,10 @@ subtype %teidata.enumerated;  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.typed.attributes '
  %OpenArabicPE_att.typed.attribute.type;
  %OpenArabicPE_att.typed.attribute.subtype;'> 
-<!ENTITY % OpenArabicPE_att.pointing.attribute.targetLang '
-targetLang %teidata.language;  #IMPLIED'>
-
 <!ENTITY % OpenArabicPE_att.pointing.attribute.target '
 target CDATA  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.pointing.attribute.evaluate '
-evaluate (all|one|none) #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.pointing.attributes '
- %OpenArabicPE_att.pointing.attribute.targetLang;
- %OpenArabicPE_att.pointing.attribute.target;
- %OpenArabicPE_att.pointing.attribute.evaluate;'> 
-<!ENTITY % OpenArabicPE_att.segLike.attribute.function '
-function %teidata.enumerated;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.segLike.attributes '%OpenArabicPE_att.datcat.attributes;%OpenArabicPE_att.fragmentable.attributes;
- %OpenArabicPE_att.segLike.attribute.function;'> 
-<!ENTITY % OpenArabicPE_att.sortable.attribute.sortKey '
-sortKey %teidata.word;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.sortable.attributes '
- %OpenArabicPE_att.sortable.attribute.sortKey;'> 
+ %OpenArabicPE_att.pointing.attribute.target;'> 
 <!ENTITY % OpenArabicPE_att.edition.attribute.ed '
 ed CDATA  #IMPLIED'>
 
@@ -366,10 +276,6 @@ edRef CDATA  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.edition.attributes '
  %OpenArabicPE_att.edition.attribute.ed;
  %OpenArabicPE_att.edition.attribute.edRef;'> 
-<!ENTITY % OpenArabicPE_att.spanning.attribute.spanTo '
-spanTo %teidata.pointer;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.spanning.attributes '
- %OpenArabicPE_att.spanning.attribute.spanTo;'> 
 <!ENTITY % OpenArabicPE_att.styleDef.attribute.scheme '
 scheme (css|xslfo|free|other) #IMPLIED'>
 
@@ -390,18 +296,6 @@ cols %teidata.count;  "1" '>
  %OpenArabicPE_att.tableDecoration.attribute.role;
  %OpenArabicPE_att.tableDecoration.attribute.rows;
  %OpenArabicPE_att.tableDecoration.attribute.cols;'> <!ENTITY % OpenArabicPE_att.timed.attributes ''> 
-<!ENTITY % OpenArabicPE_att.transcriptional.attribute.status '
-status %teidata.enumerated;  "unremarkable" '>
-
-<!ENTITY % OpenArabicPE_att.transcriptional.attribute.cause '
-cause %teidata.enumerated;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.transcriptional.attribute.seq '
-seq %teidata.count;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.transcriptional.attributes '%OpenArabicPE_att.written.attributes;
- %OpenArabicPE_att.transcriptional.attribute.status;
- %OpenArabicPE_att.transcriptional.attribute.cause;
- %OpenArabicPE_att.transcriptional.attribute.seq;'> 
 <!ENTITY % OpenArabicPE_att.citing.attribute.unit '
 unit %teidata.enumerated;  #IMPLIED'>
 
@@ -799,14 +693,6 @@ to %teidata.word;  #IMPLIED'>
 <!ENTITY % model.resourceLike_sequenceOptional "text?, facsimile?"> 
 <!ENTITY % model.resourceLike_sequenceOptionalRepeatable "text*, facsimile*"> 
 <!ENTITY % model.resourceLike_sequenceRepeatable "text+, facsimile+"> 
-<!ENTITY % OpenArabicPE_att.personal.attribute.full '
-full (yes|abb|init) "yes" '>
-
-<!ENTITY % OpenArabicPE_att.personal.attribute.sort '
-sort %teidata.count;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.personal.attributes '%OpenArabicPE_att.naming.attributes;
- %OpenArabicPE_att.personal.attribute.full;
- %OpenArabicPE_att.personal.attribute.sort;'> 
 <!ENTITY % model.placeLike "place"> 
 <!ENTITY % model.placeLike_sequence "place"> 
 <!ENTITY % model.placeLike_sequenceOptional "place?"> 
@@ -853,26 +739,6 @@ datingMethod %teidata.pointer;  #IMPLIED'>
 <!ENTITY % model.persNamePart_sequenceOptional "surname?, forename?, genName?, nameLink?, addName?, roleName?"> 
 <!ENTITY % model.persNamePart_sequenceOptionalRepeatable "surname*, forename*, genName*, nameLink*, addName*, roleName*"> 
 <!ENTITY % model.persNamePart_sequenceRepeatable "surname+, forename+, genName+, nameLink+, addName+, roleName+"> 
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.when-iso '
-when-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.notBefore-iso '
-notBefore-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.notAfter-iso '
-notAfter-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.from-iso '
-from-iso %teidata.temporal.iso;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.datable.iso.attribute.to-iso '
-to-iso %teidata.temporal.iso;  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.datable.iso.attributes '
- %OpenArabicPE_att.datable.iso.attribute.when-iso;
- %OpenArabicPE_att.datable.iso.attribute.notBefore-iso;
- %OpenArabicPE_att.datable.iso.attribute.notAfter-iso;
- %OpenArabicPE_att.datable.iso.attribute.from-iso;
- %OpenArabicPE_att.datable.iso.attribute.to-iso;'> 
 <!ENTITY % OpenArabicPE_att.global.linking.attribute.corresp '
 corresp CDATA  #IMPLIED'>
 
@@ -893,30 +759,6 @@ facs CDATA  #IMPLIED'>
 change CDATA  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.global.change.attributes '
  %OpenArabicPE_att.global.change.attribute.change;'> 
-<!ENTITY % OpenArabicPE_att.coordinated.attribute.start '
-start %teidata.pointer;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.coordinated.attribute.ulx '
-ulx %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.coordinated.attribute.uly '
-uly %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.coordinated.attribute.lrx '
-lrx %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.coordinated.attribute.lry '
-lry %teidata.numeric;  #IMPLIED'>
-
-<!ENTITY % OpenArabicPE_att.coordinated.attribute.points '
-points CDATA  #IMPLIED'>
-<!ENTITY % OpenArabicPE_att.coordinated.attributes '
- %OpenArabicPE_att.coordinated.attribute.start;
- %OpenArabicPE_att.coordinated.attribute.ulx;
- %OpenArabicPE_att.coordinated.attribute.uly;
- %OpenArabicPE_att.coordinated.attribute.lrx;
- %OpenArabicPE_att.coordinated.attribute.lry;
- %OpenArabicPE_att.coordinated.attribute.points;'> 
 <!-- start rest of patterns -->
 
 <!ENTITY % macro.paraContent '(#PCDATA|_DUMMY_model.gLike|%model.phrase;|%model.inter;|%model.global;|lg|%model.lLike;)*' >
@@ -950,9 +792,7 @@ version %teidata.version;  #IMPLIED >
 <!ATTLIST ab xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST ab
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.fragmentable.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(abbreviation) contains an abbreviation of any sort. [3.5.5. Abbreviations and Their Expansions] -->
 <!ELEMENT abbr %macro.phraseSeq;>
 <!ATTLIST abbr xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -975,8 +815,6 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
- %OpenArabicPE_att.global.source.attribute.source;
- %OpenArabicPE_att.transcriptional.attributes;
  %OpenArabicPE_att.placement.attributes;
  %OpenArabicPE_att.typed.attributes;
 resp CDATA  #REQUIRED >
@@ -985,7 +823,6 @@ resp CDATA  #REQUIRED >
 <!ATTLIST addName xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST addName
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.personal.attributes;
 type (title|honorific|rank|nickname|nasab|kunyah|khitab|nisbah) "title" 
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:(abbreviation marker) contains a sequence of letters or signs present in an abbreviation which are omitted or replaced in the expanded form of the abbreviation. [11.3.1.2. Abbreviation and Expansion] -->
@@ -1016,7 +853,6 @@ scheme %teidata.enumerated;  "TEI"  >
 <!ATTLIST availability xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST availability
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes;
 status (free|unknown|restricted) "unknown"  >
 <!--doc:(back matter) contains any appendixes, etc. following the main part of a text. [4.7. Back Matter 4. Default Text Structure] -->
 <!ELEMENT back (((%model.frontPart;|%model.pLike.front;|%model.pLike;|%model.listLike;|%model.global;)*,(((_DUMMY_model.div1Like),(%model.frontPart;|_DUMMY_model.div1Like|%model.global;)*)|((%model.divLike;),(%model.frontPart;|%model.divLike;|%model.global;)*))?,((%model.divBottomPart;),(%model.divBottomPart;|%model.global;)*)?))>
@@ -1028,17 +864,13 @@ status (free|unknown|restricted) "unknown"  >
 <!ATTLIST bibl xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST bibl
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.sortable.attributes;
  %OpenArabicPE_att.docStatus.attributes; >
 <!--doc:(fully-structured bibliographic citation) contains a fully-structured bibliographic citation, in which all components of the TEI file description are present. [3.11.1. Methods of Encoding Bibliographic References and Lists of References 2.2. The File Description 2.2.7. The Source Description 15.3.2. Declarable Elements] -->
 <!ELEMENT biblFull (((titleStmt,(editionStmt)?,(extent)?,publicationStmt,(seriesStmt)?,(notesStmt)?),(sourceDesc)*)|(fileDesc,profileDesc))>
 <!ATTLIST biblFull xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST biblFull
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes;
- %OpenArabicPE_att.sortable.attributes;
  %OpenArabicPE_att.docStatus.attributes; >
 <!--doc:(scope of bibliographic reference) defines the scope of a bibliographic reference, for example as a list of page numbers, or a named subdivision of a larger work. [3.11.2.5. Scopes and Ranges in Bibliographic Citations] -->
 <!ELEMENT biblScope %macro.phraseSeq;>
@@ -1051,9 +883,7 @@ status (free|unknown|restricted) "unknown"  >
 <!ATTLIST biblStruct xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST biblStruct
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.sortable.attributes;
  %OpenArabicPE_att.docStatus.attributes; >
 <!--doc:contains information about a person's birth, such as its date and place. [15.2.2. The Participant Description] -->
 <!ELEMENT birth %macro.phraseSeq;>
@@ -1093,8 +923,6 @@ Elements] -->
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
  %OpenArabicPE_att.edition.attribute.edRef;
- %OpenArabicPE_att.spanning.attributes;
- %OpenArabicPE_att.breaking.attributes;
 ed CDATA  "print"  >
 <!--doc:contains one cell of a table. [14.1.1. TEI Tables] -->
 <!ELEMENT cell %macro.specialPara;>
@@ -1134,8 +962,7 @@ target CDATA  #IMPLIED >
 <!ELEMENT closer (#PCDATA|_DUMMY_model.gLike|signed|dateline|salute|%model.phrase;|%model.global;)*>
 <!ATTLIST closer xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST closer
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(correction) contains the correct form of a passage apparently erroneous in the copy text. [3.4.1. Apparent Errors] -->
 <!ELEMENT corr %macro.paraContent;>
 <!ATTLIST corr xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1151,7 +978,6 @@ target CDATA  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
- %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.typed.attributes;
 resp CDATA  #REQUIRED >
 <!--doc:contains a date in any format. [3.5.4. Dates and Times 2.2.4. Publication, Distribution, Licensing, etc. 2.6. The Revision Description 3.11.2.4. Imprint, Size of a Document, and Reprint Information 15.2.3. The Setting Description 13.3.6. Dates and Times] -->
@@ -1164,11 +990,6 @@ resp CDATA  #REQUIRED >
  %OpenArabicPE_att.datable.w3c.attribute.notAfter;
  %OpenArabicPE_att.datable.w3c.attribute.from;
  %OpenArabicPE_att.datable.w3c.attribute.to;
- %OpenArabicPE_att.datable.iso.attribute.when-iso;
- %OpenArabicPE_att.datable.iso.attribute.notBefore-iso;
- %OpenArabicPE_att.datable.iso.attribute.notAfter-iso;
- %OpenArabicPE_att.datable.iso.attribute.from-iso;
- %OpenArabicPE_att.datable.iso.attribute.to-iso;
  %OpenArabicPE_att.datable.custom.attribute.when-custom;
  %OpenArabicPE_att.datable.custom.attribute.notBefore-custom;
  %OpenArabicPE_att.datable.custom.attribute.notAfter-custom;
@@ -1207,8 +1028,6 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
- %OpenArabicPE_att.global.source.attribute.source;
- %OpenArabicPE_att.transcriptional.attributes;
  %OpenArabicPE_att.typed.attributes;
 resp CDATA  #REQUIRED >
 <!--doc:supplies the name of a person or other agency responsible for the distribution of a text. [2.2.4. Publication, Distribution, Licensing, etc.] -->
@@ -1222,7 +1041,6 @@ resp CDATA  #REQUIRED >
 <!ATTLIST div
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.divLike.attributes;
- %OpenArabicPE_att.written.attributes;
 type %teidata.enumerated;  "item" 
 subtype %teidata.enumerated;  #IMPLIED >
 <!--doc:describes the particularities of one edition of a text. [2.2.2. The Edition Statement] -->
@@ -1245,8 +1063,7 @@ subtype %teidata.enumerated;  #IMPLIED >
 <!ELEMENT editorialDecl (%model.pLike;|%model.editorialDeclPart;)+>
 <!ATTLIST editorialDecl xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST editorialDecl
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(encoding description) documents the relationship between an electronic text and the source or sources from which it was derived. [2.3. The Encoding Description 2.1.1. The TEI Header and Its Components] -->
 <!ELEMENT encodingDesc (%model.encodingDescPart;|%model.pLike;)+>
 <!ATTLIST encodingDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1260,7 +1077,6 @@ subtype %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.typed.attributes;
  %OpenArabicPE_att.naming.attributes;
- %OpenArabicPE_att.sortable.attributes;
 where %teidata.pointer;  #IMPLIED >
 <!--doc:(editorial expansion) contains a sequence of letters added by an editor or transcriber when expanding an abbreviation. [11.3.1.2. Abbreviation and Expansion] -->
 <!ELEMENT ex %macro.xtext;>
@@ -1316,7 +1132,6 @@ where %teidata.pointer;  #IMPLIED >
 <!ATTLIST forename xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST forename
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(front matter) contains any prefatory matter (headers, abstracts, title page, prefaces, dedications, etc.) found at the start of a document, before the main body. [4.6. Title Pages 4. Default Text Structure] -->
 <!ELEMENT front (((%model.frontPart;|%model.pLike;|%model.pLike.front;|%model.global;)*,((((_DUMMY_model.div1Like),(_DUMMY_model.div1Like|%model.frontPart;|%model.global;)*)|((%model.divLike;),(%model.divLike;|%model.frontPart;|%model.global;)*)),((%model.divBottom;),(%model.divBottom;|%model.global;)*)?)?))>
@@ -1335,7 +1150,6 @@ where %teidata.pointer;  #IMPLIED >
 <!ATTLIST fw
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.placement.attributes;
- %OpenArabicPE_att.written.attributes;
 type %teidata.enumerated;  #IMPLIED >
 <!--doc:indicates a point where material has been omitted in a transcription, whether for editorial reasons described in the TEI header, as part of sampling practice, or because the material is illegible, invisible, or inaudible. [3.4.3. Additions, Deletions, and Omissions] -->
 <!ELEMENT gap (_DUMMY_model.descLike|_DUMMY_model.certLike)*>
@@ -1352,7 +1166,6 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
- %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.timed.attributes;
 resp CDATA  "#org_MS" 
 reason NMTOKENS  #IMPLIED
@@ -1364,15 +1177,12 @@ Elements] -->
 <!ATTLIST gb xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST gb
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.spanning.attributes;
- %OpenArabicPE_att.breaking.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(generational name component) contains a name component used to distinguish otherwise similar names on the basis of the relative ages or generations of the persons named. [13.2.1. Personal Names] -->
 <!ELEMENT genName %macro.phraseSeq;>
 <!ATTLIST genName xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST genName
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(geographical coordinates) contains any expression of a set of geographic coordinates, representing a point, line, or area on the surface of the earth in some notation. [13.3.4.1. Varieties of Location] -->
 <!ELEMENT geo (#PCDATA)>
@@ -1390,7 +1200,6 @@ scheme %teidata.enumerated;  "TEI"  >
 <!ATTLIST graphic xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST graphic
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.media.attributes;
  %OpenArabicPE_att.resourced.attributes; >
 <!--doc:contains the body of a composite text, grouping together a sequence of distinct texts (or groups of such texts) which are regarded as a unit for some purpose, for example the collected works of an author, a sequence of prose essays, etc. [4. Default Text Structure 4.3.1. Grouped Texts 15.1. Varieties of Composite Text] -->
 <!ELEMENT group (((%model.divTop;|%model.global;)*,((text|group),(text|group|%model.global;)*),(%model.divBottom;)*))>
@@ -1404,20 +1213,17 @@ scheme %teidata.enumerated;  "TEI"  >
 <!ATTLIST head
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.placement.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.placement.attributes; >
 <!--doc:(highlighted) marks a word or phrase as graphically distinct from the surrounding text, for reasons concerning which no claim is made. [3.3.2.2. Emphatic Words and Phrases 3.3.2. Emphasis, Foreign Words, and Unusual Language] -->
 <!ELEMENT hi %macro.paraContent;>
 <!ATTLIST hi xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST hi
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(identifier) supplies any form of identifier used to identify some object, such as a bibliographic item, a person, a title, an organization, etc. in a standardized way. [2.2.4. Publication, Distribution, Licensing, etc. 2.2.5. The Series Statement 3.11.2.4. Imprint, Size of a Document, and Reprint Information] -->
 <!ELEMENT idno (#PCDATA|_DUMMY_model.gLike|idno)*>
 <!ATTLIST idno xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST idno
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.sortable.attributes;
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.typed.attribute.subtype;
 type %teidata.enumerated;  #IMPLIED >
@@ -1430,13 +1236,11 @@ type %teidata.enumerated;  #IMPLIED >
 <!ELEMENT item %macro.specialPara;>
 <!ATTLIST item xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST item
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(verse line) contains a single, possibly incomplete, line of verse. [3.12.1. Core Tags for Verse 3.12. Passages of Verse or Drama 7.2.5. Speech Contents] -->
 <!ELEMENT l (#PCDATA|_DUMMY_model.gLike|%model.phrase;|%model.inter;|%model.global;)*>
 <!ATTLIST l xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST l
- %OpenArabicPE_att.fragmentable.attributes;
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attribute.subtype;
 type %teidata.enumerated;  "bayt"  >
@@ -1446,14 +1250,12 @@ type %teidata.enumerated;  "bayt"  >
 <!ATTLIST label
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.placement.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.placement.attributes; >
 <!--doc:(language usage) describes the languages, sublanguages, registers, dialects, etc. represented within a text. [2.4.2. Language Usage 2.4. The Profile Description 15.3.2. Declarable Elements] -->
 <!ELEMENT langUsage ((%model.pLike;)+|(language)+)>
 <!ATTLIST langUsage xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST langUsage
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:characterizes a single language or sublanguage used within a text. [2.4.2. Language Usage] -->
 <!ELEMENT language %macro.phraseSeq.limited;>
 <!ATTLIST language xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1469,8 +1271,6 @@ Elements 7.2.5. Speech Contents] -->
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
  %OpenArabicPE_att.edition.attribute.edRef;
- %OpenArabicPE_att.spanning.attributes;
- %OpenArabicPE_att.breaking.attributes;
 ed CDATA  "print"  >
 <!--doc:(line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain, verse paragraph, etc. [3.12.1. Core Tags for Verse 3.12. Passages of Verse or Drama 7.2.5. Speech Contents] -->
 <!ELEMENT lg (((%model.divTop;|%model.global;)*,(%model.lLike;|_DUMMY_model.stageLike|%model.labelLike;|lg),(%model.lLike;|_DUMMY_model.stageLike|%model.labelLike;|%model.global;|lg)*,((%model.divBottom;),(%model.global;)*)*))>
@@ -1491,7 +1291,6 @@ ed CDATA  "print"  >
 <!ATTLIST list xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST list
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.sortable.attributes;
  %OpenArabicPE_att.typed.attribute.subtype;
 type %teidata.enumerated;  #IMPLIED >
 <!--doc:(citation list) contains a list of bibliographic citations of any kind. [3.11.1. Methods of Encoding Bibliographic References and Lists of References 2.2.7. The Source Description 15.3.2. Declarable Elements] -->
@@ -1499,49 +1298,37 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST listBibl xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST listBibl
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.sortable.attributes;
- %OpenArabicPE_att.declarable.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(list of events) contains a list of descriptions, each of which provides information about an identifiable event. [13.3.1. Basic Principles] -->
 <!ELEMENT listEvent (((%model.headLike;)*,(event|listEvent)+,(relation|listRelation)*))>
 <!ATTLIST listEvent xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST listEvent
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.declarable.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(list of canonical names) contains a list of nyms, that is, standardized names for any thing. [13.3.5. Names and Nyms] -->
 <!ELEMENT listNym (((%model.headLike;)*,(nym|listNym)+,(relation|listRelation)*))>
 <!ATTLIST listNym xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST listNym
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.declarable.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(list of organizations) contains a list of elements, each of which provides information about an identifiable organization. [13.2.2. Organizational Names] -->
 <!ELEMENT listOrg (((%model.headLike;)*,(org|listOrg)+,(relation|listRelation)*))>
 <!ATTLIST listOrg xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST listOrg
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.declarable.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(list of persons) contains a list of descriptions, each of which provides information about an identifiable person or a group of people, for example the participants in a language interaction, or the people referred to in a historical source. [13.3.2. The Person Element 15.2. Contextual Information 2.4. The Profile Description 15.3.2. Declarable Elements] -->
 <!ELEMENT listPerson (((%model.headLike;)*,(%model.personLike;|listPerson)+,(relation|listRelation)*))>
 <!ATTLIST listPerson xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST listPerson
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.declarable.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(list of places) contains a list of places, optionally followed by a list of relationships (other than containment) defined amongst them. [2.2.7. The Source Description 13.3.4. Places] -->
 <!ELEMENT listPlace (((%model.headLike;)*,(%model.placeLike;|listPlace)+,(relation|listRelation)*))>
 <!ATTLIST listPlace xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST listPlace
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.declarable.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(list of prefix definitions) contains a list of definitions of prefixing schemes used in data.pointer values, showing how abbreviated URIs using each scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers] -->
 <!ELEMENT listPrefixDef (prefixDef|listPrefixDef)+>
 <!ATTLIST listPrefixDef xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1552,8 +1339,7 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST listRelation xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST listRelation
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:defines the location of a place as a set of geographical coordinates, in terms of other named geo-political entities, or as an address. [13.3.4. Places] -->
 <!ELEMENT location (precision|%model.labelLike;|%model.placeNamePart;|_DUMMY_model.offsetLike|%model.measureLike;|_DUMMY_model.addressLike|%model.noteLike;|%model.biblLike;)*>
 <!ATTLIST location xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1580,7 +1366,6 @@ type %teidata.enumerated;  #IMPLIED >
 <!ELEMENT metamark %macro.specialPara;>
 <!ATTLIST metamark xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST metamark
- %OpenArabicPE_att.spanning.attributes;
  %OpenArabicPE_att.placement.attributes;
  %OpenArabicPE_att.global.attributes;
 function %teidata.word;  #IMPLIED
@@ -1593,9 +1378,7 @@ Elements] -->
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.milestoneUnit.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.edition.attributes;
- %OpenArabicPE_att.spanning.attributes;
- %OpenArabicPE_att.breaking.attributes; >
+ %OpenArabicPE_att.edition.attributes; >
 <!--doc:(monographic level) contains bibliographic elements describing an item (e.g. a book or journal) published as an independent item (i.e. as a separate physical object). [3.11.2.1. Analytic, Monographic, and Series Levels] -->
 <!ELEMENT monogr (((((author|editor|meeting|respStmt),(author|editor|meeting|respStmt)*,(title)+,(%model.ptrLike;|idno|textLang|editor|respStmt)*)|((title|%model.ptrLike;|idno)+,(textLang|author|editor|meeting|respStmt)*)|(authority,idno))?,(availability)*,(%model.noteLike;)*,(edition,(idno|%model.ptrLike;|editor|sponsor|funder|respStmt)*)*,imprint,(imprint|extent|biblScope)*))>
 <!ATTLIST monogr xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1606,7 +1389,6 @@ Elements] -->
 <!ATTLIST name xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST name
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(name link) contains a connecting phrase or link used within a name but not regarded as part of it, such as van der or of. [13.2.1. Personal Names] -->
@@ -1630,11 +1412,9 @@ Elements] -->
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.responsibility.attribute.resp;
- %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.placement.attributes;
  %OpenArabicPE_att.pointing.attributes;
  %OpenArabicPE_att.typed.attribute.subtype;
- %OpenArabicPE_att.written.attributes;
 n %teidata.text;  "1" 
 type %teidata.enumerated;  "footnote" 
 anchored %teidata.truthValue;  "true" 
@@ -1659,21 +1439,18 @@ value %teidata.numeric;  #IMPLIED >
 <!ATTLIST nym
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.sortable.attributes;
 parts CDATA  #IMPLIED >
 <!--doc:groups together dateline, byline, salutation, and similar phrases appearing as a preliminary group at the start of a division, especially of a letter. [4.2. Elements Common to All Divisions] -->
 <!ELEMENT opener (#PCDATA|_DUMMY_model.gLike|%model.phrase;|argument|byline|dateline|epigraph|salute|signed|%model.global;)*>
 <!ATTLIST opener xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST opener
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(organization) provides information about an identifiable organization such as a business, a tribe, or any other grouping of people. [13.2.2. Organizational Names] -->
 <!ELEMENT org (((%model.headLike;)*,((%model.pLike;)*|(%model.labelLike;|%model.nameLike;|%model.placeLike;|%model.orgPart;|%model.milestoneLike;)*),(%model.noteLike;|%model.biblLike;|linkGrp|link)*,(%model.personLike;)*))>
 <!ATTLIST org xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST org
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.sortable.attributes;
 role CDATA  #IMPLIED >
 <!--doc:(organization name) contains an organizational name. [13.2.2. Organizational Names] -->
 <!ELEMENT orgName %macro.phraseSeq;>
@@ -1681,7 +1458,6 @@ role CDATA  #IMPLIED >
 <!ATTLIST orgName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.datable.attributes;
- %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(original form) contains a reading which is marked as following the original, rather than being normalized or corrected. [3.4.2. Regularization and
 Normalization 12. Critical Apparatus] -->
@@ -1693,15 +1469,12 @@ Normalization 12. Critical Apparatus] -->
 <!ELEMENT p %macro.paraContent;>
 <!ATTLIST p xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST p
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.fragmentable.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(participation description) describes the identifiable speakers, voices, or other participants in any kind of text or other persons named or otherwise referred to in a text, edition, or metadata. [15.2. Contextual Information] -->
 <!ELEMENT particDesc ((%model.pLike;)+|(%model.personLike;|listPerson|listOrg)+)>
 <!ATTLIST particDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST particDesc
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(page beginning) marks the beginning of a new page in a paginated document. [3.10.3. Milestone
 Elements] -->
 <!ELEMENT pb  EMPTY>
@@ -1710,8 +1483,6 @@ Elements] -->
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
  %OpenArabicPE_att.edition.attribute.edRef;
- %OpenArabicPE_att.spanning.attributes;
- %OpenArabicPE_att.breaking.attributes;
 ed CDATA  "print"  >
 <!--doc:(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names] -->
 <!ELEMENT persName %macro.phraseSeq;>
@@ -1719,14 +1490,12 @@ ed CDATA  "print"  >
 <!ATTLIST persName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.datable.attributes;
- %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [13.3.2. The Person Element 15.2.2. The Participant Description] -->
 <!ELEMENT person ((%model.pLike;)+|(%model.personPart;|%model.global;)*)>
 <!ATTLIST person xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST person
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.sortable.attributes;
 role NMTOKENS  #IMPLIED
 sex CDATA  #IMPLIED
 age %teidata.enumerated;  #IMPLIED >
@@ -1735,7 +1504,6 @@ age %teidata.enumerated;  #IMPLIED >
 <!ATTLIST personGrp xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST personGrp
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.sortable.attributes;
 role %teidata.enumerated;  #IMPLIED
 sex CDATA  #IMPLIED
 age %teidata.enumerated;  #IMPLIED
@@ -1745,15 +1513,13 @@ size CDATA  #IMPLIED >
 <!ATTLIST place xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST place
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.sortable.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:contains an absolute or relative place name. [13.2.3. Place Names] -->
 <!ELEMENT placeName %macro.phraseSeq;>
 <!ATTLIST placeName xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST placeName
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(prefix definition) defines a prefixing scheme used in data.pointer values, showing how abbreviated URIs using the scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers] -->
 <!ELEMENT prefixDef (%model.pLike;)*>
@@ -1771,8 +1537,7 @@ ident %teidata.prefix;  #REQUIRED >
 <!ELEMENT projectDesc (%model.pLike;)+>
 <!ATTLIST projectDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST projectDesc
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(pointer) defines a pointer to another location. [3.6. Simple Links and Cross-References 16.1. Links] -->
 <!ELEMENT ptr  EMPTY>
 <!ATTLIST ptr xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1813,7 +1578,6 @@ ident %teidata.prefix;  #REQUIRED >
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.responsibility.attribute.resp;
- %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.ascribed.attributes;
 rend CDATA  "quotation-marks" 
 type %teidata.enumerated;  #IMPLIED >
@@ -1822,7 +1586,6 @@ type %teidata.enumerated;  #IMPLIED >
 <!ATTLIST quotation xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST quotation
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes;
 marks (none|some|all) #IMPLIED >
 <!--doc:(quotation) contains a phrase or passage attributed by the narrator or author to some agency external to the text. [3.3.3. Quotation 4.3.1. Grouped Texts] -->
 <!ELEMENT quote %macro.specialPara;>
@@ -1839,7 +1602,6 @@ marks (none|some|all) #IMPLIED >
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
  %OpenArabicPE_att.global.responsibility.attribute.resp;
- %OpenArabicPE_att.global.source.attribute.source;
  %OpenArabicPE_att.typed.attributes;
 rend CDATA  "quotation-marks"  >
 <!--doc:(reference) defines a reference to another location, possibly modified by additional text or comment. [3.6. Simple Links and Cross-References 16.1. Links] -->
@@ -1855,8 +1617,7 @@ rend CDATA  "quotation-marks"  >
 <!ELEMENT refsDecl ((%model.pLike;)+|(cRefPattern)+|(refState)+)>
 <!ATTLIST refsDecl xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST refsDecl
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(relationship) describes any kind of relationship or linkage amongst a specified group of places, events, persons, objects or other items. [13.3.2.3. Personal Relationships] -->
 <!ELEMENT relation (desc)?>
 <!ATTLIST relation xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1864,7 +1625,6 @@ rend CDATA  "quotation-marks"  >
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.canonical.attributes;
- %OpenArabicPE_att.sortable.attributes;
  %OpenArabicPE_att.typed.attributes;
 name %teidata.enumerated;  #IMPLIED
 active CDATA  #IMPLIED
@@ -1902,7 +1662,6 @@ selector %teidata.text;  #IMPLIED >
 <!ATTLIST roleName xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST roleName
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.personal.attributes;
 type (title|honorific|nobility|rank|epithet) "title" 
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:contains one row of a table. [14.1.1. TEI Tables] -->
@@ -1930,28 +1689,23 @@ direct %teidata.xTruthValue;  "true"  >
 <!ELEMENT salute %macro.paraContent;>
 <!ATTLIST salute xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST salute
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(sampling declaration) contains a prose description of the rationale and methods used in sampling texts in the creation of a corpus or collection. [2.3.2. The Sampling Declaration 2.3. The Encoding Description 15.3.2. Declarable Elements] -->
 <!ELEMENT samplingDecl (%model.pLike;)+>
 <!ATTLIST samplingDecl xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST samplingDecl
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(arbitrary segment) represents any segmentation of text below the chunk level. [16.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents] -->
 <!ELEMENT seg %macro.paraContent;>
 <!ATTLIST seg xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST seg
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.segLike.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:(setting description) describes the setting or settings within which a language interaction takes place, or other places otherwise referred to in a text, edition, or metadata. [15.2. Contextual Information 2.4. The Profile Description] -->
 <!ELEMENT settingDesc ((%model.pLike;)+|(setting|%model.placeLike;|listPlace)+)>
 <!ATTLIST settingDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST settingDesc
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:(Latin for thus or so) contains text reproduced although apparently incorrect or inaccurate. [3.4.1. Apparent Errors] -->
 <!ELEMENT sic %macro.paraContent;>
 <!ATTLIST sic xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1961,8 +1715,7 @@ direct %teidata.xTruthValue;  "true"  >
 <!ELEMENT sourceDesc ((%model.pLike;)+|(%model.biblLike;|_DUMMY_model.sourceDescPart|%model.listLike;)+)>
 <!ATTLIST sourceDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST sourceDesc
- %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.declarable.attributes; >
+ %OpenArabicPE_att.global.attributes; >
 <!--doc:signifies text supplied by the transcriber or editor for any reason; for example because the original cannot be read due to physical damage, or because of an obvious omission by the author or scribe. [11.3.3.1. Damage, Illegibility, and Supplied Text] -->
 <!ELEMENT supplied %macro.paraContent;>
 <!ATTLIST supplied xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1978,7 +1731,6 @@ direct %teidata.xTruthValue;  "true"  >
  %OpenArabicPE_att.global.linking.attribute.prev;
  %OpenArabicPE_att.global.facs.attribute.facs;
  %OpenArabicPE_att.global.change.attribute.change;
- %OpenArabicPE_att.global.source.attribute.source;
 resp CDATA  #REQUIRED
 reason CDATA  #IMPLIED >
 <!--doc:defines a written surface as a two-dimensional coordinate space, optionally grouping one or more graphic representations of that space, zones of interest within that space, and transcriptions of the writing within them. [11.1. Digital Facsimiles 11.2.2. Embedded Transcription] -->
@@ -1986,7 +1738,6 @@ reason CDATA  #IMPLIED >
 <!ATTLIST surface xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST surface
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.coordinated.attributes;
  %OpenArabicPE_att.typed.attributes;
 attachment %teidata.enumerated;  #IMPLIED
 flipping %teidata.truthValue;  #IMPLIED >
@@ -2001,7 +1752,6 @@ flipping %teidata.truthValue;  #IMPLIED >
 <!ATTLIST surname xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST surname
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:contains text displayed in tabular form, in rows and columns. [14.1.1. TEI Tables] -->
 <!ELEMENT table (((%model.headLike;|%model.global;)*,((row,(%model.global;)*)+|((%model.graphicLike;),(%model.global;)*)+),((%model.divBottom;),(%model.global;)*)*))>
@@ -2041,15 +1791,13 @@ version %teidata.version;  "5.0"  >
  %OpenArabicPE_att.pointing.attributes;
  %OpenArabicPE_att.typed.attributes;
  %OpenArabicPE_att.canonical.attributes;
- %OpenArabicPE_att.sortable.attributes;
  %OpenArabicPE_att.cReferencing.attributes; >
 <!--doc:contains a single text of any kind, whether unitary or composite, for example a poem or drama, a collection of essays, a novel, a dictionary, or a corpus sample. [4. Default Text Structure 15.1. Varieties of Composite Text] -->
 <!ELEMENT text (((%model.global;)*,(front,(%model.global;)*)?,(body|group),(%model.global;)*,(back,(%model.global;)*)?))>
 <!ATTLIST text xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST text
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.written.attributes; >
+ %OpenArabicPE_att.typed.attributes; >
 <!--doc:contains a phrase defining a time of day in any format. [3.5.4. Dates and Times] -->
 <!ELEMENT time (#PCDATA|_DUMMY_model.gLike|%model.phrase;|%model.global;)*>
 <!ATTLIST time xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -2099,8 +1847,6 @@ agent %teidata.enumerated;  #IMPLIED >
 <!ATTLIST zone xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST zone
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.coordinated.attributes;
  %OpenArabicPE_att.typed.attributes;
- %OpenArabicPE_att.written.attributes;
 rotate %teidata.count;  "0"  >
 <!-- end elements -->

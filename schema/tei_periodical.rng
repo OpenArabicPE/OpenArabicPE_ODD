@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2018-06-27T15:03:15Z. .
+Schema generated from ODD source 2018-06-27T19:31:59Z. .
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -99,30 +99,6 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
                   <data type="anyURI"/>
                </oneOrMore>
             </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.written.attributes">
-      <ref name="OpenArabicPE_att.written.attribute.hand"/>
-   </define>
-   <define name="OpenArabicPE_att.written.attribute.hand">
-      <optional>
-         <attribute name="hand">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a handNote element describing the hand considered responsible for the textual content of the element concerned.</a:documentation>
-            <data type="anyURI"/>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.breaking.attributes">
-      <ref name="OpenArabicPE_att.breaking.attribute.break"/>
-   </define>
-   <define name="OpenArabicPE_att.breaking.attribute.break">
-      <optional>
-         <attribute name="break">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates whether or not the element bearing this attribute should be considered to mark the end of an orthographic token in the same way as whitespace.</a:documentation>
-            <data type="token">
-               <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-            </data>
          </attribute>
       </optional>
    </define>
@@ -258,7 +234,6 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
    </pattern>
    <define name="OpenArabicPE_att.datable.attributes">
       <ref name="OpenArabicPE_att.datable.w3c.attributes"/>
-      <ref name="OpenArabicPE_att.datable.iso.attributes"/>
       <ref name="OpenArabicPE_att.datable.custom.attributes"/>
       <ref name="OpenArabicPE_att.datable.attribute.calendar"/>
    </define>
@@ -281,78 +256,8 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
 belongs, but this <sch:name/> element has no textual content.</sch:assert>
           </sch:rule>
    </pattern>
-   <define name="OpenArabicPE_att.datcat.attributes">
-      <ref name="OpenArabicPE_att.datcat.attribute.datcat"/>
-      <ref name="OpenArabicPE_att.datcat.attribute.valueDatcat"/>
-   </define>
-   <define name="OpenArabicPE_att.datcat.attribute.datcat">
-      <optional>
-         <attribute name="datcat" ns="http://www.isocat.org/ns/dcr">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a PID (persistent identifier) that aligns the given element with the appropriate Data Category (or categories) in ISOcat.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="anyURI"/>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.datcat.attribute.valueDatcat">
-      <optional>
-         <attribute name="valueDatcat" ns="http://www.isocat.org/ns/dcr">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a PID (persistent identifier) that aligns the content of the given element or the value of the given attribute with the appropriate simple Data Category (or categories) in ISOcat.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="anyURI"/>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.declarable.attributes">
-      <ref name="OpenArabicPE_att.declarable.attribute.default"/>
-   </define>
-   <define name="OpenArabicPE_att.declarable.attribute.default">
-      <optional>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="default"
-                    a:defaultValue="false">
-            <a:documentation>indicates whether or not this element is selected by default when its parent is selected.</a:documentation>
-            <choice>
-               <value>true</value>
-               <a:documentation>This element is selected if its parent is selected</a:documentation>
-               <value>false</value>
-               <a:documentation>This element can only be selected explicitly, unless it is the only one of its kind, in which case it is selected if its parent is selected.</a:documentation>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.fragmentable.attributes">
-      <ref name="OpenArabicPE_att.fragmentable.attribute.part"/>
-   </define>
-   <define name="OpenArabicPE_att.fragmentable.attribute.part">
-      <optional>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="part"
-                    a:defaultValue="N">
-            <a:documentation>specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.</a:documentation>
-            <choice>
-               <value>Y</value>
-               <a:documentation>(yes) the element is fragmented in some (unspecified) respect</a:documentation>
-               <value>N</value>
-               <a:documentation>(no) the element is not fragmented, or no claim is made as to its completeness</a:documentation>
-               <value>I</value>
-               <a:documentation>(initial) this is the initial part of a fragmented element</a:documentation>
-               <value>M</value>
-               <a:documentation>(medial) this is a medial part of a fragmented element</a:documentation>
-               <value>F</value>
-               <a:documentation>(final) this is the final part of a fragmented element</a:documentation>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
    <define name="OpenArabicPE_att.divLike.attributes">
-      <ref name="OpenArabicPE_att.fragmentable.attributes"/>
+      <empty/>
    </define>
    <define name="OpenArabicPE_att.docStatus.attributes">
       <ref name="OpenArabicPE_att.docStatus.attribute.status"/>
@@ -424,28 +329,12 @@ Sample values include: 1] approved; 2] candidate; 3] cleared; 4] deprecated; 5] 
          </attribute>
       </optional>
    </define>
-   <define name="OpenArabicPE_att.global.source.attributes">
-      <ref name="OpenArabicPE_att.global.source.attribute.source"/>
-   </define>
-   <define name="OpenArabicPE_att.global.source.attribute.source">
-      <optional>
-         <attribute name="source">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the source from which some aspect of this element is drawn.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="anyURI"/>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
    <define name="OpenArabicPE_att.global.attributes">
       <ref name="OpenArabicPE_att.global.rendition.attributes"/>
       <ref name="OpenArabicPE_att.global.linking.attributes"/>
       <ref name="OpenArabicPE_att.global.facs.attributes"/>
       <ref name="OpenArabicPE_att.global.change.attributes"/>
       <ref name="OpenArabicPE_att.global.responsibility.attributes"/>
-      <ref name="OpenArabicPE_att.global.source.attributes"/>
       <ref name="OpenArabicPE_att.global.attribute.xmlid"/>
       <ref name="OpenArabicPE_att.global.attribute.n"/>
       <ref name="OpenArabicPE_att.global.attribute.xmllang"/>
@@ -535,46 +424,6 @@ Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] f
                   </data>
                </oneOrMore>
             </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.media.attributes">
-      <ref name="OpenArabicPE_att.internetMedia.attributes"/>
-      <ref name="OpenArabicPE_att.media.attribute.width"/>
-      <ref name="OpenArabicPE_att.media.attribute.height"/>
-      <ref name="OpenArabicPE_att.media.attribute.scale"/>
-   </define>
-   <define name="OpenArabicPE_att.media.attribute.width">
-      <optional>
-         <attribute name="width">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Where the media are displayed, indicates the display width</a:documentation>
-            <data type="token">
-               <param name="pattern">[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|gd|rem|vw|vh|vm)</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.media.attribute.height">
-      <optional>
-         <attribute name="height">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Where the media are displayed, indicates the display height</a:documentation>
-            <data type="token">
-               <param name="pattern">[\-+]?\d+(\.\d+)?(%|cm|mm|in|pt|pc|px|em|ex|gd|rem|vw|vh|vm)</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.media.attribute.scale">
-      <optional>
-         <attribute name="scale">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Where the media are displayed, indicates a scale factor to be applied when generating the desired display size</a:documentation>
-            <choice>
-               <data type="double"/>
-               <data type="token">
-                  <param name="pattern">(\-?[\d]+/\-?[\d]+)</param>
-               </data>
-               <data type="decimal"/>
-            </choice>
          </attribute>
       </optional>
    </define>
@@ -673,22 +522,7 @@ Suggested values include: 1] m(metre) ; 2] kg(kilogram) ; 3] s(second) ; 4] Hz(h
    </define>
    <define name="OpenArabicPE_att.naming.attributes">
       <ref name="OpenArabicPE_att.canonical.attributes"/>
-      <ref name="OpenArabicPE_att.naming.attribute.role"/>
       <ref name="OpenArabicPE_att.naming.attribute.nymRef"/>
-   </define>
-   <define name="OpenArabicPE_att.naming.attribute.role">
-      <optional>
-         <attribute name="role">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="token">
-                     <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
    </define>
    <define name="OpenArabicPE_att.naming.attribute.nymRef">
       <optional>
@@ -776,33 +610,8 @@ Suggested values include: 1] below; 2] bottom; 3] margin; 4] top; 5] opposite; 6
       </sch:rule>
    </pattern>
    <define name="OpenArabicPE_att.pointing.attributes">
-      <ref name="OpenArabicPE_att.pointing.attribute.targetLang"/>
       <ref name="OpenArabicPE_att.pointing.attribute.target"/>
-      <ref name="OpenArabicPE_att.pointing.attribute.evaluate"/>
    </define>
-   <define name="OpenArabicPE_att.pointing.attribute.targetLang">
-      <optional>
-         <attribute name="targetLang">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the language of the content to be found at the destination referenced by target, using a language tag generated according to BCP 47.</a:documentation>
-            <choice>
-               <data type="language"/>
-               <choice>
-                  <value/>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               </choice>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="tei_OpenArabicPE-att.pointing-targetLang-targetLang-constraint-rule-6">
-      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                context="tei:*[not(self::tei:schemaSpec)][@targetLang]">
-            <sch:assert test="@target">@targetLang should only be used on <sch:name/> if @target is specified.</sch:assert>
-          </sch:rule>
-   </pattern>
    <define name="OpenArabicPE_att.pointing.attribute.target">
       <optional>
          <attribute name="target">
@@ -812,49 +621,6 @@ Suggested values include: 1] below; 2] bottom; 3] margin; 4] top; 5] opposite; 6
                   <data type="anyURI"/>
                </oneOrMore>
             </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.pointing.attribute.evaluate">
-      <optional>
-         <attribute name="evaluate">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the intended meaning when the target of a pointer is itself a pointer.</a:documentation>
-            <choice>
-               <value>all</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">if the element pointed to is itself a pointer, then the target of that pointer will be taken, and so on, until an element is found which is not a pointer.</a:documentation>
-               <value>one</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">if the element pointed to is itself a pointer, then its target (whether a pointer or not) is taken as the target of this pointer.</a:documentation>
-               <value>none</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">no further evaluation of targets is carried out beyond that needed to find the element specified in the pointer's target.</a:documentation>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.segLike.attributes">
-      <ref name="OpenArabicPE_att.datcat.attributes"/>
-      <ref name="OpenArabicPE_att.fragmentable.attributes"/>
-      <ref name="OpenArabicPE_att.segLike.attribute.function"/>
-   </define>
-   <define name="OpenArabicPE_att.segLike.attribute.function">
-      <optional>
-         <attribute name="function">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the function of the segment.</a:documentation>
-            <data type="token">
-               <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.sortable.attributes">
-      <ref name="OpenArabicPE_att.sortable.attribute.sortKey"/>
-   </define>
-   <define name="OpenArabicPE_att.sortable.attribute.sortKey">
-      <optional>
-         <attribute name="sortKey">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the sort key for this element in an index, list or group which contains it.</a:documentation>
-            <data type="token">
-               <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-            </data>
          </attribute>
       </optional>
    </define>
@@ -888,28 +654,6 @@ Suggested values include: 1] below; 2] bottom; 3] margin; 4] top; 5] opposite; 6
          </attribute>
       </optional>
    </define>
-   <define name="OpenArabicPE_att.spanning.attributes">
-      <ref name="OpenArabicPE_att.spanning.attribute.spanTo"/>
-   </define>
-   <define name="OpenArabicPE_att.spanning.attribute.spanTo">
-      <optional>
-         <attribute name="spanTo">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the end of a span initiated by the element bearing this attribute.</a:documentation>
-            <data type="anyURI"/>
-         </attribute>
-      </optional>
-   </define>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="tei_OpenArabicPE-att.spanning-spanTo-spanTo-2-constraint-rule-7">
-      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                context="tei:*[@spanTo]">
-            <sch:assert test="id(substring(@spanTo,2)) and following::*[@xml:id=substring(current()/@spanTo,2)]">
-The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow the current element <sch:name/>
-                  </sch:assert>
-          </sch:rule>
-   </pattern>
    <define name="OpenArabicPE_att.styleDef.attribute.scheme">
       <optional>
          <attribute name="scheme">
@@ -938,7 +682,7 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="tei_OpenArabicPE-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-8">
+            id="tei_OpenArabicPE-att.styleDef-schemeVersion-schemeVersionRequiresScheme-constraint-rule-6">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns="http://www.tei-c.org/ns/1.0"
@@ -990,43 +734,6 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
    </define>
    <define name="OpenArabicPE_att.timed.attributes">
       <empty/>
-   </define>
-   <define name="OpenArabicPE_att.transcriptional.attributes">
-      <ref name="OpenArabicPE_att.written.attributes"/>
-      <ref name="OpenArabicPE_att.transcriptional.attribute.status"/>
-      <ref name="OpenArabicPE_att.transcriptional.attribute.cause"/>
-      <ref name="OpenArabicPE_att.transcriptional.attribute.seq"/>
-   </define>
-   <define name="OpenArabicPE_att.transcriptional.attribute.status">
-      <optional>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="status"
-                    a:defaultValue="unremarkable">
-            <a:documentation>indicates the effect of the intervention, for example in the case of a deletion, strikeouts which include too much or too little text, or in the case of an addition, an insertion which duplicates some of the text already present.
-Sample values include: 1] duplicate; 2] duplicate-partial; 3] excessStart; 4] excessEnd; 5] shortStart; 6] shortEnd; 7] partial; 8] unremarkable</a:documentation>
-            <data type="token">
-               <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.transcriptional.attribute.cause">
-      <optional>
-         <attribute name="cause">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">documents the presumed cause for the intervention.</a:documentation>
-            <data type="token">
-               <param name="pattern">(\p{L}|\p{N}|\p{P}|\p{S})+</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.transcriptional.attribute.seq">
-      <optional>
-         <attribute name="seq">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sequence) assigns a sequence number related to the order in which the encoded features carrying this attribute are believed to have occurred.</a:documentation>
-            <data type="nonNegativeInteger"/>
-         </attribute>
-      </optional>
    </define>
    <define name="OpenArabicPE_att.citing.attributes">
       <ref name="OpenArabicPE_att.citing.attribute.unit"/>
@@ -2508,36 +2215,6 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="OpenArabicPE_facsimile"/>
       </choice>
    </define>
-   <define name="OpenArabicPE_att.personal.attributes">
-      <ref name="OpenArabicPE_att.naming.attributes"/>
-      <ref name="OpenArabicPE_att.personal.attribute.full"/>
-      <ref name="OpenArabicPE_att.personal.attribute.sort"/>
-   </define>
-   <define name="OpenArabicPE_att.personal.attribute.full">
-      <optional>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="full"
-                    a:defaultValue="yes">
-            <a:documentation>indicates whether the name component is given in full, as an abbreviation or simply as an initial.</a:documentation>
-            <choice>
-               <value>yes</value>
-               <a:documentation>the name component is spelled out in full.</a:documentation>
-               <value>abb</value>
-               <a:documentation>(abbreviated) the name component is given in an abbreviated form.</a:documentation>
-               <value>init</value>
-               <a:documentation>(initial letter) the name component is indicated only by one initial.</a:documentation>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.personal.attribute.sort">
-      <optional>
-         <attribute name="sort">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the sort order of the name component in relation to others within the name.</a:documentation>
-            <data type="nonNegativeInteger"/>
-         </attribute>
-      </optional>
-   </define>
    <define name="OpenArabicPE_model.placeLike">
       <choice>
          <ref name="OpenArabicPE_place"/>
@@ -2606,8 +2283,6 @@ Suggested values include: 1] page; 2] column; 3] line; 4] book; 5] poem; 6] cant
             </rule>
          </pattern>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.fragmentable.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -2624,7 +2299,6 @@ Suggested values include: 1] page; 2] column; 3] line; 4] book; 5] poem; 6] cant
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(highlighted) marks a word or phrase as graphically distinct from the surrounding text, for reasons concerning which no claim is made. [3.3.2.2. Emphatic Words and Phrases 3.3.2. Emphasis, Foreign Words, and Unusual Language]</a:documentation>
          <ref name="OpenArabicPE_macro.paraContent"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -2684,7 +2358,6 @@ Suggested values include: 1] page; 2] column; 3] line; 4] book; 5] poem; 6] cant
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
          <ref name="OpenArabicPE_att.global.responsibility.attribute.resp"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <optional>
             <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
@@ -2725,7 +2398,6 @@ Suggested values include: 1] brackets; 2] quotation-marks</a:documentation>
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
          <ref name="OpenArabicPE_att.global.responsibility.attribute.resp"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
          <ref name="OpenArabicPE_att.ascribed.attributes"/>
          <optional>
             <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
@@ -2806,7 +2478,6 @@ Suggested values include: 1] spoken; 2] thought; 3] written; 4] soCalled; 5] for
          <ref name="OpenArabicPE_att.pointing.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.canonical.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <ref name="OpenArabicPE_att.cReferencing.attributes"/>
          <empty/>
       </element>
@@ -2834,7 +2505,6 @@ Suggested values include: 1] spoken; 2] thought; 3] written; 4] soCalled; 5] for
          <ref name="OpenArabicPE_att.global.linking.attribute.prev"/>
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <attribute name="resp">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.</a:documentation>
@@ -2889,7 +2559,6 @@ Normalization 12. Critical Apparatus]</a:documentation>
          <ref name="OpenArabicPE_att.global.linking.attribute.prev"/>
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
          <ref name="OpenArabicPE_att.timed.attributes"/>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="resp"
@@ -2963,8 +2632,6 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="OpenArabicPE_att.global.linking.attribute.prev"/>
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
-         <ref name="OpenArabicPE_att.transcriptional.attributes"/>
          <ref name="OpenArabicPE_att.placement.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <attribute name="resp">
@@ -2993,8 +2660,6 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="OpenArabicPE_att.global.linking.attribute.prev"/>
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
-         <ref name="OpenArabicPE_att.transcriptional.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <attribute name="resp">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.</a:documentation>
@@ -3047,7 +2712,6 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(name, proper noun) contains a proper noun or noun phrase. [3.5.1. Referring Strings]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
@@ -3175,11 +2839,6 @@ Measures]</a:documentation>
          <ref name="OpenArabicPE_att.datable.w3c.attribute.notAfter"/>
          <ref name="OpenArabicPE_att.datable.w3c.attribute.from"/>
          <ref name="OpenArabicPE_att.datable.w3c.attribute.to"/>
-         <ref name="OpenArabicPE_att.datable.iso.attribute.when-iso"/>
-         <ref name="OpenArabicPE_att.datable.iso.attribute.notBefore-iso"/>
-         <ref name="OpenArabicPE_att.datable.iso.attribute.notAfter-iso"/>
-         <ref name="OpenArabicPE_att.datable.iso.attribute.from-iso"/>
-         <ref name="OpenArabicPE_att.datable.iso.attribute.to-iso"/>
          <ref name="OpenArabicPE_att.datable.custom.attribute.when-custom"/>
          <ref name="OpenArabicPE_att.datable.custom.attribute.notBefore-custom"/>
          <ref name="OpenArabicPE_att.datable.custom.attribute.notAfter-custom"/>
@@ -3204,7 +2863,7 @@ Measures]</a:documentation>
             </attribute>
          </optional>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="tei_OpenArabicPE-date-calendar-calendar-constraint-rule-9">
+                  id="tei_OpenArabicPE-date-calendar-calendar-constraint-rule-7">
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns="http://www.tei-c.org/ns/1.0"
@@ -3402,7 +3061,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
       
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="tei_OpenArabicPE-list-gloss-list-must-have-labels-constraint-rule-10">
+                  id="tei_OpenArabicPE-list-gloss-list-must-have-labels-constraint-rule-8">
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns="http://www.tei-c.org/ns/1.0"
@@ -3411,7 +3070,6 @@ attributes @target and @cRef may be supplied on <name/>.</report>
             </sch:rule>
          </pattern>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attribute.subtype"/>
          <optional>
             <attribute name="type">
@@ -3442,7 +3100,6 @@ Suggested values include: 1] gloss; 2] index; 3] instructions; 4] litany; 5] syl
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains one component of a list. [3.7. Lists 2.6. The Revision Description]</a:documentation>
          <ref name="OpenArabicPE_macro.specialPara"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -3453,7 +3110,6 @@ Suggested values include: 1] gloss; 2] index; 3] instructions; 4] litany; 5] syl
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.placement.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -3474,7 +3130,6 @@ Suggested values include: 1] gloss; 2] index; 3] instructions; 4] litany; 5] syl
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.placement.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -3493,11 +3148,9 @@ Suggested values include: 1] gloss; 2] index; 3] instructions; 4] litany; 5] syl
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
          <ref name="OpenArabicPE_att.global.responsibility.attribute.resp"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
          <ref name="OpenArabicPE_att.placement.attributes"/>
          <ref name="OpenArabicPE_att.pointing.attributes"/>
          <ref name="OpenArabicPE_att.typed.attribute.subtype"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <optional>
             <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                        name="n"
@@ -3555,7 +3208,6 @@ Suggested values include: 1] endnote; 2] footnote; 3] gloss; 4] inline</a:docume
             <ref name="OpenArabicPE_model.descLike"/>
          </zeroOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.media.attributes"/>
          <ref name="OpenArabicPE_att.resourced.attributes"/>
          <empty/>
       </element>
@@ -3569,8 +3221,6 @@ Elements]</a:documentation>
          <ref name="OpenArabicPE_att.milestoneUnit.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.edition.attributes"/>
-         <ref name="OpenArabicPE_att.spanning.attributes"/>
-         <ref name="OpenArabicPE_att.breaking.attributes"/>
          <empty/>
       </element>
    </define>
@@ -3581,8 +3231,6 @@ Elements]</a:documentation>
          <empty/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.spanning.attributes"/>
-         <ref name="OpenArabicPE_att.breaking.attributes"/>
          <empty/>
       </element>
    </define>
@@ -3594,8 +3242,6 @@ Elements]</a:documentation>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.edition.attribute.edRef"/>
-         <ref name="OpenArabicPE_att.spanning.attributes"/>
-         <ref name="OpenArabicPE_att.breaking.attributes"/>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="ed"
                     a:defaultValue="print">
@@ -3626,8 +3272,6 @@ Elements 7.2.5. Speech Contents]</a:documentation>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.edition.attribute.edRef"/>
-         <ref name="OpenArabicPE_att.spanning.attributes"/>
-         <ref name="OpenArabicPE_att.breaking.attributes"/>
          <optional>
             <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                        name="ed"
@@ -3660,8 +3304,6 @@ Elements]</a:documentation>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.edition.attribute.edRef"/>
-         <ref name="OpenArabicPE_att.spanning.attributes"/>
-         <ref name="OpenArabicPE_att.breaking.attributes"/>
          <optional>
             <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                        name="ed"
@@ -3994,9 +3636,7 @@ Sample values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] sho
             </choice>
          </zeroOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <ref name="OpenArabicPE_att.docStatus.attributes"/>
          <empty/>
       </element>
@@ -4022,9 +3662,7 @@ Sample values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] sho
             </zeroOrMore>
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <ref name="OpenArabicPE_att.docStatus.attributes"/>
          <empty/>
       </element>
@@ -4056,8 +3694,6 @@ Sample values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] sho
       
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -4083,7 +3719,6 @@ Sample values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] sho
       </report>
             </rule>
          </pattern>
-         <ref name="OpenArabicPE_att.fragmentable.attributes"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attribute.subtype"/>
          <optional>
@@ -4142,7 +3777,7 @@ Sample values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] sho
             </zeroOrMore>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="tei_OpenArabicPE-lg-atleast1oflggapl-constraint-assert-8">
+                  id="tei_OpenArabicPE-lg-atleast1oflggapl-constraint-assert-6">
             <rule context="tei:lg">
                <sch:assert xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -4395,7 +4030,6 @@ Sample values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] sho
             </choice>
          </zeroOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attribute.subtype"/>
          <optional>
@@ -4436,7 +4070,6 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
             </choice>
          </oneOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <optional>
             <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                        name="status"
@@ -4498,7 +4131,6 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
       
          </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -4529,8 +4161,6 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
             </group>
          </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <ref name="OpenArabicPE_att.docStatus.attributes"/>
          <empty/>
       </element>
@@ -4555,7 +4185,6 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
             <ref name="OpenArabicPE_model.pLike"/>
          </oneOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -4566,7 +4195,6 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
             <ref name="OpenArabicPE_model.pLike"/>
          </oneOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -4580,7 +4208,6 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
             </choice>
          </oneOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -4600,7 +4227,6 @@ On <name/>, either the @marks attribute should be used, or a paragraph of descri
             </rule>
          </pattern>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <optional>
             <attribute name="marks">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quotation marks) indicates whether or not quotation marks have been retained as content within the text.</a:documentation>
@@ -4634,7 +4260,6 @@ On <name/>, either the @marks attribute should be used, or a paragraph of descri
       
          </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -4694,7 +4319,6 @@ On <name/>, either the @marks attribute should be used, or a paragraph of descri
         
          </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -4854,7 +4478,6 @@ On <name/>, either the @marks attribute should be used, or a paragraph of descri
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -5181,7 +4804,6 @@ On <name/>, either the @marks attribute should be used, or a paragraph of descri
          </pattern>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.divLike.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="type"
                     a:defaultValue="item">
@@ -5295,7 +4917,6 @@ Suggested values include: 1] bill; 2] advert; 3] letter; 4] masthead; 5] verse</
             </choice>
          </zeroOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -5314,7 +4935,6 @@ Suggested values include: 1] bill; 2] advert; 3] letter; 4] masthead; 5] verse</
             </choice>
          </zeroOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -5323,7 +4943,6 @@ Suggested values include: 1] bill; 2] advert; 3] letter; 4] masthead; 5] verse</
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(salutation) contains a salutation or greeting prefixed to a foreword, dedicatory epistle, or other division of a text, or the salutation in the closing of a letter, preface, etc. [4.2.2. Openers and Closers]</a:documentation>
          <ref name="OpenArabicPE_macro.paraContent"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -5708,120 +5327,12 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <ref name="OpenArabicPE_roleName"/>
       </oneOrMore>
    </define>
-   <define name="OpenArabicPE_att.datable.iso.attributes">
-      <ref name="OpenArabicPE_att.datable.iso.attribute.when-iso"/>
-      <ref name="OpenArabicPE_att.datable.iso.attribute.notBefore-iso"/>
-      <ref name="OpenArabicPE_att.datable.iso.attribute.notAfter-iso"/>
-      <ref name="OpenArabicPE_att.datable.iso.attribute.from-iso"/>
-      <ref name="OpenArabicPE_att.datable.iso.attribute.to-iso"/>
-   </define>
-   <define name="OpenArabicPE_att.datable.iso.attribute.when-iso">
-      <optional>
-         <attribute name="when-iso">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of a date or time in a standard form.</a:documentation>
-            <choice>
-               <data type="date"/>
-               <data type="gYear"/>
-               <data type="gMonth"/>
-               <data type="gDay"/>
-               <data type="gYearMonth"/>
-               <data type="gMonthDay"/>
-               <data type="time"/>
-               <data type="dateTime"/>
-               <data type="token">
-                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
-               </data>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.datable.iso.attribute.notBefore-iso">
-      <optional>
-         <attribute name="notBefore-iso">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
-            <choice>
-               <data type="date"/>
-               <data type="gYear"/>
-               <data type="gMonth"/>
-               <data type="gDay"/>
-               <data type="gYearMonth"/>
-               <data type="gMonthDay"/>
-               <data type="time"/>
-               <data type="dateTime"/>
-               <data type="token">
-                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
-               </data>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.datable.iso.attribute.notAfter-iso">
-      <optional>
-         <attribute name="notAfter-iso">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
-            <choice>
-               <data type="date"/>
-               <data type="gYear"/>
-               <data type="gMonth"/>
-               <data type="gDay"/>
-               <data type="gYearMonth"/>
-               <data type="gMonthDay"/>
-               <data type="time"/>
-               <data type="dateTime"/>
-               <data type="token">
-                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
-               </data>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.datable.iso.attribute.from-iso">
-      <optional>
-         <attribute name="from-iso">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in standard form.</a:documentation>
-            <choice>
-               <data type="date"/>
-               <data type="gYear"/>
-               <data type="gMonth"/>
-               <data type="gDay"/>
-               <data type="gYearMonth"/>
-               <data type="gMonthDay"/>
-               <data type="time"/>
-               <data type="dateTime"/>
-               <data type="token">
-                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
-               </data>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.datable.iso.attribute.to-iso">
-      <optional>
-         <attribute name="to-iso">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in standard form.</a:documentation>
-            <choice>
-               <data type="date"/>
-               <data type="gYear"/>
-               <data type="gMonth"/>
-               <data type="gDay"/>
-               <data type="gYearMonth"/>
-               <data type="gMonthDay"/>
-               <data type="time"/>
-               <data type="dateTime"/>
-               <data type="token">
-                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
-               </data>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
    <define name="OpenArabicPE_orgName">
       <element name="orgName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(organization name) contains an organizational name. [13.2.2. Organizational Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5832,7 +5343,6 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5842,7 +5352,6 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a family (inherited) name, as opposed to a given, baptismal, or nick name. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5852,7 +5361,6 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a forename, given or baptismal name. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5862,7 +5370,6 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(generational name component) contains a name component used to distinguish otherwise similar names on the basis of the relative ages or generations of the persons named. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5881,7 +5388,6 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(additional name) contains an additional name component, such as a nickname, epithet, or alias, or any other descriptive phrase used within a personal name. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="type"
                     a:defaultValue="title">
@@ -5890,17 +5396,17 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
                <value>title</value>
                <a:documentation>indicates formal titles, such as "Bey", "Pasha" etc.</a:documentation>
                <value>honorific</value>
-               <a:documentation>indicates honorific addresses or titles, such as Miss, Shaykh, zade</a:documentation>
+               <a:documentation>indicates honorific addresses or titles, such as Miss, Shaykh , zade</a:documentation>
                <value>rank</value>
-               <a:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq, vālī, Captain</a:documentation>
+               <a:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq , vālī , Captain</a:documentation>
                <value>nickname</value>
                <a:documentation>a phrase someone is commonly referred to, such as "Owner of the newspaper xyz"</a:documentation>
                <value>nasab</value>
-               <a:documentation>a patronym introduced by “Ibn” (إبن - son of)</a:documentation>
+               <a:documentation>a patronym introduced by “Ibn” ( إبن - son of)</a:documentation>
                <value>kunyah</value>
-               <a:documentation>a teknonym beginning with Abū (أبو - father of) or Umm (أم - mather of). It may also have hypothetical or metaphorical references as a mark of distinction. For example, Abū Yūsuf (أبو يوسف) is often used for someone who is called Ya'qūb (يعقوب)</a:documentation>
+               <a:documentation>a teknonym beginning with Abū ( أبو - father of) or Umm ( أم - mather of). It may also have hypothetical or metaphorical references as a mark of distinction. For example, Abū Yūsuf ( أبو يوسف ) is often used for someone who is called Ya'qūb ( يعقوب )</a:documentation>
                <value>khitab</value>
-               <a:documentation>an honorific name, which is usually ended by the suffix al-Dīn (الدين)</a:documentation>
+               <a:documentation>an honorific name, which is usually ended by the suffix al-Dīn ( الدين )</a:documentation>
                <value>nisbah</value>
                <a:documentation>an adjective formed by using the suffix ī in order to indicate the person origin, his birth place, or his residence. It represents the relationship name, which can be a genealogical, political or ideological affiliation of a person. Example: the mathematician al-Khawarizmī refers to “Khuwarism”, the name of a place located in Central Asia</a:documentation>
             </choice>
@@ -5926,7 +5432,6 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a name component which indicates that the referent has a particular role or position in society, such as an official title or rank. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="type"
                     a:defaultValue="title">
@@ -5935,11 +5440,11 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
                <value>title</value>
                <a:documentation>Formal titles, such as "Bey", "Pasha" etc.</a:documentation>
                <value>honorific</value>
-               <a:documentation>Honorific addresses or titles, such as Miss, Shaykh, zade</a:documentation>
+               <a:documentation>Honorific addresses or titles, such as Miss, Shaykh , zade</a:documentation>
                <value>nobility</value>
                <a:documentation>An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.</a:documentation>
                <value>rank</value>
-               <a:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq, vālī, Captain</a:documentation>
+               <a:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq , vālī , Captain</a:documentation>
                <value>epithet</value>
                <a:documentation>a phrase someone is commonly referred to (nick-name), such as "Owner of the newspaper xyz"</a:documentation>
             </choice>
@@ -5966,7 +5471,6 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -6056,7 +5560,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <ref name="OpenArabicPE_att.naming.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <optional>
             <attribute name="where">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the location of an event by pointing to a place element</a:documentation>
@@ -6111,8 +5614,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6144,8 +5645,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6177,8 +5676,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6210,8 +5707,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6283,7 +5778,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <optional>
             <attribute name="role">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies a primary role or classification for the organization.</a:documentation>
@@ -6322,7 +5816,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6345,7 +5838,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
       
          </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <optional>
             <attribute name="role">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies a primary role or classification for the person.</a:documentation>
@@ -6400,7 +5892,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
       
          </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <optional>
             <attribute name="role">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the role of this group of participants in the interaction.</a:documentation>
@@ -6493,7 +5984,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6501,7 +5991,7 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
       <element name="relation">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(relationship) describes any kind of relationship or linkage amongst a specified group of places, events, persons, objects or other items. [13.3.2.3. Personal Relationships]</a:documentation>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="tei_OpenArabicPE-relation-reforkeyorname-constraint-assert-9">
+                  id="tei_OpenArabicPE-relation-reforkeyorname-constraint-assert-7">
             <rule context="tei:relation">
                <assert xmlns:rng="http://relaxng.org/ns/structure/1.0"
                        test="@ref or @key or @name">One of the attributes  'name', 'ref' or 'key' must be supplied</assert>
@@ -6526,7 +6016,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.canonical.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <optional>
             <attribute name="name">
@@ -6652,7 +6141,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <optional>
             <attribute name="parts">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to constituent nyms</a:documentation>
@@ -6694,8 +6182,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
-         <ref name="OpenArabicPE_att.sortable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6756,8 +6242,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </pattern>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.fragmentable.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6766,9 +6250,7 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(arbitrary segment) represents any segmentation of text below the chunk level. [16.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]</a:documentation>
          <ref name="OpenArabicPE_macro.paraContent"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.segLike.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6915,101 +6397,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
          </attribute>
       </optional>
    </define>
-   <define name="OpenArabicPE_att.coordinated.attributes">
-      <ref name="OpenArabicPE_att.coordinated.attribute.start"/>
-      <ref name="OpenArabicPE_att.coordinated.attribute.ulx"/>
-      <ref name="OpenArabicPE_att.coordinated.attribute.uly"/>
-      <ref name="OpenArabicPE_att.coordinated.attribute.lrx"/>
-      <ref name="OpenArabicPE_att.coordinated.attribute.lry"/>
-      <ref name="OpenArabicPE_att.coordinated.attribute.points"/>
-   </define>
-   <define name="OpenArabicPE_att.coordinated.attribute.start">
-      <optional>
-         <attribute name="start">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the element within a transcription of the text containing at least the start of the writing represented by this zone or surface.</a:documentation>
-            <data type="anyURI"/>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.coordinated.attribute.ulx">
-      <optional>
-         <attribute name="ulx">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives the x coordinate value for the upper left corner of a rectangular space.</a:documentation>
-            <choice>
-               <data type="double"/>
-               <data type="token">
-                  <param name="pattern">(\-?[\d]+/\-?[\d]+)</param>
-               </data>
-               <data type="decimal"/>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.coordinated.attribute.uly">
-      <optional>
-         <attribute name="uly">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives the y coordinate value for the upper left corner of a rectangular space.</a:documentation>
-            <choice>
-               <data type="double"/>
-               <data type="token">
-                  <param name="pattern">(\-?[\d]+/\-?[\d]+)</param>
-               </data>
-               <data type="decimal"/>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.coordinated.attribute.lrx">
-      <optional>
-         <attribute name="lrx">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives the x coordinate value for the lower right corner of a rectangular space.</a:documentation>
-            <choice>
-               <data type="double"/>
-               <data type="token">
-                  <param name="pattern">(\-?[\d]+/\-?[\d]+)</param>
-               </data>
-               <data type="decimal"/>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.coordinated.attribute.lry">
-      <optional>
-         <attribute name="lry">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives the y coordinate value for the lower right corner of a rectangular space.</a:documentation>
-            <choice>
-               <data type="double"/>
-               <data type="token">
-                  <param name="pattern">(\-?[\d]+/\-?[\d]+)</param>
-               </data>
-               <data type="decimal"/>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
-   <define name="OpenArabicPE_att.coordinated.attribute.points">
-      <optional>
-         <attribute name="points">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies a two dimensional area within the bounding box specified by the other attributes by means of a series of pairs of numbers, each of which gives the x,y coordinates of a point on a line enclosing the area.</a:documentation>
-            <list>
-               <data type="token">
-                  <param name="pattern">(\-?[0-9]+\.?[0-9]*,\-?[0-9]+\.?[0-9]*)</param>
-               </data>
-               <data type="token">
-                  <param name="pattern">(\-?[0-9]+\.?[0-9]*,\-?[0-9]+\.?[0-9]*)</param>
-               </data>
-               <data type="token">
-                  <param name="pattern">(\-?[0-9]+\.?[0-9]*,\-?[0-9]+\.?[0-9]*)</param>
-               </data>
-               <zeroOrMore>
-                  <data type="token">
-                     <param name="pattern">(\-?[0-9]+\.?[0-9]*,\-?[0-9]+\.?[0-9]*)</param>
-                  </data>
-               </zeroOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
    <define name="OpenArabicPE_facsimile">
       <element name="facsimile">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a representation of some written source in the form of a set of images rather than as transcribed or encoded text. [11.1. Digital Facsimiles]</a:documentation>
@@ -7070,7 +6457,6 @@ Sample values include: 1] proclaimed; 2] assumed; 3] verified; 4] clinical; 5] b
             </zeroOrMore>
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.coordinated.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <optional>
             <attribute name="attachment">
@@ -7118,9 +6504,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
             </choice>
          </zeroOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.coordinated.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <optional>
             <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                        name="rotate"
@@ -7146,7 +6530,6 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.placement.attributes"/>
-         <ref name="OpenArabicPE_att.written.attributes"/>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">classifies the material encoded according to some useful typology.
@@ -7189,7 +6572,6 @@ Sample values include: 1] header; 2] footer; 3] pageNum(page number) ; 4] lineNu
          <ref name="OpenArabicPE_att.global.linking.attribute.prev"/>
          <ref name="OpenArabicPE_att.global.facs.attribute.facs"/>
          <ref name="OpenArabicPE_att.global.change.attribute.change"/>
-         <ref name="OpenArabicPE_att.global.source.attribute.source"/>
          <attribute name="resp">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.</a:documentation>
             <list>
@@ -7217,7 +6599,6 @@ Sample values include: 1] header; 2] footer; 3] pageNum(page number) ; 4] lineNu
       <element name="metamark">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains or describes any kind of graphic or written signal within a document the function of which is to determine how it should be read rather than forming part of the actual content of the document. [11.3.4.2. Metamarks]</a:documentation>
          <ref name="OpenArabicPE_macro.specialPara"/>
-         <ref name="OpenArabicPE_att.spanning.attributes"/>
          <ref name="OpenArabicPE_att.placement.attributes"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <optional>
@@ -7261,7 +6642,6 @@ Sample values include: 1] header; 2] footer; 3] pageNum(page number) ; 4] lineNu
             
         </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
@@ -7285,7 +6665,6 @@ Sample values include: 1] header; 2] footer; 3] pageNum(page number) ; 4] lineNu
             
         </choice>
          <ref name="OpenArabicPE_att.global.attributes"/>
-         <ref name="OpenArabicPE_att.declarable.attributes"/>
          <empty/>
       </element>
    </define>
