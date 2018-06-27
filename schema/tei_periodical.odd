@@ -184,13 +184,26 @@
                     </attList>
                 </classSpec>
                 <classSpec ident="att.global.source" mode="delete" module="tei" type="atts"/>
-                <classSpec ident="att.media" mode="delete" module="tei" type="atts"/>
+                <classSpec ident="att.media" mode="change" module="tei" type="atts">
+                    <!-- even though I delete all attributes in this class, the class itself is required as it is member of att.internetMedia, which provides the @mimeType attribute -->
+                    <attList>
+                        <attDef ident="height" mode="delete"/>
+                        <attDef ident="scale" mode="delete"/>
+                        <attDef ident="width" mode="delete"/>
+                    </attList>
+                </classSpec>
                  <classSpec ident="att.naming" mode="change" module="tei" type="atts">
                     <attList>
                         <attDef ident="role" mode="delete"/>
                     </attList>
                 </classSpec>
-                <classSpec ident="att.personal" mode="delete" module="tei" type="atts"/>
+                <classSpec ident="att.personal" mode="change" module="tei" type="atts">
+                    <!-- even though I delete all attributes in this class, the class itself is required as it is member of att.canonical, which provides the @ref attribute -->
+                    <attList>
+                        <attDef ident="full" mode="delete"/>
+                        <attDef ident="full" mode="delete"/>
+                    </attList>
+                </classSpec>
                  <classSpec ident="att.pointing" mode="change" module="tei" type="atts">
                     <attList>
                         <attDef ident="evaluate" mode="delete"/>
