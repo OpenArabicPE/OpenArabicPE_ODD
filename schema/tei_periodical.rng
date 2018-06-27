@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2018-06-27T19:31:59Z. .
+Schema generated from ODD source 2018-06-27T19:45:24Z. .
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -426,6 +426,9 @@ Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] f
             </list>
          </attribute>
       </optional>
+   </define>
+   <define name="OpenArabicPE_att.media.attributes">
+      <ref name="OpenArabicPE_att.internetMedia.attributes"/>
    </define>
    <define name="OpenArabicPE_att.resourced.attributes">
       <ref name="OpenArabicPE_att.resourced.attribute.url"/>
@@ -2215,6 +2218,18 @@ Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] 
          <ref name="OpenArabicPE_facsimile"/>
       </choice>
    </define>
+   <define name="OpenArabicPE_att.personal.attributes">
+      <ref name="OpenArabicPE_att.naming.attributes"/>
+      <ref name="OpenArabicPE_att.personal.attribute.sort"/>
+   </define>
+   <define name="OpenArabicPE_att.personal.attribute.sort">
+      <optional>
+         <attribute name="sort">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the sort order of the name component in relation to others within the name.</a:documentation>
+            <data type="nonNegativeInteger"/>
+         </attribute>
+      </optional>
+   </define>
    <define name="OpenArabicPE_model.placeLike">
       <choice>
          <ref name="OpenArabicPE_place"/>
@@ -2712,6 +2727,7 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(name, proper noun) contains a proper noun or noun phrase. [3.5.1. Referring Strings]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
@@ -3208,6 +3224,7 @@ Suggested values include: 1] endnote; 2] footnote; 3] gloss; 4] inline</a:docume
             <ref name="OpenArabicPE_model.descLike"/>
          </zeroOrMore>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.media.attributes"/>
          <ref name="OpenArabicPE_att.resourced.attributes"/>
          <empty/>
       </element>
@@ -5333,6 +5350,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5343,6 +5361,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5352,6 +5371,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a family (inherited) name, as opposed to a given, baptismal, or nick name. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5361,6 +5381,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a forename, given or baptismal name. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5370,6 +5391,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(generational name component) contains a name component used to distinguish otherwise similar names on the basis of the relative ages or generations of the persons named. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>
@@ -5388,6 +5410,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(additional name) contains an additional name component, such as a nickname, epithet, or alias, or any other descriptive phrase used within a personal name. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="type"
                     a:defaultValue="title">
@@ -5432,6 +5455,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a name component which indicates that the referent has a particular role or position in society, such as an official title or rank. [13.2.1. Personal Names]</a:documentation>
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
                     name="type"
                     a:defaultValue="title">
@@ -5471,6 +5495,7 @@ Sample values include: 1] TEI(text encoding initiative) ; 2] DBK(docbook) ; 3] X
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <ref name="OpenArabicPE_att.personal.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <empty/>
       </element>

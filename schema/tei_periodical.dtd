@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2018-06-27T19:32:39Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2018-06-27T19:45:59Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 3.2.0. Last updated on
 	10th July 2017, revision 0fcf651
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -231,7 +231,7 @@ xml:lang %teidata.language;  "ar" '>
 <!ENTITY % OpenArabicPE_att.internetMedia.attribute.mimeType '
 mimeType CDATA  #IMPLIED'>
 <!ENTITY % OpenArabicPE_att.internetMedia.attributes '
- %OpenArabicPE_att.internetMedia.attribute.mimeType;'> 
+ %OpenArabicPE_att.internetMedia.attribute.mimeType;'> <!ENTITY % OpenArabicPE_att.media.attributes '%OpenArabicPE_att.internetMedia.attributes;'> 
 <!ENTITY % OpenArabicPE_att.resourced.attribute.url '
 url %teidata.pointer;  #REQUIRED'>
 <!ENTITY % OpenArabicPE_att.resourced.attributes '
@@ -693,6 +693,10 @@ to %teidata.word;  #IMPLIED'>
 <!ENTITY % model.resourceLike_sequenceOptional "text?, facsimile?"> 
 <!ENTITY % model.resourceLike_sequenceOptionalRepeatable "text*, facsimile*"> 
 <!ENTITY % model.resourceLike_sequenceRepeatable "text+, facsimile+"> 
+<!ENTITY % OpenArabicPE_att.personal.attribute.sort '
+sort %teidata.count;  #IMPLIED'>
+<!ENTITY % OpenArabicPE_att.personal.attributes '%OpenArabicPE_att.naming.attributes;
+ %OpenArabicPE_att.personal.attribute.sort;'> 
 <!ENTITY % model.placeLike "place"> 
 <!ENTITY % model.placeLike_sequence "place"> 
 <!ENTITY % model.placeLike_sequenceOptional "place?"> 
@@ -823,6 +827,7 @@ resp CDATA  #REQUIRED >
 <!ATTLIST addName xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST addName
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.personal.attributes;
 type (title|honorific|rank|nickname|nasab|kunyah|khitab|nisbah) "title" 
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:(abbreviation marker) contains a sequence of letters or signs present in an abbreviation which are omitted or replaced in the expanded form of the abbreviation. [11.3.1.2. Abbreviation and Expansion] -->
@@ -1132,6 +1137,7 @@ where %teidata.pointer;  #IMPLIED >
 <!ATTLIST forename xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST forename
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(front matter) contains any prefatory matter (headers, abstracts, title page, prefaces, dedications, etc.) found at the start of a document, before the main body. [4.6. Title Pages 4. Default Text Structure] -->
 <!ELEMENT front (((%model.frontPart;|%model.pLike;|%model.pLike.front;|%model.global;)*,((((_DUMMY_model.div1Like),(_DUMMY_model.div1Like|%model.frontPart;|%model.global;)*)|((%model.divLike;),(%model.divLike;|%model.frontPart;|%model.global;)*)),((%model.divBottom;),(%model.divBottom;|%model.global;)*)?)?))>
@@ -1183,6 +1189,7 @@ Elements] -->
 <!ATTLIST genName xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST genName
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(geographical coordinates) contains any expression of a set of geographic coordinates, representing a point, line, or area on the surface of the earth in some notation. [13.3.4.1. Varieties of Location] -->
 <!ELEMENT geo (#PCDATA)>
@@ -1200,6 +1207,7 @@ scheme %teidata.enumerated;  "TEI"  >
 <!ATTLIST graphic xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST graphic
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.media.attributes;
  %OpenArabicPE_att.resourced.attributes; >
 <!--doc:contains the body of a composite text, grouping together a sequence of distinct texts (or groups of such texts) which are regarded as a unit for some purpose, for example the collected works of an author, a sequence of prose essays, etc. [4. Default Text Structure 4.3.1. Grouped Texts 15.1. Varieties of Composite Text] -->
 <!ELEMENT group (((%model.divTop;|%model.global;)*,((text|group),(text|group|%model.global;)*),(%model.divBottom;)*))>
@@ -1389,6 +1397,7 @@ Elements] -->
 <!ATTLIST name xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST name
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(name link) contains a connecting phrase or link used within a name but not regarded as part of it, such as van der or of. [13.2.1. Personal Names] -->
@@ -1458,6 +1467,7 @@ role CDATA  #IMPLIED >
 <!ATTLIST orgName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.datable.attributes;
+ %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(original form) contains a reading which is marked as following the original, rather than being normalized or corrected. [3.4.2. Regularization and
 Normalization 12. Critical Apparatus] -->
@@ -1490,6 +1500,7 @@ ed CDATA  "print"  >
 <!ATTLIST persName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.datable.attributes;
+ %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [13.3.2. The Person Element 15.2.2. The Participant Description] -->
 <!ELEMENT person ((%model.pLike;)+|(%model.personPart;|%model.global;)*)>
@@ -1520,6 +1531,7 @@ size CDATA  #IMPLIED >
 <!ATTLIST placeName
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:(prefix definition) defines a prefixing scheme used in data.pointer values, showing how abbreviated URIs using the scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers] -->
 <!ELEMENT prefixDef (%model.pLike;)*>
@@ -1662,6 +1674,7 @@ selector %teidata.text;  #IMPLIED >
 <!ATTLIST roleName xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST roleName
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.personal.attributes;
 type (title|honorific|nobility|rank|epithet) "title" 
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:contains one row of a table. [14.1.1. TEI Tables] -->
@@ -1752,6 +1765,7 @@ flipping %teidata.truthValue;  #IMPLIED >
 <!ATTLIST surname xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST surname
  %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.personal.attributes;
  %OpenArabicPE_att.typed.attributes; >
 <!--doc:contains text displayed in tabular form, in rows and columns. [14.1.1. TEI Tables] -->
 <!ELEMENT table (((%model.headLike;|%model.global;)*,((row,(%model.global;)*)+|((%model.graphicLike;),(%model.global;)*)+),((%model.divBottom;),(%model.global;)*)*))>

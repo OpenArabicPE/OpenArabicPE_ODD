@@ -6,7 +6,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2018-06-27T19:32:22Z. .
+# Schema generated from ODD source 2018-06-27T19:45:45Z. .
 # TEI Edition: Version 3.2.0. Last updated on
 #	10th July 2017, revision 0fcf651
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.2.0/
@@ -355,6 +355,8 @@ OpenArabicPE_att.internetMedia.attribute.mimeType =
       xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }+
     }
   }?
+OpenArabicPE_att.media.attributes =
+  OpenArabicPE_att.internetMedia.attributes
 OpenArabicPE_att.resourced.attributes =
   OpenArabicPE_att.resourced.attribute.url
 OpenArabicPE_att.resourced.attribute.url =
@@ -1256,6 +1258,13 @@ OpenArabicPE_model.profileDescPart =
   | OpenArabicPE_settingDesc
 OpenArabicPE_model.resourceLike =
   OpenArabicPE_text | OpenArabicPE_facsimile
+OpenArabicPE_att.personal.attributes =
+  OpenArabicPE_att.naming.attributes,
+  OpenArabicPE_att.personal.attribute.sort
+OpenArabicPE_att.personal.attribute.sort =
+  
+  ## specifies the sort order of the name component in relation to others within the name.
+  attribute sort { xsd:nonNegativeInteger }?
 OpenArabicPE_model.placeLike = OpenArabicPE_place
 OpenArabicPE_att.milestoneUnit.attributes =
   OpenArabicPE_att.milestoneUnit.attribute.unit
@@ -1723,6 +1732,7 @@ OpenArabicPE_name =
   element name {
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.personal.attributes,
     OpenArabicPE_att.datable.attributes,
     OpenArabicPE_att.typed.attributes,
     empty
@@ -2167,6 +2177,7 @@ OpenArabicPE_graphic =
   element graphic {
     OpenArabicPE_model.descLike*,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.media.attributes,
     OpenArabicPE_att.resourced.attributes,
     empty
   }
@@ -3427,6 +3438,7 @@ OpenArabicPE_orgName =
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
     OpenArabicPE_att.datable.attributes,
+    OpenArabicPE_att.personal.attributes,
     OpenArabicPE_att.typed.attributes,
     empty
   }
@@ -3437,6 +3449,7 @@ OpenArabicPE_persName =
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
     OpenArabicPE_att.datable.attributes,
+    OpenArabicPE_att.personal.attributes,
     OpenArabicPE_att.typed.attributes,
     empty
   }
@@ -3446,6 +3459,7 @@ OpenArabicPE_surname =
   element surname {
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.personal.attributes,
     OpenArabicPE_att.typed.attributes,
     empty
   }
@@ -3455,6 +3469,7 @@ OpenArabicPE_forename =
   element forename {
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.personal.attributes,
     OpenArabicPE_att.typed.attributes,
     empty
   }
@@ -3464,6 +3479,7 @@ OpenArabicPE_genName =
   element genName {
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.personal.attributes,
     OpenArabicPE_att.typed.attributes,
     empty
   }
@@ -3482,6 +3498,7 @@ OpenArabicPE_addName =
   element addName {
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.personal.attributes,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
     [ a:defaultValue = "title" ]
@@ -3532,6 +3549,7 @@ OpenArabicPE_roleName =
   element roleName {
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.personal.attributes,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
     [ a:defaultValue = "title" ]
@@ -3574,6 +3592,7 @@ OpenArabicPE_placeName =
     OpenArabicPE_macro.phraseSeq,
     OpenArabicPE_att.datable.attributes,
     OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.personal.attributes,
     OpenArabicPE_att.typed.attributes,
     empty
   }
