@@ -1,5 +1,5 @@
 ---
-title: "Readme/documentation: tei_periodicals"
+title: "Readme/documentation: ODD tei_periodicals"
 author: Till Grallert
 date: 2017-04-06
 tags:
