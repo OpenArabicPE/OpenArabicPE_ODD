@@ -388,12 +388,14 @@ Beware that what looks like a sub heading, might also be a section heading intro
 
 Currently, only page breaks are recorded. They are marked up with the empty milestone element `<pb/>`. Page breaks found in *al-maktaba al-shāmila*, however, do not correspond to those in the original printed copies. They were therefore marked as `<pb ed="shamila">`. Page breaks corresponding to the original printed edition are identified by `@ed="print"`.
 
-Dār Ṣādir in Beirut published a reprint in 1992, which is entirely unmarked as such but for the information on the binding itself. Checking this reprint against the original, it appeared to be a facsimile reprint: pagination, font, layout---everything is identical.
+Dār Ṣādir in Beirut published a reprint in 1992, which is almost entirely unmarked as such but for the information on the binding itself. The frontispiece carries the note "اعيد طبعها بالتصوير باشراف الدكتور محمد يوسف نجم" (reprinted facsimile under the supervision of Dr. Muḥammad Yūsuf Najm) but the original to this facsimile edition still needs to be established. Checking this reprint against the original, it appears that, in addition to the original edition, there was at least one reprint in the first half of the twentieth century with minor changes. This second edition (for the lack of a better title) corrected some of the typos found in the original edition and its pagination occasionally differs from the first edition/ print run. Traces of this edition are currently to be found among the digital facsimiles provided by the website [Arshīf al-majallāt al-adabiyya wa-l-thaqafiyya al-ʿarabiyya (archive.sakhrit.co)](archive.sakhrit.co) and Dār Ṣādir. For an example see pages 67/68 of [volume 1](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_2.TEIP5.xml#pb_20.d1e1487).
 
-1. Printed original copy: `<pb ed="print"/>`
+1. Printed copys: `<pb ed="print"/>`
     - the page number is recorded in the `@n` attribute
     - These page breaks are then linked through the `@facs` attribute to the `@xml:id` of a `<surface>` element; i.e. `<pb ed="print" n="78" facs="#facs_78"/>`
-2. Transcription from *al-maktaba al-shāmila*: `<pb ed="shamela"/>`
+2. References to a specific print edition: `@edRef`
+    - all known print editions relevant for the TEI representation should be recorded in the `<sourceDesc>`. `@edRef` can then be used to point to a specific `<biblStruct>` in the `<sourceDesc>`. The datatype is `teidata.pointer`.
+3. Transcription from *al-maktaba al-shāmila*: `<pb ed="shamela"/>`
 
 The current state of mark-up for page breaks is kept in a [second file](notes-tei-markup-pb.md).
 
