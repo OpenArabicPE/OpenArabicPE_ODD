@@ -37,7 +37,8 @@ Many articles include information on authors, editors or translators of the text
 </note>
 ```
 
-NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically. 
+- NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically. 
+- NOTE on translations: `<bib>` allows `<textLang mainLang="">` to describe the language of a text. 
 
 ## Serialised articles
 
