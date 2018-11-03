@@ -1,3 +1,5 @@
 .DS_Store
+
 # remove folders from the gh-pages branch
 xslt/
+out/
