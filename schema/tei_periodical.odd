@@ -355,6 +355,9 @@
                                 <valItem ident="epithet">
                                     <desc>a phrase someone is commonly referred to (nick-name), such as &quot;Owner of the newspaper xyz&quot;</desc>
                                 </valItem>
+                                <valItem ident="pseudonym">
+                                    <desc>a ficticious name, especially one used by an author.</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                         <attDef ident="subtype" mode="change" usage="opt">
