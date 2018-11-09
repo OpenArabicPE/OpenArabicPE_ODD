@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2018-09-28T21:59:46Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2018-11-09T07:37:20Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 3.4.0. Last updated on
 	23rd July 2018, revision 1fa0b54
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.4.0/
@@ -1715,7 +1715,7 @@ selector %teidata.text;  #IMPLIED >
 <!ATTLIST roleName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.personal.attributes;
-type (title|honorific|nobility|rank|epithet) "title" 
+type (title|honorific|nobility|rank|epithet|pseudonym) "title" 
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:contains one row of a table. [14.1.1. TEI Tables] -->
 <!ELEMENT row (cell)+>
