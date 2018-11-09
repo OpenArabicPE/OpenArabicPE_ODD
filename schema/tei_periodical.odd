@@ -592,10 +592,10 @@
                             <defaultVal>print</defaultVal>
                             <valList mode="replace" type="semi">
                                 <valItem ident="print">
-                                    <desc>Page beginning, i.e. break, according to a printed edition</desc>
+                                    <desc>Line beginning, i.e. break, according to a printed edition</desc>
                                 </valItem>
                                 <valItem ident="shamela">
-                                    <desc>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                    <desc>Line beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
                                 </valItem>
                             </valList>
                         </attDef>
@@ -616,10 +616,10 @@
                             <defaultVal>print</defaultVal>
                             <valList mode="replace" type="semi">
                                 <valItem ident="print">
-                                    <desc>Page beginning, i.e. break, according to a printed edition</desc>
+                                    <desc>Column beginning, i.e. break, according to a printed edition</desc>
                                 </valItem>
                                 <valItem ident="shamela">
-                                    <desc>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                    <desc>Column beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
                                 </valItem>
                             </valList>
                         </attDef>
