@@ -391,19 +391,19 @@
                                 </valItem>
                                 <valItem ident="#cal_islamic">
                                     <desc>Muslim lunar calendar known as 
-                                        <foreign>hijrī</foreign>
+                                        <foreign xml:lang="ar-Latn-x-ijmes">hijrī</foreign> calendar
                                         beginning the year with 1 
-                                        <foreign>Muḥarram</foreign></desc>
+                                        <foreign xml:lang="ar-Latn-x-ijmes">Muḥarram</foreign></desc>
                                 </valItem>
                                 <valItem ident="#cal_julian">
-                                    <desc>Reformed Julian calendar beginning the year with 1 January</desc>
+                                    <desc>Reformed Julian calendar also known as <foreign xml:lang="ar-Latn-x-ijmes">sharqī</foreign> or <foreign xml:lang="ar-Latn-x-ijmes">rūmī</foreign> calendar beginning the Year with 1 January</desc>
                                 </valItem>
                                 <valItem ident="#cal_ottomanfiscal">
                                     <desc>Ottoman fiscal calendar also known as 
-                                        <foreign>mālī</foreign>
+                                        <foreign xml:lang="ar-Latn-x-ijmes">mālī</foreign>
                                         or 
-                                        <foreign>rūmī</foreign>
-                                        calendar</desc>
+                                        <foreign xml:lang="ar-Latn-x-ijmes">rūmī</foreign>
+                                        calendar beginning the year with 1 <foreign xml:lang="ar-Latn-x-ijmes">mārt</foreign> (March), similar to the old Julian calendar.</desc>
                                 </valItem>
                                 <valItem ident="#cal_coptic">
                                     <desc>The Coptic calendar</desc>
@@ -417,17 +417,19 @@
                                 </valItem>
                                 <valItem ident="#cal_islamic">
                                     <desc>Muslim lunar calendar known as 
-                                        <foreign>hijrī</foreign></desc>
+                                        <foreign xml:lang="ar-Latn-x-ijmes">hijrī</foreign> calendar
+                                        beginning the year with 1 
+                                        <foreign xml:lang="ar-Latn-x-ijmes">Muḥarram</foreign></desc>
                                 </valItem>
                                 <valItem ident="#cal_julian">
-                                    <desc>Reformed Julian calendar beginning the Year with 1 January</desc>
+                                    <desc>Reformed Julian calendar also known as <foreign xml:lang="ar-Latn-x-ijmes">sharqī</foreign> or <foreign xml:lang="ar-Latn-x-ijmes">rūmī</foreign> calendar beginning the Year with 1 January</desc>
                                 </valItem>
                                 <valItem ident="#cal_ottomanfiscal">
                                     <desc>Ottoman fiscal calendar also known as 
-                                        <foreign>mālī</foreign>
+                                        <foreign xml:lang="ar-Latn-x-ijmes">mālī</foreign>
                                         or 
-                                        <foreign>rūmī</foreign>
-                                        calendar</desc>
+                                        <foreign xml:lang="ar-Latn-x-ijmes">rūmī</foreign>
+                                        calendar beginning the year with 1 <foreign xml:lang="ar-Latn-x-ijmes">mārt</foreign> (March), similar to the old Julian calendar.</desc>
                                 </valItem>
                                 <valItem ident="#cal_coptic">
                                     <desc>The Coptic calendar</desc>
