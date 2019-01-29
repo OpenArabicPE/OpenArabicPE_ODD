@@ -6,7 +6,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2018-11-09T08:22:55Z. .
+# Schema generated from ODD source 2019-01-29T07:18:47Z. .
 # TEI Edition: Version 3.4.0. Last updated on
 #	23rd July 2018, revision 1fa0b54
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.4.0/
@@ -1065,7 +1065,13 @@ OpenArabicPE_model.global.edit = OpenArabicPE_gap
 OpenArabicPE_model.divPart =
   OpenArabicPE_model.lLike | OpenArabicPE_model.pLike | OpenArabicPE_lg
 OpenArabicPE_model.persStateLike =
-  OpenArabicPE_persName | OpenArabicPE_floruit | OpenArabicPE_trait
+  OpenArabicPE_persName
+  | OpenArabicPE_education
+  | OpenArabicPE_faith
+  | OpenArabicPE_floruit
+  | OpenArabicPE_occupation
+  | OpenArabicPE_state
+  | OpenArabicPE_trait
 OpenArabicPE_model.personLike =
   OpenArabicPE_org | OpenArabicPE_person | OpenArabicPE_personGrp
 OpenArabicPE_model.personPart =
@@ -1088,26 +1094,32 @@ OpenArabicPE_model.placeNamePart_sequenceRepeatable =
 OpenArabicPE_model.placeStateLike =
   OpenArabicPE_model.placeNamePart
   | OpenArabicPE_location
+  | OpenArabicPE_state
   | OpenArabicPE_trait
 OpenArabicPE_model.placeStateLike_alternation =
   OpenArabicPE_model.placeNamePart_alternation
   | OpenArabicPE_location
+  | OpenArabicPE_state
   | OpenArabicPE_trait
 OpenArabicPE_model.placeStateLike_sequence =
   OpenArabicPE_model.placeNamePart_sequence,
   OpenArabicPE_location,
+  OpenArabicPE_state,
   OpenArabicPE_trait
 OpenArabicPE_model.placeStateLike_sequenceOptional =
   OpenArabicPE_model.placeNamePart_sequenceOptional?,
   OpenArabicPE_location?,
+  OpenArabicPE_state?,
   OpenArabicPE_trait?
 OpenArabicPE_model.placeStateLike_sequenceOptionalRepeatable =
   OpenArabicPE_model.placeNamePart_sequenceOptionalRepeatable*,
   OpenArabicPE_location*,
+  OpenArabicPE_state*,
   OpenArabicPE_trait*
 OpenArabicPE_model.placeStateLike_sequenceRepeatable =
   OpenArabicPE_model.placeNamePart_sequenceRepeatable+,
   OpenArabicPE_location+,
+  OpenArabicPE_state+,
   OpenArabicPE_trait+
 OpenArabicPE_model.orgPart =
   OpenArabicPE_model.eventLike
@@ -3789,6 +3801,23 @@ OpenArabicPE_death =
     }?,
     empty
   }
+OpenArabicPE_education =
+  
+  ## contains a description of the educational experience of a person. [15.2.2. The Participant Description]
+  element education {
+    OpenArabicPE_macro.phraseSeq,
+    OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.datable.attributes,
+    OpenArabicPE_att.naming.attributes,
+    OpenArabicPE_att.typed.attribute.subtype,
+    
+    ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    ## Sample values include: 1] primary; 2] secondary; 3] undergraduate; 4] graduate; 5] residency; 6] apprenticeship
+    attribute type {
+      xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+    }?,
+    empty
+  }
 OpenArabicPE_event =
   
   ## contains data relating to any kind of significant event associated with a person, place, or organization. [13.3.1. Basic Principles]
@@ -3804,6 +3833,23 @@ OpenArabicPE_event =
     
     ## indicates the location of an event by pointing to a place element
     attribute where { xsd:anyURI }?,
+    empty
+  }
+OpenArabicPE_faith =
+  
+  ## specifies the faith, religion, or belief set of a person. [13.3.2.1. Personal Characteristics]
+  element faith {
+    OpenArabicPE_macro.phraseSeq,
+    OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.datable.attributes,
+    OpenArabicPE_att.canonical.attributes,
+    OpenArabicPE_att.typed.attribute.subtype,
+    
+    ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    ## Sample values include: 1] practicing; 2] clandestine; 3] patrilineal; 4] matrilineal; 5] convert
+    attribute type {
+      xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+    }?,
     empty
   }
 OpenArabicPE_floruit =
@@ -3878,6 +3924,29 @@ OpenArabicPE_location =
     OpenArabicPE_att.global.attributes,
     OpenArabicPE_att.typed.attributes,
     OpenArabicPE_att.datable.attributes,
+    empty
+  }
+OpenArabicPE_occupation =
+  
+  ## contains an informal description of a person's trade, profession or occupation. [15.2.2. The Participant Description]
+  element occupation {
+    OpenArabicPE_macro.specialPara,
+    OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.datable.attributes,
+    OpenArabicPE_att.naming.attributes,
+    OpenArabicPE_att.typed.attribute.subtype,
+    
+    ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    ## Sample values include: 1] primary; 2] other; 3] paid; 4] unpaid
+    attribute type {
+      xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+    }?,
+    
+    ## indicates the classification system or taxonomy in use, for example by supplying the identifier of a taxonomy element, or pointing to some other resource.
+    attribute scheme { xsd:anyURI }?,
+    
+    ## identifies an occupation code defined within the classification system or taxonomy defined by the scheme attribute.
+    attribute code { xsd:anyURI }?,
     empty
   }
 OpenArabicPE_org =
@@ -4079,6 +4148,24 @@ OpenArabicPE_relation =
     attribute passive {
       list { xsd:anyURI+ }
     }?,
+    empty
+  }
+OpenArabicPE_state =
+  
+  ## contains a description of some status or quality attributed to a person, place, or organization often at some specific time or for a specific date range. [13.3.1. Basic Principles 13.3.2.1. Personal Characteristics]
+  element state {
+    (OpenArabicPE_state+
+     | (OpenArabicPE_model.headLike*,
+        OpenArabicPE_model.pLike+,
+        (OpenArabicPE_model.noteLike | OpenArabicPE_model.biblLike)*)
+     | (OpenArabicPE_model.labelLike
+        | OpenArabicPE_model.noteLike
+        | OpenArabicPE_model.biblLike)*),
+    OpenArabicPE_att.global.attributes,
+    OpenArabicPE_att.datable.attributes,
+    OpenArabicPE_att.typed.attributes,
+    OpenArabicPE_att.naming.attributes,
+    OpenArabicPE_att.dimensions.attributes,
     empty
   }
 OpenArabicPE_trait =
