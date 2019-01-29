@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2018-09-28T21:59:46Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2019-01-29T07:17:56Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 3.4.0. Last updated on
 	23rd July 2018, revision 1fa0b54
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.4.0/
@@ -96,11 +96,11 @@ rendition CDATA  #IMPLIED'>
 <!ENTITY % model.placeNamePart_sequenceOptional "placeName?"> 
 <!ENTITY % model.placeNamePart_sequenceOptionalRepeatable "placeName*"> 
 <!ENTITY % model.placeNamePart_sequenceRepeatable "placeName+"> 
-<!ENTITY % model.placeStateLike "%model.placeNamePart; |location |trait"> 
-<!ENTITY % model.placeStateLike_sequence "%model.placeNamePart;, location, trait"> 
-<!ENTITY % model.placeStateLike_sequenceOptional "%model.placeNamePart;?, location?, trait?"> 
-<!ENTITY % model.placeStateLike_sequenceOptionalRepeatable "%model.placeNamePart;*, location*, trait*"> 
-<!ENTITY % model.placeStateLike_sequenceRepeatable "%model.placeNamePart;+, location+, trait+"> 
+<!ENTITY % model.placeStateLike "%model.placeNamePart; |location |state |trait"> 
+<!ENTITY % model.placeStateLike_sequence "%model.placeNamePart;, location, state, trait"> 
+<!ENTITY % model.placeStateLike_sequenceOptional "%model.placeNamePart;?, location?, state?, trait?"> 
+<!ENTITY % model.placeStateLike_sequenceOptionalRepeatable "%model.placeNamePart;*, location*, state*, trait*"> 
+<!ENTITY % model.placeStateLike_sequenceRepeatable "%model.placeNamePart;+, location+, state+, trait+"> 
 <!ENTITY % model.orgPart "%model.eventLike; |listOrg |listPerson |listPlace"> 
 <!ENTITY % model.orgPart_sequence "%model.eventLike;, listOrg, listPerson, listPlace"> 
 <!ENTITY % model.orgPart_sequenceOptional "%model.eventLike;?, listOrg?, listPerson?, listPlace?"> 
@@ -505,11 +505,11 @@ to %teidata.word;  #IMPLIED'>
 <!ENTITY % model.divPart_sequenceOptional "%model.lLike;?, %model.pLike;?, lg?"> 
 <!ENTITY % model.divPart_sequenceOptionalRepeatable "%model.lLike;*, %model.pLike;*, lg*"> 
 <!ENTITY % model.divPart_sequenceRepeatable "%model.lLike;+, %model.pLike;+, lg+"> 
-<!ENTITY % model.persStateLike "persName |floruit |trait"> 
-<!ENTITY % model.persStateLike_sequence "persName, floruit, trait"> 
-<!ENTITY % model.persStateLike_sequenceOptional "persName?, floruit?, trait?"> 
-<!ENTITY % model.persStateLike_sequenceOptionalRepeatable "persName*, floruit*, trait*"> 
-<!ENTITY % model.persStateLike_sequenceRepeatable "persName+, floruit+, trait+"> 
+<!ENTITY % model.persStateLike "persName |education |faith |floruit |occupation |state |trait"> 
+<!ENTITY % model.persStateLike_sequence "persName, education, faith, floruit, occupation, state, trait"> 
+<!ENTITY % model.persStateLike_sequenceOptional "persName?, education?, faith?, floruit?, occupation?, state?, trait?"> 
+<!ENTITY % model.persStateLike_sequenceOptionalRepeatable "persName*, education*, faith*, floruit*, occupation*, state*, trait*"> 
+<!ENTITY % model.persStateLike_sequenceRepeatable "persName+, education+, faith+, floruit+, occupation+, state+, trait+"> 
 <!ENTITY % model.personLike "org |person |personGrp"> 
 <!ENTITY % model.personLike_sequence "org, person, personGrp"> 
 <!ENTITY % model.personLike_sequenceOptional "org?, person?, personGrp?"> 
@@ -525,11 +525,11 @@ to %teidata.word;  #IMPLIED'>
 <!ENTITY % model.placeNamePart_sequenceOptional "placeName?"> 
 <!ENTITY % model.placeNamePart_sequenceOptionalRepeatable "placeName*"> 
 <!ENTITY % model.placeNamePart_sequenceRepeatable "placeName+"> 
-<!ENTITY % model.placeStateLike "%model.placeNamePart; |location |trait"> 
-<!ENTITY % model.placeStateLike_sequence "%model.placeNamePart;, location, trait"> 
-<!ENTITY % model.placeStateLike_sequenceOptional "%model.placeNamePart;?, location?, trait?"> 
-<!ENTITY % model.placeStateLike_sequenceOptionalRepeatable "%model.placeNamePart;*, location*, trait*"> 
-<!ENTITY % model.placeStateLike_sequenceRepeatable "%model.placeNamePart;+, location+, trait+"> 
+<!ENTITY % model.placeStateLike "%model.placeNamePart; |location |state |trait"> 
+<!ENTITY % model.placeStateLike_sequence "%model.placeNamePart;, location, state, trait"> 
+<!ENTITY % model.placeStateLike_sequenceOptional "%model.placeNamePart;?, location?, state?, trait?"> 
+<!ENTITY % model.placeStateLike_sequenceOptionalRepeatable "%model.placeNamePart;*, location*, state*, trait*"> 
+<!ENTITY % model.placeStateLike_sequenceRepeatable "%model.placeNamePart;+, location+, state+, trait+"> 
 <!ENTITY % model.orgPart "%model.eventLike; |listOrg |listPerson |listPlace"> 
 <!ENTITY % model.orgPart_sequence "%model.eventLike;, listOrg, listPerson, listPlace"> 
 <!ENTITY % model.orgPart_sequenceOptional "%model.eventLike;?, listOrg?, listPerson?, listPlace?"> 
@@ -635,11 +635,11 @@ to %teidata.word;  #IMPLIED'>
 <!ENTITY % model.global_sequenceOptional "%model.milestoneLike;?, %model.noteLike;?, %model.global.edit;?, figure?, metamark?"> 
 <!ENTITY % model.global_sequenceOptionalRepeatable "%model.milestoneLike;*, %model.noteLike;*, %model.global.edit;*, figure*, metamark*"> 
 <!ENTITY % model.global_sequenceRepeatable "%model.milestoneLike;+, %model.noteLike;+, %model.global.edit;+, figure+, metamark+"> 
-<!ENTITY % model.biblPart "%model.respLike; |%model.imprintPart; |citedRange |bibl |edition |availability |listRelation"> 
-<!ENTITY % model.biblPart_sequence "%model.respLike;, %model.imprintPart;, citedRange, bibl, edition, availability, listRelation"> 
-<!ENTITY % model.biblPart_sequenceOptional "%model.respLike;?, %model.imprintPart;?, citedRange?, bibl?, edition?, availability?, listRelation?"> 
-<!ENTITY % model.biblPart_sequenceOptionalRepeatable "%model.respLike;*, %model.imprintPart;*, citedRange*, bibl*, edition*, availability*, listRelation*"> 
-<!ENTITY % model.biblPart_sequenceRepeatable "%model.respLike;+, %model.imprintPart;+, citedRange+, bibl+, edition+, availability+, listRelation+"> 
+<!ENTITY % model.biblPart "%model.respLike; |%model.imprintPart; |citedRange |bibl |textLang |edition |availability |listRelation"> 
+<!ENTITY % model.biblPart_sequence "%model.respLike;, %model.imprintPart;, citedRange, bibl, textLang, edition, availability, listRelation"> 
+<!ENTITY % model.biblPart_sequenceOptional "%model.respLike;?, %model.imprintPart;?, citedRange?, bibl?, textLang?, edition?, availability?, listRelation?"> 
+<!ENTITY % model.biblPart_sequenceOptionalRepeatable "%model.respLike;*, %model.imprintPart;*, citedRange*, bibl*, textLang*, edition*, availability*, listRelation*"> 
+<!ENTITY % model.biblPart_sequenceRepeatable "%model.respLike;+, %model.imprintPart;+, citedRange+, bibl+, textLang+, edition+, availability+, listRelation+"> 
 <!ENTITY % model.frontPart "listBibl"> 
 <!ENTITY % model.frontPart_sequence "listBibl"> 
 <!ENTITY % model.frontPart_sequenceOptional "listBibl?"> 
@@ -1098,6 +1098,15 @@ subtype %teidata.enumerated;  #IMPLIED >
 <!ATTLIST editorialDecl xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST editorialDecl
  %OpenArabicPE_att.global.attributes; >
+<!--doc:contains a description of the educational experience of a person. [15.2.2. The Participant Description] -->
+<!ELEMENT education %macro.phraseSeq;>
+<!ATTLIST education xmlns CDATA "http://www.tei-c.org/ns/1.0">
+<!ATTLIST education
+ %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.datable.attributes;
+ %OpenArabicPE_att.naming.attributes;
+ %OpenArabicPE_att.typed.attribute.subtype;
+type %teidata.enumerated;  #IMPLIED >
 <!--doc:(encoding description) documents the relationship between an electronic text and the source or sources from which it was derived. [2.3. The Encoding Description 2.1.1. The TEI Header and Its Components] -->
 <!ELEMENT encodingDesc (%model.encodingDescPart;|%model.pLike;)+>
 <!ATTLIST encodingDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1128,6 +1137,15 @@ where %teidata.pointer;  #IMPLIED >
 <!ATTLIST facsimile xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST facsimile
  %OpenArabicPE_att.global.attributes; >
+<!--doc:specifies the faith, religion, or belief set of a person. [13.3.2.1. Personal Characteristics] -->
+<!ELEMENT faith %macro.phraseSeq;>
+<!ATTLIST faith xmlns CDATA "http://www.tei-c.org/ns/1.0">
+<!ATTLIST faith
+ %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.datable.attributes;
+ %OpenArabicPE_att.canonical.attributes;
+ %OpenArabicPE_att.typed.attribute.subtype;
+type %teidata.enumerated;  #IMPLIED >
 <!--doc:(description of figure) contains a brief prose description of the appearance or content of a graphic figure, for use when documenting an image without displaying it. [14.4. Specific Elements for Graphic Images] -->
 <!ELEMENT figDesc %macro.limitedContent;>
 <!ATTLIST figDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1481,6 +1499,17 @@ value %teidata.numeric;  #IMPLIED >
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
 parts CDATA  #IMPLIED >
+<!--doc:contains an informal description of a person's trade, profession or occupation. [15.2.2. The Participant Description] -->
+<!ELEMENT occupation %macro.specialPara;>
+<!ATTLIST occupation xmlns CDATA "http://www.tei-c.org/ns/1.0">
+<!ATTLIST occupation
+ %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.datable.attributes;
+ %OpenArabicPE_att.naming.attributes;
+ %OpenArabicPE_att.typed.attribute.subtype;
+type %teidata.enumerated;  #IMPLIED
+scheme %teidata.pointer;  #IMPLIED
+code %teidata.pointer;  #IMPLIED >
 <!--doc:groups together dateline, byline, salutation, and similar phrases appearing as a preliminary group at the start of a division, especially of a letter. [4.2. Elements Common to All Divisions] -->
 <!ELEMENT opener (#PCDATA|_DUMMY_model.gLike|%model.phrase;|argument|byline|dateline|epigraph|salute|signed|%model.global;)*>
 <!ATTLIST opener xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1715,7 +1744,7 @@ selector %teidata.text;  #IMPLIED >
 <!ATTLIST roleName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.personal.attributes;
-type (title|honorific|nobility|rank|epithet) "title" 
+type (title|honorific|nobility|rank|epithet|pseudonym) "title" 
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:contains one row of a table. [14.1.1. TEI Tables] -->
 <!ELEMENT row (cell)+>
@@ -1770,6 +1799,15 @@ direct %teidata.xTruthValue;  "true"  >
 <!ATTLIST sourceDesc xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST sourceDesc
  %OpenArabicPE_att.global.attributes; >
+<!--doc:contains a description of some status or quality attributed to a person, place, or organization often at some specific time or for a specific date range. [13.3.1. Basic Principles 13.3.2.1. Personal Characteristics] -->
+<!ELEMENT state (((precision)*,((state)+|((%model.headLike;)*,(%model.pLike;)+,(%model.noteLike;|%model.biblLike;)*)|(%model.labelLike;|%model.noteLike;|%model.biblLike;)*)))>
+<!ATTLIST state xmlns CDATA "http://www.tei-c.org/ns/1.0">
+<!ATTLIST state
+ %OpenArabicPE_att.global.attributes;
+ %OpenArabicPE_att.datable.attributes;
+ %OpenArabicPE_att.typed.attributes;
+ %OpenArabicPE_att.naming.attributes;
+ %OpenArabicPE_att.dimensions.attributes; >
 <!--doc:signifies text supplied by the transcriber or editor for any reason; for example because the original cannot be read due to physical damage, or because of an obvious omission by the author or scribe. [11.3.3.1. Damage, Illegibility, and Supplied Text] -->
 <!ELEMENT supplied %macro.paraContent;>
 <!ATTLIST supplied xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1854,6 +1892,13 @@ version %teidata.version;  #IMPLIED >
 <!ATTLIST text
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes; >
+<!--doc:(text language) describes the languages and writing systems identified within the bibliographic work being described, rather than its description. [3.11.2.4. Imprint, Size of a Document, and Reprint Information 10.6.6. Languages and Writing Systems] -->
+<!ELEMENT textLang %macro.phraseSeq;>
+<!ATTLIST textLang xmlns CDATA "http://www.tei-c.org/ns/1.0">
+<!ATTLIST textLang
+ %OpenArabicPE_att.global.attributes;
+mainLang %teidata.language;  #IMPLIED
+otherLangs CDATA  #IMPLIED >
 <!--doc:contains a phrase defining a time of day in any format. [3.5.4. Dates and Times] -->
 <!ELEMENT time (#PCDATA|_DUMMY_model.gLike|%model.phrase;|%model.global;)*>
 <!ATTLIST time xmlns CDATA "http://www.tei-c.org/ns/1.0">
