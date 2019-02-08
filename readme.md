@@ -29,11 +29,8 @@ Many articles include information on authors, editors or translators of the text
 2. In more complexe cases with more detailed bibliographic information, such as, but not limited to, translators, editors, provinence, editions, `<byline>` is generally not suitable due to its limited content model. In these cases the following structure should be used:
 
 ```xml
-<note type="inline">
-    <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
-    <supplied @resp="#xml:id of the editor">
+<note type="bibliographic" resp="#xml:id of the editor">
         <bibl><!-- ... bibliographic information --></bibl>
-    </supplied>
 </note>
 ```
 
