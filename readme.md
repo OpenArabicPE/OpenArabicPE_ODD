@@ -19,6 +19,14 @@ This repository contains the TEI schema for (early) Arabic periodical editions. 
 - [Digital *Ḥaqāʾiq*](https://github.com/OpenArabicPE/digital-haqaiq)
 - [Digital *Manār*](https://github.com/OpenArabicPE/digital-manar)
 
+It can be called from XML files using the link to the `gh-pages` branch of this repository:
+
+```xml
+<?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+```
+
 # 1. Issues to be solved
 
 ## author information present but not as byline
