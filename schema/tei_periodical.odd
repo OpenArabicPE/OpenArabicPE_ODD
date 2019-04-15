@@ -525,13 +525,30 @@
                         <attDef ident="n" mode="change">
                             <defaultVal>1</defaultVal>
                         </attDef>
+                        <attDef ident="place" mode="change">
+                            <defaultVal>bottom</defaultVal>
+                        </attDef>
                         <attDef ident="type" mode="change">
                             <defaultVal>footnote</defaultVal>
                             <valList mode="replace" type="semi">
-                                <valItem ident="endnote"/>
-                                <valItem ident="footnote"/>
-                                <valItem ident="gloss"/>
-                                <valItem ident="inline"/>
+                                <valItem ident="bibliographic">
+                                    <desc>Note identifying authors, editors, or other sources of a text for cases that canot be covered by a <gi>byline</gi>.</desc>
+                                </valItem>
+                                <valItem ident="editorial">
+                                    <desc>Note added by editors of the digital edition. The editor is identified by means of <att>resp</att></desc>
+                                </valItem>
+                                <valItem ident="endnote">
+                                    <desc>Discouraged: use <att>place</att>='end' instead.</desc>
+                                </valItem>
+                                <valItem ident="footnote">
+                                    <desc>Discouraged: use <att>place</att>='bottom' instead.</desc>
+                                </valItem>
+                                <valItem ident="gloss">
+                                    <desc>Discouraged: use <att>place</att>='margin' instead.</desc>
+                                </valItem>
+                                <valItem ident="inline">
+                                    <desc>Discouraged: use <att>place</att>='inline' instead.</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                     </attList>

@@ -37,9 +37,9 @@ Many articles include information on authors, editors or translators of the text
 2. In more complexe cases with more detailed bibliographic information, such as, but not limited to, translators, editors, provinence, editions, `<byline>` is generally not suitable due to its limited content model. In these cases the following structure should be used:
 
 ```xml
-<note type="inline">
+<note type="bibliographic" place="inline">
     <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
-    <supplied @resp="#xml:id of the editor">
+    <supplied @resp="#xml:id-of-the-editor">
         <bibl><!-- ... bibliographic information --></bibl>
     </supplied>
 </note>
@@ -426,6 +426,19 @@ Sometimes shamela's transcribers could not read a word and marked such omissions
 Unfortunately, *al-maktaba al-shāmila* did NOT include the sometimes abundant footnotes in their transcription.
 
 Notes should be encoded with `<note>` at the location it appears in the text. The super-scripted number is recorded in the `@n` attribute. A further `@type="footnote"` attribute specifies that this note appeared in the actual print edition, as opposed to potential editorial notes added by various editors of the digital edition, which should carry `@type="editorial"` and a `@resp` attribute pointing to the responsible editor.
+
+[*UPDATE 2019-04-15*]: Instead of using the `@type` attribute for specifying the location of a note on the page, this function should be fulfilled by values of `@place`, which include "bottom", "inline", etc. `@type` is thus free for indicating the function of a note.
+
+Key-value pairs:
+
+- `@type`:
+    + 'bibliographic': for notes identifying authors, editors, or other sources of a text for cases that canot be covered by a byline (`<byline>`).
+    + 'editorial': for notes added by editors of the digital edition. The editor is identified by means of the `@resp` attribute.
+- `@place`: location of a note on the page / in the text
+    + 'inline'
+    + 'bottom': footnotes
+    + 'end': endnotes
+    + 'margin': glosses on the margin of the page
 
 ### 3.3.2. Punctuation
 
