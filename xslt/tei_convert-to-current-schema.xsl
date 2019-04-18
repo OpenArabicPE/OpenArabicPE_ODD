@@ -76,6 +76,24 @@
             <xsl:apply-templates select="node()"/>
         </xsl:copy>
     </xsl:template>
+    <xsl:template match="tei:div[@type= 'item'][not(@subtype)]">
+        <xsl:copy>
+            <!-- replicate attributes  -->
+            <xsl:apply-templates select="@*"/>
+            <!-- there might be a better way of classifying the genre of a div -->
+            <xsl:attribute name="subtype" select="'article'"/>
+            <!-- document changes -->
+                    <xsl:choose>
+                        <xsl:when test="not(@change)">
+                            <xsl:attribute name="change" select="concat('#', $p_id-change)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates mode="m_documentation" select="@change"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+            <xsl:apply-templates select="node()"/>
+        </xsl:copy>
+    </xsl:template>
     
     <!-- map personal names -->
     <xsl:template match="tei:addName[@type='title']">
@@ -129,6 +147,39 @@
             <xsl:apply-templates select="node()"/>
         </xsl:element>
     </xsl:template>
+    <!-- notes -->
+    <xsl:template match="tei:note[not(@type = ('bibliographic', 'editorial'))]">
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+            <xsl:if test="@type = 'footnote'">
+                <xsl:attribute name="place" select="'bottom'"/>
+            </xsl:if>
+            <xsl:if test="@type = 'endnote'">
+                <xsl:attribute name="place" select="'end'"/>
+            </xsl:if>
+            <xsl:if test="@type = 'gloss'">
+                <xsl:attribute name="place" select="'margin'"/>
+            </xsl:if>
+            <xsl:if test="@type = 'inline'">
+                <xsl:attribute name="place" select="'inline'"/>
+                <!-- check if there is a <bibl>  child -->
+                <xsl:if test="tei:bibl">
+                    <xsl:attribute name="type" select="'bibliographic'"/>
+                </xsl:if>
+            </xsl:if>
+            <!-- document changes -->
+            <xsl:choose>
+                <xsl:when test="not(@change)">
+                    <xsl:attribute name="change" select="concat('#', $p_id-change)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates mode="m_documentation" select="@change"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:apply-templates select="node()"/>
+        </xsl:copy>
+    </xsl:template>
+    <xsl:template match="tei:note[@type =('inline','footnote', 'endnote', 'gloss')]/@type"/>
     
     <!-- document the changes -->
     <xsl:template match="tei:revisionDesc" name="t_8">
