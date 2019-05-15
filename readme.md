@@ -10,7 +10,7 @@ tags:
 - xml
 ---
 
-[![GitHub release](https://img.shields.io/github/release/OpenArabicPE/OpenArabicPE_ODD.svg?maxAge=2592000)](https://github.com/OpenArabicPE/OpenArabicPE_ODD/releases) 
+[![GitHub release](https://img.shields.io/github/release/OpenArabicPE/OpenArabicPE_ODD.svg?maxAge=2592000)](https://github.com/OpenArabicPE/OpenArabicPE_ODD/releases)
 [![DOI](https://zenodo.org/badge/73727435.svg)](https://zenodo.org/badge/latestdoi/73727435)
 
 This repository contains the TEI schema for (early) Arabic periodical editions. The schema is under active development in the context of the following projects:
@@ -18,6 +18,14 @@ This repository contains the TEI schema for (early) Arabic periodical editions. 
 - [Digital *Muqtabas*](https://github.com/tillgrallert/digital-muqtabas)
 - [Digital *Ḥaqāʾiq*](https://github.com/OpenArabicPE/digital-haqaiq)
 - [Digital *Manār*](https://github.com/OpenArabicPE/digital-manar)
+
+It can be called from XML files using the link to the `gh-pages` branch of this repository:
+
+```xml
+<?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+```
 
 # 1. Issues to be solved
 
@@ -29,17 +37,20 @@ Many articles include information on authors, editors or translators of the text
 2. In more complexe cases with more detailed bibliographic information, such as, but not limited to, translators, editors, provinence, editions, `<byline>` is generally not suitable due to its limited content model. In these cases the following structure should be used:
 
 ```xml
-<note type="bibliographic" resp="#xml:id of the editor">
+<note type="bibliographic" place="inline">
+    <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
+    <supplied @resp="#xml:id-of-the-editor">
         <bibl><!-- ... bibliographic information --></bibl>
 </note>
 ```
 
-- NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically. 
-- NOTE on translations: `<bib>` allows `<textLang mainLang="">` to describe the language of a text. 
+- NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically.
+- NOTE on translations: `<bib>` allows `<textLang mainLang="">` to describe the language of a text.
+- NOTE: sometimes there is both a bibliographic note and a byline present in the original; e.g. [here](oclc_4770057679-i_17.TEIP5.xml#div_4.d1e764).
 
 ## Serialised articles
 
-The information that an article / work / book was serialised can be either explicit or implicit. 
+The information that an article / work / book was serialised can be either explicit or implicit.
 
 1. The explicit, human-readable pointer is encoded with `<ref>` and the `@target` attribute pointing to the `@xml:id` of another element.
 2. The implicit information that a section, encoded as `<div>`, is not indeed a discreet `<div>` but rather continues text from another location can be encoded with the help of the `@next` and `@prev` attributes.
@@ -73,8 +84,8 @@ beyond
 Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
 
 معرباً بتصرف من مقالة لجان فينو في المجلة الباريزية.
- 
-دمشق: جرجي الحداد 
+
+دمشق: جرجي الحداد
 
 ## question and anwser sections
 
@@ -335,7 +346,7 @@ Each periodical issue is conceived of as a single `<text>` with some bibliograph
 </text>
 ```
 
-The bibliographic meta-data in the `<front>` is not necessarily found in the issue itself, since, according to Seikaly, issues carried no date whatsoever after Ramadan 1327 / September 1909.^["*al-Muqtabas* appeared regularly at the beginning of every Arab month only when it was published in Cairo (between *Muharram* 1324 / Februrary 1906 and *Dhul-hijja* 1909). When it was removed to Damascus and because of frequent official harassment, it appeared irregularly and somewhat haphazardly. Although after 1909, as indeed before it, each volume contained twelve numbers, nevertheless publication of each separate issue did not necessarily occur on time at the start of every month of the Muslim calendar. Indeed the last issue to which a specific month was affixed was *Ramadan* 1327 / September 1909. After that Kurd 'Ali merely numbered his journal by year, volume and issue. Because of this feature reference to *al-Muqtabas* in this study will throughout follow its owner's method of enumeration." {Seikaly 1981@126}] Unfortunately Seikaly's statement is caused by the absence of the cover sheets from most surviving copies and collections of *al-Muqtabas*. The copy of volume 4 from the holdings of OIB show that the cover sheet / wrapper still carried a date after Ramadan 1327: issue 12 was published for Dhū al-Ḥujja 1327 
+The bibliographic meta-data in the `<front>` is not necessarily found in the issue itself, since, according to Seikaly, issues carried no date whatsoever after Ramadan 1327 / September 1909.^["*al-Muqtabas* appeared regularly at the beginning of every Arab month only when it was published in Cairo (between *Muharram* 1324 / Februrary 1906 and *Dhul-hijja* 1909). When it was removed to Damascus and because of frequent official harassment, it appeared irregularly and somewhat haphazardly. Although after 1909, as indeed before it, each volume contained twelve numbers, nevertheless publication of each separate issue did not necessarily occur on time at the start of every month of the Muslim calendar. Indeed the last issue to which a specific month was affixed was *Ramadan* 1327 / September 1909. After that Kurd 'Ali merely numbered his journal by year, volume and issue. Because of this feature reference to *al-Muqtabas* in this study will throughout follow its owner's method of enumeration." {Seikaly 1981@126}] Unfortunately Seikaly's statement is caused by the absence of the cover sheets from most surviving copies and collections of *al-Muqtabas*. The copy of volume 4 from the holdings of OIB show that the cover sheet / wrapper still carried a date after Ramadan 1327: issue 12 was published for Dhū al-Ḥujja 1327
 
 ### 3.2.2. Sections and articles: `<div>`
 
@@ -366,7 +377,7 @@ In some cases the legal text itself is accompanied by a commentary intersecting 
 
 ### 3.2.4. heads
 
-Sections and articles are commonly introduced by a clearly distinguishable heading. These are marked-up as `<head>`. Some articles might also have sub headings, which should be marked up as `<head type="sub">`. 
+Sections and articles are commonly introduced by a clearly distinguishable heading. These are marked-up as `<head>`. Some articles might also have sub headings, which should be marked up as `<head type="sub">`.
 
 See for example [i_50](xml/oclc_4770057679-i_50.TEIP5.xml#div_5.d1e2312):
 
@@ -413,7 +424,20 @@ Sometimes shamela's transcribers could not read a word and marked such omissions
 
 Unfortunately, *al-maktaba al-shāmila* did NOT include the sometimes abundant footnotes in their transcription.
 
-Notes should be encoded with `<note>` at the location it appears in the text. The super-scripted number is recorded in the `@n` attribute. A further `@type="footnote"` attribute specifies that this note appeared in the actual print edition, as opposed to potential editorial notes added by various editors of the digital edition, which should carry `@type="editorial"` and a `@resp` attribute pointing to the responsible editor. 
+Notes should be encoded with `<note>` at the location it appears in the text. The super-scripted number is recorded in the `@n` attribute. A further `@type="footnote"` attribute specifies that this note appeared in the actual print edition, as opposed to potential editorial notes added by various editors of the digital edition, which should carry `@type="editorial"` and a `@resp` attribute pointing to the responsible editor.
+
+[*UPDATE 2019-04-15*]: Instead of using the `@type` attribute for specifying the location of a note on the page, this function should be fulfilled by values of `@place`, which include "bottom", "inline", etc. `@type` is thus free for indicating the function of a note.
+
+Key-value pairs:
+
+- `@type`:
+    + 'bibliographic': for notes identifying authors, editors, or other sources of a text for cases that canot be covered by a byline (`<byline>`).
+    + 'editorial': for notes added by editors of the digital edition. The editor is identified by means of the `@resp` attribute.
+- `@place`: location of a note on the page / in the text
+    + 'inline'
+    + 'bottom': footnotes
+    + 'end': endnotes
+    + 'margin': glosses on the margin of the page
 
 ### 3.3.2. Punctuation
 
@@ -423,7 +447,7 @@ There are two problems with punctuation in this corpus:
     - the many quotes are sometimes wrapped in quotation marks, sometimes in brackets, but mostly they are not typographically marked
     - many quotes are preceded by a leading colon.
     - words in foreign languages are sometimes wrapped in quotation marks or brackets.
-2. The *shamela.ws* transcribers inconsistently transcribed existing punctuation marks and added some of their own, particularly full stops. 
+2. The *shamela.ws* transcribers inconsistently transcribed existing punctuation marks and added some of their own, particularly full stops.
 
 #### encoding in TEI
 
@@ -530,7 +554,7 @@ Image files are available from the [*al-Aqṣā* Mosque's library in Jerusalem t
 - access
     + The journal is in the public domain in the US and can be freely accessed and downloaded
     + Outside the US, access is restricted.
-    + Formal [licence](https://www.hathitrust.org/access_use#pd-us-google): 
+    + Formal [licence](https://www.hathitrust.org/access_use#pd-us-google):
 
 > Public Domain or Public Domain in the United States, Google-digitized: In addition to the terms for works that are in the Public Domain or in the Public Domain in the United States above, the following statement applies: The digital images and OCR of this work were produced by Google, Inc. (indicated by a watermark on each page in the PageTurner). Google requests that the images and OCR not be re-hosted, redistributed or used commercially. The images are provided for educational, scholarly, non-commercial purposes.
 > Note: There are no restrictions on use of text transcribed from the images, or paraphrased or translated using the images.
@@ -541,14 +565,14 @@ Image files are available from the [*al-Aqṣā* Mosque's library in Jerusalem t
 
 ### 3.5.1. Measures and prices
 
-For the moment I would settle for the following pattern: 
+For the moment I would settle for the following pattern:
 
 ```xml
 Imagine, someone bought <measureGrp><measure commodity="wheat" quantity="2" unit="kile">two kile of wheat</measure> at the price of <measure commodity="currency" quantity="3" unit="ops">Ps 3</measure></measureGrp>.
 ```
 
-- for **prices**, I suggest using `@commodity="currency"`. 
-    + The `@unit` then follows standard three-letter shorthand for currencies. 
+- for **prices**, I suggest using `@commodity="currency"`.
+    + The `@unit` then follows standard three-letter shorthand for currencies.
         * Ottoman piasters shall be recorded as `@unit="ops"`
         * Ottoman pound (£T) shall be recorded as `@unit="lt"`
     + the `@quantity` attribute has some restrictions as to its value and cannot contain the string 8-2-4 to signify, for instance, £ 8"2"4 or 8l 2s 4d. Yet it would be extremely tedious to encode all the fractions of non-metrical currencies as individual measures. One way of doing it would be on-the-spot conversion into decimal values, but this needs computing on the side of the encoder.
@@ -564,7 +588,7 @@ Imagine, someone bought <measureGrp><measure commodity="wheat" quantity="2" unit
 The transcribers at *shamela.ws* transcribed all numbers---the originals use the eastern Arabic numerals common in the Levant---into Arabic numerals; i.e. when the original read "١٢٨٥" the transcription recorded "1285". To reconstruct the original without loosing the convenience of machine-readability, I wrote a small XSLT script ([`Tei-MarkupNumerals`](xslt/Tei-MarkupNumerals.xsl)) that uses regex to identify all numerical values in `<tei:text>`. It wraps the result in a `<num>` element with the original value as `@value` and converts the number to eastern Arabic numerals. It also indicates the responsible editor with `@resp` and the method of generating the mark-up as `@type="auto-markup"` e.g.
 
 - original: 1285
-- markup: `<num resp="#pers_TG" type="auto-markup" value="1285" xml:lang="ar">١٢٨٥</num>` 
+- markup: `<num resp="#pers_TG" type="auto-markup" value="1285" xml:lang="ar">١٢٨٥</num>`
 
 **important**: I did not notice that many original numericals were recorded with a dot every three digits and thus the XSLT marked every continuous sequence of digits (regex `\d+`) with a `<num>`, which now must be joined in a future operation:
 
@@ -607,7 +631,7 @@ The canonical scheme of `<surname>` and `<forename>` is insufficient to markup t
 
 - `<surname>`: to encode the *laqab* evoking a real or assigned quality
 - `<forename>`: for the *ism*
-- `<addName>` with `@type` 
+- `<addName>` with `@type`
     + "nasab": a patronym introduced by "ibn" or "ibnat"
     + "kunyah": a teknonym / mark of distinction applied to prominent figures to honor them. For example, “Abū Yūsuf” is often used for someone called Yaʿqūb
     + "khitab": an honorific name, which is usually ended by the suffix al-Dīn
@@ -623,7 +647,7 @@ Late Ottoman contexts necessitate further amendments to this scheme to account f
         + civil
         + religious
 
-Following this proposal 
+Following this proposal
 
 ```xml
 <persName xml:lang="ar"> جزائري زاده الامير علي باشا ابن عبد القادر افندي الحسني</persName>
@@ -638,8 +662,8 @@ could be marked up as
     <addName type="title">الامير</addName>
     <forename>علي</forename>
     <addName type="title" subtype="civil" xml:lang="ota">باشا</addName>
-    <addName type="nasab">ابن 
-        <forename>عبد القادر</forename> 
+    <addName type="nasab">ابن
+        <forename>عبد القادر</forename>
         <addName type="title" subtype="civil" xml:lang="ota">افندي</addName>
     </addName>
     <surname type="laqab">الحسني</surname>
@@ -663,8 +687,8 @@ Thus, the above example would be encoded as follows:
     <roleName type="nobility">الامير</roleName>
     <forename>علي</forename>
     <roleName type="title" xml:lang="ota">باشا</roleName>
-    <addName type="nasab">ابن 
-        <forename>عبد القادر</forename> 
+    <addName type="nasab">ابن
+        <forename>عبد القادر</forename>
         <roleName type="title" xml:lang="ota">افندي</roleName>
     </addName>
     <surname>الحسني</surname>
@@ -679,7 +703,7 @@ All references to places with an explicit name (toponyms) including geographic n
 - examples:
 
 ```xml
-أجمع الجغرافيون من العرب والإفرنج أن حد الشام من عريش مصر إلى <placeName xml:id="placeName_1.d1e1343">الفرات</placeName> ومن البحر الرومي إلى جبال طي ولكن مما يشوش الذهن أن جميع أعمال <placeName xml:id="placeName_5.d1e1346">حلب</placeName> اليوم هل هي داخلة حدود سورية أم بعضها خارج عنها يعد من آسيا الصغرى فقد قال بوليه في معجمه الجغرافي التاريخي أن حد سورية شمالاً إلى آسيا الصغرى من خليج <placeName xml:id="placeName_6.d1e1349">اسكندرونة</placeName> إلى <placeName xml:id="placeName_2.d1e1352">نهر <placeName xml:id="placeName_2.d1e1354">الفرات</placeName></placeName> وشرقاً <placeName xml:id="placeName_4.d1e1357">نهر <placeName xml:id="placeName_4.d1e1359">الفرات</placeName></placeName> والبادية إلى بلاد العرب وجنوباً قسم من العربية 
+أجمع الجغرافيون من العرب والإفرنج أن حد الشام من عريش مصر إلى <placeName xml:id="placeName_1.d1e1343">الفرات</placeName> ومن البحر الرومي إلى جبال طي ولكن مما يشوش الذهن أن جميع أعمال <placeName xml:id="placeName_5.d1e1346">حلب</placeName> اليوم هل هي داخلة حدود سورية أم بعضها خارج عنها يعد من آسيا الصغرى فقد قال بوليه في معجمه الجغرافي التاريخي أن حد سورية شمالاً إلى آسيا الصغرى من خليج <placeName xml:id="placeName_6.d1e1349">اسكندرونة</placeName> إلى <placeName xml:id="placeName_2.d1e1352">نهر <placeName xml:id="placeName_2.d1e1354">الفرات</placeName></placeName> وشرقاً <placeName xml:id="placeName_4.d1e1357">نهر <placeName xml:id="placeName_4.d1e1359">الفرات</placeName></placeName> والبادية إلى بلاد العرب وجنوباً قسم من العربية
 ```
 
 
@@ -720,9 +744,9 @@ The guiding principle is a faithful transcription of the printed edition. The or
     </choice>
     ```
 
-- corrections: 
+- corrections:
     + Corrections for any reason shall follow the above example of `<choice>`, `<orig>` and `<corr>`
-    + In numerous instances journals published corrections of printing errors. These could also be encoded with `<choice>`, `<orig>` and `<corr>`. 
+    + In numerous instances journals published corrections of printing errors. These could also be encoded with `<choice>`, `<orig>` and `<corr>`.
         * The `@resp` attribute on `<corr>` should point to the editor of the journal.
         * The `@source` attribute on `<corr>` should point to the `<div>` containing the corrections. This might require adding `att.global.source`
 - additions and deletions: Additions and deletions are differences between the original print edition and the digital transcription. These are mainly due to errors by the transcribers at shamela.ws
@@ -748,7 +772,7 @@ The TEI provides a means to employ private URIs as values of all attributes that
 </listPrefixDef>
 ```
 
-The private URIs can then be used as values of `@ref`, `@corresp` etc. In the context of OpenArabicPE, references to external authority files are encoded with `@ref`, i.e. 
+The private URIs can then be used as values of `@ref`, `@corresp` etc. In the context of OpenArabicPE, references to external authority files are encoded with `@ref`, i.e.
 
 ```xml
 (مجلة <title level="j" ref="oclc:644997575">الحقائق</title>)
@@ -859,7 +883,7 @@ Or a list like that:
 </list>
 ```
 
-Or this 
+Or this
 
 >الاجتماع الخاص - الذي لا يسوغ لكل الناس الاشتراك به لغير المدعوين مثل الضيافات بأنواعها. وهذه حرة عندنا بدون قيد أو شرط.
 >الاجتماع الدنيوي - هذا الاجتماع بالجوامع والكنائس. لإقامة الشعائر واستماع النصائح. وهذه الاجتماعات أيضا غير تابعة بصور وشروط قانونية.

@@ -32,9 +32,9 @@
         </sch:rule>
     </sch:pattern>
     <sch:pattern>
-        <sch:rule context="tei:person[tei:idno/@type='viaf']">
-            <sch:let name="v_id-viaf" value="tei:idno[@type='viaf']"/>
-            <sch:report test="preceding::tei:person[not(@xml:id = $v_id)][tei:idno[@type='viaf'] = $v_id-viaf]">There is another person with the same VIAF ID <sch:value-of select="$v_id-viaf"/> at an earlier point in this file.</sch:report>
+        <sch:rule context="tei:person[tei:idno/@type='VIAF']">
+            <sch:let name="v_id-viaf" value="tei:idno[@type='VIAF']"/>
+            <sch:report test="preceding::tei:person[not(@xml:id = $v_id)][tei:idno[@type='VIAF'] = $v_id-viaf]">There is another person with the same VIAF ID <sch:value-of select="$v_id-viaf"/> at an earlier point in this file.</sch:report>
         </sch:rule>
         <!-- test if there is already a <person> with the same <persName> -->
         <sch:rule context="tei:person/tei:persName" role="warn">
@@ -46,11 +46,22 @@
             <!--<sch:report test="ancestor::tei:particDesc/descendant::tei:person[not(@xml:id = $v_id-parent)]/tei:persName[normalize-space(string()) = $v_self]">There is another person (<sch:value-of select="ancestor::tei:particDesc/descendant::tei:person[not(@xml:id = $v_id-parent)][tei:persName[normalize-space(string()) = $v_self]]/@xml:id"/>) with the <sch:name/> <sch:value-of select="$v_self"/> in this file.</sch:report>-->
             <sch:report test="preceding::tei:person[not(@xml:id = $v_id-parent)]/tei:persName[normalize-space(string()) = $v_self]">There is another person (<sch:value-of select="preceding::tei:person[not(@xml:id = $v_id-parent)][tei:persName[normalize-space(string()) = $v_self]]/@xml:id"/>) with the <sch:name/> <sch:value-of select="$v_self"/> at an earlier point in this file.</sch:report>
         </sch:rule>
+        <!-- self-referential names -->
+        <sch:rule context="tei:persName[@corresp]" role="fatal">
+            <sch:report test="@corresp = concat('#',@xml:id)">This node is self-referential. @corresp must point to the @xml:id of another &lt;persName/> element</sch:report>
+        </sch:rule>
     </sch:pattern>
     <!-- test for requires @subtype attributes -->
     <sch:pattern>
         <sch:rule context="tei:roleName[@type='rank']" role="error">
             <sch:assert test="@subtype">The rank needs to be further identified through the @subtype attribute.</sch:assert>
         </sch:rule>
+        <sch:rule context="tei:div[@type = 'item']" role="error">
+            <sch:assert test="@subtype">Divs of @type='item' need a @subtype attribute.</sch:assert>
+        </sch:rule>
+        <sch:rule context="tei:note[@type='editorial']" role="error">
+            <sch:assert test="@resp">The responsible editor for this note must be identfied through a reference to the relevant @xml:id.</sch:assert>
+        </sch:rule>
     </sch:pattern>
+    
 </sch:schema>
