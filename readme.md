@@ -115,14 +115,14 @@ In many cases foreign terms that have been transliterated into Arabic are follow
 - changes to mark-up reflecting recent changes in the TEI guidelines:
     + move `<idno>` from a direct child of `<biblStruct>` to `<monogr>`
 - allow `@source` on `<date>` in `<biblStruct>` to provide a means to capture an external source
-<!-- - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103). -->
+<!-- - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103). -->
 - add `@rend` to all inline elements with the following, most common, values and add some documentation below:
     + "quotation-marks"
     + "brackets"
 - add `@rend` to `<item>` child of `<list>` with the following values
     + "inline"
     + "block"
-- add tag set for the mark-up of drama (e.g. [نكارتر](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
+- add tag set for the mark-up of drama (e.g. [نكارتر](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
 - the guidelines on publication dates need to be implemented in the ODD
 - add `<particDesc>` to the list of available elements
 
@@ -238,7 +238,7 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
 
 #### 3.1.1.3. publication dates
 
-As noted somewhere [else](https://github.com/tillgrallert/digital-muqtabas/blob/master/readme.md), *al-Muqtabas* did not provide publication dates in the masthead beginning with [No. 4/10](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_45.TEIP5.xml), which would have been scheduled for Shawwāl 1327 aH (Oct/Nov 1909). Thus, one needs a means to differentiate between the official publication date as recorded in the issues' mastheads and the cover leaves of each volume and the actual date of publication as deduced from other sources. The first suggestion is to differentiate between three different types of publication dates with a `@type` attribute:
+As noted somewhere [else](https://github.com/tillgrallert/digital-muqtabas/blob/master/readme.md), *al-Muqtabas* did not provide publication dates in the masthead beginning with [No. 4/10](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_45.TEIP5.xml), which would have been scheduled for Shawwāl 1327 aH (Oct/Nov 1909). Thus, one needs a means to differentiate between the official publication date as recorded in the issues' mastheads and the cover leaves of each volume and the actual date of publication as deduced from other sources. The first suggestion is to differentiate between three different types of publication dates with a `@type` attribute:
 
 1. `@type="official"` The publication date as provided on the masthead
 2. `@type="scheduled"` The publication date according to the publication schedule
@@ -398,7 +398,7 @@ Beware that what looks like a sub heading, might also be a section heading intro
 
 Currently, only page breaks are recorded. They are marked up with the empty milestone element `<pb/>`. Page breaks found in *al-maktaba al-shāmila*, however, do not correspond to those in the original printed copies. They were therefore marked as `<pb ed="shamila">`. Page breaks corresponding to the original printed edition are identified by `@ed="print"`.
 
-Dār Ṣādir in Beirut published a reprint in 1992, which is almost entirely unmarked as such but for the information on the binding itself. The frontispiece carries the note "اعيد طبعها بالتصوير باشراف الدكتور محمد يوسف نجم" (reprinted facsimile under the supervision of Dr. Muḥammad Yūsuf Najm) but the original to this facsimile edition still needs to be established. Checking this reprint against the original, it appears that, in addition to the original edition, there was at least one reprint in the first half of the twentieth century with minor changes. This second edition (for the lack of a better title) corrected some of the typos found in the original edition and its pagination occasionally differs from the first edition/ print run. Traces of this edition are currently to be found among the digital facsimiles provided by the website [Arshīf al-majallāt al-adabiyya wa-l-thaqafiyya al-ʿarabiyya (archive.sakhrit.co)](archive.sakhrit.co) and Dār Ṣādir. For an example see pages 67/68 of [volume 1](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_2.TEIP5.xml#pb_20.d1e1487).
+Dār Ṣādir in Beirut published a reprint in 1992, which is almost entirely unmarked as such but for the information on the binding itself. The frontispiece carries the note "اعيد طبعها بالتصوير باشراف الدكتور محمد يوسف نجم" (reprinted facsimile under the supervision of Dr. Muḥammad Yūsuf Najm) but the original to this facsimile edition still needs to be established. Checking this reprint against the original, it appears that, in addition to the original edition, there was at least one reprint in the first half of the twentieth century with minor changes. This second edition (for the lack of a better title) corrected some of the typos found in the original edition and its pagination occasionally differs from the first edition/ print run. Traces of this edition are currently to be found among the digital facsimiles provided by the website [Arshīf al-majallāt al-adabiyya wa-l-thaqafiyya al-ʿarabiyya (archive.sakhrit.co)](archive.sakhrit.co) and Dār Ṣādir. For an example see pages 67/68 of [volume 1](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_2.TEIP5.xml#pb_20.d1e1487).
 
 1. Printed copys: `<pb ed="print"/>`
     - the page number is recorded in the `@n` attribute
@@ -782,7 +782,7 @@ The private URIs can then be used as values of `@ref`, `@corresp` etc. In the co
 
 ## references to intellectual works
 
-There are two types of references to intellectual works: explicit and implicit ones. Take for example the reference in [*al-Muqtabas* 6/2](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_23.TEIP5.xml#div_34.d1e3136) to a book by an American author from 1888 that had described a technocratic utopia at the end of the 20th century. This, obviously is a direct, yet implicit, reference to Bellamy's "Looking backward, 2000-1887".
+There are two types of references to intellectual works: explicit and implicit ones. Take for example the reference in [*al-Muqtabas* 6/2](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_23.TEIP5.xml#div_34.d1e3136) to a book by an American author from 1888 that had described a technocratic utopia at the end of the 20th century. This, obviously is a direct, yet implicit, reference to Bellamy's "Looking backward, 2000-1887".
 
 Such implicit references can always be encoded with the attribute `@ref` pointing to an entry in Worldcat or VIAF, i.e. `@ref="viaf:187002650`. VIAF is always the better reference for abstract references to a *work* as it should not contain duplicate entries, while Worldcat should be used to reference a specific *edition*.
 
