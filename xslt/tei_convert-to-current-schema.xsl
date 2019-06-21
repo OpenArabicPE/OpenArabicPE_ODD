@@ -5,6 +5,8 @@
     exclude-result-prefixes="xs"
     version="3.0">
     
+    <!-- this stylesheet updates to OpenArabicPE TEI files to the most recent version of the schema -->
+    
     <!-- identify the author of the change by means of a @xml:id -->
     <!-- toggle debugging messages -->
     <xsl:include href="../../oxygen-project/OpenArabicPE_parameters.xsl"/>
@@ -43,6 +45,10 @@
     <xsl:template match="tei:biblStruct[tei:idno]">
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
+            <!-- fix @xml:id for biblStruct in sourceDesc -->
+            <xsl:if test="parent::tei:sourceDesc">
+                <xsl:attribute name="xml:id" select="concat('edition_',count(preceding-sibling::tei:biblStruct) +1)"/>
+            </xsl:if>
             <!-- document changes -->
                     <xsl:choose>
                         <xsl:when test="not(@change)">
@@ -180,6 +186,29 @@
         </xsl:copy>
     </xsl:template>
     <xsl:template match="tei:note[@type =('inline','footnote', 'endnote', 'gloss')]/@type"/>
+    <!-- default attributes on pb and lb and @xml:id of sourceDesc/biblStruct-->
+    <xsl:template match="tei:lb | tei:pb[@ed='print']">
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+            <xsl:if test="not(@ed)">
+                <xsl:attribute name="ed" select="'print'"/>
+            </xsl:if>
+            <xsl:if test="not(@edRef)">
+                <xsl:attribute name="edRef" select="'#edition_1'"/>
+            </xsl:if>
+            <!-- document changes -->
+            <xsl:if test="not(@ed) or not(@edRef)">    
+            <xsl:choose>
+                <xsl:when test="not(@change)">
+                    <xsl:attribute name="change" select="concat('#', $p_id-change)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates mode="m_documentation" select="@change"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            </xsl:if>
+        </xsl:copy>
+    </xsl:template>
     
     <!-- document the changes -->
     <xsl:template match="tei:revisionDesc" name="t_8">
