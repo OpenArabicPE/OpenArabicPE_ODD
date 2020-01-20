@@ -69,5 +69,9 @@
             <sch:assert test="@resp">The responsible editor for this note must be identfied through a reference to the relevant @xml:id.</sch:assert>
         </sch:rule>
     </sch:pattern>
-    
+    <sch:pattern>
+        <sch:rule context="tei:note[@type = 'tagList']" role="fatal">
+            <sch:assert test="tei:list[tei:item]">The tagList must contain a &lt;list> element with &lt;item> children.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
 </sch:schema>
