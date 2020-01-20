@@ -39,15 +39,60 @@ Many articles include information on authors, editors or translators of the text
 ```xml
 <note type="bibliographic" place="inline">
     <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
-    <supplied @resp="#xml:id-of-the-editor">
+    <supplied resp="#xml:id-of-the-editor">
         <bibl><!-- ... bibliographic information --></bibl>
     </supplied>
 </note>
 ```
 
 - NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically.
-- NOTE on translations: `<bib>` allows `<textLang mainLang="">` to describe the language of a text.
+- NOTE on translations: `<bibl>` allows `<textLang mainLang="">` to describe the language of a text.
 - NOTE: sometimes there is both a bibliographic note and a byline present in the original; e.g. [here](oclc_4770057679-i_17.TEIP5.xml#div_4.d1e764).
+
+## supplied authorship information
+
+There is a variety of intrinsic and extrisic authorship information, which could be added to articles. These should be recorded (in order to be automatically retrieved for analysis) but also clearly marked as something not explicitly mentioned in the original.
+
+I propose to mark-up such information with `<byline>` `<supplied>` and `<note>`
+
+```xml
+<byline>
+    <supplied resp="#xml:id-of-the-editor">
+        <persName>XYZ</persName>
+        <note type="editorial" resp="#xml:id-of-the-editor" xml:lang="en">This information was provided by <bibl>an article in <title level="j">al-Muqtabas</title> itself</bibl></note>
+    </supplied>
+</byline>
+```
+
+### 1. intrinsic
+
+serialised articles: there are plenty of serialised articles, which carry a byline only once. All other articles in
+
+### 2. extrinsic
+
+- computational stylistics / stylometry
+    + `@resp="stylo"`: would signify stylometry
+
+## bibliographic references and links to external sources
+
+How to encode this?
+
+>حجاب المرأة في الإسلام
+
+>تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله
+
+beyond this:
+
+```xml
+<head>حجاب المرأة في الإسلام</head>
+<p><note type="bibliographic" place="inline">تحت هذا العنوان قرأنا في <bibl><title level="j">المقتبس</title> <biblScope unit="issue" from="593" to="594">عدد ٥٩٣ و ٥٩٤</biblScope> مقالة للكاتب <author><persName>المغربي</persName></author></bibl> ذكر فيها ما محصله</note></p>
+```
+
+Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
+
+معرباً بتصرف من مقالة لجان فينو في المجلة الباريزية.
+
+دمشق: جرجي الحداد
 
 ## Serialised articles
 
@@ -66,27 +111,6 @@ Early-twentieth century periodicals contain a lot of typographic markers indicat
 The pages contain a large number of different graphic dividers. Sometimes they indicate the end or the beginning of a sections. Sometimes they are followed by a new headline, sometimes they are not. In order not to infer too much from these visual dividers and as they were not transcribed by *shamela.ws*, I have decided to encode them as "anonymous blocks": `<ab>`
 
 Most of these blocks are centered and thus they carry a `@rend="centered"` attribute, which, at a later stage could be used to be automatically translated into a formal `@rendition` statement.
-
-## bibliographic references and links to external sources
-
-How to encode this?
-
->حجاب المرأة في الإسلام
-
->تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله
-
-beyond
-
-```xml
-<head>حجاب المرأة في الإسلام</head>
-<p>تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله</p>
-```
-
-Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
-
-معرباً بتصرف من مقالة لجان فينو في المجلة الباريزية.
-
-دمشق: جرجي الحداد
 
 ## question and anwser sections
 
