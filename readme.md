@@ -17,7 +17,7 @@ This repository contains the TEI schema for (early) Arabic periodical editions. 
 
 - [Digital *Muqtabas*](https://github.com/tillgrallert/digital-muqtabas)
 - [Digital *Ḥaqāʾiq*](https://github.com/OpenArabicPE/digital-haqaiq)
-- [Digital *Manār*](https://github.com/OpenArabicPE/digital-manar)
+- [Digital *Manār*](https://github.com/OpenArabicPE/journal_al-manar)
 
 It can be called from XML files using the link to the `gh-pages` branch of this repository:
 
@@ -137,17 +137,11 @@ In many cases foreign terms that have been transliterated into Arabic are follow
     - allow `<bibl>` as child of `<opener>`,`<byline>`, `<closer>`
     - allow `<q>` as child of `<persName>` etc.
 - changes to mark-up reflecting recent changes in the TEI guidelines:
-    + move `<idno>` from a direct child of `<biblStruct>` to `<monogr>`
-- allow `@source` on `<date>` in `<biblStruct>` to provide a means to capture an external source
 <!-- - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103). -->
 - add `@rend` to all inline elements with the following, most common, values and add some documentation below:
     + "quotation-marks"
     + "brackets"
-- add `@rend` to `<item>` child of `<list>` with the following values
-    + "inline"
-    + "block"
 - add tag set for the mark-up of drama (e.g. [نكارتر](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
-- the guidelines on publication dates need to be implemented in the ODD
 - add `<particDesc>` to the list of available elements
 
 ## 2. deletions
