@@ -184,7 +184,8 @@
                         <attDef ident="cert" mode="delete"/>
                     </attList>
                 </classSpec>
-                <classSpec ident="att.global.source" mode="delete" module="tei" type="atts"/>
+                <!-- we need @source at least in our authority files -->
+                <!--<classSpec ident="att.global.source" mode="delete" module="tei" type="atts"/>-->
                 <classSpec ident="att.media" mode="change" module="tei" type="atts">
                     <!-- even though I delete all attributes in this class, the class itself is required as it is member of att.internetMedia, which provides the @mimeType attribute -->
                     <attList>
@@ -384,7 +385,7 @@
                 </elementSpec>
                 <elementSpec ident="date" mode="change" module="core">
                     <attList>
-                        <attDef ident="datingMethod" mode="change">
+                        <attDef ident="calendar" mode="change">
                             <valList mode="replace" type="closed">
                                 <valItem ident="#cal_gregorian">
                                     <desc>Gregorian calendar</desc>
@@ -410,7 +411,7 @@
                                 </valItem>
                             </valList>
                         </attDef>
-                        <attDef ident="calendar" mode="change">
+                        <attDef ident="datingMethod" mode="change">
                             <valList mode="replace" type="closed">
                                 <valItem ident="#cal_gregorian">
                                     <desc>Gregorian calendar</desc>
@@ -552,6 +553,9 @@
                                 <valItem ident="inline">
                                     <desc>Discouraged: use <att>place</att>='inline' instead.</desc>
                                 </valItem>
+                                <valItem ident="tagList">
+                                    <desc>Note containing a list of tags to be used mainly in authority files for further computational transformations and analysis</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                     </attList>
@@ -656,9 +660,15 @@
                         </attDef>
                     </attList>
                 </elementSpec>
-                <elementSpec ident="supplied" mode="change" module="transcr">
+                <elementSpec ident="item" mode="change" module="core">
                     <attList>
-                        <attDef ident="resp" mode="change" usage="req"/>
+                        <attDef ident="rend" mode="change">
+                            <defaultVal>block</defaultVal>
+                            <valList mode="replace" type="semi">
+                                <valItem ident="block"/>
+                                <valItem ident="inline"/>
+                            </valList>
+                        </attDef>
                     </attList>
                 </elementSpec>
                 <elementSpec ident="q" mode="change" module="core">
@@ -681,6 +691,11 @@
                                 <valItem ident="quotation-marks"/>
                             </valList>
                         </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="supplied" mode="change" module="transcr">
+                    <attList>
+                        <attDef ident="resp" mode="change" usage="req"/>
                     </attList>
                 </elementSpec>
             </schemaSpec>
