@@ -62,6 +62,11 @@
                         <title level="j" type="sub" xml:lang="fr">Pédagogie, sociologie, économie
                                         politique, littérature, histoire, archéologie, philologie, ménagerie,
                                         hygiène, bibliographie, civilisation arabe et occidentale</title>
+                        <idno type="OCLC" xml:lang="en">4770057679</idno>
+                    <idno type="OCLC" xml:lang="en">79440195</idno>
+                    <idno type="aucr" xml:lang="en">07201136864</idno>
+                    <idno type="shamela" xml:lang="en">26523</idno>
+                    <idno type="zenodo" xml:lang="en">45922152</idno>
                         <editor ref="viaf:32272677" xml:lang="en">
                             <persName change="#d2e587" ref="oape:pers:878 viaf:32272677" xml:lang="ar">
                                 <forename xml:lang="ar">محمد</forename>
@@ -87,11 +92,11 @@
                         <biblScope n="1" unit="issue"/>
                         <biblScope from="1" to="88" unit="page"/>
                     </monogr>
-                    <idno type="OCLC" xml:lang="en">4770057679</idno>
-                    <idno type="OCLC" xml:lang="en">79440195</idno>
-                    <idno type="aucr" xml:lang="en">07201136864</idno>
-                    <idno type="shamela" xml:lang="en">26523</idno>
-                    <idno type="zenodo" xml:lang="en">45922152</idno>
+                    <note type="tagList">
+                        <list>
+                            <item>frequency_monthly</item>
+                        </list>
+                    </note>
                 </biblStruct>
             </sourceDesc>
         </fileDesc>
@@ -901,7 +906,7 @@
     </facsimile>
     <text n="i60" type="issue" xml:id="text" xml:lang="ar">
         <front xml:id="front_1.d1e1493" xml:lang="ar">
-            <div xml:id="div_1.d1e1495" xml:lang="ar" type="item">
+            <div xml:id="div_1.d1e1495" xml:lang="ar" type="item" subtype="masthead">
                 <biblStruct xml:id="biblStruct_2.d1e1497" xml:lang="ar">
                     <monogr xml:id="monogr_2.d1e1499" xml:lang="ar">
                         <title level="j" xml:id="title_13.d1e1501" xml:lang="ar">المقتبس</title>
@@ -1779,7 +1784,7 @@
                     <tei:date calendar="#cal_islamic" change="#d2e612 #d3e636" datingMethod="#cal_islamic" notAfter="1568-07-05" notBefore="1567-07-18" when-custom="0975">
                         <num resp="#pers_TG" type="auto-markup" value="975" xml:id="num_28.d1e2589" xml:lang="ar">٩٧٥</num></tei:date>
                     <tei:date calendar="#cal_gregorian" change="#d2e612" when="0975">
-                        <num resp="#pers_TG" type="auto-markup" value="975" xml:id="num_28.d1e2589" xml:lang="ar">٩٧٥</num>
+                        <num resp="#pers_TG" type="auto-markup" value="975" xml:id="num_28.d1e2590" xml:lang="ar">٩٧٥</num>
                     </tei:date>م وجبل تابور والناصرة ولكن ادخل عليه
                                                                                                                                                                 خصيانه السم فعادت الولايات التي افتتحها فسقطت في أيدي العرب، وقد قال ساولف أن
                                                                                                                                                                 تنكرد لما فوضت إليه بعد فتح 

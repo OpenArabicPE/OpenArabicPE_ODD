@@ -50,7 +50,7 @@
     <sch:pattern>
         <!-- self-referential names -->
         <sch:rule context="tei:persName[@corresp]" role="fatal">
-            <sch:report test="@corresp = concat('#',@xml:id)">This node is self-referential. @corresp must point to the @xml:id of another &lt;persName/> element</sch:report>
+            <sch:report test="@corresp = concat('#',@xml:id)">This node is self-referential. @corresp must point to the @xml:id of another &lt;persName> element</sch:report>
         </sch:rule>
     </sch:pattern>
     <!-- test for required @subtype attributes -->
@@ -69,5 +69,15 @@
             <sch:assert test="@resp">The responsible editor for this note must be identfied through a reference to the relevant @xml:id.</sch:assert>
         </sch:rule>
     </sch:pattern>
-    
+    <sch:pattern>
+        <sch:rule context="tei:note[@type = 'tagList']" role="fatal">
+            <sch:assert test="tei:list[tei:item]">The tagList must contain a &lt;list> element with &lt;item> children.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    <!-- enforce @type on <date> in <sourceDesc> -->
+    <sch:pattern>
+        <sch:rule context="tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:biblStruct/tei:monogr/tei:imprint/tei:date" role="error">
+            <sch:assert test="@type">Publication dates of original sources must be typed.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
 </sch:schema>

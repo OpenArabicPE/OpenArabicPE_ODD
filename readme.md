@@ -17,7 +17,7 @@ This repository contains the TEI schema for (early) Arabic periodical editions. 
 
 - [Digital *Muqtabas*](https://github.com/tillgrallert/digital-muqtabas)
 - [Digital *Ḥaqāʾiq*](https://github.com/OpenArabicPE/digital-haqaiq)
-- [Digital *Manār*](https://github.com/OpenArabicPE/digital-manar)
+- [Digital *Manār*](https://github.com/OpenArabicPE/journal_al-manar)
 
 It can be called from XML files using the link to the `gh-pages` branch of this repository:
 
@@ -39,14 +39,59 @@ Many articles include information on authors, editors or translators of the text
 ```xml
 <note type="bibliographic" place="inline">
     <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
-    <supplied @resp="#xml:id-of-the-editor">
+    <supplied resp="#xml:id-of-the-editor">
         <bibl><!-- ... bibliographic information --></bibl>
 </note>
 ```
 
 - NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically.
-- NOTE on translations: `<bib>` allows `<textLang mainLang="">` to describe the language of a text.
+- NOTE on translations: `<bibl>` allows `<textLang mainLang="">` to describe the language of a text.
 - NOTE: sometimes there is both a bibliographic note and a byline present in the original; e.g. [here](oclc_4770057679-i_17.TEIP5.xml#div_4.d1e764).
+
+## supplied authorship information
+
+There is a variety of intrinsic and extrisic authorship information, which could be added to articles. These should be recorded (in order to be automatically retrieved for analysis) but also clearly marked as something not explicitly mentioned in the original.
+
+I propose to mark-up such information with `<byline>` `<supplied>` and `<note>`
+
+```xml
+<byline>
+    <supplied resp="#xml:id-of-the-editor">
+        <persName>XYZ</persName>
+        <note type="editorial" resp="#xml:id-of-the-editor" xml:lang="en">This information was provided by <bibl>an article in <title level="j">al-Muqtabas</title> itself</bibl></note>
+    </supplied>
+</byline>
+```
+
+### 1. intrinsic
+
+serialised articles: there are plenty of serialised articles, which carry a byline only once. All other articles in
+
+### 2. extrinsic
+
+- computational stylistics / stylometry
+    + `@resp="stylo"`: would signify stylometry
+
+## bibliographic references and links to external sources
+
+How to encode this?
+
+>حجاب المرأة في الإسلام
+
+>تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله
+
+beyond this:
+
+```xml
+<head>حجاب المرأة في الإسلام</head>
+<p><note type="bibliographic" place="inline">تحت هذا العنوان قرأنا في <bibl><title level="j">المقتبس</title> <biblScope unit="issue" from="593" to="594">عدد ٥٩٣ و ٥٩٤</biblScope> مقالة للكاتب <author><persName>المغربي</persName></author></bibl> ذكر فيها ما محصله</note></p>
+```
+
+Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
+
+معرباً بتصرف من مقالة لجان فينو في المجلة الباريزية.
+
+دمشق: جرجي الحداد
 
 ## Serialised articles
 
@@ -65,27 +110,6 @@ Early-twentieth century periodicals contain a lot of typographic markers indicat
 The pages contain a large number of different graphic dividers. Sometimes they indicate the end or the beginning of a sections. Sometimes they are followed by a new headline, sometimes they are not. In order not to infer too much from these visual dividers and as they were not transcribed by *shamela.ws*, I have decided to encode them as "anonymous blocks": `<ab>`
 
 Most of these blocks are centered and thus they carry a `@rend="centered"` attribute, which, at a later stage could be used to be automatically translated into a formal `@rendition` statement.
-
-## bibliographic references and links to external sources
-
-How to encode this?
-
->حجاب المرأة في الإسلام
-
->تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله
-
-beyond
-
-```xml
-<head>حجاب المرأة في الإسلام</head>
-<p>تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله</p>
-```
-
-Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
-
-معرباً بتصرف من مقالة لجان فينو في المجلة الباريزية.
-
-دمشق: جرجي الحداد
 
 ## question and anwser sections
 
@@ -112,17 +136,11 @@ In many cases foreign terms that have been transliterated into Arabic are follow
     - allow `<bibl>` as child of `<opener>`,`<byline>`, `<closer>`
     - allow `<q>` as child of `<persName>` etc.
 - changes to mark-up reflecting recent changes in the TEI guidelines:
-    + move `<idno>` from a direct child of `<biblStruct>` to `<monogr>`
-- allow `@source` on `<date>` in `<biblStruct>` to provide a means to capture an external source
-<!-- - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103). -->
+<!-- - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103). -->
 - add `@rend` to all inline elements with the following, most common, values and add some documentation below:
     + "quotation-marks"
     + "brackets"
-- add `@rend` to `<item>` child of `<list>` with the following values
-    + "inline"
-    + "block"
-- add tag set for the mark-up of drama (e.g. [نكارتر](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
-- the guidelines on publication dates need to be implemented in the ODD
+- add tag set for the mark-up of drama (e.g. [نكارتر](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_41.TEIP5.xml#div_6.d1e1527))
 - add `<particDesc>` to the list of available elements
 
 ## 2. deletions
@@ -237,7 +255,7 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
 
 #### 3.1.1.3. publication dates
 
-As noted somewhere [else](https://github.com/tillgrallert/digital-muqtabas/blob/master/readme.md), *al-Muqtabas* did not provide publication dates in the masthead beginning with [No. 4/10](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_45.TEIP5.xml), which would have been scheduled for Shawwāl 1327 aH (Oct/Nov 1909). Thus, one needs a means to differentiate between the official publication date as recorded in the issues' mastheads and the cover leaves of each volume and the actual date of publication as deduced from other sources. The first suggestion is to differentiate between three different types of publication dates with a `@type` attribute:
+As noted somewhere [else](https://github.com/tillgrallert/digital-muqtabas/blob/master/readme.md), *al-Muqtabas* did not provide publication dates in the masthead beginning with [No. 4/10](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_45.TEIP5.xml), which would have been scheduled for Shawwāl 1327 aH (Oct/Nov 1909). Thus, one needs a means to differentiate between the official publication date as recorded in the issues' mastheads and the cover leaves of each volume and the actual date of publication as deduced from other sources. The first suggestion is to differentiate between three different types of publication dates with a `@type` attribute:
 
 1. `@type="official"` The publication date as provided on the masthead
 2. `@type="scheduled"` The publication date according to the publication schedule
@@ -397,7 +415,7 @@ Beware that what looks like a sub heading, might also be a section heading intro
 
 Currently, only page breaks are recorded. They are marked up with the empty milestone element `<pb/>`. Page breaks found in *al-maktaba al-shāmila*, however, do not correspond to those in the original printed copies. They were therefore marked as `<pb ed="shamila">`. Page breaks corresponding to the original printed edition are identified by `@ed="print"`.
 
-Dār Ṣādir in Beirut published a reprint in 1992, which is almost entirely unmarked as such but for the information on the binding itself. The frontispiece carries the note "اعيد طبعها بالتصوير باشراف الدكتور محمد يوسف نجم" (reprinted facsimile under the supervision of Dr. Muḥammad Yūsuf Najm) but the original to this facsimile edition still needs to be established. Checking this reprint against the original, it appears that, in addition to the original edition, there was at least one reprint in the first half of the twentieth century with minor changes. This second edition (for the lack of a better title) corrected some of the typos found in the original edition and its pagination occasionally differs from the first edition/ print run. Traces of this edition are currently to be found among the digital facsimiles provided by the website [Arshīf al-majallāt al-adabiyya wa-l-thaqafiyya al-ʿarabiyya (archive.sakhrit.co)](archive.sakhrit.co) and Dār Ṣādir. For an example see pages 67/68 of [volume 1](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_2.TEIP5.xml#pb_20.d1e1487).
+Dār Ṣādir in Beirut published a reprint in 1992, which is almost entirely unmarked as such but for the information on the binding itself. The frontispiece carries the note "اعيد طبعها بالتصوير باشراف الدكتور محمد يوسف نجم" (reprinted facsimile under the supervision of Dr. Muḥammad Yūsuf Najm) but the original to this facsimile edition still needs to be established. Checking this reprint against the original, it appears that, in addition to the original edition, there was at least one reprint in the first half of the twentieth century with minor changes. This second edition (for the lack of a better title) corrected some of the typos found in the original edition and its pagination occasionally differs from the first edition/ print run. Traces of this edition are currently to be found among the digital facsimiles provided by the website [Arshīf al-majallāt al-adabiyya wa-l-thaqafiyya al-ʿarabiyya (archive.sakhrit.co)](archive.sakhrit.co) and Dār Ṣādir. For an example see pages 67/68 of [volume 1](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_2.TEIP5.xml#pb_20.d1e1487).
 
 1. Printed copys: `<pb ed="print"/>`
     - the page number is recorded in the `@n` attribute
@@ -781,7 +799,7 @@ The private URIs can then be used as values of `@ref`, `@corresp` etc. In the co
 
 ## references to intellectual works
 
-There are two types of references to intellectual works: explicit and implicit ones. Take for example the reference in [*al-Muqtabas* 6/2](https://rawgit.com/tillgrallert/digital-muqtabas/master/xml/oclc_4770057679-i_23.TEIP5.xml#div_34.d1e3136) to a book by an American author from 1888 that had described a technocratic utopia at the end of the 20th century. This, obviously is a direct, yet implicit, reference to Bellamy's "Looking backward, 2000-1887".
+There are two types of references to intellectual works: explicit and implicit ones. Take for example the reference in [*al-Muqtabas* 6/2](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_23.TEIP5.xml#div_34.d1e3136) to a book by an American author from 1888 that had described a technocratic utopia at the end of the 20th century. This, obviously is a direct, yet implicit, reference to Bellamy's "Looking backward, 2000-1887".
 
 Such implicit references can always be encoded with the attribute `@ref` pointing to an entry in Worldcat or VIAF, i.e. `@ref="viaf:187002650`. VIAF is always the better reference for abstract references to a *work* as it should not contain duplicate entries, while Worldcat should be used to reference a specific *edition*.
 
