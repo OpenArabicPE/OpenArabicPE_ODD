@@ -497,6 +497,28 @@
                         </attDef>
                     </attList>
                 </elementSpec>
+                <elementSpec ident="editor" mode="change" module="core">
+                    <attList>
+                        <attDef ident="type" mode="change" usage="opt">
+                            <valList mode="replace" type="closed">
+                                <valItem ident="owner">
+                                    <desc>he owner-cum-editor, commonly referred to as <foreign xml:lang="ar-Larn-x-ijmes">ṣāḥib</foreign>.</desc>
+                                </valItem>
+                                <valItem ident="publisher">
+                                    <desc>The publisher-cum-editor, commonly referred to as <foreign xml:lang="ar-Larn-x-ijmes">munshiʾ</foreign>.</desc>
+                                </valItem>
+                                <valItem ident="editor">
+                                    <desc>Emplicitly assumed type of all editors, used for all of the following: <list>
+                                        <item><foreign xml:lang="ar-Larn-x-ijmes">mudīr masʾūl</foreign> (responsible director)</item>
+                                        <item><foreign xml:lang="ar-Larn-x-ijmes">raʾis al-taḥrīr</foreign> (editor-in-chief)</item>
+                                        <item><foreign xml:lang="ar-Larn-x-ijmes">mudīr al-taḥrīr</foreign> (managing editor)</item>
+                                        <item><foreign xml:lang="ar-Larn-x-ijmes">muḥarrir</foreign> (editor)</item>
+                                    </list></desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
                 <elementSpec ident="gap" mode="change" module="core">
                     <attList>
                         <attDef ident="resp" mode="change" usage="req">
@@ -517,7 +539,7 @@
                             <defaultVal>bayt</defaultVal>
                             <valList type="closed">
                                 <valItem ident="bayt">
-                                    <desc>Two-partite line of an Arabic Qasida. The parts are encoded as 
+                                    <desc>Two-partite line of an Arabic <foreign xml:lang="ar-Latn-x-ijmes">qaṣīda</foreign>. The parts are encoded as 
                                         <gi>seg</gi>
                                         .</desc>
                                 </valItem>
