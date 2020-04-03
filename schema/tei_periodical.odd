@@ -499,16 +499,16 @@
                 </elementSpec>
                 <elementSpec ident="editor" mode="change" module="core">
                     <attList>
-                        <attDef ident="type" mode="change" usage="opt">
-                            <valList mode="replace" type="closed">
+                        <attDef ident="type" mode="add" usage="opt">
+                            <valList mode="add" type="closed">
                                 <valItem ident="owner">
-                                    <desc>he owner-cum-editor, commonly referred to as <foreign xml:lang="ar-Larn-x-ijmes">ṣāḥib</foreign>.</desc>
+                                    <desc>The owner-cum-editor, commonly referred to as <foreign xml:lang="ar-Larn-x-ijmes">ṣāḥib</foreign>.</desc>
                                 </valItem>
                                 <valItem ident="publisher">
                                     <desc>The publisher-cum-editor, commonly referred to as <foreign xml:lang="ar-Larn-x-ijmes">munshiʾ</foreign>.</desc>
                                 </valItem>
                                 <valItem ident="editor">
-                                    <desc>Emplicitly assumed type of all editors, used for all of the following: <list>
+                                    <desc>Implicitly assumed type of all editors, used for all of the following: <list>
                                         <item><foreign xml:lang="ar-Larn-x-ijmes">mudīr masʾūl</foreign> (responsible director)</item>
                                         <item><foreign xml:lang="ar-Larn-x-ijmes">raʾis al-taḥrīr</foreign> (editor-in-chief)</item>
                                         <item><foreign xml:lang="ar-Larn-x-ijmes">mudīr al-taḥrīr</foreign> (managing editor)</item>
