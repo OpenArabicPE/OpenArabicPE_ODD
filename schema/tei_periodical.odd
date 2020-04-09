@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0" xmlns:oape="https://openarabicpe.github.io/ns">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -325,6 +325,84 @@
                                     <desc>Indicates a religious rank, such as Bishop or 
                                         <foreign xml:lang="ar-Latn-x-ijmes">Muṭrān</foreign></desc>
                                 </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="bibl" mode="change" module="core">
+                    <attList>
+                        <attDef ident="subtype" mode="change" usage="opt">
+                            <valList mode="add" type="semi">
+                                <valItem ident="journal">
+                                    <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">majalla</foreign> in Arabic.</desc>
+                                </valItem>
+                                <valItem ident="newspaper">
+                                    <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">jarīda</foreign> in Arabic.</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="type" mode="change" usage="opt">
+                            <valList mode="add" type="semi">
+                                <valItem ident="book">
+                                    <desc>A book</desc>
+                                </valItem>
+                                <valItem ident="periodical">
+                                    <desc>A periodical publication</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="oape:frequency" mode="add" usage="opt">
+                            <desc>This attribute specifies the publication frequency</desc>
+                            <datatype>
+                                <dataRef key="teidata.text"/>
+                            </datatype>
+                            <defaultVal>monthly</defaultVal>
+                            <valList mode="add" type="semi">
+                                <valItem ident="daily"></valItem>
+                                <valItem ident="weekly"></valItem>
+                                <valItem ident="biweekly"></valItem>
+                                <valItem ident="fortnightly"></valItem>
+                                <valItem ident="monthly"></valItem>
+                                <valItem ident="annually"></valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="biblStruct" mode="change" module="core">
+                    <attList>
+                        <attDef ident="subtype" mode="change" usage="opt">
+                            <valList mode="add" type="semi">
+                                <valItem ident="journal">
+                                    <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">majalla</foreign> in Arabic.</desc>
+                                </valItem>
+                                <valItem ident="newspaper">
+                                    <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">jarīda</foreign> in Arabic.</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="type" mode="change" usage="opt">
+                            <valList mode="add" type="semi">
+                                <valItem ident="book">
+                                    <desc>A book</desc>
+                                </valItem>
+                                <valItem ident="periodical">
+                                    <desc>A periodical publication</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="oape:frequency" mode="add" usage="opt">
+                            <desc>This attribute specifies the publication frequency</desc>
+                            <datatype>
+                                <dataRef key="teidata.text"/>
+                            </datatype>
+                            <defaultVal>monthly</defaultVal>
+                            <valList mode="add" type="semi">
+                                <valItem ident="daily"></valItem>
+                                <valItem ident="weekly"></valItem>
+                                <valItem ident="biweekly"></valItem>
+                                <valItem ident="fortnightly"></valItem>
+                                <valItem ident="monthly"></valItem>
+                                <valItem ident="annually"></valItem>
                             </valList>
                         </attDef>
                     </attList>
