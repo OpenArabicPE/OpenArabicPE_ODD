@@ -332,7 +332,7 @@
                 <elementSpec ident="bibl" mode="change" module="core">
                     <attList>
                         <attDef ident="subtype" mode="change" usage="opt">
-                            <valList mode="add" type="semi">
+                            <valList mode="replace" type="semi">
                                 <valItem ident="journal">
                                     <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">majalla</foreign> in Arabic.</desc>
                                 </valItem>
@@ -342,7 +342,7 @@
                             </valList>
                         </attDef>
                         <attDef ident="type" mode="change" usage="opt">
-                            <valList mode="add" type="semi">
+                            <valList mode="replace" type="semi">
                                 <valItem ident="book">
                                     <desc>A book</desc>
                                 </valItem>
@@ -351,7 +351,7 @@
                                 </valItem>
                             </valList>
                         </attDef>
-                        <attDef ident="oape:frequency" mode="add" usage="opt">
+                        <attDef ident="frequency" mode="add" ns="https://openarabicpe.github.io/ns" usage="opt">
                             <desc>This attribute specifies the publication frequency</desc>
                             <datatype>
                                 <dataRef key="teidata.text"/>
@@ -369,9 +369,9 @@
                     </attList>
                 </elementSpec>
                 <elementSpec ident="biblStruct" mode="change" module="core">
-                    <attList>
+                   <attList>
                         <attDef ident="subtype" mode="change" usage="opt">
-                            <valList mode="add" type="semi">
+                            <valList mode="replace" type="semi">
                                 <valItem ident="journal">
                                     <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">majalla</foreign> in Arabic.</desc>
                                 </valItem>
@@ -381,7 +381,7 @@
                             </valList>
                         </attDef>
                         <attDef ident="type" mode="change" usage="opt">
-                            <valList mode="add" type="semi">
+                            <valList mode="replace" type="semi">
                                 <valItem ident="book">
                                     <desc>A book</desc>
                                 </valItem>
@@ -390,7 +390,7 @@
                                 </valItem>
                             </valList>
                         </attDef>
-                        <attDef ident="oape:frequency" mode="add" usage="opt">
+                        <attDef ident="frequency" mode="add" ns="https://openarabicpe.github.io/ns" usage="opt">
                             <desc>This attribute specifies the publication frequency</desc>
                             <datatype>
                                 <dataRef key="teidata.text"/>

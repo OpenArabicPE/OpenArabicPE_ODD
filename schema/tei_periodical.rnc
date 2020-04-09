@@ -1,4 +1,5 @@
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace oape = "https://openarabicpe.github.io/ns"
 namespace rng = "http://relaxng.org/ns/structure/1.0"
 namespace sch = "http://purl.oclc.org/dsdl/schematron"
 default namespace tei = "http://www.tei-c.org/ns/1.0"
@@ -6,7 +7,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2020-04-03T14:01:37Z. .
+# Schema generated from ODD source 2020-04-09T20:59:42Z. .
 # TEI Edition: Version 3.5.0. Last updated on
 #	29th January 2019, revision 3c0c64ec4
 # TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.5.0/
@@ -2562,7 +2563,7 @@ OpenArabicPE_editor =
         ## The publisher-cum-editor, commonly referred to as munshiʾ.
         "publisher"
       | 
-        ## implicitly assumed type of all editors, used for all of the following:  * mudīr masʾūl (responsible director)  * raʾis al-taḥrīr (editor-in-chief)  * mudīr al-taḥrīr (managing editor)  * muḥarrir (editor)
+        ## Implicitly assumed type of all editors, used for all of the following:  * mudīr masʾūl (responsible director)  * raʾis al-taḥrīr (editor-in-chief)  * mudīr al-taḥrīr (managing editor)  * muḥarrir (editor)
         "editor"
     }?,
     empty
@@ -2686,8 +2687,56 @@ OpenArabicPE_bibl =
      | OpenArabicPE_model.biblPart
      | OpenArabicPE_model.global)*,
     OpenArabicPE_att.global.attributes,
-    OpenArabicPE_att.typed.attributes,
     OpenArabicPE_att.docStatus.attributes,
+    
+    ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    ## Suggested values include: 1] book; 2] periodical
+    attribute type {
+      
+      ## A book
+      "book"
+      | 
+        ## A periodical publication
+        "periodical"
+      | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+    }?,
+    
+    ## provides a sub-categorization of the element, if needed
+    ## Suggested values include: 1] journal; 2] newspaper
+    attribute subtype {
+      
+      ## A type of periodical publication that is called majalla in Arabic.
+      "journal"
+      | 
+        ## A type of periodical publication that is called jarīda in Arabic.
+        "newspaper"
+      | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+    }?,
+    
+    ## This attribute specifies the publication frequency
+    ## Suggested values include: 1] daily; 2] weekly; 3] biweekly; 4] fortnightly; 5] monthly; 6] annually
+    [ a:defaultValue = "monthly" ]
+    attribute oape:frequency {
+      
+      ##
+      "daily"
+      | 
+        ##
+        "weekly"
+      | 
+        ##
+        "biweekly"
+      | 
+        ##
+        "fortnightly"
+      | 
+        ##
+        "monthly"
+      | 
+        ##
+        "annually"
+      | xsd:string
+    }?,
     empty
   }
 OpenArabicPE_biblStruct =
@@ -2699,8 +2748,56 @@ OpenArabicPE_biblStruct =
       | OpenArabicPE_model.ptrLike
       | OpenArabicPE_citedRange)*),
     OpenArabicPE_att.global.attributes,
-    OpenArabicPE_att.typed.attributes,
     OpenArabicPE_att.docStatus.attributes,
+    
+    ## characterizes the element in some sense, using any convenient classification scheme or typology.
+    ## Suggested values include: 1] book; 2] periodical
+    attribute type {
+      
+      ## A book
+      "book"
+      | 
+        ## A periodical publication
+        "periodical"
+      | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+    }?,
+    
+    ## provides a sub-categorization of the element, if needed
+    ## Suggested values include: 1] journal; 2] newspaper
+    attribute subtype {
+      
+      ## A type of periodical publication that is called majalla in Arabic.
+      "journal"
+      | 
+        ## A type of periodical publication that is called jarīda in Arabic.
+        "newspaper"
+      | xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+    }?,
+    
+    ## This attribute specifies the publication frequency
+    ## Suggested values include: 1] daily; 2] weekly; 3] biweekly; 4] fortnightly; 5] monthly; 6] annually
+    [ a:defaultValue = "monthly" ]
+    attribute oape:frequency {
+      
+      ##
+      "daily"
+      | 
+        ##
+        "weekly"
+      | 
+        ##
+        "biweekly"
+      | 
+        ##
+        "fortnightly"
+      | 
+        ##
+        "monthly"
+      | 
+        ##
+        "annually"
+      | xsd:string
+    }?,
     empty
   }
 OpenArabicPE_listBibl =
