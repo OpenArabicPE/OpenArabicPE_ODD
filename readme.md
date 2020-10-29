@@ -1,7 +1,7 @@
 ---
 title: "Readme/documentation: ODD tei_periodicals"
 author: Till Grallert
-date: 2017-04-06
+date: 2020-01-20
 tags:
 - documentation
 - periodicals
