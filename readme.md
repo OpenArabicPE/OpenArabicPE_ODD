@@ -195,6 +195,10 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
         <title level="j" xml:lang="fr">Al-Moktabas</title>
         <title level="j" type="sub" xml:lang="fr">Revue mensuelle paraissant à Damas (Syrie)</title>
         <title level="j" type="sub" xml:lang="fr">Pédagogie, sociologie, économie politique, littérature, histoire, archéologie, philologie, ménagerie, hygiène, bibliographie, civilisation arabe et occidentale</title>
+        <idno type="oclc">4770057679</idno>
+        <idno type="oclc">79440195</idno>
+        <idno type="aucr">07201136864</idno>
+        <idno type="shamela">26523</idno>
         <editor ref="https://viaf.org/viaf/32272677">
             <persName xml:lang="ar">
                 <forename>محمد</forename>
@@ -214,17 +218,13 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
                 <placeName xml:lang="ar">دمشق</placeName>
                 <placeName xml:lang="en">Damascus</placeName>
             </pubPlace>
-            <date xml:lang="ar" when-custom="1329-01-01" datingMethod="#cal_islamic" calendar="#cal_islamic" when="1911-01-02">١ محرم ١٣٢٩</date>
-            <date xml:lang="ar-Latn-x-ijmes" when-custom="1329-01-01" datingMethod="#cal_islamic" calendar="#cal_islamic" when="1911-01-02">1 Muḥ 1329</date>
+            <date type="official" xml:lang="ar" when-custom="1329-01-01" datingMethod="#cal_islamic" calendar="#cal_islamic" when="1911-01-02">١ محرم ١٣٢٩</date>
+            <date type="official" xml:lang="ar-Latn-x-ijmes" when-custom="1329-01-01" datingMethod="#cal_islamic" calendar="#cal_islamic" when="1911-01-02">1 Muḥ 1329</date>
         </imprint>
         <biblScope unit="volume" from="6" to="6"/>
         <biblScope unit="issue" from="1" to="1"/>
         <biblScope unit="page" from="1" to="88"/>
     </monogr>
-    <idno type="oclc">4770057679</idno>
-    <idno type="oclc">79440195</idno>
-    <idno type="aucr">07201136864</idno>
-    <idno type="shamela">26523</idno>
 </biblStruct>
 <!-- ... -->
 </teiHeader>
@@ -347,14 +347,14 @@ Each periodical issue is conceived of as a single `<text>` with some bibliograph
     <!-- some bibliographic data commonly found in the masthead -->
     </front>
     <body>
-        <div type="article">
+        <div type="item" subtype="article">
             <head></head>
             <p></p>
             <!-- ... -->
         </div>
         <div type="section">
             <head></head>
-            <div type="article">
+            <div type="item" subtype="article">
             <head></head>
             <p></p>
             <!-- ... -->
@@ -372,24 +372,23 @@ Divisions can be of various types (`@type`), using a semi-controlled vocabulary 
 
 - structual information
     + `section`
-    + `article` (?)
+    + `item`
 - genre information
     - `advert`
     - `article`
     - `bill`
+    - `letter`
+    - `verse`
 
 
 <!-- needs revisions -->
-As paragraphs (`<p>`) cannot interlace with `<div>`s after the first `<div>` child of a parent `<div>`, `<div @type="article">` is commonly the lowest level of tessellation but in the case of very long articles that might themselves contain `@type="section"` children.
+As paragraphs (`<p>`) cannot interlace with `<div>`s after the first `<div>` child of a parent `<div>`, `<div type="item" subtype="article">` is commonly the lowest level of tessellation but in the case of very long articles that might themselves contain `@type="section"` children.
 
-The common structure of an issue would be a mix of `<div @type="article">` and `<div @type="section">`
+The common structure of an issue would be a mix of `<div type="item" subtype="article">` and `<div type="section">`
 
 ### 3.2.3. legal texts, bills: `<div>`
 
-It is quite common to find legal texts in late nineteenth, early twentieth century periodicals and I would like to differenciate them by means of the `@type="bill"` attribute because they can be nested inside an article or appear as free-standing chunk of text on the article level. Legal texts are commonly structured into sections / chapters, articles, and paragraphs and shall be encoded thus; i.e. as `<div type="section">`, `<div type="article">`, and `<p>`.
-
-This encoding however mixes structural `@type` attributes such as `section` and `article` with semantic assumptions as to the genre of the text, i.e. `bill`. In future iterations of the schema / encoding this should be tackled and changed.
-
+It is quite common to find legal texts in late nineteenth, early twentieth century periodicals and I would like to differenciate them by means of the `@subtype="bill"` attribute because they can be nested inside an article or appear as free-standing chunk of text on the article level. Legal texts are commonly structured into sections / chapters, articles, and paragraphs and shall be encoded thus; i.e. as `<div type="section">`, `<div type="item" subtype="article">`, and `<p>`.
 
 In some cases the legal text itself is accompanied by a commentary intersecting with the legal text on the article level. they could be encoded in various ways, but the important thing is to link the commentary to the corresponding article by means of an attribute.
 
@@ -400,7 +399,7 @@ Sections and articles are commonly introduced by a clearly distinguishable headi
 See for example [i_50](xml/oclc_4770057679-i_50.TEIP5.xml#div_5.d1e2312):
 
 ```xml
-<div type="article">
+<div type="item" subtype="article">
     <head>الاتكال الشرقي</head>
     <head type="sub">نصيحة غربي</head>
     <p>
@@ -489,7 +488,7 @@ Many articles contain *qaṣīda*s with the characteristic printing of the two *
 ```xml
 <lg>
     <l type="bayt">
-        <seg>أبرموا أمرهم عشاء فلما </seg> <seg>أصبحوا أصبحت لهم ضوضاء</seg>
+        <seg>أبرموا أمرهم عشاء فلما</seg> <seg>أصبحوا أصبحت لهم ضوضاء</seg>
     </l>
     <l type="bayt">
         <seg>من منادٍ ومن مجيبٍ ومن تص</seg><seg>هالٍ خليل خلال ذاك رغاء</seg>
@@ -498,20 +497,11 @@ Many articles contain *qaṣīda*s with the characteristic printing of the two *
 ```
 
 
-There are cases when words are split between the two lines of the *qaṣīda*:
-
-![example for split line of a *qaṣīda*](assets/images/qasida-bayt.png)
-
-How should this be encoded?
+As the second line in the above example shows, there are cases when words are split between the two lines of the *qaṣīda*. This can be encoded thus:
 
 ```xml
 <l type="bayt">
-    <seg>أبرموا أمرهم عشاء فلما </seg>
-    <seg> أصبحوا أصبحت لهم ضوضاء</seg>
-</l>
-<l type="bayt">
-    <seg>من منادٍ ومن مجيبٍ ومن تص</seg>
-    <seg>هالٍ خليل خلال ذاك رغاء</seg>
+    <seg>من منادٍ ومن مجيبٍ ومن <seg>تص</seg></seg><seg><seg>هالٍ</seg> خليل خلال ذاك رغاء</seg>
 </l>
 ```
 
@@ -537,46 +527,7 @@ Digital facsimiles of individual pages, either local or online, are linked throu
 </facsimile>
 ```
 
-- The `@url` of `<graphic>` links to local downloads of the image as well as to the image hosted on HathiTrust's servers
-
-
-
-### *al-Muqtabas*
-
-Image files are available from the [*al-Aqṣā* Mosque's library in Jerusalem through the British Library's "Endangered Archives Project" (vols. 2-7)](http://eap.bl.uk/database/overview_project.a4d?projID=EAP119;r=63), [HathiTrust (vols. 1-6, 8)](http://catalog.hathitrust.org/Record/100658549), and [Institut du Monde Arabe](http://ima.bibalex.org/IMA/presentation/periodic/list.jsf?pid=9C82C139F9785E99D30089727B40A269). Due to its open access licence, preference is given to facsimiles from EAP.
-
-#### EAP119
-
-- links to volumes:
-    + [Vol. 2](http://eap.bl.uk/database/overview_item.a4d?catId=809;r=12316)
-    + [Vol. 3](http://eap.bl.uk/database/overview_item.a4d?catId=812;r=3035)
-    + [Vol. 4](http://eap.bl.uk/database/overview_item.a4d?catId=813;r=22190)
-    + [Vol. 5](http://eap.bl.uk/database/overview_item.a4d?catId=814;r=1842)
-    + [Vol. 6](http://eap.bl.uk/database/overview_item.a4d?catId=810;r=288)
-    + [Vol. 7](http://eap.bl.uk/database/overview_item.a4d?catId=811;r=30106)
-- access:
-    + the journal is in the public domain and the images can be freely accessed without restrictions. EAP does not provide a download button.
-    + Terms of access for material provided by the British Library can be found [here](http://www.bl.uk/aboutus/terms/index.html)
-
-####  HathiTrust
-
-- links to volumes
-    + [Vol. 1](http://hdl.handle.net/2027/umn.319510029968608)
-    + [Vol. 2](http://hdl.handle.net/2027/umn.319510029968616)
-    + [Vol. 3](http://hdl.handle.net/2027/umn.319510029968624)
-    + [Vol. 4](http://hdl.handle.net/2027/umn.319510029968632)
-    + [Vol. 5](http://hdl.handle.net/2027/umn.319510029968640)
-    + [Vol. 6](http://hdl.handle.net/2027/njp.32101073250910)
-    + [Vol. 8](http://hdl.handle.net/2027/njp.32101007615691)
-    + [Index](http://hdl.handle.net/2027/umn.31951d008457474)
-- access
-    + The journal is in the public domain in the US and can be freely accessed and downloaded
-    + Outside the US, access is restricted.
-    + Formal [licence](https://www.hathitrust.org/access_use#pd-us-google):
-
-> Public Domain or Public Domain in the United States, Google-digitized: In addition to the terms for works that are in the Public Domain or in the Public Domain in the United States above, the following statement applies: The digital images and OCR of this work were produced by Google, Inc. (indicated by a watermark on each page in the PageTurner). Google requests that the images and OCR not be re-hosted, redistributed or used commercially. The images are provided for educational, scholarly, non-commercial purposes.
-> Note: There are no restrictions on use of text transcribed from the images, or paraphrased or translated using the images.
-
+- The `@url` of `<graphic>` links to local downloads of the image as well as to facsimiles hosted by various vendors.
 
 
 ## 3.5 non-structural phenomena of interest to the historian
@@ -816,7 +767,7 @@ Almost all issues of *Muqtabas* contain review sections titled "مخطوطات �
 Often times a full bibliographic reference is given in the title of the review article:
 
 ```xml
-<div type="article">
+<div type="item" subtype="article">
     <head>
         <bibl><title level="m">الجوهر المحبوك في نظم السلوك</title> <author>لسيد علاء الدين علي الملقب بعلوان الحسيني الحموي</author></bibl>
     </head>
