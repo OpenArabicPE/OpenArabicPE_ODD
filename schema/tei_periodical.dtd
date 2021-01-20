@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2021-01-20T11:33:26Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2021-01-20T11:50:51Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 4.1.0. Last updated on
 	19th August 2020, revision b414ba550
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.1.0/
@@ -1607,8 +1607,7 @@ Measures] -->
 <!ATTLIST num
  %OpenArabicPE_att.global.attributes;
 type %teidata.enumerated;  #IMPLIED
-subtype CDATA  #IMPLIED
-subtype CDATA  #IMPLIED
+subtype %teidata.enumerated;  #IMPLIED
 value %teidata.numeric;  #IMPLIED >
 <!--doc:(canonical name) contains the definition for a canonical name or name component of any kind. [13.3.6. Names and Nyms] -->
 <!ELEMENT nym (((idno)*,(_DUMMY_model.entryPart)*,(%model.pLike;)*,(nym)*))>

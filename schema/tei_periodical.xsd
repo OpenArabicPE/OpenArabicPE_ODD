@@ -8,7 +8,7 @@
               schemaLocation="xml.tmp"/>
    <xs:import namespace="https://openarabicpe.github.io/ns" schemaLocation="ns1.tmp"/>
    <!--
-    Schema generated from ODD source 2021-01-20T11:33:30Z. .
+    Schema generated from ODD source 2021-01-20T11:50:55Z. .
     TEI Edition: Version 4.1.0. Last updated on
     	19th August 2020, revision b414ba550
     TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.1.0/
@@ -3335,11 +3335,11 @@ Suggested values include: 1] cardinal; 2] ordinal; 3] fraction; 4] percentage</x
                </xs:attribute>
                <xs:attribute name="subtype">
                   <xs:annotation>
-                     <xs:documentation>
+                     <xs:documentation>provides a sub-categorization of the element, if needed
 Suggested values include: 1] d1; 2] d2; 3] d3; 4] d4; 5] d5; 6] d6</xs:documentation>
                   </xs:annotation>
                   <xs:simpleType>
-                     <xs:union memberTypes="xs:Name">
+                     <xs:union>
                         <xs:simpleType>
                            <xs:restriction base="xs:token">
                               <xs:enumeration value="d1">
@@ -3394,68 +3394,9 @@ Suggested values include: 1] d1; 2] d2; 3] d3; 4] d4; 5] d5; 6] d6</xs:documenta
                               </xs:enumeration>
                            </xs:restriction>
                         </xs:simpleType>
-                     </xs:union>
-                  </xs:simpleType>
-               </xs:attribute>
-               <xs:attribute name="subtype">
-                  <xs:annotation>
-                     <xs:documentation>
-Suggested values include: 1] d1; 2] d2; 3] d3; 4] d4; 5] d5; 6] d6</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                     <xs:union memberTypes="xs:Name">
                         <xs:simpleType>
                            <xs:restriction base="xs:token">
-                              <xs:enumeration value="d1">
-                                 <xs:annotation>
-                                    <xs:documentation>Single digit</xs:documentation>
-                                 </xs:annotation>
-                              </xs:enumeration>
-                           </xs:restriction>
-                        </xs:simpleType>
-                        <xs:simpleType>
-                           <xs:restriction base="xs:token">
-                              <xs:enumeration value="d2">
-                                 <xs:annotation>
-                                    <xs:documentation>Two digits</xs:documentation>
-                                 </xs:annotation>
-                              </xs:enumeration>
-                           </xs:restriction>
-                        </xs:simpleType>
-                        <xs:simpleType>
-                           <xs:restriction base="xs:token">
-                              <xs:enumeration value="d3">
-                                 <xs:annotation>
-                                    <xs:documentation>Three digits</xs:documentation>
-                                 </xs:annotation>
-                              </xs:enumeration>
-                           </xs:restriction>
-                        </xs:simpleType>
-                        <xs:simpleType>
-                           <xs:restriction base="xs:token">
-                              <xs:enumeration value="d4">
-                                 <xs:annotation>
-                                    <xs:documentation>Four digits</xs:documentation>
-                                 </xs:annotation>
-                              </xs:enumeration>
-                           </xs:restriction>
-                        </xs:simpleType>
-                        <xs:simpleType>
-                           <xs:restriction base="xs:token">
-                              <xs:enumeration value="d5">
-                                 <xs:annotation>
-                                    <xs:documentation>Five digits</xs:documentation>
-                                 </xs:annotation>
-                              </xs:enumeration>
-                           </xs:restriction>
-                        </xs:simpleType>
-                        <xs:simpleType>
-                           <xs:restriction base="xs:token">
-                              <xs:enumeration value="d6">
-                                 <xs:annotation>
-                                    <xs:documentation>Six digits</xs:documentation>
-                                 </xs:annotation>
-                              </xs:enumeration>
+                              <xs:pattern value="[^\p{C}\p{Z}]+"/>
                            </xs:restriction>
                         </xs:simpleType>
                      </xs:union>
@@ -4212,7 +4153,7 @@ Suggested values include: 1] print; 2] shamela</xs:documentation>
                                  <xs:restriction base="xs:token">
                                     <xs:enumeration value="shamela">
                                        <xs:annotation>
-                                          <xs:documentation>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</xs:documentation>
+                                          <xs:documentation>Page beginning, i.e. break, as found in the transcription from al-Maktaba al-Shamela</xs:documentation>
                                        </xs:annotation>
                                     </xs:enumeration>
                                  </xs:restriction>

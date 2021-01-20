@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2021-01-20T11:33:22Z. .
+Schema generated from ODD source 2021-01-20T11:50:46Z. .
 TEI Edition: Version 4.1.0. Last updated on
 	19th August 2020, revision b414ba550
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.1.0/
@@ -2978,7 +2978,7 @@ Suggested values include: 1] cardinal; 2] ordinal; 3] fraction; 4] percentage</a
          </optional>
          <optional>
             <attribute name="subtype">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides a sub-categorization of the element, if needed
 Suggested values include: 1] d1; 2] d2; 3] d3; 4] d4; 5] d5; 6] d6</a:documentation>
                <choice>
                   <value>d1</value>
@@ -2993,28 +2993,9 @@ Suggested values include: 1] d1; 2] d2; 3] d3; 4] d4; 5] d5; 6] d6</a:documentat
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Five digits</a:documentation>
                   <value>d6</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Six digits</a:documentation>
-                  <data type="Name"/>
-               </choice>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="subtype">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-Suggested values include: 1] d1; 2] d2; 3] d3; 4] d4; 5] d5; 6] d6</a:documentation>
-               <choice>
-                  <value>d1</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Single digit</a:documentation>
-                  <value>d2</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Two digits</a:documentation>
-                  <value>d3</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Three digits</a:documentation>
-                  <value>d4</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Four digits</a:documentation>
-                  <value>d5</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Five digits</a:documentation>
-                  <value>d6</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Six digits</a:documentation>
-                  <data type="Name"/>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
                </choice>
             </attribute>
          </optional>
@@ -3589,7 +3570,7 @@ Suggested values include: 1] print; 2] shamela</a:documentation>
                      <value>print</value>
                      <a:documentation>Page beginning, i.e. break, according to a printed edition</a:documentation>
                      <value>shamela</value>
-                     <a:documentation>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</a:documentation>
+                     <a:documentation>Page beginning, i.e. break, as found in the transcription from al-Maktaba al-Shamela</a:documentation>
                      <data type="token">
                         <param name="pattern">[^\p{C}\p{Z}]+</param>
                      </data>

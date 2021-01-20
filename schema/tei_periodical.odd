@@ -688,7 +688,7 @@
                     <!--<classes mode="change"><memberOf key="model.measureLike"/><!-\-<memberOf key="att.fragmentable"/><memberOf key="att.global"/><memberOf key="att.metrical"/>-\-><memberOf key="att.typed" mode="add"/></classes>-->
                     <attList>
                         <!--<attDef ident="type" mode="change"><valList type="semi" mode="replace"><valItem ident="auto-markup"/></valList></attDef>-->
-                        <attDef ident="subtype" mode="add">
+                        <attDef ident="subtype" mode="change">
                             <valList mode="replace" type="semi">
                                 <valItem ident="d1">
                                     <desc>Single digit</desc>
@@ -721,7 +721,7 @@
                                     <desc>Page beginning, i.e. break, according to a printed edition</desc>
                                 </valItem>
                                 <valItem ident="shamela">
-                                    <desc>Page beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                    <desc>Page beginning, i.e. break, as found in the transcription from al-Maktaba al-Shamela</desc>
                                 </valItem>
                             </valList>
                         </attDef>
