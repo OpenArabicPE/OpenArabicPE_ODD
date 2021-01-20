@@ -24,6 +24,7 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2020-04-09" who="#pers_TG">Removed depreciated <att>type</att> values from <gi>addName</gi> and added "theophoric" as a new type value.</change>
             <change when="2020-04-09" who="#pers_TG"
                 >Added <att>type</att>, <att>subtype</att>, and <att>oape:frequency</att> to <gi>biblStruct</gi> to better differentiate between periodicals.</change>
             <change when="2020-04-01" who="#pers_TG">Added <att>type</att> to <gi>editor</gi> for differentiating between owners and editors</change>
@@ -253,30 +254,7 @@
                         <attDef ident="type" mode="change" usage="req">
                             <defaultVal>title</defaultVal>
                             <valList mode="replace" type="closed">
-                                <!-- this is goind to be depreciated -->
-                                <valItem ident="title">
-                                    <desc>indicates formal titles, such as &quot;Bey&quot;, &quot;Pasha&quot; etc. This use is depreciated in favour of <tag>roleName type="title"</tag></desc>
-                                </valItem>
-                                <!-- this is goind to be depreciated -->
-                                <valItem ident="honorific">
-                                    <desc>indicates honorific addresses or titles, such as Miss, 
-                                        <foreign xml:lang="ar-Latn-x-ijmes"
-                                        >Shaykh</foreign>
-                                        , 
-                                        <foreign xml:lang="ota-Latn-TR"
-                                        >zade</foreign>. This use is depreciated in favour of <tag>roleName type="honorific"</tag></desc>
-                                </valItem>
-                                <!-- this is goind to be depreciated -->
-                                <valItem ident="rank">
-                                    <desc>indicates ranks within an administrative, military or religious hierarchy, such as 
-                                        <foreign
-                                        xml:lang="ar-Latn-x-ijmes">farīq</foreign>
-                                        , 
-                                        <foreign
-                                        xml:lang="ota-Latn-x-ijmes"
-                                        >vālī</foreign>
-                                        , Captain. This use is depreciated in favour of <tag>roleName type="rank"</tag></desc>
-                                </valItem>
+                                <!-- the values "title", "honorific", "rank" have been depreciated-->
                                 <!-- this is goind to be depreciated -->
                                 <valItem ident="nickname">
                                     <desc>a phrase someone is commonly referred to, such as &quot;Owner of the newspaper xyz&quot;. This use is depreciated in favour of <tag>roleName type="title"</tag></desc>
