@@ -31,6 +31,9 @@
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
+            <change when="2020-04-09" who="#pers_TG">Added <att>type</att>, <att>subtype</att>, and <att>oape:frequency</att> to <gi>biblStruct</gi> to better differentiate between periodicals.</change>
+            <change when="2020-04-01" who="#pers_TG">Added <att>type</att> to <gi>editor</gi> for differentiating between owners and editors</change>
+            <change when="2019-04-15" who="#pers_TG">Changed the values of <att>type</att> on <gi>note</gi> to reflect the purpose of a note. The location has been (correctly) moved to <att>place</att>. </change>
             <change when="2018-09-29" who="#pers_TG">Added <att>edRef</att> as recommended attribute on all page, column, and line breaks/beginnings.</change>
             <change when="2018-01-16" who="#pers_TG">Added the att.global.change.</change>
             <change when="2017-01-15" who="#pers_TG">Added @type=&quot;inline&quot; to tei:note. Added @type attributes to tei:date.</change>
