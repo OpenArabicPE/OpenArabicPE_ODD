@@ -51,7 +51,8 @@
                 select="$v_self"/> already exists in this file.</sch:report>-->
             <!-- test if there is another person with the same name -->
             <!--<sch:report test="ancestor::tei:particDesc/descendant::tei:person[not(@xml:id = $v_id-parent)]/tei:persName[normalize-space(string()) = $v_self]">There is another person (<sch:value-of select="ancestor::tei:particDesc/descendant::tei:person[not(@xml:id = $v_id-parent)][tei:persName[normalize-space(string()) = $v_self]]/@xml:id"/>) with the <sch:name/> <sch:value-of select="$v_self"/> in this file.</sch:report>-->
-            <sch:report test="preceding::tei:person[not(@xml:id = $v_id-parent)]/tei:persName[normalize-space(string()) = $v_self]">There is another person (<sch:value-of
+            <sch:report test="preceding::tei:person[not(@xml:id = $v_id-parent)]/tei:persName[normalize-space(string()) = $v_self]">
+                <sch:value-of select="$v_id-parent"/>: There is another person (<sch:value-of
                 select="preceding::tei:person[not(@xml:id = $v_id-parent)][tei:persName[normalize-space(string()) = $v_self]]/@xml:id"/>) with the <sch:name/> <sch:value-of select="$v_self"
                 /> at an earlier point in this file.</sch:report>
         </sch:rule>
