@@ -172,6 +172,12 @@
                                 <valItem ident="fr-Arab-AR">
                                     <desc>French transcribed into Arabic script following common Levantine Arabic practices</desc>
                                 </valItem>
+                                <valItem ident="und-Latn">
+                                    <desc>Undefined language in Latin script. This is particularly useful for entity names.</desc>
+                                </valItem>
+                                <valItem ident="und-Arab">
+                                    <desc>Undefined language in Arabic script. This is particularly useful for entity names.</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                     </attList>
@@ -609,16 +615,16 @@
                                 <valItem ident="editorial">
                                     <desc>Note added by editors of the digital edition. The editor is identified by means of <att>resp</att></desc>
                                 </valItem>
-                                <valItem ident="endnote">
+                                <valItem ident="endnote" validUntil="2021-04-30">
                                     <desc>Discouraged: use <att>place</att>='end' instead.</desc>
                                 </valItem>
-                                <valItem ident="footnote">
+                                <valItem ident="footnote" validUntil="2021-04-30">
                                     <desc>Discouraged: use <att>place</att>='bottom' instead.</desc>
                                 </valItem>
-                                <valItem ident="gloss">
+                                <valItem ident="gloss" validUntil="2021-04-30">
                                     <desc>Discouraged: use <att>place</att>='margin' instead.</desc>
                                 </valItem>
-                                <valItem ident="inline">
+                                <valItem ident="inline" validUntil="2021-04-30">
                                     <desc>Discouraged: use <att>place</att>='inline' instead.</desc>
                                 </valItem>
                                 <valItem ident="tagList">
@@ -739,8 +745,6 @@
                         </attDef>
                     </attList>
                 </elementSpec>
-                <!--<elementSpec ident="q" mode="change" module="core"> <attList> <attDef ident="rend" mode="change"> <defaultVal>quotation-marks</defaultVal> <valList mode="replace" type="semi"> <valItem ident="brackets"/> <valItem ident="quotation-marks"/> </valList> </attDef> </attList> </elementSpec>-->
-                <!--<elementSpec ident="quote" mode="change" module="core"> <attList> <attDef ident="rend" mode="change"> <defaultVal>quotation-marks</defaultVal> <valList mode="replace" type="semi"> <valItem ident="brackets"/> <valItem ident="quotation-marks"/> </valList> </attDef> </attList> </elementSpec>-->
                 <elementSpec ident="supplied" mode="change" module="transcr">
                     <attList>
                         <attDef ident="resp" mode="change" usage="req"/>
