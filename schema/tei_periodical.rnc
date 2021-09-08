@@ -8,7 +8,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2021-04-01T12:21:36Z. .
+# Schema generated from ODD source 2021-09-08T07:52:41Z. .
 # TEI Edition: Version 4.2.1. Last updated on
 #	1st March 2021, revision 654a5c551
 # TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -342,7 +342,7 @@ OpenArabicPE_att.global.rendition.attribute.rend =
     | 
       ##
       "quotation-marks"
-    | xsd:Name
+    | xsd:string
   }?
 OpenArabicPE_att.global.rendition.attribute.style =
   
@@ -390,7 +390,7 @@ OpenArabicPE_att.global.attribute.xmllang =
         "BCP 47"
       ]
       ".\x{a}" ~
-      "Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-AR; 17] en-Arab-AR; 18] fr-Arab-AR"
+      "Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-AR; 17] en-Arab-AR; 18] fr-Arab-AR; 19] und-Latn; 20] und-Arab"
     ]
   ]
   attribute xml:lang {
@@ -448,6 +448,12 @@ OpenArabicPE_att.global.attribute.xmllang =
     | 
       ## French transcribed into Arabic script following common Levantine Arabic practices
       "fr-Arab-AR"
+    | 
+      ## Undefined language in Latin script. This is particularly useful for entity names.
+      "und-Latn"
+    | 
+      ## Undefined language in Arabic script. This is particularly useful for entity names.
+      "und-Arab"
     | (xsd:language
        | (
           ##
@@ -2442,7 +2448,7 @@ OpenArabicPE_item =
       | 
         ##
         "inline"
-      | xsd:Name
+      | xsd:string
     }?,
     empty
   }
@@ -2562,37 +2568,17 @@ OpenArabicPE_note =
           ]
         ]
         "editorial"
-      | [
-          a:documentation [
-            "Discouraged: use "
-            ns1:code [ "@place" ]
-            "='end' instead."
-          ]
-        ]
+      | 
+        ##
         "endnote"
-      | [
-          a:documentation [
-            "Discouraged: use "
-            ns1:code [ "@place" ]
-            "='bottom' instead."
-          ]
-        ]
+      | 
+        ##
         "footnote"
-      | [
-          a:documentation [
-            "Discouraged: use "
-            ns1:code [ "@place" ]
-            "='margin' instead."
-          ]
-        ]
+      | 
+        ##
         "gloss"
-      | [
-          a:documentation [
-            "Discouraged: use "
-            ns1:code [ "@place" ]
-            "='inline' instead."
-          ]
-        ]
+      | 
+        ##
         "inline"
       | 
         ## Note containing a list of tags to be used mainly in authority files for further computational transformations and analysis

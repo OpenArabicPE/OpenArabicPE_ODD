@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2021-04-01T12:21:22Z. .
+Schema generated from ODD source 2021-09-08T07:52:28Z. .
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -424,7 +424,7 @@ Suggested values include: 1] brackets; 2] quotation-marks</a:documentation>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <value>quotation-marks</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <data type="Name"/>
+               <data type="string"/>
             </choice>
          </attribute>
       </optional>
@@ -498,7 +498,7 @@ Suggested values include: 1] brackets; 2] quotation-marks</a:documentation>
                     a:defaultValue="ar">
             <a:documentation>(language) indicates the language of the element content using a tag generated according to <a xmlns="http://www.w3.org/1999/xhtml"
                   href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</a>.
-Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-AR; 17] en-Arab-AR; 18] fr-Arab-AR</a:documentation>
+Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-AR; 17] en-Arab-AR; 18] fr-Arab-AR; 19] und-Latn; 20] und-Arab</a:documentation>
             <choice>
                <value>ar</value>
                <a:documentation>Arabic in Arabic script</a:documentation>
@@ -536,6 +536,10 @@ Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] f
                <a:documentation>English transcribed into Arabic script following common Levantine Arabic practices</a:documentation>
                <value>fr-Arab-AR</value>
                <a:documentation>French transcribed into Arabic script following common Levantine Arabic practices</a:documentation>
+               <value>und-Latn</value>
+               <a:documentation>Undefined language in Latin script. This is particularly useful for entity names.</a:documentation>
+               <value>und-Arab</value>
+               <a:documentation>Undefined language in Arabic script. This is particularly useful for entity names.</a:documentation>
                <choice>
                   <data type="language"/>
                   <choice>
@@ -3457,7 +3461,7 @@ Suggested values include: 1] block; 2] inline</a:documentation>
                   <a:documentation/>
                   <value>inline</value>
                   <a:documentation/>
-                  <data type="Name"/>
+                  <data type="string"/>
                </choice>
             </attribute>
          </optional>
@@ -3574,13 +3578,13 @@ Suggested values include: 1] bibliographic; 2] editorial; 3] endnote; 4] footnot
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Note added by editors of the digital edition. The editor is identified by means of <code xmlns="http://www.w3.org/1999/xhtml">@resp</code>
                   </a:documentation>
                   <value>endnote</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Discouraged: use <code xmlns="http://www.w3.org/1999/xhtml">@place</code>='end' instead.</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>footnote</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Discouraged: use <code xmlns="http://www.w3.org/1999/xhtml">@place</code>='bottom' instead.</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>gloss</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Discouraged: use <code xmlns="http://www.w3.org/1999/xhtml">@place</code>='margin' instead.</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>inline</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Discouraged: use <code xmlns="http://www.w3.org/1999/xhtml">@place</code>='inline' instead.</a:documentation>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>tagList</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Note containing a list of tags to be used mainly in authority files for further computational transformations and analysis</a:documentation>
                   <data type="token">

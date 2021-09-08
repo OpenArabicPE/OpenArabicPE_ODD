@@ -195,6 +195,9 @@
                 <classSpec ident="att.global.rendition" mode="change" module="tei" type="atts">
                     <attList>
                         <attDef ident="rend" mode="replace">
+                            <datatype>
+                                <dataRef key="teidata.text"/>
+                            </datatype>
                             <valList mode="add" type="semi">
                                 <valItem ident="brackets"/>
                                 <valItem ident="quotation-marks"/>
@@ -616,16 +619,16 @@
                                     <desc>Note added by editors of the digital edition. The editor is identified by means of <att>resp</att></desc>
                                 </valItem>
                                 <valItem ident="endnote" validUntil="2021-04-30">
-                                    <desc>Discouraged: use <att>place</att>='end' instead.</desc>
+                                    <desc type="deprecationInfo">Discouraged: use <att>place</att>='end' instead.</desc>
                                 </valItem>
                                 <valItem ident="footnote" validUntil="2021-04-30">
-                                    <desc>Discouraged: use <att>place</att>='bottom' instead.</desc>
+                                    <desc type="deprecationInfo">Discouraged: use <att>place</att>='bottom' instead.</desc>
                                 </valItem>
                                 <valItem ident="gloss" validUntil="2021-04-30">
-                                    <desc>Discouraged: use <att>place</att>='margin' instead.</desc>
+                                    <desc type="deprecationInfo">Discouraged: use <att>place</att>='margin' instead.</desc>
                                 </valItem>
                                 <valItem ident="inline" validUntil="2021-04-30">
-                                    <desc>Discouraged: use <att>place</att>='inline' instead.</desc>
+                                    <desc type="deprecationInfo">Discouraged: use <att>place</att>='inline' instead.</desc>
                                 </valItem>
                                 <valItem ident="tagList">
                                     <desc>Note containing a list of tags to be used mainly in authority files for further computational transformations and analysis</desc>

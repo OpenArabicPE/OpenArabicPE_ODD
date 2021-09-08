@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2021-04-01T12:21:27Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2021-09-08T07:52:33Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -76,7 +76,7 @@ resp CDATA  #IMPLIED'>
  %OpenArabicPE_att.global.responsibility.attribute.cert;
  %OpenArabicPE_att.global.responsibility.attribute.resp;'> 
 <!ENTITY % OpenArabicPE_att.global.rendition.attribute.rend '
-rend CDATA  #IMPLIED'>
+rend %teidata.text;  #IMPLIED'>
 
 <!ENTITY % OpenArabicPE_att.global.rendition.attribute.style '
 style %teidata.text;  #IMPLIED'>
@@ -263,7 +263,7 @@ resp CDATA  #IMPLIED'>
  %OpenArabicPE_att.global.responsibility.attribute.cert;
  %OpenArabicPE_att.global.responsibility.attribute.resp;'> 
 <!ENTITY % OpenArabicPE_att.global.rendition.attribute.rend '
-rend CDATA  #IMPLIED'>
+rend %teidata.text;  #IMPLIED'>
 
 <!ENTITY % OpenArabicPE_att.global.rendition.attribute.style '
 style %teidata.text;  #IMPLIED'>
@@ -1451,7 +1451,7 @@ type %teidata.enumerated;  #IMPLIED >
  %OpenArabicPE_att.global.responsibility.attribute.cert;
  %OpenArabicPE_att.global.responsibility.attribute.resp;
  %OpenArabicPE_att.global.source.attribute.source;
-rend CDATA  "block"  >
+rend %teidata.text;  "block"  >
 <!--doc:(verse line) contains a single, possibly incomplete, line of verse. [3.13.1. Core Tags for Verse 3.13. Passages of Verse or Drama 7.2.5. Speech Contents] -->
 <!ELEMENT l (#PCDATA|_DUMMY_model.gLike|%model.phrase;|%model.inter;|%model.global;)*>
 <!ATTLIST l xmlns CDATA "http://www.tei-c.org/ns/1.0">
