@@ -8,7 +8,7 @@
               schemaLocation="xml.tmp"/>
    <xs:import namespace="https://openarabicpe.github.io/ns" schemaLocation="ns1.tmp"/>
    <!--
-    Schema generated from ODD source 2021-09-08T07:52:36Z. .
+    Schema generated from ODD source 2021-11-02T10:58:08Z. .
     TEI Edition: Version 4.2.1. Last updated on
     	1st March 2021, revision 654a5c551
     TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -3612,7 +3612,7 @@ Measures]</xs:documentation>
          <xs:attribute name="type">
             <xs:annotation>
                <xs:documentation>characterizes the element in some sense, using any convenient classification scheme or typology.
-Suggested values include: 1] official; 2] scheduled; 3] supplied</xs:documentation>
+Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:union>
@@ -3639,6 +3639,24 @@ Suggested values include: 1] official; 2] scheduled; 3] supplied</xs:documentati
                         <xs:enumeration value="supplied">
                            <xs:annotation>
                               <xs:documentation>A publication date as indicated by other sources</xs:documentation>
+                           </xs:annotation>
+                        </xs:enumeration>
+                     </xs:restriction>
+                  </xs:simpleType>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="onset">
+                           <xs:annotation>
+                              <xs:documentation>A date marking the beginning of a period</xs:documentation>
+                           </xs:annotation>
+                        </xs:enumeration>
+                     </xs:restriction>
+                  </xs:simpleType>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="terminus">
+                           <xs:annotation>
+                              <xs:documentation>A date marking the end of a period</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                      </xs:restriction>

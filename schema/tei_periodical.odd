@@ -172,6 +172,15 @@
                                 <valItem ident="fr-Arab-AR">
                                     <desc>French transcribed into Arabic script following common Levantine Arabic practices</desc>
                                 </valItem>
+                                <valItem ident="gr">
+                                    <desc>Greek</desc>
+                                </valItem>
+                                <valItem ident="gr-Arab-AR">
+                                    <desc>Greek transcribed into Arabic script following common Levantine Arabic practices</desc>
+                                </valItem>
+                                <valItem ident="lad">
+                                    <desc>Ladino: Spanish language of Sephardic Jews written in Hebrew script</desc>
+                                </valItem>
                                 <valItem ident="und-Latn">
                                     <desc>Undefined language in Latin script. This is particularly useful for entity names.</desc>
                                 </valItem>
@@ -504,6 +513,12 @@
                                 </valItem>
                                 <valItem ident="supplied">
                                     <desc>A publication date as indicated by other sources</desc>
+                                </valItem>
+                                <valItem ident="onset">
+                                    <desc>A date marking the beginning of a period</desc>
+                                </valItem>
+                                <valItem ident="terminus">
+                                    <desc>A date marking the end of a period</desc>
                                 </valItem>
                             </valList>
                         </attDef>
