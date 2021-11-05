@@ -29,77 +29,6 @@ It can be called from XML files using the link to the `gh-pages` branch of this 
 
 # 1. Issues to be solved
 
-## author information present but not as byline
-
-Many articles include information on authors, editors or translators of the text but not in the form of a byline. In the process of working through *al-Muqtabas* and *al-Ḥaqāʾiq*, we have come up with a number of encodings that will need to be unified and that need to be reflected in the creation of bibliographic metadata.
-
-1. In those cases were simple byline information is sufficient, we have added a `<byline>` and wrapped its content in `<supplied>` with `@resp` attribute pointing to the respondible editor.
-2. In more complexe cases with more detailed bibliographic information, such as, but not limited to, translators, editors, provinence, editions, `<byline>` is generally not suitable due to its limited content model. In these cases the following structure should be used:
-
-```xml
-<note type="bibliographic" place="inline">
-    <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
-    <supplied resp="#xml:id-of-the-editor">
-        <bibl><!-- ... bibliographic information --></bibl>
-</note>
-```
-
-- NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically.
-- NOTE on translations: `<bibl>` allows `<textLang mainLang="">` to describe the language of a text.
-- NOTE: sometimes there is both a bibliographic note and a byline present in the original; e.g. [here](oclc_4770057679-i_17.TEIP5.xml#div_4.d1e764).
-
-## supplied authorship information
-
-There is a variety of intrinsic and extrisic authorship information, which could be added to articles. These should be recorded (in order to be automatically retrieved for analysis) but also clearly marked as something not explicitly mentioned in the original.
-
-I propose to mark-up such information with `<byline>` `<supplied>` and `<note>`
-
-```xml
-<byline>
-    <supplied resp="#xml:id-of-the-editor">
-        <persName>XYZ</persName>
-        <note type="editorial" resp="#xml:id-of-the-editor" xml:lang="en">This information was provided by <bibl>an article in <title level="j">al-Muqtabas</title> itself</bibl></note>
-    </supplied>
-</byline>
-```
-
-### 1. intrinsic
-
-serialised articles: there are plenty of serialised articles, which carry a byline only once. All other articles in
-
-### 2. extrinsic
-
-- computational stylistics / stylometry
-    + `@resp="stylo"`: would signify stylometry
-
-## bibliographic references and links to external sources
-
-How to encode this?
-
->حجاب المرأة في الإسلام
-
->تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله
-
-beyond this:
-
-```xml
-<head>حجاب المرأة في الإسلام</head>
-<p><note type="bibliographic" place="inline">تحت هذا العنوان قرأنا في <bibl><title level="j">المقتبس</title> <biblScope unit="issue" from="593" to="594">عدد ٥٩٣ و ٥٩٤</biblScope> مقالة للكاتب <author><persName>المغربي</persName></author></bibl> ذكر فيها ما محصله</note></p>
-```
-
-Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
-
-معرباً بتصرف من مقالة لجان فينو في المجلة الباريزية.
-
-دمشق: جرجي الحداد
-
-## Serialised articles
-
-The information that an article / work / book was serialised can be either explicit or implicit.
-
-1. The explicit, human-readable pointer is encoded with `<ref>` and the `@target` attribute pointing to the `@xml:id` of another element.
-2. The implicit information that a section, encoded as `<div>`, is not indeed a discreet `<div>` but rather continues text from another location can be encoded with the help of the `@next` and `@prev` attributes.
-
 
 ## Typographic marks
 
@@ -131,12 +60,11 @@ In many cases foreign terms that have been transliterated into Arabic are follow
 # 2. changes to the schema
 ## 1. additions
 
-- add `@ref` to `<bibl>`
 - changes that would potentially render the files non-compliant:
     - allow `<bibl>` as child of `<opener>`,`<byline>`, `<closer>`
     - allow `<q>` as child of `<persName>` etc.
+    - add `@ref` to `<bibl>`
 - changes to mark-up reflecting recent changes in the TEI guidelines:
-<!-- - add `@type="inline"` to `<note>` to capture the phenomenon of paragraphs in which a translator comments on the translated text; e.g. [here](https://tillgrallert.github.io/digital-muqtabas/xml/oclc_4770057679-i_41.TEIP5.xml#p_52.d1e1103). -->
 - add `@rend` to all inline elements with the following, most common, values and add some documentation below:
     + "quotation-marks"
     + "brackets"
@@ -386,6 +314,13 @@ As paragraphs (`<p>`) cannot interlace with `<div>`s after the first `<div>` chi
 
 The common structure of an issue would be a mix of `<div type="item" subtype="article">` and `<div type="section">`
 
+##### Serialised articles
+
+The information that an article / work / book was serialised can be either explicit or implicit.
+
+1. The explicit, human-readable pointer is encoded with `<ref>` and the `@target` attribute pointing to the `@xml:id` of another element.
+2. The implicit information that a section, encoded as `<div>`, is not indeed a discreet `<div>` but rather continues text from another location can be encoded with the help of the `@next` and `@prev` attributes.
+
 ### 3.2.3. legal texts, bills: `<div>`
 
 It is quite common to find legal texts in late nineteenth, early twentieth century periodicals and I would like to differenciate them by means of the `@subtype="bill"` attribute because they can be nested inside an article or appear as free-standing chunk of text on the article level. Legal texts are commonly structured into sections / chapters, articles, and paragraphs and shall be encoded thus; i.e. as `<div type="section">`, `<div type="item" subtype="article">`, and `<p>`.
@@ -443,7 +378,8 @@ Unfortunately, *al-maktaba al-shāmila* did NOT include the sometimes abundant f
 
 Notes should be encoded with `<note>` at the location it appears in the text. The super-scripted number is recorded in the `@n` attribute. A further `@type="footnote"` attribute specifies that this note appeared in the actual print edition, as opposed to potential editorial notes added by various editors of the digital edition, which should carry `@type="editorial"` and a `@resp` attribute pointing to the responsible editor.
 
-[*UPDATE 2019-04-15*]: Instead of using the `@type` attribute for specifying the location of a note on the page, this function should be fulfilled by values of `@place`, which include "bottom", "inline", etc. `@type` is thus free for indicating the function of a note.
+[*UPDATE 2019-04-15*]: 
+Instead of using the `@type` attribute for specifying the location of a note on the page, this function should be fulfilled by values of `@place`, which include "bottom", "inline", etc. `@type` is thus free for indicating the function of a note.
 
 Key-value pairs:
 
@@ -697,6 +633,78 @@ There are two attributes that specify the dating system used in an element:
 3. `@calendar="#cal_julian"`
 4. `@calendar="#cal_ottomanfiscal"`
 5. `@calendar="#cal_coptic"`
+
+### 3.5.5 authorship information, bylines
+
+If a byline is present, this is encoded as `<byline>`
+
+Many articles include information on authors, editors or translators of the text but not in the form of a byline. In the process of working through *al-Muqtabas* and *al-Ḥaqāʾiq*, we have come up with a number of encodings that will need to be unified and that need to be reflected in the creation of bibliographic metadata.
+
+1. In those cases were simple byline information is sufficient, we have added a `<byline>` and wrapped its content in `<supplied>` with `@resp` attribute pointing to the respondible editor.
+2. In more complexe cases with more detailed bibliographic information, such as, but not limited to, translators, editors, provinence, editions, `<byline>` is generally not suitable due to its limited content model. In these cases the following structure should be used:
+
+```xml
+<note type="bibliographic" place="inline">
+    <!-- The use of <supplied> depends on whether the bibliographic information is present at this point of the edited text -->
+    <supplied resp="#xml:id-of-the-editor">
+        <bibl><!-- ... bibliographic information --></bibl>
+</note>
+```
+
+
+- NOTE: The second case has not always been wrapped in a `<note>`. This must be corrected either manually or automatically.
+- NOTE on translations: `<bibl>` allows `<textLang mainLang="">` to describe the language of a text.
+- NOTE: sometimes there is both a bibliographic note and a byline present in the original; e.g. [here](oclc_4770057679-i_17.TEIP5.xml#div_4.d1e764).
+
+#### examples
+
+
+>حجاب المرأة في الإسلام\
+>تحت هذا العنوان قرأنا في المقتبس عدد ٥٩٣ و ٥٩٤ مقالة للكاتب المغربي ذكر فيها ما محصله
+
+```xml
+<head>حجاب المرأة في الإسلام</head>
+<p><note type="bibliographic" place="inline">تحت هذا العنوان قرأنا في <bibl><title level="j">المقتبس</title> <biblScope unit="issue" from="593" to="594">عدد ٥٩٣ و ٥٩٤</biblScope> مقالة للكاتب <author><persName>المغربي</persName></author></bibl> ذكر فيها ما محصله</note></p>
+```
+
+#### supplied authorship information
+
+There is a variety of intrinsic and extrisic authorship information, which could be added to articles. These should be recorded (in order to be automatically retrieved for analysis) but also clearly marked as something not explicitly mentioned in the original.
+
+I propose to mark-up such information with `<byline>` `<supplied>` and `<note>`
+
+```xml
+<byline>
+    <supplied resp="#xml:id-of-the-editor">
+        <persName>XYZ</persName>
+        <note type="editorial" resp="#xml:id-of-the-editor" xml:lang="en">This information was provided by <bibl>an article in <title level="j">al-Muqtabas</title> itself</bibl></note>
+    </supplied>
+</byline>
+```
+
+##### 1. intrinsic
+
+- serialised articles: there are plenty of serialised articles, which carry a byline only once. All other articles in the series lack this information. But such serialised articles should be linked to gether by means of the `@prev` and `@next` attributes. Based on these attributes a single `<div>` can be compiled, which will carry the original authorship information.
+
+##### 2. extrinsic
+
+- computational stylistics / stylometry
+    + `@resp="stylo"`: would signify stylometry
+
+##### multiple references
+
+Regularly entire articles are reprinted verbatim or in translation. The source is either provided at the beginning or the end. How to mark this up?
+
+معرباً بتصرف من مقالة لجان فينو في المجلة الباريزية.
+
+دمشق: جرجي الحداد
+
+### 3.5.6 bibliographic references
+
+Bibliographic references are marked up with a combination of `<title>` or `<bibl>` with further, but unstructured, markup.
+
+Periodical titles are identified through references to authority files by means of `@ref`. Such references can be either manually or automatically generated. To differentiate between the two, we use `@resp`. 
+
 
 ## 3.6 Documentation of editorial changes
 
