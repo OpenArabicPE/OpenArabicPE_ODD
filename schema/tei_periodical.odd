@@ -362,12 +362,53 @@
                             </datatype>
                             <defaultVal>monthly</defaultVal>
                             <valList mode="add" type="semi">
-                                <valItem ident="daily"/>
-                                <valItem ident="weekly"/>
-                                <valItem ident="biweekly"/>
-                                <valItem ident="fortnightly"/>
-                                <valItem ident="monthly"/>
-                                <valItem ident="annually"/>
+                                <valItem ident="daily">
+                                    <desc>Published daily, with the possible exception of weekends and holidays</desc>
+                                </valItem>
+                                <valItem ident="weekly">
+                                    <desc>Published once a week</desc>
+                                </valItem>
+                                <valItem ident="biweekly">
+                                    <desc>Published twice a week</desc>
+                                </valItem>
+                                <valItem ident="fortnightly">
+                                    <desc>Published once every two weeks</desc>
+                                </valItem>
+                                <valItem ident="monthly">
+                                    <desc>Pubslihed once a month</desc>
+                                </valItem>
+                                <valItem ident="annually">
+                                    <desc>Published once a year</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="weekday" mode="add" ns="https://openarabicpe.github.io/ns" usage="opt">
+                            <desc>This attribute specifies the weekday of publication. Values use common English abbreviations.</desc>
+                            <datatype>
+                                <dataRef key="teidata.text"/>
+                            </datatype>
+                            <valList mode="add" type="semi">
+                                <valItem ident="mon">
+                                    <desc>Monday</desc>
+                                </valItem>
+                                <valItem ident="tue">
+                                    <desc>Tuesday</desc>
+                                </valItem>
+                                <valItem ident="wed">
+                                    <desc>Wednesday</desc>
+                                </valItem>
+                                <valItem ident="thu">
+                                    <desc>Thursday</desc>
+                                </valItem>
+                                <valItem ident="fri">
+                                    <desc>Friday</desc>
+                                </valItem>
+                                <valItem ident="sat">
+                                    <desc>Saturday</desc>
+                                </valItem>
+                                <valItem ident="sun">
+                                    <desc>Sunday</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                     </attList>
@@ -612,6 +653,86 @@
                             <valList type="closed">
                                 <valItem ident="bayt">
                                     <desc>Two-partite line of an Arabic <foreign xml:lang="ar-Latn-x-ijmes">qaṣīda</foreign>. The parts are encoded as <gi>seg</gi> .</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="monogr" mode="change" module="core">
+                    <attList>
+                        <attDef ident="subtype" mode="change" usage="opt">
+                            <valList mode="replace" type="semi">
+                                <valItem ident="journal">
+                                    <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">majalla</foreign> in Arabic.</desc>
+                                </valItem>
+                                <valItem ident="newspaper">
+                                    <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">jarīda</foreign> in Arabic.</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="type" mode="change" usage="opt">
+                            <valList mode="replace" type="semi">
+                                <valItem ident="book">
+                                    <desc>A book</desc>
+                                </valItem>
+                                <valItem ident="periodical">
+                                    <desc>A periodical publication</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="frequency" mode="add" ns="https://openarabicpe.github.io/ns" usage="opt">
+                            <desc>This attribute specifies the publication frequency</desc>
+                            <datatype>
+                                <dataRef key="teidata.text"/>
+                            </datatype>
+                            <defaultVal>monthly</defaultVal>
+                            <valList mode="add" type="semi">
+                                <valItem ident="daily">
+                                    <desc>Published daily, with the possible exception of weekends and holidays</desc>
+                                </valItem>
+                                <valItem ident="weekly">
+                                    <desc>Published once a week</desc>
+                                </valItem>
+                                <valItem ident="biweekly">
+                                    <desc>Published twice a week</desc>
+                                </valItem>
+                                <valItem ident="fortnightly">
+                                    <desc>Published once every two weeks</desc>
+                                </valItem>
+                                <valItem ident="monthly">
+                                    <desc>Pubslihed once a month</desc>
+                                </valItem>
+                                <valItem ident="annually">
+                                    <desc>Published once a year</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="weekday" mode="add" ns="https://openarabicpe.github.io/ns" usage="opt">
+                            <desc>This attribute specifies the weekday of publication. Values use common English abbreviations.</desc>
+                            <datatype>
+                                <dataRef key="teidata.text"/>
+                            </datatype>
+                            <valList mode="add" type="semi">
+                                <valItem ident="mon">
+                                    <desc>Monday</desc>
+                                </valItem>
+                                <valItem ident="tue">
+                                    <desc>Tuesday</desc>
+                                </valItem>
+                                <valItem ident="wed">
+                                    <desc>Wednesday</desc>
+                                </valItem>
+                                <valItem ident="thu">
+                                    <desc>Thursday</desc>
+                                </valItem>
+                                <valItem ident="fri">
+                                    <desc>Friday</desc>
+                                </valItem>
+                                <valItem ident="sat">
+                                    <desc>Saturday</desc>
+                                </valItem>
+                                <valItem ident="sun">
+                                    <desc>Sunday</desc>
                                 </valItem>
                             </valList>
                         </attDef>

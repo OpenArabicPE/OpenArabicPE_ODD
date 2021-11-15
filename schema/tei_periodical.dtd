@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2021-11-02T10:58:05Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2021-11-15T11:04:47Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -1000,7 +1000,8 @@ status (free|unknown|restricted) #IMPLIED >
  %OpenArabicPE_att.docStatus.attributes;
 type %teidata.enumerated;  #IMPLIED
 subtype %teidata.enumerated;  #IMPLIED
-frequency %teidata.text;  "monthly"  >
+frequency %teidata.text;  "monthly" 
+weekday %teidata.text;  #IMPLIED >
 <!--doc:(fully-structured bibliographic citation) contains a fully-structured bibliographic citation, in which all components of the TEI file description are present. [3.12.1. Methods of Encoding Bibliographic References and Lists of References 2.2. The File Description 2.2.7. The Source Description 15.3.2. Declarable Elements] -->
 <!ELEMENT biblFull (((titleStmt,(editionStmt)?,(extent)?,publicationStmt,(seriesStmt)*,(notesStmt)?),(sourceDesc)*)|(fileDesc,profileDesc))>
 <!ATTLIST biblFull xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1612,7 +1613,9 @@ Elements] -->
 <!ELEMENT monogr (((((author|editor|meeting|respStmt),(author|editor|meeting|respStmt)*,(title)+,(%model.ptrLike;|idno|textLang|editor|respStmt)*)|((title|%model.ptrLike;|idno)+,(textLang|author|editor|meeting|respStmt)*)|(authority,idno))?,(availability)*,(%model.noteLike;)*,(edition,(idno|%model.ptrLike;|editor|sponsor|funder|respStmt)*)*,imprint,(imprint|extent|biblScope)*))>
 <!ATTLIST monogr xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST monogr
- %OpenArabicPE_att.global.attributes; >
+ %OpenArabicPE_att.global.attributes;
+frequency %teidata.text;  "monthly" 
+weekday %teidata.text;  #IMPLIED >
 <!--doc:(name, proper noun) contains a proper noun or noun phrase. [3.6.1. Referring Strings] -->
 <!ELEMENT name %macro.phraseSeq;>
 <!ATTLIST name xmlns CDATA "http://www.tei-c.org/ns/1.0">

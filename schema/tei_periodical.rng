@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2021-11-02T10:58:01Z. .
+Schema generated from ODD source 2021-11-15T11:04:43Z. .
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -3807,32 +3807,24 @@ Suggested values include: 1] #edition_1</a:documentation>
       <element name="monogr">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(monographic level) contains bibliographic elements describing an item (e.g. a book or journal) published as an independent item (i.e. as a separate physical object). [3.12.2.1. Analytic, Monographic, and Series Levels]</a:documentation>
          <group>
-      
             <optional>
                <choice>
                   <group>
                      <choice>
                         <ref name="OpenArabicPE_author"/>
                         <ref name="OpenArabicPE_editor"/>
-              
                         <ref name="OpenArabicPE_respStmt"/>
                      </choice>
-            
                      <zeroOrMore>
                         <choice>
                            <ref name="OpenArabicPE_author"/>
                            <ref name="OpenArabicPE_editor"/>
-                
                            <ref name="OpenArabicPE_respStmt"/>
                         </choice>
                      </zeroOrMore>
-            
-            
                      <oneOrMore>
                         <ref name="OpenArabicPE_title"/>
                      </oneOrMore>
-            
-            
                      <zeroOrMore>
                         <choice>
                            <ref name="OpenArabicPE_model.ptrLike"/>
@@ -3842,10 +3834,8 @@ Suggested values include: 1] #edition_1</a:documentation>
                            <ref name="OpenArabicPE_respStmt"/>
                         </choice>
                      </zeroOrMore>
-            
                   </group>
                   <group>
-            
                      <oneOrMore>
                         <choice>
                            <ref name="OpenArabicPE_title"/>
@@ -3853,66 +3843,97 @@ Suggested values include: 1] #edition_1</a:documentation>
                            <ref name="OpenArabicPE_idno"/>
                         </choice>
                      </oneOrMore>
-            
-            
                      <zeroOrMore>
                         <choice>
                            <ref name="OpenArabicPE_textLang"/>
                            <ref name="OpenArabicPE_author"/>
                            <ref name="OpenArabicPE_editor"/>
-                
                            <ref name="OpenArabicPE_respStmt"/>
                         </choice>
                      </zeroOrMore>
-            
                   </group>
                   <group>
-            
                      <ref name="OpenArabicPE_authority"/>
                      <ref name="OpenArabicPE_idno"/>
                   </group>
                </choice>
             </optional>
-      
-      
             <zeroOrMore>
                <ref name="OpenArabicPE_availability"/>
             </zeroOrMore>
-      
-      
             <zeroOrMore>
                <ref name="OpenArabicPE_model.noteLike"/>
             </zeroOrMore>
-      
             <zeroOrMore>
                <group>
                   <ref name="OpenArabicPE_edition"/>
-        
                   <zeroOrMore>
                      <choice>
                         <ref name="OpenArabicPE_idno"/>
                         <ref name="OpenArabicPE_model.ptrLike"/>
                         <ref name="OpenArabicPE_editor"/>
-            
                         <ref name="OpenArabicPE_funder"/>
                         <ref name="OpenArabicPE_respStmt"/>
                      </choice>
                   </zeroOrMore>
-        
                </group>
             </zeroOrMore>
             <ref name="OpenArabicPE_imprint"/>
-      
             <zeroOrMore>
                <choice>
                   <ref name="OpenArabicPE_imprint"/>
-          
                   <ref name="OpenArabicPE_biblScope"/>
                </choice>
             </zeroOrMore>
-      
          </group>
          <ref name="OpenArabicPE_att.global.attributes"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="frequency"
+                       ns="https://openarabicpe.github.io/ns"
+                       a:defaultValue="monthly">
+               <a:documentation>This attribute specifies the publication frequency
+Suggested values include: 1] daily; 2] weekly; 3] biweekly; 4] fortnightly; 5] monthly; 6] annually</a:documentation>
+               <choice>
+                  <value>daily</value>
+                  <a:documentation>Published daily, with the possible exception of weekends and holidays</a:documentation>
+                  <value>weekly</value>
+                  <a:documentation>Published once a week</a:documentation>
+                  <value>biweekly</value>
+                  <a:documentation>Published twice a week</a:documentation>
+                  <value>fortnightly</value>
+                  <a:documentation>Published once every two weeks</a:documentation>
+                  <value>monthly</value>
+                  <a:documentation>Pubslihed once a month</a:documentation>
+                  <value>annually</value>
+                  <a:documentation>Published once a year</a:documentation>
+                  <data type="string"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="weekday" ns="https://openarabicpe.github.io/ns">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">This attribute specifies the weekday of publication. Values use common English abbreviations.
+Suggested values include: 1] mon; 2] tue; 3] wed; 4] thu; 5] fri; 6] sat; 7] sun</a:documentation>
+               <choice>
+                  <value>mon</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Monday</a:documentation>
+                  <value>tue</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Tuesday</a:documentation>
+                  <value>wed</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Wednesday</a:documentation>
+                  <value>thu</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Thursday</a:documentation>
+                  <value>fri</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Friday</a:documentation>
+                  <value>sat</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Saturday</a:documentation>
+                  <value>sun</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Sunday</a:documentation>
+                  <data type="string"/>
+               </choice>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
@@ -4167,17 +4188,40 @@ Suggested values include: 1] journal; 2] newspaper</a:documentation>
 Suggested values include: 1] daily; 2] weekly; 3] biweekly; 4] fortnightly; 5] monthly; 6] annually</a:documentation>
                <choice>
                   <value>daily</value>
-                  <a:documentation/>
+                  <a:documentation>Published daily, with the possible exception of weekends and holidays</a:documentation>
                   <value>weekly</value>
-                  <a:documentation/>
+                  <a:documentation>Published once a week</a:documentation>
                   <value>biweekly</value>
-                  <a:documentation/>
+                  <a:documentation>Published twice a week</a:documentation>
                   <value>fortnightly</value>
-                  <a:documentation/>
+                  <a:documentation>Published once every two weeks</a:documentation>
                   <value>monthly</value>
-                  <a:documentation/>
+                  <a:documentation>Pubslihed once a month</a:documentation>
                   <value>annually</value>
-                  <a:documentation/>
+                  <a:documentation>Published once a year</a:documentation>
+                  <data type="string"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="weekday" ns="https://openarabicpe.github.io/ns">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">This attribute specifies the weekday of publication. Values use common English abbreviations.
+Suggested values include: 1] mon; 2] tue; 3] wed; 4] thu; 5] fri; 6] sat; 7] sun</a:documentation>
+               <choice>
+                  <value>mon</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Monday</a:documentation>
+                  <value>tue</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Tuesday</a:documentation>
+                  <value>wed</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Wednesday</a:documentation>
+                  <value>thu</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Thursday</a:documentation>
+                  <value>fri</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Friday</a:documentation>
+                  <value>sat</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Saturday</a:documentation>
+                  <value>sun</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Sunday</a:documentation>
                   <data type="string"/>
                </choice>
             </attribute>
