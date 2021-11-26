@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2021-11-15T11:04:43Z. .
+Schema generated from ODD source 2021-11-26T15:29:30Z. .
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -3232,7 +3232,7 @@ Measures]</a:documentation>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.
-Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus</a:documentation>
+Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus; 6] documented</a:documentation>
                <choice>
                   <value>official</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A publication date as provided on the masthead</a:documentation>
@@ -3244,6 +3244,8 @@ Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] t
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A date marking the beginning of a period</a:documentation>
                   <value>terminus</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A date marking the end of a period</a:documentation>
+                  <value>documented</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.</a:documentation>
                   <data type="token">
                      <param name="pattern">[^\p{C}\p{Z}]+</param>
                   </data>
@@ -6947,14 +6949,25 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</a:doc
          </pattern>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
-         <ref name="OpenArabicPE_att.canonical.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
          <optional>
-            <attribute name="name">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a name for the kind of relationship of which this is an instance.</a:documentation>
-               <data type="token">
-                  <param name="pattern">[^\p{C}\p{Z}]+</param>
-               </data>
+            <attribute name="ref">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P8810</a:documentation>
+               <choice>
+                  <value>https://www.wikidata.org/wiki/Property:P8810</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">parent: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "is parent" of the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
+                  </a:documentation>
+                  <value>https://www.wikidata.org/wiki/Property:P40</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">child: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "is child" of the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
+                  </a:documentation>
+                  <value>https://www.wikidata.org/wiki/Property:P3373</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">sibling: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;mutual&gt;</code> "are siblings"</a:documentation>
+                  <value>https://www.wikidata.org/wiki/Property:P8810</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">member of: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "are members of" of the organisations, groups etc. linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
+                  </a:documentation>
+                  <data type="Name"/>
+               </choice>
             </attribute>
          </optional>
          <choice>
@@ -6979,6 +6992,14 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</a:doc
                </attribute>
             </optional>
          </choice>
+         <optional>
+            <attribute name="name">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a name for the kind of relationship of which this is an instance.</a:documentation>
+               <data type="token">
+                  <param name="pattern">[^\p{C}\p{Z}]+</param>
+               </data>
+            </attribute>
+         </optional>
          <optional>
             <attribute name="passive">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies the passive participants in a non-mutual relationship.</a:documentation>

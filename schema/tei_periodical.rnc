@@ -8,7 +8,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2021-11-15T11:04:55Z. .
+# Schema generated from ODD source 2021-11-26T15:29:43Z. .
 # TEI Edition: Version 4.2.1. Last updated on
 #	1st March 2021, revision 654a5c551
 # TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -2248,7 +2248,7 @@ OpenArabicPE_date =
     }?,
     
     ## characterizes the element in some sense, using any convenient classification scheme or typology.
-    ## Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus
+    ## Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus; 6] documented
     attribute type {
       
       ## A publication date as provided on the masthead
@@ -2265,6 +2265,9 @@ OpenArabicPE_date =
       | 
         ## A date marking the end of a period
         "terminus"
+      | 
+        ## A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.
+        "documented"
       | xsd:token { pattern = "[^\p{C}\p{Z}]+" }
     }?,
     empty
@@ -4959,12 +4962,53 @@ OpenArabicPE_relation =
   element relation {
     OpenArabicPE_att.global.attributes,
     OpenArabicPE_att.datable.attributes,
-    OpenArabicPE_att.canonical.attributes,
     OpenArabicPE_att.typed.attributes,
     
-    ## supplies a name for the kind of relationship of which this is an instance.
-    attribute name {
-      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+    ## 
+    ## Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P8810
+    attribute ref {
+      [
+        a:documentation [
+          "parent: the persons linked in "
+          ns1:code [ "<active>" ]
+          ' "is parent" of the persons linked in '
+          ns1:code [ "<passive>" ]
+          "\x{a}" ~
+          "                  "
+        ]
+      ]
+      "https://www.wikidata.org/wiki/Property:P8810"
+      | [
+          a:documentation [
+            "child: the persons linked in "
+            ns1:code [ "<active>" ]
+            ' "is child" of the persons linked in '
+            ns1:code [ "<passive>" ]
+            "\x{a}" ~
+            "                  "
+          ]
+        ]
+        "https://www.wikidata.org/wiki/Property:P40"
+      | [
+          a:documentation [
+            "sibling: the persons linked in "
+            ns1:code [ "<mutual>" ]
+            ' "are siblings"'
+          ]
+        ]
+        "https://www.wikidata.org/wiki/Property:P3373"
+      | [
+          a:documentation [
+            "member of: the persons linked in "
+            ns1:code [ "<active>" ]
+            ' "are members of" of the organisations, groups etc. linked in '
+            ns1:code [ "<passive>" ]
+            "\x{a}" ~
+            "                  "
+          ]
+        ]
+        "https://www.wikidata.org/wiki/Property:P8810"
+      | xsd:Name
     }?,
     (
      ## identifies the active participants in a non-mutual relationship, or all the participants in a mutual one.
@@ -4976,6 +5020,11 @@ OpenArabicPE_relation =
        attribute mutual {
          list { xsd:anyURI+ }
        }?),
+    
+    ## supplies a name for the kind of relationship of which this is an instance.
+    attribute name {
+      xsd:token { pattern = "[^\p{C}\p{Z}]+" }
+    }?,
     
     ## identifies the passive participants in a non-mutual relationship.
     attribute passive {

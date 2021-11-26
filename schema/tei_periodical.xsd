@@ -8,7 +8,7 @@
               schemaLocation="xml.tmp"/>
    <xs:import namespace="https://openarabicpe.github.io/ns" schemaLocation="ns1.tmp"/>
    <!--
-    Schema generated from ODD source 2021-11-15T11:04:51Z. .
+    Schema generated from ODD source 2021-11-26T15:29:38Z. .
     TEI Edition: Version 4.2.1. Last updated on
     	1st March 2021, revision 654a5c551
     TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -3612,7 +3612,7 @@ Measures]</xs:documentation>
          <xs:attribute name="type">
             <xs:annotation>
                <xs:documentation>characterizes the element in some sense, using any convenient classification scheme or typology.
-Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus</xs:documentation>
+Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus; 6] documented</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                <xs:union>
@@ -3657,6 +3657,15 @@ Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] t
                         <xs:enumeration value="terminus">
                            <xs:annotation>
                               <xs:documentation>A date marking the end of a period</xs:documentation>
+                           </xs:annotation>
+                        </xs:enumeration>
+                     </xs:restriction>
+                  </xs:simpleType>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="documented">
+                           <xs:annotation>
+                              <xs:documentation>A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                      </xs:restriction>
@@ -7117,16 +7126,35 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</xs:do
       <xs:complexType>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.datable.attributes"/>
-         <xs:attributeGroup ref="tei:OpenArabicPE_att.canonical.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.typed.attributes"/>
-         <xs:attribute name="name">
+         <xs:attribute name="ref">
             <xs:annotation>
-               <xs:documentation>supplies a name for the kind of relationship of which this is an instance.</xs:documentation>
+               <xs:documentation>
+Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P8810</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
-               <xs:restriction base="xs:token">
-                  <xs:pattern value="[^\p{C}\p{Z}]+"/>
-               </xs:restriction>
+               <xs:union memberTypes="xs:Name">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P8810"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P40"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P3373"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P8810"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:union>
             </xs:simpleType>
          </xs:attribute>
          <xs:attribute name="active">
@@ -7152,6 +7180,16 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</xs:do
                      <xs:list itemType="xs:anyURI"/>
                   </xs:simpleType>
                   <xs:minLength value="1"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:attribute>
+         <xs:attribute name="name">
+            <xs:annotation>
+               <xs:documentation>supplies a name for the kind of relationship of which this is an instance.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:token">
+                  <xs:pattern value="[^\p{C}\p{Z}]+"/>
                </xs:restriction>
             </xs:simpleType>
          </xs:attribute>

@@ -561,6 +561,9 @@
                                 <valItem ident="terminus">
                                     <desc>A date marking the end of a period</desc>
                                 </valItem>
+                                <valItem ident="documented">
+                                    <desc>A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                     </attList>
@@ -820,6 +823,26 @@
                             <valList mode="replace" type="semi">
                                 <valItem ident="#edition_1">
                                     <desc>Points to an exemplary <att>xml:id</att> of a <gi>biblStruct</gi> describing the corresponding print edition.</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
+                <elementSpec ident="relation" mode="change" module="namesdates">
+                    <attList>
+                        <attDef ident="ref" mode="replace">
+                            <valList type="semi">
+                                <valItem ident="https://www.wikidata.org/wiki/Property:P8810">
+                                    <desc><label>parent</label>: the persons linked in <gi>active</gi> "is parent" of the persons linked in <gi>passive</gi></desc>
+                                </valItem>
+                                <valItem ident="https://www.wikidata.org/wiki/Property:P40">
+                                    <desc><label>child</label>: the persons linked in <gi>active</gi> "is child" of the persons linked in <gi>passive</gi></desc>
+                                </valItem>
+                                <valItem ident="https://www.wikidata.org/wiki/Property:P3373">
+                                    <desc><label>sibling</label>: the persons linked in <gi>mutual</gi> "are siblings"</desc>
+                                </valItem>
+                                <valItem ident="https://www.wikidata.org/wiki/Property:P463">
+                                    <desc><label>member of</label>: the persons linked in <gi>active</gi> "are members of" of the organisations, groups etc. linked in <gi>passive</gi></desc>
                                 </valItem>
                             </valList>
                         </attDef>
