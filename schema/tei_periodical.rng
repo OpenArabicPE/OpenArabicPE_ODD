@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2021-11-26T15:29:30Z. .
+Schema generated from ODD source 2022-01-04T20:29:07Z. .
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -498,12 +498,12 @@ Suggested values include: 1] brackets; 2] quotation-marks</a:documentation>
                     a:defaultValue="ar">
             <a:documentation>(language) indicates the language of the element content using a tag generated according to <a xmlns="http://www.w3.org/1999/xhtml"
                   href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">BCP 47</a>.
-Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-AR; 17] en-Arab-AR; 18] fr-Arab-AR; 19] gr; 20] gr-Arab-AR; 21] lad; 22] und-Latn; 23] und-Arab</a:documentation>
+Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-145; 17] en-Arab-145; 18] fr-Arab-145; 19] gr; 20] gr-Arab-145; 21] lad; 22] und-Latn; 23] und-Arab</a:documentation>
             <choice>
                <value>ar</value>
-               <a:documentation>Arabic in Arabic script</a:documentation>
+               <a:documentation>Arabic (in Arabic script)</a:documentation>
                <value>ota</value>
-               <a:documentation>Ottoman in Arabic script</a:documentation>
+               <a:documentation>Ottoman (in Arabic script)</a:documentation>
                <value>tr</value>
                <a:documentation>Modern Turkish</a:documentation>
                <value>en</value>
@@ -513,9 +513,9 @@ Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] f
                <value>de</value>
                <a:documentation>German</a:documentation>
                <value>he</value>
-               <a:documentation>Hebrew in Hebrew script</a:documentation>
+               <a:documentation>Hebrew (in Hebrew script)</a:documentation>
                <value>fa</value>
-               <a:documentation>Farsi in Arabic script</a:documentation>
+               <a:documentation>Farsi (in Arabic script)</a:documentation>
                <value>ar-Latn-x-ijmes</value>
                <a:documentation>Arabic in Latin script following the IJMES transcription</a:documentation>
                <value>ota-Latn-x-ijmes</value>
@@ -530,15 +530,15 @@ Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] f
                <a:documentation>Arabic in Latin script following common French conventions</a:documentation>
                <value>ar-Latn-x-dmg</value>
                <a:documentation>Arabic in Latin script following the DMG transcription</a:documentation>
-               <value>de-Arab-AR</value>
+               <value>de-Arab-145</value>
                <a:documentation>German transcribed into Arabic script following common Levantine Arabic practices</a:documentation>
-               <value>en-Arab-AR</value>
+               <value>en-Arab-145</value>
                <a:documentation>English transcribed into Arabic script following common Levantine Arabic practices</a:documentation>
-               <value>fr-Arab-AR</value>
+               <value>fr-Arab-145</value>
                <a:documentation>French transcribed into Arabic script following common Levantine Arabic practices</a:documentation>
                <value>gr</value>
                <a:documentation>Greek</a:documentation>
-               <value>gr-Arab-AR</value>
+               <value>gr-Arab-145</value>
                <a:documentation>Greek transcribed into Arabic script following common Levantine Arabic practices</a:documentation>
                <value>lad</value>
                <a:documentation>Ladino: Spanish language of Sephardic Jews written in Hebrew script</a:documentation>
@@ -6953,7 +6953,7 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</a:doc
          <optional>
             <attribute name="ref">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P8810</a:documentation>
+Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P463</a:documentation>
                <choice>
                   <value>https://www.wikidata.org/wiki/Property:P8810</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">parent: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "is parent" of the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
@@ -6963,7 +6963,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
                   </a:documentation>
                   <value>https://www.wikidata.org/wiki/Property:P3373</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">sibling: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;mutual&gt;</code> "are siblings"</a:documentation>
-                  <value>https://www.wikidata.org/wiki/Property:P8810</value>
+                  <value>https://www.wikidata.org/wiki/Property:P463</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">member of: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "are members of" of the organisations, groups etc. linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
                   </a:documentation>
                   <data type="Name"/>

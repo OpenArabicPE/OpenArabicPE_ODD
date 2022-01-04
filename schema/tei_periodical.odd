@@ -119,10 +119,10 @@
                             <defaultVal>ar</defaultVal>
                             <valList mode="replace" type="semi">
                                 <valItem ident="ar">
-                                    <desc>Arabic in Arabic script</desc>
+                                    <desc>Arabic (in Arabic script)</desc>
                                 </valItem>
                                 <valItem ident="ota">
-                                    <desc>Ottoman in Arabic script</desc>
+                                    <desc>Ottoman (in Arabic script)</desc>
                                 </valItem>
                                 <valItem ident="tr">
                                     <desc>Modern Turkish</desc>
@@ -137,10 +137,10 @@
                                     <desc>German</desc>
                                 </valItem>
                                 <valItem ident="he">
-                                    <desc>Hebrew in Hebrew script</desc>
+                                    <desc>Hebrew (in Hebrew script)</desc>
                                 </valItem>
                                 <valItem ident="fa">
-                                    <desc>Farsi in Arabic script</desc>
+                                    <desc>Farsi (in Arabic script)</desc>
                                 </valItem>
                                 <valItem ident="ar-Latn-x-ijmes">
                                     <desc>Arabic in Latin script following the IJMES transcription</desc>
@@ -163,19 +163,20 @@
                                 <valItem ident="ar-Latn-x-dmg">
                                     <desc>Arabic in Latin script following the DMG transcription</desc>
                                 </valItem>
-                                <valItem ident="de-Arab-AR">
+                                <!-- Northern Africa: 015, Western Asia: 145 -->
+                                <valItem ident="de-Arab-145">
                                     <desc>German transcribed into Arabic script following common Levantine Arabic practices</desc>
                                 </valItem>
-                                <valItem ident="en-Arab-AR">
+                                <valItem ident="en-Arab-145">
                                     <desc>English transcribed into Arabic script following common Levantine Arabic practices</desc>
                                 </valItem>
-                                <valItem ident="fr-Arab-AR">
+                                <valItem ident="fr-Arab-145">
                                     <desc>French transcribed into Arabic script following common Levantine Arabic practices</desc>
                                 </valItem>
                                 <valItem ident="gr">
                                     <desc>Greek</desc>
                                 </valItem>
-                                <valItem ident="gr-Arab-AR">
+                                <valItem ident="gr-Arab-145">
                                     <desc>Greek transcribed into Arabic script following common Levantine Arabic practices</desc>
                                 </valItem>
                                 <valItem ident="lad">

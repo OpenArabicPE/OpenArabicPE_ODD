@@ -8,7 +8,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2021-11-26T15:29:43Z. .
+# Schema generated from ODD source 2022-01-04T20:29:19Z. .
 # TEI Edition: Version 4.2.1. Last updated on
 #	1st March 2021, revision 654a5c551
 # TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -390,15 +390,15 @@ OpenArabicPE_att.global.attribute.xmllang =
         "BCP 47"
       ]
       ".\x{a}" ~
-      "Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-AR; 17] en-Arab-AR; 18] fr-Arab-AR; 19] gr; 20] gr-Arab-AR; 21] lad; 22] und-Latn; 23] und-Arab"
+      "Suggested values include: 1] ar; 2] ota; 3] tr; 4] en; 5] fr; 6] de; 7] he; 8] fa; 9] ar-Latn-x-ijmes; 10] ota-Latn-x-ijmes; 11] ota-Latn-TR; 12] fa-Latn-x-ijmes; 13] ar-Latn-EN; 14] ar-Latn-FR; 15] ar-Latn-x-dmg; 16] de-Arab-145; 17] en-Arab-145; 18] fr-Arab-145; 19] gr; 20] gr-Arab-145; 21] lad; 22] und-Latn; 23] und-Arab"
     ]
   ]
   attribute xml:lang {
     
-    ## Arabic in Arabic script
+    ## Arabic (in Arabic script)
     "ar"
     | 
-      ## Ottoman in Arabic script
+      ## Ottoman (in Arabic script)
       "ota"
     | 
       ## Modern Turkish
@@ -413,10 +413,10 @@ OpenArabicPE_att.global.attribute.xmllang =
       ## German
       "de"
     | 
-      ## Hebrew in Hebrew script
+      ## Hebrew (in Hebrew script)
       "he"
     | 
-      ## Farsi in Arabic script
+      ## Farsi (in Arabic script)
       "fa"
     | 
       ## Arabic in Latin script following the IJMES transcription
@@ -441,19 +441,19 @@ OpenArabicPE_att.global.attribute.xmllang =
       "ar-Latn-x-dmg"
     | 
       ## German transcribed into Arabic script following common Levantine Arabic practices
-      "de-Arab-AR"
+      "de-Arab-145"
     | 
       ## English transcribed into Arabic script following common Levantine Arabic practices
-      "en-Arab-AR"
+      "en-Arab-145"
     | 
       ## French transcribed into Arabic script following common Levantine Arabic practices
-      "fr-Arab-AR"
+      "fr-Arab-145"
     | 
       ## Greek
       "gr"
     | 
       ## Greek transcribed into Arabic script following common Levantine Arabic practices
-      "gr-Arab-AR"
+      "gr-Arab-145"
     | 
       ## Ladino: Spanish language of Sephardic Jews written in Hebrew script
       "lad"
@@ -4965,7 +4965,7 @@ OpenArabicPE_relation =
     OpenArabicPE_att.typed.attributes,
     
     ## 
-    ## Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P8810
+    ## Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P463
     attribute ref {
       [
         a:documentation [
@@ -5007,7 +5007,7 @@ OpenArabicPE_relation =
             "                  "
           ]
         ]
-        "https://www.wikidata.org/wiki/Property:P8810"
+        "https://www.wikidata.org/wiki/Property:P463"
       | xsd:Name
     }?,
     (
