@@ -453,42 +453,25 @@
                         </attDef>
                     </attList>
                 </elementSpec>
-                <elementSpec ident="roleName" mode="change" module="namesdates">
+                <elementSpec ident="cb" mode="change" module="core">
                     <attList>
-                        <attDef ident="type" mode="change" usage="req">
-                            <defaultVal>title</defaultVal>
-                            <valList mode="replace" type="closed">
-                                <valItem ident="title">
-                                    <desc>Formal titles, such as &quot;Bey&quot;, &quot;Pasha&quot; etc.</desc>
+                        <attDef ident="ed" mode="change" usage="rec">
+                            <defaultVal>print</defaultVal>
+                            <valList mode="replace" type="semi">
+                                <valItem ident="print">
+                                    <desc>Column beginning, i.e. break, according to a printed edition</desc>
                                 </valItem>
-                                <valItem ident="honorific">
-                                    <desc>Honorific addresses or titles, such as Miss, <foreign xml:lang="ar-Latn-x-ijmes">Shaykh</foreign> , <foreign xml:lang="ota-Latn-TR">zade</foreign></desc>
-                                </valItem>
-                                <valItem ident="nobility">
-                                    <desc>An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.</desc>
-                                </valItem>
-                                <valItem ident="rank">
-                                    <desc>indicates ranks within an administrative, military or religious hierarchy, such as <foreign xml:lang="ar-Latn-x-ijmes">farīq</foreign> , <foreign
-                                        xml:lang="ota-Latn-x-ijmes">vālī</foreign> , Captain</desc>
-                                </valItem>
-                                <valItem ident="epithet">
-                                    <desc>a phrase someone is commonly referred to (nick-name), such as &quot;Owner of the newspaper xyz&quot;</desc>
-                                </valItem>
-                                <valItem ident="pseudonym">
-                                    <desc>a ficticious name, especially one used by an author.</desc>
+                                <valItem ident="shamela">
+                                    <desc>Column beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
                                 </valItem>
                             </valList>
                         </attDef>
-                        <attDef ident="subtype" mode="change" usage="opt">
-                            <valList mode="replace" type="closed">
-                                <valItem ident="military">
-                                    <desc>Indicates a military rank, such as Captain or <foreign xml:lang="ar-Latn-x-ijmes">Farīq</foreign></desc>
-                                </valItem>
-                                <valItem ident="civil">
-                                    <desc>Indicates a civil rank within the bureaucracy</desc>
-                                </valItem>
-                                <valItem ident="religious">
-                                    <desc>Indicates a religious rank, such as Bishop or <foreign xml:lang="ar-Latn-x-ijmes">Muṭrān</foreign></desc>
+                        <attDef ident="edRef" mode="change" usage="rec">
+                            <desc>Points to the <att>xml:id</att> of the corresponding print edition</desc>
+                            <defaultVal>#edition_1</defaultVal>
+                            <valList mode="replace" type="semi">
+                                <valItem ident="#edition_1">
+                                    <desc>Points to an exemplary <att>xml:id</att> of a <gi>biblStruct</gi> describing the corresponding print edition.</desc>
                                 </valItem>
                             </valList>
                         </attDef>
@@ -643,6 +626,17 @@
                         </attDef>
                     </attList>
                 </elementSpec>
+                <elementSpec ident="item" mode="change" module="core">
+                    <attList>
+                        <attDef ident="rend" mode="change">
+                            <defaultVal>block</defaultVal>
+                            <valList mode="replace" type="semi">
+                                <valItem ident="block"/>
+                                <valItem ident="inline"/>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
                 <elementSpec ident="l" mode="change" module="core">
                     <classes mode="replace">
                         <memberOf key="model.lLike"/>
@@ -662,10 +656,34 @@
                         </attDef>
                     </attList>
                 </elementSpec>
+                <elementSpec ident="lb" mode="change" module="core">
+                    <attList>
+                        <attDef ident="ed" mode="change" usage="rec">
+                            <defaultVal>print</defaultVal>
+                            <valList mode="replace" type="semi">
+                                <valItem ident="print">
+                                    <desc>Line beginning, i.e. break, according to a printed edition</desc>
+                                </valItem>
+                                <valItem ident="shamela">
+                                    <desc>Line beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                        <attDef ident="edRef" mode="change" usage="rec">
+                            <desc>Points to the <att>xml:id</att> of the corresponding print edition</desc>
+                            <defaultVal>#edition_1</defaultVal>
+                            <valList mode="replace" type="semi">
+                                <valItem ident="#edition_1">
+                                    <desc>Exemplary <att>xml:id</att> of a <gi>biblStruct</gi> describing the corresponding print edition.</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
                 <elementSpec ident="monogr" mode="change" module="core">
                     <attList>
-                        <attDef ident="subtype" mode="change" usage="opt">
-                            <valList mode="replace" type="semi">
+                        <attDef ident="subtype" mode="add" usage="opt">
+                            <valList mode="replace" type="closed">
                                 <valItem ident="journal">
                                     <desc>A type of periodical publication that is called <foreign xml:lang="ar-Latn-x-ijmes">majalla</foreign> in Arabic.</desc>
                                 </valItem>
@@ -674,13 +692,16 @@
                                 </valItem>
                             </valList>
                         </attDef>
-                        <attDef ident="type" mode="change" usage="opt">
-                            <valList mode="replace" type="semi">
+                        <attDef ident="type" mode="add" usage="opt">
+                            <valList mode="replace" type="closed">
                                 <valItem ident="book">
                                     <desc>A book</desc>
                                 </valItem>
                                 <valItem ident="periodical">
                                     <desc>A periodical publication</desc>
+                                </valItem>
+                                <valItem ident="reprint">
+                                    <desc xml:lang="en">The item is a reprint</desc>
                                 </valItem>
                             </valList>
                         </attDef>
@@ -829,9 +850,23 @@
                         </attDef>
                     </attList>
                 </elementSpec>
+                <elementSpec ident="publisher" mode="change" module="core">
+                    <attList>
+                        <attDef ident="ident" mode="change" usage="opt">
+                            <valList mode="replace" type="semi">
+                                <valItem ident="printer">
+                                    <desc xml:lang="en">Designating the printer or printing press of a work</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
+                    </attList>
+                </elementSpec>
                 <elementSpec ident="relation" mode="change" module="namesdates">
                     <attList>
                         <attDef ident="ref" mode="replace">
+                            <!--<datatype>
+                                <dataRef></dataRef>
+                            </datatype>-->
                             <valList type="semi">
                                 <valItem ident="https://www.wikidata.org/wiki/Property:P8810">
                                     <desc><label>parent</label>: the persons linked in <gi>active</gi> "is parent" of the persons linked in <gi>passive</gi></desc>
@@ -849,61 +884,43 @@
                         </attDef>
                     </attList>
                 </elementSpec>
-                <elementSpec ident="lb" mode="change" module="core">
+                <elementSpec ident="roleName" mode="change" module="namesdates">
                     <attList>
-                        <attDef ident="ed" mode="change" usage="rec">
-                            <defaultVal>print</defaultVal>
-                            <valList mode="replace" type="semi">
-                                <valItem ident="print">
-                                    <desc>Line beginning, i.e. break, according to a printed edition</desc>
+                        <attDef ident="type" mode="change" usage="req">
+                            <defaultVal>title</defaultVal>
+                            <valList mode="replace" type="closed">
+                                <valItem ident="title">
+                                    <desc>Formal titles, such as &quot;Bey&quot;, &quot;Pasha&quot; etc.</desc>
                                 </valItem>
-                                <valItem ident="shamela">
-                                    <desc>Line beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                <valItem ident="honorific">
+                                    <desc>Honorific addresses or titles, such as Miss, <foreign xml:lang="ar-Latn-x-ijmes">Shaykh</foreign> , <foreign xml:lang="ota-Latn-TR">zade</foreign></desc>
                                 </valItem>
-                            </valList>
-                        </attDef>
-                        <attDef ident="edRef" mode="change" usage="rec">
-                            <desc>Points to the <att>xml:id</att> of the corresponding print edition</desc>
-                            <defaultVal>#edition_1</defaultVal>
-                            <valList mode="replace" type="semi">
-                                <valItem ident="#edition_1">
-                                    <desc>Exemplary <att>xml:id</att> of a <gi>biblStruct</gi> describing the corresponding print edition.</desc>
+                                <valItem ident="nobility">
+                                    <desc>An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.</desc>
                                 </valItem>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="cb" mode="change" module="core">
-                    <attList>
-                        <attDef ident="ed" mode="change" usage="rec">
-                            <defaultVal>print</defaultVal>
-                            <valList mode="replace" type="semi">
-                                <valItem ident="print">
-                                    <desc>Column beginning, i.e. break, according to a printed edition</desc>
+                                <valItem ident="rank">
+                                    <desc>indicates ranks within an administrative, military or religious hierarchy, such as <foreign xml:lang="ar-Latn-x-ijmes">farīq</foreign> , <foreign
+                                        xml:lang="ota-Latn-x-ijmes">vālī</foreign> , Captain</desc>
                                 </valItem>
-                                <valItem ident="shamela">
-                                    <desc>Column beginning, i.e. break, as found in the transcription from Maktabat al-Shamela</desc>
+                                <valItem ident="epithet">
+                                    <desc>a phrase someone is commonly referred to (nick-name), such as &quot;Owner of the newspaper xyz&quot;</desc>
+                                </valItem>
+                                <valItem ident="pseudonym">
+                                    <desc>a ficticious name, especially one used by an author.</desc>
                                 </valItem>
                             </valList>
                         </attDef>
-                        <attDef ident="edRef" mode="change" usage="rec">
-                            <desc>Points to the <att>xml:id</att> of the corresponding print edition</desc>
-                            <defaultVal>#edition_1</defaultVal>
-                            <valList mode="replace" type="semi">
-                                <valItem ident="#edition_1">
-                                    <desc>Points to an exemplary <att>xml:id</att> of a <gi>biblStruct</gi> describing the corresponding print edition.</desc>
+                        <attDef ident="subtype" mode="change" usage="opt">
+                            <valList mode="replace" type="closed">
+                                <valItem ident="military">
+                                    <desc>Indicates a military rank, such as Captain or <foreign xml:lang="ar-Latn-x-ijmes">Farīq</foreign></desc>
                                 </valItem>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="item" mode="change" module="core">
-                    <attList>
-                        <attDef ident="rend" mode="change">
-                            <defaultVal>block</defaultVal>
-                            <valList mode="replace" type="semi">
-                                <valItem ident="block"/>
-                                <valItem ident="inline"/>
+                                <valItem ident="civil">
+                                    <desc>Indicates a civil rank within the bureaucracy</desc>
+                                </valItem>
+                                <valItem ident="religious">
+                                    <desc>Indicates a religious rank, such as Bishop or <foreign xml:lang="ar-Latn-x-ijmes">Muṭrān</foreign></desc>
+                                </valItem>
                             </valList>
                         </attDef>
                     </attList>
