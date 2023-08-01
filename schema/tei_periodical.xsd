@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:ns1="https://openarabicpe.github.io/ns"
-           xmlns:tei="http://www.tei-c.org/ns/1.0"
-           elementFormDefault="qualified"
-           targetNamespace="http://www.tei-c.org/ns/1.0">
-   <xs:import namespace="http://www.w3.org/XML/1998/namespace"
-              schemaLocation="xml.tmp"/>
+<xs:schema xmlns:ns1="https://openarabicpe.github.io/ns" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+   targetNamespace="http://www.tei-c.org/ns/1.0">
+   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.tmp"/>
    <xs:import namespace="https://openarabicpe.github.io/ns" schemaLocation="ns1.tmp"/>
    <!--
-    Schema generated from ODD source 2022-01-04T20:29:15Z. .
+    Schema generated from ODD source 2023-08-01T16:56:13Z. .
     TEI Edition: Version 4.2.1. Last updated on
     	1st March 2021, revision 654a5c551
     TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -2002,8 +1998,7 @@ Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke
    </xs:group>
    <xs:group name="OpenArabicPE_model.placeStateLike_sequenceOptional">
       <xs:sequence>
-         <xs:group minOccurs="0"
-                   ref="tei:OpenArabicPE_model.placeNamePart_sequenceOptional"/>
+         <xs:group minOccurs="0" ref="tei:OpenArabicPE_model.placeNamePart_sequenceOptional"/>
          <xs:element minOccurs="0" ref="tei:location"/>
          <xs:element minOccurs="0" ref="tei:state"/>
          <xs:element minOccurs="0" ref="tei:trait"/>
@@ -2011,9 +2006,7 @@ Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke
    </xs:group>
    <xs:group name="OpenArabicPE_model.placeStateLike_sequenceOptionalRepeatable">
       <xs:sequence>
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.placeNamePart_sequenceOptionalRepeatable"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.placeNamePart_sequenceOptionalRepeatable"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:location"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:state"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:trait"/>
@@ -2021,8 +2014,7 @@ Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke
    </xs:group>
    <xs:group name="OpenArabicPE_model.placeStateLike_sequenceRepeatable">
       <xs:sequence>
-         <xs:group maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.placeNamePart_sequenceRepeatable"/>
+         <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.placeNamePart_sequenceRepeatable"/>
          <xs:element maxOccurs="unbounded" ref="tei:location"/>
          <xs:element maxOccurs="unbounded" ref="tei:state"/>
          <xs:element maxOccurs="unbounded" ref="tei:trait"/>
@@ -2129,25 +2121,20 @@ Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke
    </xs:group>
    <xs:group name="OpenArabicPE_model.attributable_sequenceOptionalRepeatable">
       <xs:sequence>
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.quoteLike_sequenceOptionalRepeatable"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.quoteLike_sequenceOptionalRepeatable"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:said"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:floatingText"/>
       </xs:sequence>
    </xs:group>
    <xs:group name="OpenArabicPE_model.attributable_sequenceRepeatable">
       <xs:sequence>
-         <xs:group maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.quoteLike_sequenceRepeatable"/>
+         <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.quoteLike_sequenceRepeatable"/>
          <xs:element maxOccurs="unbounded" ref="tei:said"/>
          <xs:element maxOccurs="unbounded" ref="tei:floatingText"/>
       </xs:sequence>
    </xs:group>
    <xs:element name="OpenArabicPE_model.respLike" abstract="true"/>
-   <xs:element name="OpenArabicPE_model.divWrapper"
-               abstract="true"
-               substitutionGroup="tei:OpenArabicPE_model.divBottom"/>
+   <xs:element name="OpenArabicPE_model.divWrapper" abstract="true" substitutionGroup="tei:OpenArabicPE_model.divBottom"/>
    <xs:group name="OpenArabicPE_model.divTopPart">
       <xs:choice>
          <xs:group ref="tei:OpenArabicPE_model.headLike"/>
@@ -2167,9 +2154,7 @@ Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke
          <xs:element ref="tei:dateline"/>
       </xs:choice>
    </xs:group>
-   <xs:element name="OpenArabicPE_model.divBottomPart"
-               abstract="true"
-               substitutionGroup="tei:OpenArabicPE_model.divBottom"/>
+   <xs:element name="OpenArabicPE_model.divBottomPart" abstract="true" substitutionGroup="tei:OpenArabicPE_model.divBottom"/>
    <xs:element name="OpenArabicPE_model.divBottom" abstract="true"/>
    <xs:group name="OpenArabicPE_model.choicePart">
       <xs:choice>
@@ -2225,30 +2210,21 @@ Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke
    </xs:group>
    <xs:group name="OpenArabicPE_model.nameLike_sequenceOptional">
       <xs:sequence>
-         <xs:group minOccurs="0"
-                   ref="tei:OpenArabicPE_model.nameLike.agent_sequenceOptional"/>
-         <xs:group minOccurs="0"
-                   ref="tei:OpenArabicPE_model.placeStateLike_sequenceOptional"/>
+         <xs:group minOccurs="0" ref="tei:OpenArabicPE_model.nameLike.agent_sequenceOptional"/>
+         <xs:group minOccurs="0" ref="tei:OpenArabicPE_model.placeStateLike_sequenceOptional"/>
          <xs:element minOccurs="0" ref="tei:rs"/>
          <xs:element minOccurs="0" ref="tei:idno"/>
-         <xs:group minOccurs="0"
-                   ref="tei:OpenArabicPE_model.persNamePart_sequenceOptional"/>
+         <xs:group minOccurs="0" ref="tei:OpenArabicPE_model.persNamePart_sequenceOptional"/>
          <xs:element minOccurs="0" ref="tei:objectName"/>
       </xs:sequence>
    </xs:group>
    <xs:group name="OpenArabicPE_model.nameLike_sequenceOptionalRepeatable">
       <xs:sequence>
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.nameLike.agent_sequenceOptionalRepeatable"/>
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.placeStateLike_sequenceOptionalRepeatable"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.nameLike.agent_sequenceOptionalRepeatable"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.placeStateLike_sequenceOptionalRepeatable"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:rs"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:idno"/>
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.persNamePart_sequenceOptionalRepeatable"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.persNamePart_sequenceOptionalRepeatable"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:objectName"/>
       </xs:sequence>
    </xs:group>
@@ -2334,30 +2310,22 @@ Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke
                <xs:choice>
                   <xs:sequence maxOccurs="unbounded">
                      <xs:element ref="tei:OpenArabicPE_model.divLike"/>
-                     <xs:group minOccurs="0"
-                               maxOccurs="unbounded"
-                               ref="tei:OpenArabicPE_model.global"/>
+                     <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                   </xs:sequence>
                   <xs:sequence>
                      <xs:sequence maxOccurs="unbounded">
                         <xs:group ref="tei:OpenArabicPE_model.common"/>
-                        <xs:group minOccurs="0"
-                                  maxOccurs="unbounded"
-                                  ref="tei:OpenArabicPE_model.global"/>
+                        <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                      </xs:sequence>
                      <xs:sequence minOccurs="0" maxOccurs="unbounded">
                         <xs:element ref="tei:OpenArabicPE_model.divLike"/>
-                        <xs:group minOccurs="0"
-                                  maxOccurs="unbounded"
-                                  ref="tei:OpenArabicPE_model.global"/>
+                        <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                      </xs:sequence>
                   </xs:sequence>
                </xs:choice>
                <xs:sequence minOccurs="0" maxOccurs="unbounded">
                   <xs:element ref="tei:OpenArabicPE_model.divBottom"/>
-                  <xs:group minOccurs="0"
-                            maxOccurs="unbounded"
-                            ref="tei:OpenArabicPE_model.global"/>
+                  <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                </xs:sequence>
             </xs:sequence>
          </xs:sequence>
@@ -2501,9 +2469,7 @@ Suggested values include: 1] article; 2] bill; 3] advert; 4] letter; 5] masthead
    <xs:element name="OpenArabicPE_model.encodingDescPart" abstract="true"/>
    <xs:element name="OpenArabicPE_model.editorialDeclPart" abstract="true">
       <xs:complexType>
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.pLike"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attribute name="marks">
             <xs:annotation>
@@ -2576,13 +2542,9 @@ Suggested values include: 1] article; 2] bill; 3] advert; 4] letter; 5] masthead
    <xs:element name="OpenArabicPE_model.placeLike" abstract="true">
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.pLike"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
                <xs:choice minOccurs="0" maxOccurs="unbounded">
                   <xs:group ref="tei:OpenArabicPE_model.labelLike"/>
                   <xs:group ref="tei:OpenArabicPE_model.placeStateLike"/>
@@ -3498,9 +3460,7 @@ Measures]</xs:documentation>
          <xs:documentation>(measure group) contains a group of dimensional specifications which relate to the same object, for example the height and width of a manuscript page. [10.3.4. Dimensions]</xs:documentation>
       </xs:annotation>
       <xs:complexType mixed="true">
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.measureLike"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.measureLike"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.measurement.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.typed.attributes"/>
@@ -3773,26 +3733,18 @@ Sample values include: 1] suspension (suspension); 2] contraction (contraction);
             <xs:choice>
                <xs:sequence maxOccurs="unbounded">
                   <xs:element ref="tei:item"/>
-                  <xs:group minOccurs="0"
-                            maxOccurs="unbounded"
-                            ref="tei:OpenArabicPE_model.global"/>
+                  <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                </xs:sequence>
                <xs:sequence maxOccurs="unbounded">
                   <xs:element ref="tei:label"/>
-                  <xs:group minOccurs="0"
-                            maxOccurs="unbounded"
-                            ref="tei:OpenArabicPE_model.global"/>
+                  <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                   <xs:element ref="tei:item"/>
-                  <xs:group minOccurs="0"
-                            maxOccurs="unbounded"
-                            ref="tei:OpenArabicPE_model.global"/>
+                  <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                </xs:sequence>
             </xs:choice>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:OpenArabicPE_model.divBottom"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -4193,8 +4145,7 @@ Suggested values include: 1] bibliographic; 2] editorial; 3] endnote; 4] footnot
          <xs:documentation>(graphic) indicates the location of a graphic or illustration, either forming part of a text, or providing an image of it. [3.10. Graphics and Other Non-textual Components 11.1. Digital Facsimiles]</xs:documentation>
       </xs:annotation>
    </xs:element>
-   <xs:element name="milestone"
-               substitutionGroup="tei:OpenArabicPE_model.milestoneLike">
+   <xs:element name="milestone" substitutionGroup="tei:OpenArabicPE_model.milestoneLike">
       <xs:annotation>
          <xs:documentation>(milestone) marks a boundary point separating any kind of section of a text, typically but not necessarily indicating a point at which some part of a standard reference system changes, where the change is not represented by a structural element. [3.11.3. Milestone
 Elements]</xs:documentation>
@@ -4479,9 +4430,7 @@ Suggested values include: 1] print; 2] shamela</xs:documentation>
                </xs:sequence>
             </xs:choice>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:availability"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.noteLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.noteLike"/>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:edition"/>
                <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -4499,6 +4448,49 @@ Suggested values include: 1] print; 2] shamela</xs:documentation>
             </xs:choice>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
+         <xs:attribute name="subtype">
+            <xs:annotation>
+               <xs:documentation/>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:token">
+                  <xs:enumeration value="journal">
+                     <xs:annotation>
+                        <xs:documentation>A type of periodical publication that is called majalla in Arabic.</xs:documentation>
+                     </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="newspaper">
+                     <xs:annotation>
+                        <xs:documentation>A type of periodical publication that is called jarīda in Arabic.</xs:documentation>
+                     </xs:annotation>
+                  </xs:enumeration>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:attribute>
+         <xs:attribute name="type">
+            <xs:annotation>
+               <xs:documentation/>
+            </xs:annotation>
+            <xs:simpleType>
+               <xs:restriction base="xs:token">
+                  <xs:enumeration value="book">
+                     <xs:annotation>
+                        <xs:documentation>A book</xs:documentation>
+                     </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="periodical">
+                     <xs:annotation>
+                        <xs:documentation>A periodical publication</xs:documentation>
+                     </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="reprint">
+                     <xs:annotation>
+                        <xs:documentation>The item is a reprint</xs:documentation>
+                     </xs:annotation>
+                  </xs:enumeration>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:attribute>
          <xs:attributeGroup ref="ns1:frequency"/>
          <xs:attribute ref="ns1:weekday"/>
       </xs:complexType>
@@ -4662,9 +4654,7 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
                <xs:group ref="tei:OpenArabicPE_model.dateLike"/>
             </xs:choice>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:respStmt"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.global"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
@@ -4898,9 +4888,7 @@ Suggested values include: 1] journal; 2] newspaper</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:OpenArabicPE_model.milestoneLike"/>
                <xs:element ref="tei:relation"/>
@@ -4966,23 +4954,18 @@ Suggested values include: 1] journal; 2] newspaper</xs:documentation>
             </xs:choice>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:OpenArabicPE_model.divBottom"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.typed.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="teiCorpus"
-               substitutionGroup="tei:OpenArabicPE_model.describedResource">
+   <xs:element name="teiCorpus" substitutionGroup="tei:OpenArabicPE_model.describedResource">
       <xs:complexType>
          <xs:sequence>
             <xs:element ref="tei:teiHeader"/>
-            <xs:element minOccurs="0"
-                        maxOccurs="unbounded"
-                        ref="tei:OpenArabicPE_model.resource"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.resource"/>
             <xs:element maxOccurs="unbounded" ref="tei:OpenArabicPE_model.describedResource"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -5072,9 +5055,7 @@ Suggested values include: 1] journal; 2] newspaper</xs:documentation>
       <xs:complexType>
          <xs:sequence>
             <xs:element ref="tei:fileDesc"/>
-            <xs:element minOccurs="0"
-                        maxOccurs="unbounded"
-                        ref="tei:OpenArabicPE_model.teiHeaderPart"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.teiHeaderPart"/>
             <xs:element minOccurs="0" ref="tei:revisionDesc"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -5104,9 +5085,7 @@ Suggested values include: 1] journal; 2] newspaper</xs:documentation>
       <xs:complexType>
          <xs:sequence>
             <xs:element maxOccurs="unbounded" ref="tei:title"/>
-            <xs:element minOccurs="0"
-                        maxOccurs="unbounded"
-                        ref="tei:OpenArabicPE_model.respLike"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.respLike"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
@@ -5134,9 +5113,7 @@ Suggested values include: 1] journal; 2] newspaper</xs:documentation>
             <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
             <xs:sequence>
                <xs:element ref="tei:edition"/>
-               <xs:element minOccurs="0"
-                           maxOccurs="unbounded"
-                           ref="tei:OpenArabicPE_model.respLike"/>
+               <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.respLike"/>
             </xs:sequence>
          </xs:choice>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -5162,9 +5139,7 @@ Suggested values include: 1] journal; 2] newspaper</xs:documentation>
          <xs:choice>
             <xs:sequence maxOccurs="unbounded">
                <xs:group ref="tei:OpenArabicPE_model.publicationStmtPart.agency"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.publicationStmtPart.detail"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.publicationStmtPart.detail"/>
             </xs:sequence>
             <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
          </xs:choice>
@@ -5320,8 +5295,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          </xs:attribute>
       </xs:complexType>
    </xs:element>
-   <xs:element name="licence"
-               substitutionGroup="tei:OpenArabicPE_model.availabilityPart">
+   <xs:element name="licence" substitutionGroup="tei:OpenArabicPE_model.availabilityPart">
       <xs:annotation>
          <xs:documentation>contains information about a licence or other legal agreement applicable to the text. [2.2.4. Publication, Distribution, Licensing, etc.]</xs:documentation>
       </xs:annotation>
@@ -5374,8 +5348,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:attributeGroup ref="tei:OpenArabicPE_att.docStatus.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="encodingDesc"
-               substitutionGroup="tei:OpenArabicPE_model.teiHeaderPart">
+   <xs:element name="encodingDesc" substitutionGroup="tei:OpenArabicPE_model.teiHeaderPart">
       <xs:annotation>
          <xs:documentation>(encoding description) documents the relationship between an electronic text and the source or sources from which it was derived. [2.3. The Encoding Description 2.1.1. The TEI Header and Its Components]</xs:documentation>
       </xs:annotation>
@@ -5387,8 +5360,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="projectDesc"
-               substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
+   <xs:element name="projectDesc" substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
       <xs:annotation>
          <xs:documentation>(project description) describes in detail the aim or purpose for which an electronic file was encoded, together with any other relevant information concerning the process by which it was assembled or collected. [2.3.1. The Project Description 2.3. The Encoding Description 15.3.2. Declarable Elements]</xs:documentation>
       </xs:annotation>
@@ -5397,8 +5369,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="samplingDecl"
-               substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
+   <xs:element name="samplingDecl" substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
       <xs:annotation>
          <xs:documentation>(sampling declaration) contains a prose description of the rationale and methods used in sampling texts in the creation of a corpus or collection. [2.3.2. The Sampling Declaration 2.3. The Encoding Description 15.3.2. Declarable Elements]</xs:documentation>
       </xs:annotation>
@@ -5407,8 +5378,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="editorialDecl"
-               substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
+   <xs:element name="editorialDecl" substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
       <xs:annotation>
          <xs:documentation>(editorial practice declaration) provides details of editorial principles and practices applied during the encoding of a text. [2.3.3. The Editorial Practices Declaration 2.3. The Encoding Description 15.3.2. Declarable Elements]</xs:documentation>
       </xs:annotation>
@@ -5420,14 +5390,12 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="quotation"
-               substitutionGroup="tei:OpenArabicPE_model.editorialDeclPart">
+   <xs:element name="quotation" substitutionGroup="tei:OpenArabicPE_model.editorialDeclPart">
       <xs:annotation>
          <xs:documentation>(quotation) specifies editorial practice adopted with respect to quotation marks in the original. [2.3.3. The Editorial Practices Declaration 15.3.2. Declarable Elements]</xs:documentation>
       </xs:annotation>
    </xs:element>
-   <xs:element name="refsDecl"
-               substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
+   <xs:element name="refsDecl" substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
       <xs:annotation>
          <xs:documentation>(references declaration) specifies how canonical references are constructed for this text. [2.3.6.3. Milestone Method 2.3. The Encoding Description 2.3.6. The Reference System Declaration]</xs:documentation>
       </xs:annotation>
@@ -5489,9 +5457,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:documentation>(prefix definition) defines a prefixing scheme used in teidata.pointer values, showing how abbreviated URIs using the scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers]</xs:documentation>
       </xs:annotation>
       <xs:complexType>
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.pLike"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.patternReplacement.attributes"/>
          <xs:attribute name="ident" use="required">
@@ -5506,8 +5472,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          </xs:attribute>
       </xs:complexType>
    </xs:element>
-   <xs:element name="listPrefixDef"
-               substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
+   <xs:element name="listPrefixDef" substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
       <xs:annotation>
          <xs:documentation>(list of prefix definitions) contains a list of definitions of prefixing schemes used in teidata.pointer values, showing how abbreviated URIs using each scheme may be expanded into full URIs. [16.2.3. Using Abbreviated Pointers]</xs:documentation>
       </xs:annotation>
@@ -5519,8 +5484,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="unitDecl"
-               substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
+   <xs:element name="unitDecl" substitutionGroup="tei:OpenArabicPE_model.encodingDescPart">
       <xs:annotation>
          <xs:documentation>(unit declarations) provides information about units of measurement that are not members of the International System of Units. [2.3.9. The Unit Declaration]</xs:documentation>
       </xs:annotation>
@@ -5562,22 +5526,18 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          <xs:attribute name="toUnit" use="required" type="xs:anyURI"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="profileDesc"
-               substitutionGroup="tei:OpenArabicPE_model.teiHeaderPart">
+   <xs:element name="profileDesc" substitutionGroup="tei:OpenArabicPE_model.teiHeaderPart">
       <xs:annotation>
          <xs:documentation>(text-profile description) provides a detailed description of non-bibliographic aspects of a text, specifically the languages and sublanguages used, the situation in which it was produced, the participants and their setting. [2.4. The Profile Description 2.1.1. The TEI Header and Its Components]</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:element minOccurs="0"
-                        maxOccurs="unbounded"
-                        ref="tei:OpenArabicPE_model.profileDescPart"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.profileDescPart"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="langUsage"
-               substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
+   <xs:element name="langUsage" substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
       <xs:annotation>
          <xs:documentation>(language usage) describes the languages, sublanguages, registers, dialects, etc. represented within a text. [2.4.2. Language Usage 2.4. The Profile Description 15.3.2. Declarable Elements]</xs:documentation>
       </xs:annotation>
@@ -5621,8 +5581,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
          </xs:complexContent>
       </xs:complexType>
    </xs:element>
-   <xs:element name="calendarDesc"
-               substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
+   <xs:element name="calendarDesc" substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
       <xs:annotation>
          <xs:documentation>(calendar description) contains a description of the calendar system used in any dating expression found in the text. [2.4. The Profile Description 2.4.5. Calendar Description]</xs:documentation>
       </xs:annotation>
@@ -5717,27 +5676,19 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.global"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             <xs:sequence minOccurs="0">
                <xs:element ref="tei:front"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
             <xs:choice>
                <xs:element ref="tei:body"/>
                <xs:element ref="tei:group"/>
             </xs:choice>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.global"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             <xs:sequence minOccurs="0">
                <xs:element ref="tei:back"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -5750,9 +5701,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.global"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             <xs:sequence minOccurs="0">
                <xs:group ref="tei:OpenArabicPE_model.divTop"/>
                <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -5763,30 +5712,22 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
             <xs:choice>
                <xs:sequence maxOccurs="unbounded">
                   <xs:element ref="tei:OpenArabicPE_model.divLike"/>
-                  <xs:group minOccurs="0"
-                            maxOccurs="unbounded"
-                            ref="tei:OpenArabicPE_model.global"/>
+                  <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                </xs:sequence>
                <xs:sequence>
                   <xs:sequence maxOccurs="unbounded">
                      <xs:group ref="tei:OpenArabicPE_model.common"/>
-                     <xs:group minOccurs="0"
-                               maxOccurs="unbounded"
-                               ref="tei:OpenArabicPE_model.global"/>
+                     <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                   </xs:sequence>
                   <xs:sequence minOccurs="0" maxOccurs="unbounded">
                      <xs:element ref="tei:OpenArabicPE_model.divLike"/>
-                     <xs:group minOccurs="0"
-                               maxOccurs="unbounded"
-                               ref="tei:OpenArabicPE_model.global"/>
+                     <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                   </xs:sequence>
                </xs:sequence>
             </xs:choice>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:OpenArabicPE_model.divBottom"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -5813,9 +5754,7 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
                   <xs:group ref="tei:OpenArabicPE_model.global"/>
                </xs:choice>
             </xs:sequence>
-            <xs:element minOccurs="0"
-                        maxOccurs="unbounded"
-                        ref="tei:OpenArabicPE_model.divBottom"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.divBottom"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.typed.attributes"/>
@@ -5827,27 +5766,19 @@ Suggested values include: 1] ISBN; 2] ISSN; 3] DOI; 4] URI; 5] VIAF; 6] ESTC; 7]
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.global"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             <xs:sequence minOccurs="0">
                <xs:element ref="tei:front"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
             <xs:choice>
                <xs:element ref="tei:body"/>
                <xs:element ref="tei:group"/>
             </xs:choice>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.global"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             <xs:sequence minOccurs="0">
                <xs:element ref="tei:back"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -6366,7 +6297,7 @@ Sample values include: 1] TEI (text encoding initiative); 2] DBK (docbook); 3] X
                      <xs:restriction base="xs:token">
                         <xs:enumeration value="nickname">
                            <xs:annotation>
-                              <xs:documentation>a phrase someone is commonly referred to, such as "Owner of the newspaper xyz". This use is depreciated in favour of </xs:documentation>
+                              <xs:documentation>a phrase someone is commonly referred to, such as "Owner of the newspaper xyz". This use is depreciated in favour of `&lt;roleName type="title">`</xs:documentation>
                            </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="nasab">
@@ -6603,9 +6534,7 @@ Sample values include: 1] primary; 2] secondary; 3] undergraduate; 4] graduate; 
       <xs:complexType>
          <xs:sequence>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:idno"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice>
                <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
                <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.labelLike"/>
@@ -6679,9 +6608,7 @@ Sample values include: 1] practicing; 2] clandestine; 3] patrilineal; 4] matrili
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:relation"/>
                <xs:element ref="tei:listRelation"/>
@@ -6707,9 +6634,7 @@ Sample values include: 1] practicing; 2] clandestine; 3] patrilineal; 4] matrili
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:relation"/>
                <xs:element ref="tei:listRelation"/>
@@ -6732,9 +6657,7 @@ Sample values include: 1] practicing; 2] clandestine; 3] patrilineal; 4] matrili
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:relation"/>
                <xs:element ref="tei:listRelation"/>
@@ -6760,9 +6683,7 @@ Sample values include: 1] practicing; 2] clandestine; 3] patrilineal; 4] matrili
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:relation"/>
                <xs:element ref="tei:listRelation"/>
@@ -6788,9 +6709,7 @@ Sample values include: 1] practicing; 2] clandestine; 3] patrilineal; 4] matrili
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice>
                <xs:group ref="tei:OpenArabicPE_model.pLike"/>
                <xs:choice maxOccurs="unbounded">
@@ -6854,13 +6773,9 @@ Sample values include: 1] primary; 2] other; 3] paid; 4] unpaid</xs:documentatio
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.pLike"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
                <xs:choice minOccurs="0" maxOccurs="unbounded">
                   <xs:group ref="tei:OpenArabicPE_model.labelLike"/>
                   <xs:group ref="tei:OpenArabicPE_model.nameLike"/>
@@ -6874,9 +6789,7 @@ Sample values include: 1] primary; 2] other; 3] paid; 4] unpaid</xs:documentatio
                <xs:group ref="tei:OpenArabicPE_model.biblLike"/>
                <xs:element ref="tei:ptr"/>
             </xs:choice>
-            <xs:element minOccurs="0"
-                        maxOccurs="unbounded"
-                        ref="tei:OpenArabicPE_model.personLike"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.personLike"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.typed.attributes"/>
@@ -7216,9 +7129,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
          <xs:choice>
             <xs:element maxOccurs="unbounded" ref="tei:state"/>
             <xs:sequence>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.headLike"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
                <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
                <xs:choice minOccurs="0" maxOccurs="unbounded">
                   <xs:group ref="tei:OpenArabicPE_model.noteLike"/>
@@ -7246,9 +7157,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
          <xs:choice>
             <xs:element maxOccurs="unbounded" ref="tei:trait"/>
             <xs:sequence>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.headLike"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
                <xs:group maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
                <xs:choice minOccurs="0" maxOccurs="unbounded">
                   <xs:group ref="tei:OpenArabicPE_model.noteLike"/>
@@ -7290,12 +7199,8 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
       <xs:complexType>
          <xs:sequence>
             <xs:element maxOccurs="unbounded" ref="tei:objectIdentifier"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.pLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:group ref="tei:OpenArabicPE_model.noteLike"/>
                <xs:group ref="tei:OpenArabicPE_model.biblLike"/>
@@ -7314,9 +7219,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:relation"/>
                <xs:element ref="tei:listRelation"/>
@@ -7353,9 +7256,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
       <xs:complexType>
          <xs:sequence>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:idno"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.pLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pLike"/>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:nym"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -7381,9 +7282,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
       </xs:annotation>
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:relation"/>
                <xs:element ref="tei:listRelation"/>
@@ -7468,12 +7367,8 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
    <xs:element name="listAnnotation">
       <xs:complexType>
          <xs:sequence>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.headLike"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.labelLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.headLike"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.labelLike"/>
             <xs:choice maxOccurs="unbounded">
                <xs:group ref="tei:OpenArabicPE_model.annotationLike"/>
                <xs:element ref="tei:listAnnotation"/>
@@ -7490,9 +7385,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:respStmt"/>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:revisionDesc"/>
             <xs:element minOccurs="0" maxOccurs="unbounded" ref="tei:licence"/>
-            <xs:group minOccurs="0"
-                      maxOccurs="unbounded"
-                      ref="tei:OpenArabicPE_model.annotationPart.body"/>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.annotationPart.body"/>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attribute.n"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attribute.xmllang"/>
@@ -7659,22 +7552,16 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
             <xs:choice>
                <xs:sequence maxOccurs="unbounded">
                   <xs:element ref="tei:row"/>
-                  <xs:group minOccurs="0"
-                            maxOccurs="unbounded"
-                            ref="tei:OpenArabicPE_model.global"/>
+                  <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                </xs:sequence>
                <xs:sequence maxOccurs="unbounded">
                   <xs:element ref="tei:OpenArabicPE_model.graphicLike"/>
-                  <xs:group minOccurs="0"
-                            maxOccurs="unbounded"
-                            ref="tei:OpenArabicPE_model.global"/>
+                  <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
                </xs:sequence>
             </xs:choice>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                <xs:element ref="tei:OpenArabicPE_model.divBottom"/>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -7814,9 +7701,7 @@ Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] ht
                   <xs:element ref="tei:surface"/>
                   <xs:element ref="tei:surfaceGrp"/>
                </xs:choice>
-               <xs:group minOccurs="0"
-                         maxOccurs="unbounded"
-                         ref="tei:OpenArabicPE_model.global"/>
+               <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.global"/>
             </xs:sequence>
          </xs:sequence>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
@@ -7910,9 +7795,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</xs:documentation>
          <xs:documentation>(abbreviation marker) contains a sequence of letters or signs present in an abbreviation which are omitted or replaced in the expanded form of the abbreviation. [11.3.1.2. Abbreviation and Expansion]</xs:documentation>
       </xs:annotation>
       <xs:complexType mixed="true">
-         <xs:group minOccurs="0"
-                   maxOccurs="unbounded"
-                   ref="tei:OpenArabicPE_model.pPart.transcriptional"/>
+         <xs:group minOccurs="0" maxOccurs="unbounded" ref="tei:OpenArabicPE_model.pPart.transcriptional"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.typed.attributes"/>
       </xs:complexType>
@@ -8010,8 +7893,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</xs:documentation>
          </xs:complexContent>
       </xs:complexType>
    </xs:element>
-   <xs:element name="particDesc"
-               substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
+   <xs:element name="particDesc" substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
       <xs:annotation>
          <xs:documentation>(participation description) describes the identifiable speakers, voices, or other participants in any kind of text or other persons named or otherwise referred to in a text, edition, or metadata. [15.2. Contextual Information]</xs:documentation>
       </xs:annotation>
@@ -8027,8 +7909,7 @@ Sample values include: 1] glued; 2] pinned; 3] sewn</xs:documentation>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
       </xs:complexType>
    </xs:element>
-   <xs:element name="settingDesc"
-               substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
+   <xs:element name="settingDesc" substitutionGroup="tei:OpenArabicPE_model.profileDescPart">
       <xs:annotation>
          <xs:documentation>(setting description) describes the setting or settings within which a language interaction takes place, or other places otherwise referred to in a text, edition, or metadata. [15.2. Contextual Information 2.4. The Profile Description]</xs:documentation>
       </xs:annotation>

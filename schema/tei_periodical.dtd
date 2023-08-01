@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2022-01-04T20:29:12Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2023-08-01T16:56:09Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -1614,6 +1614,8 @@ Elements] -->
 <!ATTLIST monogr xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST monogr
  %OpenArabicPE_att.global.attributes;
+subtype (journal|newspaper) #IMPLIED
+type (book|periodical|reprint) #IMPLIED
 frequency %teidata.text;  "monthly" 
 weekday %teidata.text;  #IMPLIED >
 <!--doc:(name, proper noun) contains a proper noun or noun phrase. [3.6.1. Referring Strings] -->
