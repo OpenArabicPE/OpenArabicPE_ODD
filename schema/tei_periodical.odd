@@ -52,7 +52,7 @@
                 <item>corpus</item>
                 </list> </p>
             <p>Many elements and attribute classes and attributes were deleted from the standard set. The values of some attributes were restricted.</p>
-            <schemaSpec docLang="en" ident="tei_OpenArabicPE" prefix="OpenArabicPE_" xml:lang="en" source="tei:4.2.1">
+            <schemaSpec docLang="en" ident="tei_OpenArabicPE" prefix="OpenArabicPE_" source="tei:4.2.1" xml:lang="en">
                 <moduleRef
                     except="addrLine address analytic binaryObject desc distinct divGen email emph gloss headItem headLabel index media meeting mentioned postBox postCode reg relatedItem series soCalled sp speaker stage street"
                     key="core"/>
@@ -487,44 +487,76 @@
                         <attDef ident="calendar" mode="change">
                             <valList mode="replace" type="closed">
                                 <valItem ident="#cal_gregorian">
-                                    <desc>Gregorian calendar</desc>
+                                    <desc>Gregorian calendar. Following the hegemonial approach of standards rooted in the English language, the Gregorian calendar is presumed the norm and must not be specified.</desc>
                                 </valItem>
                                 <valItem ident="#cal_islamic">
                                     <desc>Muslim lunar calendar known as <foreign xml:lang="ar-Latn-x-ijmes">hijrī</foreign> calendar beginning the year with 1 <foreign xml:lang="ar-Latn-x-ijmes"
-                                        >Muḥarram</foreign></desc>
+                                        >Muḥarram</foreign>. Dates differ between locations as the beginning of the month is based on sightings of the new moon. The epoch begins with Muḥammad's migration (<foreign
+                                        xml:lang="ar-Latn-x-ijmes">hijra</foreign> from Mecca to Medina in 622 CE.</desc>
                                 </valItem>
                                 <valItem ident="#cal_julian">
-                                    <desc>Reformed Julian calendar also known as <foreign xml:lang="ar-Latn-x-ijmes">sharqī</foreign> or <foreign xml:lang="ar-Latn-x-ijmes"
-                                        >rūmī</foreign> calendar beginning the Year with 1 January</desc>
+                                    <desc xml:lang="en">Reformed Julian calendar beginning the Year with 1 January. In the Ottoman context usually referred to as <foreign xml:lang="en"
+                                        >rūmī</foreign> . Arabic newspapers usually labelled this calendar as <foreign xml:lang="en"
+                                        >sharqī</foreign> . All solar calendars add an intercalated 366th day every fourth (and, in the case of Gregorian and rūmī calendars, even-numbered) year at the end of February (the last day of the old Julian calendar). The Gregorian calendar suppresses this rule in centesimal years that cannot be divided by 400. This difference creates a growing offset between Gregorian and Julian calendars: while 1900 R was a leap year, <date
+                                        when="1900">1900</date> was not, which in turn caused the difference between the Gregorian calendar, on the one hand, and the <foreign xml:lang="en"
+                                        >mālī</foreign> and <foreign xml:lang="en">rūmī</foreign> calendars, on the other, to grow from 12 to 13 days from <date when="1900-03-13"
+                                        >29 Shubāṭ (February) 1900 R / 1315 M (13 March 1900)</date> onwards.</desc>
                                 </valItem>
                                 <valItem ident="#cal_ottomanfiscal">
-                                    <desc>Ottoman fiscal calendar also known as <foreign xml:lang="ar-Latn-x-ijmes">mālī</foreign> or <foreign xml:lang="ar-Latn-x-ijmes"
-                                        >rūmī</foreign> calendar beginning the year with 1 <foreign xml:lang="ar-Latn-x-ijmes">mārt</foreign> (March), similar to the old Julian calendar.</desc>
+                                    <desc xml:lang="en"
+                                        >The Ottoman fiscal calendar is a lunisolar calendar. It is based on the Old Julian calendar beginning the Year with 1 March. Introduced as fiscal calendar in <date
+                                        when="1676">1676</date> and in the Ottoman context usually referred to as <foreign xml:lang="en">mālī</foreign> and sometimes, confusingly, also as <foreign
+                                        xml:lang="en">rūmī</foreign> . Every 33 lunar years, a <foreign xml:lang="en">hijrī</foreign> year would complete within a single solar <foreign xml:lang="en"
+                                        >mālī</foreign> year. In tforeigns case the counting of the <foreign xml:lang="en">mālī</foreign> years skipped a year to catch up with the faster <foreign
+                                        xml:lang="en">hijrī</foreign> calendar. Due to a printing error in the coupon booklets for the consolidated debt repayment program for <date when="1872"
+                                        >1872</date> (1288 M instead of 1289 M), synchronisation of <foreign xml:lang="en">mālī</foreign> and <foreign xml:lang="en"
+                                        >hijrī</foreign> years was henceforth abolished. As <foreign xml:lang="en">mālī</foreign> years began with 1 March, <foreign xml:lang="en"
+                                        >mālī</foreign> leap years preceded their <foreign xml:lang="en">rūmī</foreign> and Gregorian counterpart (the leap year 1315 M commenced on <date
+                                        when="1899-03-13">13 March 1899</date>).</desc>
                                 </valItem>
                                 <valItem ident="#cal_coptic">
                                     <desc>The Coptic calendar</desc>
+                                </valItem>
+                                <valItem ident="#cal_jewish">
+                                    <desc xml:lang="en">The Jewish calendar is a lunisolar calendar. The epoch begins with the creation of the world (anno mundi, AM), in 3761 BCE.</desc>
                                 </valItem>
                             </valList>
                         </attDef>
                         <attDef ident="datingMethod" mode="change">
                             <valList mode="replace" type="closed">
                                 <valItem ident="#cal_gregorian">
-                                    <desc>Gregorian calendar</desc>
+                                    <desc>Gregorian calendar. Following the hegemonial approach of standards rooted in the English language, the Gregorian calendar is presumed as norm and must not be specified.</desc>
                                 </valItem>
                                 <valItem ident="#cal_islamic">
                                     <desc>Muslim lunar calendar known as <foreign xml:lang="ar-Latn-x-ijmes">hijrī</foreign> calendar beginning the year with 1 <foreign xml:lang="ar-Latn-x-ijmes"
-                                        >Muḥarram</foreign></desc>
+                                        >Muḥarram</foreign>. Dates differ between locations as the beginning of the month is based on sightings of the new moon. The epoch begins with Muḥammad's migration (<foreign
+                                        xml:lang="ar-Latn-x-ijmes">hijra</foreign> from Mecca to Medina in 622 CE.</desc>
                                 </valItem>
                                 <valItem ident="#cal_julian">
-                                    <desc>Reformed Julian calendar also known as <foreign xml:lang="ar-Latn-x-ijmes">sharqī</foreign> or <foreign xml:lang="ar-Latn-x-ijmes"
-                                        >rūmī</foreign> calendar beginning the Year with 1 January</desc>
+                                    <desc xml:lang="en">Reformed Julian calendar beginning the Year with 1 January. In the Ottoman context usually referred to as <foreign xml:lang="en"
+                                        >rūmī</foreign> . Arabic newspapers usually labelled this calendar as <foreign xml:lang="en"
+                                        >sharqī</foreign> . All solar calendars add an intercalated 366th day every fourth (and, in the case of Gregorian and rūmī calendars, even-numbered) year at the end of February (the last day of the old Julian calendar). The Gregorian calendar suppresses this rule in centesimal years that cannot be divided by 400. This difference creates a growing offset between Gregorian and Julian calendars: while 1900 R was a leap year, <date
+                                        when="1900">1900</date> was not, which in turn caused the difference between the Gregorian calendar, on the one hand, and the <foreign xml:lang="en"
+                                        >mālī</foreign> and <foreign xml:lang="en">rūmī</foreign> calendars, on the other, to grow from 12 to 13 days from <date when="1900-03-13"
+                                        >29 Shubāṭ (February) 1900 R / 1315 M (13 March 1900)</date> onwards.</desc>
                                 </valItem>
                                 <valItem ident="#cal_ottomanfiscal">
-                                    <desc>Ottoman fiscal calendar also known as <foreign xml:lang="ar-Latn-x-ijmes">mālī</foreign> or <foreign xml:lang="ar-Latn-x-ijmes"
-                                        >rūmī</foreign> calendar beginning the year with 1 <foreign xml:lang="ar-Latn-x-ijmes">mārt</foreign> (March), similar to the old Julian calendar.</desc>
+                                    <desc xml:lang="en"
+                                        >The Ottoman fiscal calendar is a lunisolar calendar. It is based on the Old Julian calendar beginning the Year with 1 March. Introduced as fiscal calendar in <date
+                                        when="1676">1676</date> and in the Ottoman context usually referred to as <foreign xml:lang="en">mālī</foreign> and sometimes, confusingly, also as <foreign
+                                        xml:lang="en">rūmī</foreign> . Every 33 lunar years, a <foreign xml:lang="en">hijrī</foreign> year would complete within a single solar <foreign xml:lang="en"
+                                        >mālī</foreign> year. In tforeigns case the counting of the <foreign xml:lang="en">mālī</foreign> years skipped a year to catch up with the faster <foreign
+                                        xml:lang="en">hijrī</foreign> calendar. Due to a printing error in the coupon booklets for the consolidated debt repayment program for <date when="1872"
+                                        >1872</date> (1288 M instead of 1289 M), synchronisation of <foreign xml:lang="en">mālī</foreign> and <foreign xml:lang="en"
+                                        >hijrī</foreign> years was henceforth abolished. As <foreign xml:lang="en">mālī</foreign> years began with 1 March, <foreign xml:lang="en"
+                                        >mālī</foreign> leap years preceded their <foreign xml:lang="en">rūmī</foreign> and Gregorian counterpart (the leap year 1315 M commenced on <date
+                                        when="1899-03-13">13 March 1899</date>).</desc>
                                 </valItem>
                                 <valItem ident="#cal_coptic">
                                     <desc>The Coptic calendar</desc>
+                                </valItem>
+                                <valItem ident="#cal_jewish">
+                                    <desc xml:lang="en">The Jewish calendar is a lunisolar calendar. The epoch begins with the creation of the world (anno mundi, AM), in 3761 BCE.</desc>
                                 </valItem>
                             </valList>
                         </attDef>
@@ -602,17 +634,17 @@
                         <attDef ident="type" mode="add" usage="opt">
                             <valList mode="add" type="closed">
                                 <valItem ident="owner">
-                                    <desc>The owner-cum-editor, commonly referred to as <foreign xml:lang="ar-Larn-x-ijmes">ṣāḥib</foreign>.</desc>
+                                    <desc>The owner-cum-editor, commonly referred to as <foreign xml:lang="ar-Latn-x-ijmes">ṣāḥib</foreign>.</desc>
                                 </valItem>
                                 <valItem ident="publisher">
-                                    <desc>The publisher-cum-editor, commonly referred to as <foreign xml:lang="ar-Larn-x-ijmes">munshiʾ</foreign>.</desc>
+                                    <desc>The publisher-cum-editor, commonly referred to as <foreign xml:lang="ar-Latn-x-ijmes">munshiʾ</foreign>.</desc>
                                 </valItem>
                                 <valItem ident="editor">
                                     <desc>Implicitly assumed type of all editors, used for all of the following: <list>
-                                        <item><foreign xml:lang="ar-Larn-x-ijmes">mudīr masʾūl</foreign> (responsible director)</item>
-                                        <item><foreign xml:lang="ar-Larn-x-ijmes">raʾis al-taḥrīr</foreign> (editor-in-chief)</item>
-                                        <item><foreign xml:lang="ar-Larn-x-ijmes">mudīr al-taḥrīr</foreign> (managing editor)</item>
-                                        <item><foreign xml:lang="ar-Larn-x-ijmes">muḥarrir</foreign> (editor)</item>
+                                        <item><foreign xml:lang="ar-Latn-x-ijmes">mudīr masʾūl</foreign> (responsible director)</item>
+                                        <item><foreign xml:lang="ar-Latn-x-ijmes">raʾis al-taḥrīr</foreign> (editor-in-chief)</item>
+                                        <item><foreign xml:lang="ar-Latn-x-ijmes">mudīr al-taḥrīr</foreign> (managing editor)</item>
+                                        <item><foreign xml:lang="ar-Latn-x-ijmes">muḥarrir</foreign> (editor)</item>
                                         </list></desc>
                                 </valItem>
                             </valList>
