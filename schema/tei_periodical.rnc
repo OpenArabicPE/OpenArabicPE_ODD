@@ -8,7 +8,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2023-08-01T16:56:17Z. .
+# Schema generated from ODD source 2023-08-01T17:36:31Z. .
 # TEI Edition: Version 4.2.1. Last updated on
 #	1st March 2021, revision 654a5c551
 # TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -1640,20 +1640,23 @@ OpenArabicPE_date =
          ## indicates the system or calendar to which the date represented by the content of this element belongs.
          attribute calendar {
              
-             ## Gregorian calendar
+             ## Gregorian calendar. Following the hegemonial approach of standards rooted in the English language, the Gregorian calendar is presumed the norm and must not be specified.
              "#cal_gregorian"
              | 
-               ## Muslim lunar calendar known as hijrī calendar beginning the year with 1 Muḥarram
+               ## Muslim lunar calendar known as hijrī calendar beginning the year with 1 Muḥarram. Dates differ between locations as the beginning of the month is based on sightings of the new moon. The epoch begins with Muḥammad's migration (hijra from Mecca to Medina in 622 CE.
                "#cal_islamic"
              | 
-               ## Reformed Julian calendar also known as sharqī or rūmī calendar beginning the Year with 1 January
+               ## Reformed Julian calendar beginning the Year with 1 January. In the Ottoman context usually referred to as rūmī . Arabic newspapers usually labelled this calendar as sharqī . All solar calendars add an intercalated 366th day every fourth (and, in the case of Gregorian and rūmī calendars, even-numbered) year at the end of February (the last day of the old Julian calendar). The Gregorian calendar suppresses this rule in centesimal years that cannot be divided by 400. This difference creates a growing offset between Gregorian and Julian calendars: while 1900 R was a leap year, 1900 was not, which in turn caused the difference between the Gregorian calendar, on the one hand, and the mālī and rūmī calendars, on the other, to grow from 12 to 13 days from 29 Shubāṭ (February) 1900 R / 1315 M (13 March 1900) onwards.
                "#cal_julian"
              | 
-               ## Ottoman fiscal calendar also known as mālī or rūmī calendar beginning the year with 1 mārt (March), similar to the old Julian calendar.
+               ## The Ottoman fiscal calendar is a lunisolar calendar. It is based on the Old Julian calendar beginning the Year with 1 March. Introduced as fiscal calendar in 1676 and in the Ottoman context usually referred to as mālī and sometimes, confusingly, also as rūmī . Every 33 lunar years, a hijrī year would complete within a single solar mālī year. In tforeigns case the counting of the mālī years skipped a year to catch up with the faster hijrī calendar. Due to a printing error in the coupon booklets for the consolidated debt repayment program for 1872 (1288 M instead of 1289 M), synchronisation of mālī and hijrī years was henceforth abolished. As mālī years began with 1 March, mālī leap years preceded their rūmī and Gregorian counterpart (the leap year 1315 M commenced on 13 March 1899).
                "#cal_ottomanfiscal"
              | 
                ## The Coptic calendar
                "#cal_coptic"
+             | 
+               ## The Jewish calendar is a lunisolar calendar. The epoch begins with the creation of the world (anno mundi, AM), in 3761 BCE.
+               "#cal_jewish"
          }?)
         >> sch:pattern [
                id = "tei_OpenArabicPE-date-calendar-calendar-constraint-rule-10"
@@ -1680,20 +1683,23 @@ OpenArabicPE_date =
         [ a:documentation [ "supplies a pointer to a " ns1:code [ "<calendar>" ] " element or other means of interpreting the values of the custom dating attributes." ] ]
         attribute datingMethod {
             
-            ## Gregorian calendar
+            ## Gregorian calendar. Following the hegemonial approach of standards rooted in the English language, the Gregorian calendar is presumed as norm and must not be specified.
             "#cal_gregorian"
             | 
-              ## Muslim lunar calendar known as hijrī calendar beginning the year with 1 Muḥarram
+              ## Muslim lunar calendar known as hijrī calendar beginning the year with 1 Muḥarram. Dates differ between locations as the beginning of the month is based on sightings of the new moon. The epoch begins with Muḥammad's migration (hijra from Mecca to Medina in 622 CE.
               "#cal_islamic"
             | 
-              ## Reformed Julian calendar also known as sharqī or rūmī calendar beginning the Year with 1 January
+              ## Reformed Julian calendar beginning the Year with 1 January. In the Ottoman context usually referred to as rūmī . Arabic newspapers usually labelled this calendar as sharqī . All solar calendars add an intercalated 366th day every fourth (and, in the case of Gregorian and rūmī calendars, even-numbered) year at the end of February (the last day of the old Julian calendar). The Gregorian calendar suppresses this rule in centesimal years that cannot be divided by 400. This difference creates a growing offset between Gregorian and Julian calendars: while 1900 R was a leap year, 1900 was not, which in turn caused the difference between the Gregorian calendar, on the one hand, and the mālī and rūmī calendars, on the other, to grow from 12 to 13 days from 29 Shubāṭ (February) 1900 R / 1315 M (13 March 1900) onwards.
               "#cal_julian"
             | 
-              ## Ottoman fiscal calendar also known as mālī or rūmī calendar beginning the year with 1 mārt (March), similar to the old Julian calendar.
+              ## The Ottoman fiscal calendar is a lunisolar calendar. It is based on the Old Julian calendar beginning the Year with 1 March. Introduced as fiscal calendar in 1676 and in the Ottoman context usually referred to as mālī and sometimes, confusingly, also as rūmī . Every 33 lunar years, a hijrī year would complete within a single solar mālī year. In tforeigns case the counting of the mālī years skipped a year to catch up with the faster hijrī calendar. Due to a printing error in the coupon booklets for the consolidated debt repayment program for 1872 (1288 M instead of 1289 M), synchronisation of mālī and hijrī years was henceforth abolished. As mālī years began with 1 March, mālī leap years preceded their rūmī and Gregorian counterpart (the leap year 1315 M commenced on 13 March 1899).
               "#cal_ottomanfiscal"
             | 
               ## The Coptic calendar
               "#cal_coptic"
+            | 
+              ## The Jewish calendar is a lunisolar calendar. The epoch begins with the creation of the world (anno mundi, AM), in 3761 BCE.
+              "#cal_jewish"
         }?,
         
         ## characterizes the element in some sense, using any convenient classification scheme or typology.

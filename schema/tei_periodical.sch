@@ -5,15 +5,21 @@
     <sch:let name="v_id" value="@xml:id"/>
     <sch:pattern>
         <sch:rule context="tei:death" role="warning">
-            <sch:let name="v_date-death" value="if (@when) then (@when) else(if(@notAfter) then (@notAfter) else(@notBefore) )"/>
+            <sch:let name="v_date-death" value="
+                    if (@when) then
+                        (@when)
+                    else
+                        (if (@notAfter) then
+                            (@notAfter)
+                        else
+                            (@notBefore))"/>
             <sch:let name="v_date-birth" value="parent::tei:person/tei:birth/@when"/>
-            <sch:assert
-                test="
+            <sch:assert test="
                     if (string-length($v_date-death) = 10 and string-length($v_date-birth) = 10) then
                         (xs:date($v_date-death) gt xs:date($v_date-birth))
                     else
-                        (number(substring($v_date-death, 1, 4)) gt number(substring($v_date-birth, 1, 4)))"
-                >A person born on or in <sch:value-of select="$v_date-birth"/> cannot have died on or in <sch:value-of select="$v_date-death"/>.</sch:assert>
+                        (number(substring($v_date-death, 1, 4)) gt number(substring($v_date-birth, 1, 4)))">A person born on or in <sch:value-of select="$v_date-birth"
+                /> cannot have died on or in <sch:value-of select="$v_date-death"/>.</sch:assert>
         </sch:rule>
         <sch:rule context="tei:birth | tei:death">
             <sch:assert test="@when | @notAfter | @notBefore">This should be dated with @when, @notAfter or @notBefore attributes.</sch:assert>

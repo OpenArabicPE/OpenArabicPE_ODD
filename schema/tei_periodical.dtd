@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2023-08-01T16:56:09Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2023-08-01T17:36:23Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -1164,8 +1164,8 @@ resp CDATA  #REQUIRED >
  %OpenArabicPE_att.datable.custom.attribute.to-custom;
  %OpenArabicPE_att.dimensions.attributes;
  %OpenArabicPE_att.typed.attribute.subtype;
-calendar (#cal_gregorian|#cal_islamic|#cal_julian|#cal_ottomanfiscal|#cal_coptic) #IMPLIED
-datingMethod (#cal_gregorian|#cal_islamic|#cal_julian|#cal_ottomanfiscal|#cal_coptic) #IMPLIED
+calendar (#cal_gregorian|#cal_islamic|#cal_julian|#cal_ottomanfiscal|#cal_coptic|#cal_jewish) #IMPLIED
+datingMethod (#cal_gregorian|#cal_islamic|#cal_julian|#cal_ottomanfiscal|#cal_coptic|#cal_jewish) #IMPLIED
 type %teidata.enumerated;  #IMPLIED >
 <!--doc:(dateline) contains a brief description of the place, date, time, etc. of production of a letter, newspaper story, or other work, prefixed or suffixed to it as a kind of heading or trailer. [4.2.2. Openers and Closers] -->
 <!ELEMENT dateline (#PCDATA|_DUMMY_model.gLike|%model.phrase;|%model.global;|docDate)*>
