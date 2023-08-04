@@ -289,7 +289,7 @@
                         <attDef ident="type" mode="change" usage="req">
                             <valList mode="replace" type="closed">
                                 <!-- the values "title", "honorific", "rank" have been depreciated-->
-                                <!-- this is goind to be depreciated -->
+                                <!-- this is going to be deprecated -->
                                 <valItem ident="nickname">
                                     <desc>a phrase someone is commonly referred to, such as &quot;Owner of the newspaper xyz&quot;. This use is depreciated in favour of <tag>roleName type="title"</tag></desc>
                                 </valItem>
@@ -600,7 +600,7 @@
                                 </valItem>
                             </valList>
                         </attDef>
-                        <attDef ident="type" mode="change">
+                        <attDef ident="type" mode="change" usage="opt">
                             <valList mode="replace" type="semi">
                                 <valItem ident="official">
                                     <desc>A publication date as provided on the masthead</desc>
@@ -633,7 +633,7 @@
                     <attList>
                         <attDef ident="type" mode="change" usage="req">
                             <desc>specifies the structural type</desc>
-                            <defaultVal>item</defaultVal>
+                            <!--<defaultVal>item</defaultVal>-->
                             <valList mode="replace" type="semi">
                                 <valItem ident="item">
                                     <desc>smallest independent segment, such as a news item or an article in a periodical or of a bill</desc>
@@ -843,7 +843,7 @@
                         <attDef ident="place" mode="change">
                             <defaultVal>bottom</defaultVal>
                         </attDef>
-                        <attDef ident="type" mode="change">
+                        <attDef ident="type" mode="change" usage="opt">
                             <valList mode="replace" type="semi">
                                 <valItem ident="bibliographic">
                                     <desc>Note identifying authors, editors, or other sources of a text for cases that canot be covered by a <gi>byline</gi>.</desc>
@@ -874,7 +874,7 @@
                     <!--<classes mode="change"><memberOf key="model.measureLike"/><!-\-<memberOf key="att.fragmentable"/><memberOf key="att.global"/><memberOf key="att.metrical"/>-\-><memberOf key="att.typed" mode="add"/></classes>-->
                     <attList>
                         <!--<attDef ident="type" mode="change"><valList type="semi" mode="replace"><valItem ident="auto-markup"/></valList></attDef>-->
-                        <attDef ident="subtype" mode="change">
+                        <attDef ident="subtype" mode="change" usage="opt">
                             <valList mode="replace" type="semi">
                                 <valItem ident="d1">
                                     <desc>Single digit</desc>
@@ -901,7 +901,7 @@
                 <elementSpec ident="pb" mode="change" module="core">
                     <attList>
                         <attDef ident="ed" mode="change" usage="req">
-                            <defaultVal>print</defaultVal>
+<!--                            <defaultVal>print</defaultVal>-->
                             <valList mode="replace" type="semi">
                                 <valItem ident="print">
                                     <desc>Page beginning, i.e. break, according to a printed edition</desc>
@@ -924,8 +924,8 @@
                 </elementSpec>
                 <elementSpec ident="publisher" mode="change" module="core">
                     <attList>
-                        <attDef ident="ident" mode="change" usage="opt">
-                            <valList mode="replace" type="semi">
+                        <attDef ident="type" mode="add" usage="opt">
+                            <valList mode="replace" type="closed">
                                 <valItem ident="printer">
                                     <desc xml:lang="en">Designating the printer or printing press of a work</desc>
                                 </valItem>
@@ -935,11 +935,11 @@
                 </elementSpec>
                 <elementSpec ident="relation" mode="change" module="namesdates">
                     <attList>
-                        <attDef ident="ref" mode="replace">
+                        <attDef ident="ref" mode="change" usage="req">
                             <!--<datatype>
                                 <dataRef></dataRef>
                             </datatype>-->
-                            <valList type="semi">
+                            <valList mode="replace" type="semi">
                                 <valItem ident="https://www.wikidata.org/wiki/Property:P8810">
                                     <desc><label>parent</label>: the persons linked in <gi>active</gi> "is parent" of the persons linked in <gi>passive</gi></desc>
                                 </valItem>
@@ -959,7 +959,7 @@
                 <elementSpec ident="roleName" mode="change" module="namesdates">
                     <attList>
                         <attDef ident="type" mode="change" usage="req">
-                            <defaultVal>title</defaultVal>
+<!--                            <defaultVal>title</defaultVal>-->
                             <valList mode="replace" type="closed">
                                 <valItem ident="title">
                                     <desc>Formal titles, such as &quot;Bey&quot;, &quot;Pasha&quot; etc.</desc>
