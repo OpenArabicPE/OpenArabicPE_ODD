@@ -8,7 +8,7 @@ namespace teix = "http://www.tei-c.org/ns/Examples"
 namespace xi = "http://www.w3.org/2001/XInclude"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2023-08-01T17:36:31Z. .
+# Schema generated from ODD source 2023-08-04T15:53:08Z. .
 # TEI Edition: Version 4.2.1. Last updated on
 #	1st March 2021, revision 654a5c551
 # TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -2035,7 +2035,6 @@ OpenArabicPE_pb =
         
         ## (edition) supplies a sigil or other arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
         ## Suggested values include: 1] print; 2] shamela
-        [ a:defaultValue = "print" ]
         attribute ed {
             list {
                 (
@@ -2308,11 +2307,35 @@ OpenArabicPE_imprint =
 OpenArabicPE_publisher =
     
     ## (publisher) provides the name of the organization responsible for the publication or distribution of a bibliographic item. [3.12.2.4. Imprint, Size of a Document, and Reprint Information 2.2.4. Publication, Distribution, Licensing, etc.]
-    element publisher { OpenArabicPE_macro.phraseSeq, OpenArabicPE_att.global.attributes, OpenArabicPE_att.canonical.attributes, empty }
+    element publisher {
+        OpenArabicPE_macro.phraseSeq,
+        OpenArabicPE_att.global.attributes,
+        OpenArabicPE_att.canonical.attributes,
+        
+        ##
+        attribute type {
+            
+            ## Designating the printer or printing press of a work
+            "printer"
+        }?,
+        empty
+    }
 OpenArabicPE_biblScope =
     
     ## (scope of bibliographic reference) defines the scope of a bibliographic reference, for example as a list of page numbers, or a named subdivision of a larger work. [3.12.2.5. Scopes and Ranges in Bibliographic Citations]
-    element biblScope { OpenArabicPE_macro.phraseSeq, OpenArabicPE_att.global.attributes, OpenArabicPE_att.citing.attributes, empty }
+    element biblScope {
+        OpenArabicPE_macro.phraseSeq,
+        OpenArabicPE_att.global.attributes,
+        OpenArabicPE_att.citing.attributes,
+        
+        ##
+        attribute type {
+            
+            ## A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.
+            "documented"
+        }?,
+        empty
+    }
 OpenArabicPE_citedRange =
     
     ## (cited range) defines the range of cited content, often represented by pages or other units [3.12.2.5. Scopes and Ranges in Bibliographic Citations]
@@ -2468,6 +2491,33 @@ OpenArabicPE_biblStruct =
             | 
               ##
               "annually"
+            | xsd:string
+        }?,
+        
+        ## This attribute specifies the weekday of publication. Values use common English abbreviations.
+        ## Suggested values include: 1] mon; 2] tue; 3] wed; 4] thu; 5] fri; 6] sat; 7] sun
+        attribute oape:weekday {
+            
+            ## Monday
+            "mon"
+            | 
+              ## Tuesday
+              "tue"
+            | 
+              ## Wednesday
+              "wed"
+            | 
+              ## Thursday
+              "thu"
+            | 
+              ## Friday
+              "fri"
+            | 
+              ## Saturday
+              "sat"
+            | 
+              ## Sunday
+              "sun"
             | xsd:string
         }?,
         empty
@@ -3149,7 +3199,6 @@ OpenArabicPE_div =
         
         ## specifies the structural type
         ## Suggested values include: 1] item; 2] section; 3] volume; 4] issue
-        [ a:defaultValue = "item" ]
         attribute type {
             
             ## smallest independent segment, such as a news item or an article in a periodical or of a bill
@@ -3443,7 +3492,6 @@ OpenArabicPE_roleName =
         OpenArabicPE_att.personal.attributes,
         
         ## characterizes the element in some sense, using any convenient classification scheme or typology.
-        [ a:defaultValue = "title" ]
         attribute type {
             
             ## Formal titles, such as "Bey", "Pasha" etc.
@@ -3854,27 +3902,29 @@ OpenArabicPE_relation =
         OpenArabicPE_att.datable.attributes,
         OpenArabicPE_att.typed.attributes,
         
-        ## 
+        ## (reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.
         ## Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P463
         attribute ref {
-            [ a:documentation [ "parent: the persons linked in " ns1:code [ "<active>" ] ' "is parent" of the persons linked in ' ns1:code [ "<passive>" ] "\x{a}" ~ "                  " ] ]
-            "https://www.wikidata.org/wiki/Property:P8810"
-            | [ a:documentation [ "child: the persons linked in " ns1:code [ "<active>" ] ' "is child" of the persons linked in ' ns1:code [ "<passive>" ] "\x{a}" ~ "                  " ] ]
-              "https://www.wikidata.org/wiki/Property:P40"
-            | [ a:documentation [ "sibling: the persons linked in " ns1:code [ "<mutual>" ] ' "are siblings"' ] ] "https://www.wikidata.org/wiki/Property:P3373"
-            | [
-                  a:documentation [
-                      "member of: the persons linked in "
-                      ns1:code [ "<active>" ]
-                      ' "are members of" of the organisations, groups etc. linked in '
-                      ns1:code [ "<passive>" ]
-                      "\x{a}" ~
-                      "                  "
-                  ]
-              ]
-              "https://www.wikidata.org/wiki/Property:P463"
-            | xsd:Name
-        }?,
+            list {
+                ([ a:documentation [ "parent: the persons linked in " ns1:code [ "<active>" ] ' "is parent" of the persons linked in ' ns1:code [ "<passive>" ] "\x{a}" ~ "                     " ] ]
+                 "https://www.wikidata.org/wiki/Property:P8810"
+                 | [ a:documentation [ "child: the persons linked in " ns1:code [ "<active>" ] ' "is child" of the persons linked in ' ns1:code [ "<passive>" ] "\x{a}" ~ "                     " ] ]
+                   "https://www.wikidata.org/wiki/Property:P40"
+                 | [ a:documentation [ "sibling: the persons linked in " ns1:code [ "<mutual>" ] ' "are siblings"' ] ] "https://www.wikidata.org/wiki/Property:P3373"
+                 | [
+                       a:documentation [
+                           "member of: the persons linked in "
+                           ns1:code [ "<active>" ]
+                           ' "are members of" of the organisations, groups etc. linked in '
+                           ns1:code [ "<passive>" ]
+                           "\x{a}" ~
+                           "                     "
+                       ]
+                   ]
+                   "https://www.wikidata.org/wiki/Property:P463"
+                 | xsd:anyURI)+
+            }
+        },
         (
          ## identifies the active participants in a non-mutual relationship, or all the participants in a mutual one.
          attribute active {

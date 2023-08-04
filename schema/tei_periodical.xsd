@@ -8,7 +8,7 @@
               schemaLocation="xml.tmp"/>
    <xs:import namespace="https://openarabicpe.github.io/ns" schemaLocation="ns1.tmp"/>
    <!--
-    Schema generated from ODD source 2023-08-01T17:36:27Z. .
+    Schema generated from ODD source 2023-08-04T15:51:55Z. .
     TEI Edition: Version 4.2.1. Last updated on
     	1st March 2021, revision 654a5c551
     TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -4731,6 +4731,20 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
             <xs:extension base="tei:OpenArabicPE_macro.phraseSeq">
                <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
                <xs:attributeGroup ref="tei:OpenArabicPE_att.canonical.attributes"/>
+               <xs:attribute name="type">
+                  <xs:annotation>
+                     <xs:documentation/>
+                  </xs:annotation>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="printer">
+                           <xs:annotation>
+                              <xs:documentation>Designating the printer or printing press of a work</xs:documentation>
+                           </xs:annotation>
+                        </xs:enumeration>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:attribute>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>
@@ -4744,6 +4758,20 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
             <xs:extension base="tei:OpenArabicPE_macro.phraseSeq">
                <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
                <xs:attributeGroup ref="tei:OpenArabicPE_att.citing.attributes"/>
+               <xs:attribute name="type">
+                  <xs:annotation>
+                     <xs:documentation/>
+                  </xs:annotation>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="documented">
+                           <xs:annotation>
+                              <xs:documentation>A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.</xs:documentation>
+                           </xs:annotation>
+                        </xs:enumeration>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:attribute>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>
@@ -4943,6 +4971,7 @@ Suggested values include: 1] journal; 2] newspaper</xs:documentation>
             </xs:simpleType>
          </xs:attribute>
          <xs:attributeGroup ref="ns1:frequency1"/>
+         <xs:attribute ref="ns1:weekday"/>
       </xs:complexType>
    </xs:element>
    <xs:element name="listBibl">
@@ -7180,34 +7209,43 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</xs:do
          <xs:attributeGroup ref="tei:OpenArabicPE_att.global.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.datable.attributes"/>
          <xs:attributeGroup ref="tei:OpenArabicPE_att.typed.attributes"/>
-         <xs:attribute name="ref">
+         <xs:attribute name="ref" use="required">
             <xs:annotation>
-               <xs:documentation>
+               <xs:documentation>(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.
 Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P463</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
-               <xs:union memberTypes="xs:Name">
+               <xs:restriction>
                   <xs:simpleType>
-                     <xs:restriction base="xs:token">
-                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P8810"/>
-                     </xs:restriction>
+                     <xs:list>
+                        <xs:simpleType>
+                           <xs:union memberTypes="xs:anyURI">
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:token">
+                                    <xs:enumeration value="https://www.wikidata.org/wiki/Property:P8810"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:token">
+                                    <xs:enumeration value="https://www.wikidata.org/wiki/Property:P40"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:token">
+                                    <xs:enumeration value="https://www.wikidata.org/wiki/Property:P3373"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                              <xs:simpleType>
+                                 <xs:restriction base="xs:token">
+                                    <xs:enumeration value="https://www.wikidata.org/wiki/Property:P463"/>
+                                 </xs:restriction>
+                              </xs:simpleType>
+                           </xs:union>
+                        </xs:simpleType>
+                     </xs:list>
                   </xs:simpleType>
-                  <xs:simpleType>
-                     <xs:restriction base="xs:token">
-                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P40"/>
-                     </xs:restriction>
-                  </xs:simpleType>
-                  <xs:simpleType>
-                     <xs:restriction base="xs:token">
-                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P3373"/>
-                     </xs:restriction>
-                  </xs:simpleType>
-                  <xs:simpleType>
-                     <xs:restriction base="xs:token">
-                        <xs:enumeration value="https://www.wikidata.org/wiki/Property:P463"/>
-                     </xs:restriction>
-                  </xs:simpleType>
-               </xs:union>
+                  <xs:minLength value="1"/>
+               </xs:restriction>
             </xs:simpleType>
          </xs:attribute>
          <xs:attribute name="active">

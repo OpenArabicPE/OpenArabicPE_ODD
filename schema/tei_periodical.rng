@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2023-08-01T17:36:20Z. .
+Schema generated from ODD source 2023-08-04T15:49:38Z. .
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -3673,18 +3673,16 @@ Elements]</a:documentation>
          <empty/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="ed"
-                    a:defaultValue="print">
-            <a:documentation>(edition) supplies a sigil or other arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
+         <attribute name="ed">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(edition) supplies a sigil or other arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
 Suggested values include: 1] print; 2] shamela</a:documentation>
             <list>
                <oneOrMore>
                   <choice>
                      <value>print</value>
-                     <a:documentation>Page beginning, i.e. break, according to a printed edition</a:documentation>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Page beginning, i.e. break, according to a printed edition</a:documentation>
                      <value>shamela</value>
-                     <a:documentation>Page beginning, i.e. break, as found in the transcription from al-Maktaba al-Shamela</a:documentation>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Page beginning, i.e. break, as found in the transcription from al-Maktaba al-Shamela</a:documentation>
                      <data type="token">
                         <param name="pattern">[^\p{C}\p{Z}]+</param>
                      </data>
@@ -4109,6 +4107,15 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.canonical.attributes"/>
+         <optional>
+            <attribute name="type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>printer</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Designating the printer or printing press of a work</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
@@ -4118,6 +4125,15 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.citing.attributes"/>
+         <optional>
+            <attribute name="type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>documented</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
@@ -4307,6 +4323,29 @@ Suggested values include: 1] daily; 2] weekly; 3] biweekly; 4] fortnightly; 5] m
                   <a:documentation/>
                   <value>annually</value>
                   <a:documentation/>
+                  <data type="string"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="weekday" ns="https://openarabicpe.github.io/ns">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">This attribute specifies the weekday of publication. Values use common English abbreviations.
+Suggested values include: 1] mon; 2] tue; 3] wed; 4] thu; 5] fri; 6] sat; 7] sun</a:documentation>
+               <choice>
+                  <value>mon</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Monday</a:documentation>
+                  <value>tue</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Tuesday</a:documentation>
+                  <value>wed</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Wednesday</a:documentation>
+                  <value>thu</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Thursday</a:documentation>
+                  <value>fri</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Friday</a:documentation>
+                  <value>sat</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Saturday</a:documentation>
+                  <value>sun</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Sunday</a:documentation>
                   <data type="string"/>
                </choice>
             </attribute>
@@ -5491,20 +5530,18 @@ Sample values include: 1] book; 2] chapter; 3] entry; 4] poem; 5] letter; 6] lin
          </pattern>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.divLike.attributes"/>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="type"
-                    a:defaultValue="item">
-            <a:documentation>specifies the structural type
+         <attribute name="type">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the structural type
 Suggested values include: 1] item; 2] section; 3] volume; 4] issue</a:documentation>
             <choice>
                <value>item</value>
-               <a:documentation>smallest independent segment, such as a news item or an article in a periodical or of a bill</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">smallest independent segment, such as a news item or an article in a periodical or of a bill</a:documentation>
                <value>section</value>
-               <a:documentation>section of a newspaper issue that explicitly groups items, such as a rubric "domestic news", or sections of a larger item such as the sub divisions of an article or bill</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">section of a newspaper issue that explicitly groups items, such as a rubric "domestic news", or sections of a larger item such as the sub divisions of an article or bill</a:documentation>
                <value>volume</value>
-               <a:documentation/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <value>issue</value>
-               <a:documentation/>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <data type="token">
                   <param name="pattern">[^\p{C}\p{Z}]+</param>
                </data>
@@ -6096,23 +6133,21 @@ Sample values include: 1] TEI (text encoding initiative); 2] DBK (docbook); 3] X
          <ref name="OpenArabicPE_macro.phraseSeq"/>
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.personal.attributes"/>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="type"
-                    a:defaultValue="title">
-            <a:documentation>characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
+         <attribute name="type">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
             <choice>
                <value>title</value>
-               <a:documentation>Formal titles, such as "Bey", "Pasha" etc.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Formal titles, such as "Bey", "Pasha" etc.</a:documentation>
                <value>honorific</value>
-               <a:documentation>Honorific addresses or titles, such as Miss, Shaykh , zade</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Honorific addresses or titles, such as Miss, Shaykh , zade</a:documentation>
                <value>nobility</value>
-               <a:documentation>An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.</a:documentation>
                <value>rank</value>
-               <a:documentation>indicates ranks within an administrative, military or religious hierarchy, such as farīq , vālī , Captain</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates ranks within an administrative, military or religious hierarchy, such as farīq , vālī , Captain</a:documentation>
                <value>epithet</value>
-               <a:documentation>a phrase someone is commonly referred to (nick-name), such as "Owner of the newspaper xyz"</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">a phrase someone is commonly referred to (nick-name), such as "Owner of the newspaper xyz"</a:documentation>
                <value>pseudonym</value>
-               <a:documentation>a ficticious name, especially one used by an author.</a:documentation>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">a ficticious name, especially one used by an author.</a:documentation>
             </choice>
          </attribute>
          <optional>
@@ -6767,26 +6802,28 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</a:doc
          <ref name="OpenArabicPE_att.global.attributes"/>
          <ref name="OpenArabicPE_att.datable.attributes"/>
          <ref name="OpenArabicPE_att.typed.attributes"/>
-         <optional>
-            <attribute name="ref">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+         <attribute name="ref">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.
 Suggested values include: 1] https://www.wikidata.org/wiki/Property:P8810; 2] https://www.wikidata.org/wiki/Property:P40; 3] https://www.wikidata.org/wiki/Property:P3373; 4] https://www.wikidata.org/wiki/Property:P463</a:documentation>
-               <choice>
-                  <value>https://www.wikidata.org/wiki/Property:P8810</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">parent: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "is parent" of the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
-                  </a:documentation>
-                  <value>https://www.wikidata.org/wiki/Property:P40</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">child: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "is child" of the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
-                  </a:documentation>
-                  <value>https://www.wikidata.org/wiki/Property:P3373</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">sibling: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;mutual&gt;</code> "are siblings"</a:documentation>
-                  <value>https://www.wikidata.org/wiki/Property:P463</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">member of: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "are members of" of the organisations, groups etc. linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
-                  </a:documentation>
-                  <data type="Name"/>
-               </choice>
-            </attribute>
-         </optional>
+            <list>
+               <oneOrMore>
+                  <choice>
+                     <value>https://www.wikidata.org/wiki/Property:P8810</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">parent: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "is parent" of the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
+                     </a:documentation>
+                     <value>https://www.wikidata.org/wiki/Property:P40</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">child: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "is child" of the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
+                     </a:documentation>
+                     <value>https://www.wikidata.org/wiki/Property:P3373</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">sibling: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;mutual&gt;</code> "are siblings"</a:documentation>
+                     <value>https://www.wikidata.org/wiki/Property:P463</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">member of: the persons linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;active&gt;</code> "are members of" of the organisations, groups etc. linked in <code xmlns="http://www.w3.org/1999/xhtml">&lt;passive&gt;</code>
+                     </a:documentation>
+                     <data type="anyURI"/>
+                  </choice>
+               </oneOrMore>
+            </list>
+         </attribute>
          <choice>
             <optional>
                <attribute name="active">

@@ -1,6 +1,6 @@
 
 <!--
-DTD generated from ODD source 2023-08-01T17:36:23Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
+DTD generated from ODD source 2023-08-04T15:50:50Z. .[http://creativecommons.org/licenses/by-sa/4.0/] Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -1013,7 +1013,8 @@ weekday %teidata.text;  #IMPLIED >
 <!ATTLIST biblScope xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST biblScope
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.citing.attributes; >
+ %OpenArabicPE_att.citing.attributes;
+type (documented) #IMPLIED >
 <!--doc:(structured bibliographic citation) contains a structured bibliographic citation, in which only bibliographic sub-elements appear and in a specified order. [3.12.1. Methods of Encoding Bibliographic References and Lists of References 2.2.7. The Source Description 15.3.2. Declarable Elements] -->
 <!ELEMENT biblStruct (((analytic)*,(monogr,(series)*)+,(%model.noteLike;|%model.ptrLike;|relatedItem|citedRange)*))>
 <!ATTLIST biblStruct xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1022,7 +1023,8 @@ weekday %teidata.text;  #IMPLIED >
  %OpenArabicPE_att.docStatus.attributes;
 type %teidata.enumerated;  #IMPLIED
 subtype %teidata.enumerated;  #IMPLIED
-frequency %teidata.text;  "monthly"  >
+frequency %teidata.text;  "monthly" 
+weekday %teidata.text;  #IMPLIED >
 <!--doc:(birth) contains information about a person's birth, such as its date and place. [15.2.2. The Participant Description] -->
 <!ELEMENT birth %macro.phraseSeq;>
 <!ATTLIST birth xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1214,7 +1216,7 @@ resp CDATA  #REQUIRED >
 <!ATTLIST div
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.divLike.attributes;
-type %teidata.enumerated;  "item" 
+type %teidata.enumerated;  #REQUIRED
 subtype %teidata.enumerated;  "article"  >
 <!--doc:(edition) describes the particularities of one edition of a text. [2.2.2. The Edition Statement] -->
 <!ELEMENT edition %macro.phraseSeq;>
@@ -1766,7 +1768,7 @@ Elements] -->
 <!ATTLIST pb
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.typed.attributes;
-ed CDATA  "print" 
+ed CDATA  #REQUIRED
 edRef CDATA  "#edition_1"  >
 <!--doc:(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names] -->
 <!ELEMENT persName %macro.phraseSeq;>
@@ -1858,7 +1860,8 @@ ident %teidata.prefix;  #REQUIRED >
 <!ATTLIST publisher xmlns CDATA "http://www.tei-c.org/ns/1.0">
 <!ATTLIST publisher
  %OpenArabicPE_att.global.attributes;
- %OpenArabicPE_att.canonical.attributes; >
+ %OpenArabicPE_att.canonical.attributes;
+type (printer) #IMPLIED >
 <!--doc:(quoted) contains material which is distinguished from the surrounding text using quotation marks or a similar method, for any one of a variety of reasons including, but not limited to: direct speech or thought, technical terms or jargon, authorial distance, quotations from elsewhere, and passages that are mentioned but not used. [3.3.3. Quotation] -->
 <!ELEMENT q %macro.specialPara;>
 <!ATTLIST q xmlns CDATA "http://www.tei-c.org/ns/1.0">
@@ -1906,7 +1909,7 @@ marks (none|some|all) #IMPLIED >
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.datable.attributes;
  %OpenArabicPE_att.typed.attributes;
-ref CDATA  #IMPLIED
+ref CDATA  #REQUIRED
 active CDATA  #IMPLIED
 mutual CDATA  #IMPLIED
 name %teidata.enumerated;  #IMPLIED
@@ -1944,7 +1947,7 @@ selector %teidata.text;  #IMPLIED >
 <!ATTLIST roleName
  %OpenArabicPE_att.global.attributes;
  %OpenArabicPE_att.personal.attributes;
-type (title|honorific|nobility|rank|epithet|pseudonym) "title" 
+type (title|honorific|nobility|rank|epithet|pseudonym) #REQUIRED
 subtype (military|civil|religious) #IMPLIED >
 <!--doc:(row) contains one row of a table. [14.1.1. TEI Tables] -->
 <!ELEMENT row (cell)+>
