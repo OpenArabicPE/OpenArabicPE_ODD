@@ -451,6 +451,35 @@
                                 <valItem ident="annually"/>
                             </valList>
                         </attDef>
+                        <attDef ident="weekday" mode="add" ns="https://openarabicpe.github.io/ns" usage="opt">
+                            <desc>This attribute specifies the weekday of publication. Values use common English abbreviations.</desc>
+                            <datatype>
+                                <dataRef key="teidata.text"/>
+                            </datatype>
+                            <valList mode="add" type="semi">
+                                <valItem ident="mon">
+                                    <desc>Monday</desc>
+                                </valItem>
+                                <valItem ident="tue">
+                                    <desc>Tuesday</desc>
+                                </valItem>
+                                <valItem ident="wed">
+                                    <desc>Wednesday</desc>
+                                </valItem>
+                                <valItem ident="thu">
+                                    <desc>Thursday</desc>
+                                </valItem>
+                                <valItem ident="fri">
+                                    <desc>Friday</desc>
+                                </valItem>
+                                <valItem ident="sat">
+                                    <desc>Saturday</desc>
+                                </valItem>
+                                <valItem ident="sun">
+                                    <desc>Sunday</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
                     </attList>
                 </elementSpec>
                 <elementSpec ident="cb" mode="change" module="core">
