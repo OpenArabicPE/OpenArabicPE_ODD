@@ -99,4 +99,9 @@
             <sch:assert test="@source">If the date has been supplied, the source of this information must be indicated through the @source attribute.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern>
+        <sch:rule context="tei:imprint/tei:date[@type = 'documented']" role="error">
+            <sch:assert test="@source">The value of @type indicates that a source mentioned this data. This source must be explicitly provided with a @source attribute.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
 </sch:schema>
