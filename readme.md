@@ -1,13 +1,14 @@
 ---
 title: "Readme/documentation: ODD tei_periodicals"
 author: Till Grallert
-date: 2020-01-20
+date: 2025-01-08
 tags:
 - documentation
 - periodicals
 - schema
 - tei
 - xml
+lang: en
 ---
 
 [![GitHub release](https://img.shields.io/github/release/OpenArabicPE/OpenArabicPE_ODD.svg?maxAge=2592000)](https://github.com/OpenArabicPE/OpenArabicPE_ODD/releases)
@@ -26,6 +27,8 @@ It can be called from XML files using the link to the `gh-pages` branch of this 
 <?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-model href="https://openarabicpe.github.io/OpenArabicPE_ODD/schema/tei_periodical.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 ```
+
+The data model / encoding for our authority files can be found at <https://github.com/openarabicpe/authority-files>.
 
 # 1. Issues to be solved
 
@@ -81,6 +84,8 @@ In many cases foreign terms that have been transliterated into Arabic are follow
 # 3. current mark-up
 ## 3.1. Metadata
 
+Our editions are orgnised as one file per issue of a publication. All information on the individual issue is part of the *monographic* level of bibliographic metadata.
+
 ### 3.1.1. bibliographic information
 
 All bibliographic information pertaining to the file and the individual periodical issue should be encoded in a `<biblStruct>`
@@ -89,23 +94,7 @@ All bibliographic information pertaining to the file and the individual periodic
 1. In the `<teiHeader>` information should be provided in Latin script
 2. In the `<front>` information should be provided in Arabic, just as it would in the masthead of the actual issue
 
-#### 3.1.1.1. volume
-
-#### 3.1.1.2. issue
-
-All information on the individual issue is part of the *monographic* level of bibliographic metadata. Journals and anthologies are treated as monographs (`<monogr>`). The structure is as follows:
-
-1. title and subtitle:
-    - `<title level="j">` indicates a journal title
-    - `<title level="j" type="sub">` indicates the subtitle
-2. authors, editors, other persons in some way responsible for the content
-    - `<editor>`
-4. imprint: `<imprint>`
-    1. place of publication: `<pubPlace>`
-    2. publisher: `<publisher>`
-    3. date of publication: `<date>`
-5. scope of item (volume, issue, pages)
-    - `<biblScope>` with `@unit` attribute of "volume", "issue", "pages" and `@from`, `@to` indicating the actual extent. If the reference is to a single page, issue or volume `@from` and `@to` should be provided with identical values (not `@n`!). The element should have no `text()` content to avoid language-specificity.
+#### Examples
 
 Current structure of the `<biblStruct>` in `<sourceDesc>`:
 
@@ -158,6 +147,10 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
 </teiHeader>
 ```
 
+As part of the masthead of an issue
+
+**NOTE 2025-01-08**: this is an outdated example
+
 ```xml
 <text>
     <front>
@@ -180,6 +173,22 @@ Current structure of the `<biblStruct>` in `<sourceDesc>`:
     </front>
 </text>
 ```
+
+#### main components
+
+1. title and subtitle:
+    - `<title level="j">` indicates a journal title
+    - `<title level="j" type="sub">` indicates the subtitle
+2. authors, editors, other persons in some way responsible for the content
+    - `<editor>`
+4. imprint: `<imprint>`
+    1. place of publication: `<pubPlace>`
+    2. publisher: `<publisher>`
+    3. date of publication: `<date>`
+5. scope of item (volume, issue, pages)
+    - `<biblScope>` with `@unit` attribute of "volume", "issue", "pages" and `@from`, `@to` indicating the actual extent. If the reference is to a single page, issue or volume `@from` and `@to` should be provided with identical values (not `@n`!). The element should have no `text()` content to avoid language-specificity.
+
+
 
 #### 3.1.1.3. publication dates
 
@@ -378,8 +387,7 @@ Unfortunately, *al-maktaba al-shāmila* did NOT include the sometimes abundant f
 
 Notes should be encoded with `<note>` at the location it appears in the text. The super-scripted number is recorded in the `@n` attribute. A further `@type="footnote"` attribute specifies that this note appeared in the actual print edition, as opposed to potential editorial notes added by various editors of the digital edition, which should carry `@type="editorial"` and a `@resp` attribute pointing to the responsible editor.
 
-[*UPDATE 2019-04-15*]: 
-Instead of using the `@type` attribute for specifying the location of a note on the page, this function should be fulfilled by values of `@place`, which include "bottom", "inline", etc. `@type` is thus free for indicating the function of a note.
+**UPDATE 2019-04-15**: Instead of using the `@type` attribute for specifying the location of a note on the page, this function should be fulfilled by values of `@place`, which include "bottom", "inline", etc. `@type` is thus free for indicating the function of a note.
 
 Key-value pairs:
 
@@ -504,7 +512,7 @@ A second XSLT stylesheet ([`Tei-MarkupNumerals-Correction`](xslt/Tei-MarkupNumer
 
 ### 3.5.3. Persons, Places, Organisations
 
-Any file might contain a personography etc. in the `<profileDesc>` inside the `<teiHeader>`. The following is the template for records of persons:
+Any file might contain a personography etc. as part of the `<standOff>` child of `<TEI>`. The following is the template for records of persons:
 
 ```xml
 <person xml:id="">
@@ -575,7 +583,7 @@ could be marked up as
 </persName>
 ```
 
-[**Important note for version 2**]: after further study of the guidelines, I propose to shift some of the mark-up from `<addName>` to `<roleName>`. This covers all of the use cases of `<addName type="title">`. The examples from the Guidelines are the following:
+**Important note for version 2**: after further study of the guidelines, I propose to shift some of the mark-up from `<addName>` to `<roleName>`. This covers all of the use cases of `<addName type="title">`. The examples from the Guidelines are the following:
 
 - nobility: An inherited or life-time title of nobility such as Lord, Viscount, Baron, etc.
 - honorific: An academic or other honorific prefixed to a name e.g. Doctor, Professor, Mrs., etc.
