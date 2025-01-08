@@ -784,7 +784,13 @@ Often times a full bibliographic reference is given in the title of the review a
 
 Whenever it is possible to point to an external resource, use `@corresp` to do so.
 
-Use `@ref` to point to some authority file that provides more information on that concrete edition or copy:
+Use `@ref` to point to some authority file that provides more information on that concrete edition or copy.
+
+I really think there is a strong case for allowing `@ref` on `<bibl>` and `<biblStruct>`. The guidelines state in <https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#COBIXR>
+
+If it is desired to capture additional information like this in a short-form reference, then bibl may be used with the corresp attribute pointing to the full bibliographic reference
+
+`@corresp` is member of att.global.linking and has only very limited semantics: "points to elements that correspond to the current element in some way”. `@ref`, on the other hand, is much more explicit and often what I would like to have as it "provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs”. As such `@ref` is available on `<title> but, as you point out, `<title>` isn’t always present in actual sources. Once could, of course, add an empty `<title>` with `@ref`, but this seems like a cumbersome hack.
 
 
 
@@ -796,7 +802,6 @@ References to titles of intellectual works, such as books, periodicals etc., cou
 حتى بلغ المطبوع منها مليون نسخة وأصبحت اليوم تطبع مليوناً ومائتي ألف نسخة في حين تطبع <title level="j">التيمس</title> 55 ألفاً فقط و<title level="j">الديلي اكسبرس</title> 700 ألف و<title level="j">الديلي تلغراف</title> 350 ألفاً والديلي نيوز 300 ألف والمورنن ليدر 350 والستاندارد 120 ألفاً
 ```
 
-Whenever it is possible to point to an external resource, use `@corresp` to do so.
 
 Use `@ref` to point to some authority file:
 
