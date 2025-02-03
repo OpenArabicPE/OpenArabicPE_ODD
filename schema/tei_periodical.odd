@@ -620,6 +620,9 @@
                                 <valItem ident="documented">
                                     <desc>A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.</desc>
                                 </valItem>
+                                <valItem ident="permit">
+                                    <desc>A date at which a permit for publication was issued</desc>
+                                </valItem>
                             </valList>
                         </attDef>
                     </attList>
