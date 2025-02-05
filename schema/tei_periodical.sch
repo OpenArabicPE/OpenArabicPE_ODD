@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<sch:schema queryBinding="xslt2" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
+<sch:schema queryBinding="xslt2" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:oape="https://openarabicpe.github.io/ns">
     <sch:title>OpenArabicPE: schematron rules for Arabic periodicals and supporting material</sch:title>
     <sch:ns prefix="tei" uri="http://www.tei-c.org/ns/1.0"/>
     <sch:let name="v_id" value="@xml:id"/>

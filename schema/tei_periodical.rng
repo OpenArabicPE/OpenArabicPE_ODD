@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:oape="https://openarabicpe.github.io/ns"
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2023-08-04T15:49:38Z. .
+Schema generated from ODD source 2025-02-05T09:35:35Z. .
 TEI Edition: Version 4.2.1. Last updated on
 	1st March 2021, revision 654a5c551
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.1/
@@ -3259,7 +3260,7 @@ Measures]</a:documentation>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.
-Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus; 6] documented</a:documentation>
+Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] terminus; 6] documented; 7] permit</a:documentation>
                <choice>
                   <value>official</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A publication date as provided on the masthead</a:documentation>
@@ -3273,6 +3274,8 @@ Suggested values include: 1] official; 2] scheduled; 3] supplied; 4] onset; 5] t
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A date marking the end of a period</a:documentation>
                   <value>documented</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A date at which something has been documented. For instance: the date some periodical is mentioned in another periodical source.</a:documentation>
+                  <value>permit</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A date at which a permit for publication was issued</a:documentation>
                   <data type="token">
                      <param name="pattern">[^\p{C}\p{Z}]+</param>
                   </data>

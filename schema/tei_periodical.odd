@@ -904,7 +904,7 @@
                 <elementSpec ident="pb" mode="change" module="core">
                     <attList>
                         <attDef ident="ed" mode="change" usage="req">
-<!--                            <defaultVal>print</defaultVal>-->
+                            <!--                            <defaultVal>print</defaultVal>-->
                             <valList mode="replace" type="semi">
                                 <valItem ident="print">
                                     <desc>Page beginning, i.e. break, according to a printed edition</desc>
@@ -962,7 +962,7 @@
                 <elementSpec ident="roleName" mode="change" module="namesdates">
                     <attList>
                         <attDef ident="type" mode="change" usage="req">
-<!--                            <defaultVal>title</defaultVal>-->
+                            <!--                            <defaultVal>title</defaultVal>-->
                             <valList mode="replace" type="closed">
                                 <valItem ident="title">
                                     <desc>Formal titles, such as &quot;Bey&quot;, &quot;Pasha&quot; etc.</desc>
